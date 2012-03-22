@@ -35,10 +35,12 @@ def main():
 	tankitems = [(k, v) for k, v in dossierCache.items()]
 	
 	dossier = []
-	dossier.append({"tankcount": len(tankitems)})
-	dossier.append({"date": time.mktime(time.localtime())})
-	dossier.append({"parser": 'http://www.vbaddict.net/wot'})
-	dossier.append({"parserversion": 1})
+	dossier.append({
+		"tankcount": len(tankitems), 
+		"date": time.mktime(time.localtime()),
+		"parser": 'http://www.vbaddict.net/wot', 
+		"parserversion": 2
+	})
 	
 	tanks = []
 	for tankitem in tankitems:
@@ -52,12 +54,10 @@ def main():
 		sourcedata = struct.unpack(tankstruct, data)
 			
 		
-		tank = []
+
 		
-		tank.append({"countryid": countryid})
-		tank.append({"tankid": tankid})
-		tank.append({"updated": tankitem[1][0]})
-		tank.append({"basedonversion": getdata(sourcedata, 0, 1)})
+
+
 		
 		raw = []
 		for m in xrange(0,len(sourcedata)):
@@ -72,10 +72,16 @@ def main():
 		else:
 			pre7 = 0
 			
-	
+		tank = []
+		tank.append({"countryid": countryid,
+			"tankid": tankid,
+			"updated": tankitem[1][0],
+			"lastBattleTime": tankitem[1][0],
+			"basedonversion": getdata(sourcedata, 0, 1)
+		})
 		
 		tankdata = getdata_tank(sourcedata)
-		tankdata.append({"lastBattleTime": tankitem[1][0]})
+
 	
 	
 	
@@ -173,107 +179,113 @@ def main():
 
 def getdata_series(sourcedata):
 	data = []
-	data.append({"sniperSeries": getdata(sourcedata, 79, 2)})
-	data.append({"maxSniperSeries": getdata(sourcedata, 81, 2)})
-	data.append({"invincibleSeries": getdata(sourcedata, 83, 1)})
-	data.append({"maxInvincibleSeries": getdata(sourcedata, 84, 1)})
-	data.append({"diehardSeries": getdata(sourcedata, 85, 1)})
-	data.append({"maxDiehardSeries": getdata(sourcedata, 86, 1)})
-	data.append({"killingSeries": getdata(sourcedata, 87, 1)})
-	data.append({"maxKillingSeries": getdata(sourcedata, 88, 1)})
-	data.append({"piercingSeries": getdata(sourcedata, 89, 1)})
-	data.append({"maxPiercingSeries": getdata(sourcedata, 90, 1)})
+	data.append({"sniperSeries": getdata(sourcedata, 79, 2),
+		"maxSniperSeries": getdata(sourcedata, 81, 2),
+		"invincibleSeries": getdata(sourcedata, 83, 1),
+		"maxInvincibleSeries": getdata(sourcedata, 84, 1),
+		"diehardSeries": getdata(sourcedata, 85, 1),
+		"maxDiehardSeries": getdata(sourcedata, 86, 1),
+		"killingSeries": getdata(sourcedata, 87, 1),
+		"maxKillingSeries": getdata(sourcedata, 88, 1),
+		"piercingSeries": getdata(sourcedata, 89, 1),
+		"maxPiercingSeries": getdata(sourcedata, 90, 1)
+	})
 	
 	return data
 
 
 def getdata_special(sourcedata):
 	data = []
-	data.append({"beasthunter": getdata(sourcedata, 145, 2)})
-	data.append({"mousebane": getdata(sourcedata, 147, 2)})
-	data.append({"tankExpert": getdata(sourcedata, 149, 1)})
-	data.append({"sniper": getdata(sourcedata, 150, 1)})
-	data.append({"invincible": getdata(sourcedata, 151, 1)})
-	data.append({"diehard": getdata(sourcedata, 152, 1)})
-	data.append({"raider": getdata(sourcedata, 153, 2)})
-	data.append({"handOfDeath": getdata(sourcedata, 155, 1)})
-	data.append({"armorPiercer": getdata(sourcedata, 156, 1)})
-	data.append({"kamikaze": getdata(sourcedata, 157, 2)})
-	data.append({"lumberjack": getdata(sourcedata, 159, 1)})
-	data.append({"markOfMastery": getdata(sourcedata, 160, 1)})
-
+	data.append({"beasthunter": getdata(sourcedata, 145, 2),
+		"mousebane": getdata(sourcedata, 147, 2),
+		"tankExpert": getdata(sourcedata, 149, 1),
+		"sniper": getdata(sourcedata, 150, 1),
+		"invincible": getdata(sourcedata, 151, 1),
+		"diehard": getdata(sourcedata, 152, 1),
+		"raider": getdata(sourcedata, 153, 2),
+		"handOfDeath": getdata(sourcedata, 155, 1),
+		"armorPiercer": getdata(sourcedata, 156, 1),
+		"kamikaze": getdata(sourcedata, 157, 2),
+		"lumberjack": getdata(sourcedata, 159, 1),
+		"markOfMastery": getdata(sourcedata, 160, 1),
+	})
+	
 	return data
 
 def getdata_battle(sourcedata):
 	data = []
-	data.append({"battleHeroes": getdata(sourcedata, 91, 2)})
-	data.append({"warrior": getdata(sourcedata, 93, 2)})
-	data.append({"invader": getdata(sourcedata, 95, 2)})
-	data.append({"sniper": getdata(sourcedata, 97, 2)})
-	data.append({"defender": getdata(sourcedata, 99, 2)})
-	data.append({"steelwall": getdata(sourcedata, 101, 2)})
-	data.append({"supporter": getdata(sourcedata, 103, 2)})
-	data.append({"scout": getdata(sourcedata, 105, 2)})
-	data.append({"evileye": getdata(sourcedata, 107, 2)})
-
+	data.append({"battleHeroes": getdata(sourcedata, 91, 2),
+		"warrior": getdata(sourcedata, 93, 2),
+		"invader": getdata(sourcedata, 95, 2),
+		"sniper": getdata(sourcedata, 97, 2),
+		"defender": getdata(sourcedata, 99, 2),
+		"steelwall": getdata(sourcedata, 101, 2),
+		"supporter": getdata(sourcedata, 103, 2),
+		"scout": getdata(sourcedata, 105, 2),
+		"evileye": getdata(sourcedata, 107, 2),
+	})
+	
 	return data
 
 def getdata_major(sourcedata):
 	data = []
-	data.append({"Kay": getdata(sourcedata, 109, 1)})
-	data.append({"Carius": getdata(sourcedata, 110, 1)})
-	data.append({"Knispel": getdata(sourcedata, 111, 1)})
-	data.append({"Poppel": getdata(sourcedata, 112, 1)})
-	data.append({"Abrams": getdata(sourcedata, 113, 1)})
-	data.append({"LeClerc": getdata(sourcedata, 114, 1)})
-	data.append({"Lavrinenko": getdata(sourcedata, 115, 1)})
-	data.append({"Ekins": getdata(sourcedata, 116, 1)})
+	data.append({"Kay": getdata(sourcedata, 109, 1),
+		"Carius": getdata(sourcedata, 110, 1),
+		"Knispel": getdata(sourcedata, 111, 1),
+		"Poppel": getdata(sourcedata, 112, 1),
+		"Abrams": getdata(sourcedata, 113, 1),
+		"LeClerc": getdata(sourcedata, 114, 1),
+		"Lavrinenko": getdata(sourcedata, 115, 1),
+		"Ekins": getdata(sourcedata, 116, 1),
+	})
 	
 	return data
 
 
 def getdata_epic(sourcedata):
 	data = []
-	data.append({"Wittmann": getdata(sourcedata, 117, 2)})
-	data.append({"Orlik": getdata(sourcedata, 119, 2)})
-	data.append({"Oskin": getdata(sourcedata, 121, 2)})
-	data.append({"Halonen": getdata(sourcedata, 123, 2)})
-	data.append({"Burda": getdata(sourcedata, 125, 2)})
-	data.append({"Billotte": getdata(sourcedata, 127, 2)})
-	data.append({"Kolobanov": getdata(sourcedata, 129, 2)})
-	data.append({"Fadin": getdata(sourcedata, 131, 2)})
-	data.append({"HeroesOfRassenai": getdata(sourcedata, 133, 2)})
-	data.append({"DeLaglanda": getdata(sourcedata, 135, 2)})
-	data.append({"TamadaYoshio": getdata(sourcedata, 137, 2)})
-	data.append({"Erohin": getdata(sourcedata, 139, 2)})
-	data.append({"Horoshilov": getdata(sourcedata, 141, 2)})
-	data.append({"Lister": getdata(sourcedata, 143, 2)})
-
+	data.append({"Wittmann": getdata(sourcedata, 117, 2),
+		"Orlik": getdata(sourcedata, 119, 2),
+		"Oskin": getdata(sourcedata, 121, 2),
+		"Halonen": getdata(sourcedata, 123, 2),
+		"Burda": getdata(sourcedata, 125, 2),
+		"Billotte": getdata(sourcedata, 127, 2),
+		"Kolobanov": getdata(sourcedata, 129, 2),
+		"Fadin": getdata(sourcedata, 131, 2),
+		"HeroesOfRassenai": getdata(sourcedata, 133, 2),
+		"DeLaglanda": getdata(sourcedata, 135, 2),
+		"TamadaYoshio": getdata(sourcedata, 137, 2),
+		"Erohin": getdata(sourcedata, 139, 2),
+		"Horoshilov": getdata(sourcedata, 141, 2),
+		"Lister": getdata(sourcedata, 143, 2),
+	})
+	
 	return data
 
 
 def getdata_tank(sourcedata):
 	data = []
-	data.append({"battleLifeTime": getdata(sourcedata, 6, 4)})
-	data.append({"maxFrags": getdata(sourcedata, 10, 1)})
-	data.append({"xp": getdata(sourcedata, 11, 4)})
-	data.append({"maxXP": getdata(sourcedata, 15, 2)})
-	data.append({"battlesCount": getdata(sourcedata, 17, 4)})
-	data.append({"wins": getdata(sourcedata, 21, 4)})
-	data.append({"losses": getdata(sourcedata, 25, 4)})
-	data.append({"survivedBattles": getdata(sourcedata, 29, 4)})
-	data.append({"winAndSurvived": getdata(sourcedata, 33, 4)})
-	data.append({"frags": getdata(sourcedata, 37, 4)})
-	data.append({"frags8p": getdata(sourcedata, 41, 4)})
-	data.append({"fragsBeast": getdata(sourcedata, 45, 4)})
-	data.append({"shots": getdata(sourcedata, 49, 4)})
-	data.append({"hits": getdata(sourcedata, 53, 4)})
-	data.append({"spotted": getdata(sourcedata, 57, 4)})
-	data.append({"damageDealt": getdata(sourcedata, 61, 4)})
-	data.append({"damageReceived": getdata(sourcedata, 65, 4)})
-	data.append({"treesCut": getdata(sourcedata, 69, 2)})
-	data.append({"capturePoints": getdata(sourcedata, 71, 4)})
-	data.append({"droppedCapturePoints": getdata(sourcedata, 75, 4)})
+	data.append({"battleLifeTime": getdata(sourcedata, 6, 4),
+		"maxFrags": getdata(sourcedata, 10, 1),
+		"xp": getdata(sourcedata, 11, 4),
+		"maxXP": getdata(sourcedata, 15, 2),
+		"battlesCount": getdata(sourcedata, 17, 4),
+		"wins": getdata(sourcedata, 21, 4),
+		"losses": getdata(sourcedata, 25, 4),
+		"survivedBattles": getdata(sourcedata, 29, 4),
+		"winAndSurvived": getdata(sourcedata, 33, 4),
+		"frags": getdata(sourcedata, 37, 4),
+		"frags8p": getdata(sourcedata, 41, 4),
+		"fragsBeast": getdata(sourcedata, 45, 4),
+		"shots": getdata(sourcedata, 49, 4),
+		"hits": getdata(sourcedata, 53, 4),
+		"spotted": getdata(sourcedata, 57, 4),
+		"damageDealt": getdata(sourcedata, 61, 4),
+		"damageReceived": getdata(sourcedata, 65, 4),
+		"treesCut": getdata(sourcedata, 69, 2),
+		"capturePoints": getdata(sourcedata, 71, 4),
+		"droppedCapturePoints": getdata(sourcedata, 75, 4),
+	})
 	
 	return data
 	
@@ -281,19 +293,20 @@ def getdata_tank(sourcedata):
 	
 def getdata_tank_specific(sourcedata, offset):
 	data = []
-	data.append({"xp": getdata(sourcedata, offset, 4)})
-	data.append({"battlesCount": getdata(sourcedata, offset+4, 4)})
-	data.append({"wins": getdata(sourcedata, offset+8, 4)})
-	data.append({"losses": getdata(sourcedata, offset+12, 4)})
-	data.append({"survivedBattles": getdata(sourcedata, offset+16, 4)})
-	data.append({"frags": getdata(sourcedata, offset+20, 4)})
-	data.append({"shots": getdata(sourcedata, offset+24, 4)})
-	data.append({"hits": getdata(sourcedata, offset+28, 4)})
-	data.append({"spotted": getdata(sourcedata, offset+32, 4)})
-	data.append({"damageDealt": getdata(sourcedata, offset+36, 4)})
-	data.append({"damageReceived": getdata(sourcedata, offset+40, 4)})
-	data.append({"capturePoints": getdata(sourcedata, offset+44, 4)})
-	data.append({"droppedCapturePoints": getdata(sourcedata, offset+48, 4)})
+	data.append({"xp": getdata(sourcedata, offset, 4),
+		"battlesCount": getdata(sourcedata, offset+4, 4),
+		"wins": getdata(sourcedata, offset+8, 4),
+		"losses": getdata(sourcedata, offset+12, 4),
+		"survivedBattles": getdata(sourcedata, offset+16, 4),
+		"frags": getdata(sourcedata, offset+20, 4),
+		"shots": getdata(sourcedata, offset+24, 4),
+		"hits": getdata(sourcedata, offset+28, 4),
+		"spotted": getdata(sourcedata, offset+32, 4),
+		"damageDealt": getdata(sourcedata, offset+36, 4),
+		"damageReceived": getdata(sourcedata, offset+40, 4),
+		"capturePoints": getdata(sourcedata, offset+44, 4),
+		"droppedCapturePoints": getdata(sourcedata, offset+48, 4),
+	})
 	
 	return data
 
