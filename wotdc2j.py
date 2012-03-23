@@ -71,46 +71,8 @@ def main():
 			pre7 = 1
 		else:
 			pre7 = 0
+	
 			
-		tank = []
-		tank.append({"countryid": countryid,
-			"tankid": tankid,
-			"updated": tankitem[1][0],
-			"lastBattleTime": tankitem[1][0],
-			"basedonversion": getdata(sourcedata, 0, 1)
-		})
-		
-		tankdata = getdata_tank(sourcedata)
-
-	
-	
-	
-		fragslist = []
-		
-		if pre7 == 1:
-			offset = 138
-		else:
-			offset = 269
-		
-		if len(sourcedata) > offset:
-	
-			numfrags = getdata(sourcedata, offset-2, 2)
-		
-			if numfrags > 0:			
-				for m in xrange(0,numfrags):
-		
-					tankoffset = offset + m*4
-					killoffset = offset + numfrags*4+m*2
-		
-					ptankid = getdata(sourcedata, tankoffset, 2)
-					amount = getdata(sourcedata, killoffset, 2)
-					
-					tankid = ptankid //256
-					countryid = ((ptankid - tankid*256)-1) //16
-					
-					tankill = [countryid, tankid, amount]
-					fragslist.append(tankill)
-				
 		if pre7 == 0:
 		
 			company = []
@@ -120,29 +82,36 @@ def main():
 			clan = []
 			if getdata(sourcedata, 213, 4) > 0:
 				clan = getdata_tank_specific(sourcedata, 213)
+
+
+				
+		tankdata = getdata_tank(sourcedata)
+		
+		fragslist = getdata_fragslist(sourcedata, pre7)
+		
+		series = getdata_series(sourcedata)
+		
+		special = getdata_special(sourcedata)
+		
+		battle = getdata_battle(sourcedata)
 	
-			
-			#print offset+51 = 264
+		major = getdata_major(sourcedata)
 		
-		
-			
-			series = getdata_series(sourcedata)
-			
-			special = getdata_special(sourcedata)
-			
-			battle = getdata_battle(sourcedata)
-		
-			major = getdata_major(sourcedata)
-			
-			epic = getdata_epic(sourcedata)
+		epic = getdata_epic(sourcedata)
 
 		
-	
-		
+		common = {"countryid": countryid,
+			"tankid": tankid,
+			"updated": tankitem[1][0],
+			"lastBattleTime": tankitem[1][0],
+			"basedonversion": getdata(sourcedata, 0, 1)
+		}
 
 			
 		if pre7 == 0:
-			tank = {"tankdata": tankdata,
+			tank = {
+				"common": common,
+				"tankdata": tankdata,
 				"kills": fragslist,
 				"series": series,
 				"battle": battle,
@@ -153,7 +122,9 @@ def main():
 				"company": company
 			}
 		else:
-			tank = {"tankdata": tankdata,
+			tank = {
+				"common": common,
+				"tankdata": tankdata,
 				"kills": fragslist}
 			
 	
@@ -181,7 +152,35 @@ def main():
 
 ############################################################################################################################
 
+def getdata_fragslist(sourcedata, pre7):
+		
+	fragslist = []
+	
+	if pre7 == 1:
+		offset = 138
+	else:
+		offset = 269
+	
+	if len(sourcedata) > offset:
 
+		numfrags = getdata(sourcedata, offset-2, 2)
+	
+		if numfrags > 0:			
+			for m in xrange(0,numfrags):
+	
+				tankoffset = offset + m*4
+				killoffset = offset + numfrags*4+m*2
+	
+				ptankid = getdata(sourcedata, tankoffset, 2)
+				amount = getdata(sourcedata, killoffset, 2)
+				
+				tankid = ptankid //256
+				countryid = ((ptankid - tankid*256)-1) //16
+				
+				tankill = [countryid, tankid, amount]
+				fragslist.append(tankill)
+	
+	return fragslist
 
 def getdata_series(sourcedata):
 	data = []
@@ -250,7 +249,7 @@ def getdata_major(sourcedata):
 
 def getdata_epic(sourcedata):
 	data = []
-	data = {"Wittmann": getdata(sourcedata, 117, 2),
+	data = {"Boelter": getdata(sourcedata, 117, 2),
 		"Orlik": getdata(sourcedata, 119, 2),
 		"Oskin": getdata(sourcedata, 121, 2),
 		"Halonen": getdata(sourcedata, 123, 2),
