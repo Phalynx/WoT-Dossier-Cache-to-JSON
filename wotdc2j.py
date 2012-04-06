@@ -75,10 +75,13 @@ def main():
 			
 		if pre7 == 0:
 		
+			# Data for company battles / Global War
 			company = []
 			if getdata(sourcedata, 161, 4) > 0:
 				company = getdata_tank_specific(sourcedata, 161)
 		
+		
+			# Currently unused as of WoT v0.7.2
 			clan = []
 			if getdata(sourcedata, 213, 4) > 0:
 				clan = getdata_tank_specific(sourcedata, 213)
@@ -204,7 +207,7 @@ def getdata_special(sourcedata):
 	data = {"beasthunter": getdata(sourcedata, 145, 2),
 		"mousebane": getdata(sourcedata, 147, 2),
 		"tankExpert": getdata(sourcedata, 149, 1),
-		"sniper": getdata(sourcedata, 150, 1),
+		"sniperspecial": getdata(sourcedata, 150, 1),
 		"invincible": getdata(sourcedata, 151, 1),
 		"diehard": getdata(sourcedata, 152, 1),
 		"raider": getdata(sourcedata, 153, 2),

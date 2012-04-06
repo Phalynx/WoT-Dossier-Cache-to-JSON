@@ -1,0 +1,31 @@
+World of Tanks Dossier Cache to JSON v2 / wotdc2j.py
+
+Author: Marius Czyz aka Phalynx
+Contact: marius.czyz@gmail.com
+Demo System: http://www.vbaddict.net/wot
+
+
+== Contributors
+- Phalynx
+- Gottzilla
+- NJSaaiman
+
+
+
+== Usage
+wotdc2j.py <dossier.dat> <f>
+
+f - By setting f the JSON will be formatted for better human readability
+
+Example:
+python.exe wotdc2j.py dossier.dat f
+
+
+
+== Translation countryid / tankid to tank
+JSON stores the countryid and tankid of each tank. Use tanks.json to find out which title the tank has.
+
+
+
+== Todo
+- Include the tank title to improve usability for non-scripted use
