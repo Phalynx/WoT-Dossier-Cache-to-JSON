@@ -329,9 +329,9 @@ def getdata(sourcedata, startoffset, offsetlength):
 	elif offsetlength == 2:
 	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1]
 	elif offsetlength == 3:
-	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*265*sourcedata[startoffset+2]
+	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2]
 	elif offsetlength == 4:
-	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*265*sourcedata[startoffset+2] + 256*256*265*sourcedata[startoffset+3]
+	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2] + 256*256*256*sourcedata[startoffset+3]
 	else:
 	  return 0
 
