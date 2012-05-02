@@ -1,5 +1,5 @@
 ###################################################
-# World of Tanks Dossier Cache to JSON            #
+# World of Tanks Dossier Cache to JSON 2.1        #
 # Initial version by Phalynx www.vbaddict.net/wot #
 ###################################################
 
@@ -10,8 +10,17 @@ def main():
 	filename_source = str(sys.argv[1])
 	print 'Processing ' + filename_source
 	
+	if os.path.exists('tanks.json') and os.path.isfile('tanks.json') and os.access('tanks.json', os.R_OK):
+		print "tanks.json exists and is readable"
+	else:
+		print "tanks.json does not exists!"
+		sys.exit(1)
 	
-	#os.path.isfile(filename)
+	tanksjson = open('tanks.json', 'r')
+
+	tanksdata = json.load(tanksjson)
+	tanksjson.close()
+	
 	
 	if os.path.exists(filename_source) and os.path.isfile(filename_source) and os.access(filename_source, os.R_OK):
 		print "File exists and is readable"
@@ -39,7 +48,7 @@ def main():
 		"tankcount": len(tankitems), 
 		"date": time.mktime(time.localtime()),
 		"parser": 'http://www.vbaddict.net/wot', 
-		"parserversion": 2
+		"parserversion": 3
 	})
 	
 	tanks = []
@@ -49,19 +58,16 @@ def main():
 		tankid = tankitem[0][1] //256
 		countryid = ((tankitem[0][1] - tankid*256)-1) //16
 		
+		tanktitle = get_tank_title(tanksdata, countryid, tankid)
+
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
 		sourcedata = struct.unpack(tankstruct, data)
 			
-		
-
-		
-
-
-		
-		raw = []
+					
+		rawdata = []
 		for m in xrange(0,len(sourcedata)):
-			raw.append({m: sourcedata[m]})
+			rawdata.append({m: sourcedata[m]})
 		
 		if getdata(sourcedata, 0, 1) == 0:
 			continue
@@ -105,6 +111,7 @@ def main():
 		
 		common = {"countryid": countryid,
 			"tankid": tankid,
+			"tanktitle": tanktitle,
 			"updated": tankitem[1][0],
 			"lastBattleTime": tankitem[1][0],
 			"basedonversion": getdata(sourcedata, 0, 1)
@@ -131,22 +138,20 @@ def main():
 				"kills": fragslist}
 			
 	
-		#tank.append({"raw": raw})
-		
-		
 		tanks.append({"tank": tank})
+		#tanks.append({"rawdata": rawdata})
 		
 	dossier.append({"tanks": tanks})
 		
 	
 	print 'Dumping to JSON'
 	
-	f = open(filename_target, 'w')
+	finalfile = open(filename_target, 'w')
 	
 	if len(sys.argv) == 3:
-		f.write(json.dumps(dossier, sort_keys=True, indent=4))
+		finalfile.write(json.dumps(dossier, sort_keys=True, indent=4))
 	else:
-		f.write(json.dumps(dossier))
+		finalfile.write(json.dumps(dossier))
 	
 	print 'Done!'
 	sys.exit(0)
@@ -154,6 +159,17 @@ def main():
 
 
 ############################################################################################################################
+
+
+def get_tank_title(tanksdata, countryid, tankid):
+
+	for tankdata in tanksdata:
+		if tankdata['country'] == countryid:
+			if tankdata['id'] == tankid:
+				return tankdata['title']
+			
+	return "unknown"
+
 
 def getdata_fragslist(sourcedata, pre7):
 		
@@ -169,7 +185,7 @@ def getdata_fragslist(sourcedata, pre7):
 		numfrags = getdata(sourcedata, offset-2, 2)
 	
 		if numfrags > 0:			
-			for m in xrange(0,numfrags):
+			for m in xrange(0, numfrags):
 	
 				tankoffset = offset + m*4
 				killoffset = offset + numfrags*4+m*2
@@ -182,7 +198,7 @@ def getdata_fragslist(sourcedata, pre7):
 				
 				tankill = [countryid, tankid, amount]
 				fragslist.append(tankill)
-	
+
 	return fragslist
 
 def getdata_series(sourcedata):

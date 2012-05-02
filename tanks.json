@@ -1292,6 +1292,72 @@
     "id": 24,
     "title": "IS-4",
     "slug": "is_4",
+    "tier": 10,
+    "price": {
+      "credits": 3561000
+    },
+    "type": 3
+  },
+  {
+    "country": 0,
+    "id": 45,
+    "title": "IS8",
+    "slug": "is8",
+    "tier": 9,
+    "price": {
+      "credits": 3561000
+    },
+    "type": 3
+  },
+  {
+    "country": 0,
+    "id": 44,
+    "title": "T150",
+    "slug": "t150",
+    "tier": 6,
+    "price": {
+      "credits": 3561000
+    },
+    "type": 3
+  },
+  {
+    "country": 0,
+    "id": 46,
+    "title": "KV1",
+    "slug": "kv1",
+    "tier": 5,
+    "price": {
+      "credits": 3561000
+    },
+    "type": 3
+  },
+  {
+    "country": 0,
+    "id": 41,
+    "title": "KV2",
+    "slug": "kv2",
+    "tier": 6,
+    "price": {
+      "credits": 3561000
+    },
+    "type": 3
+  },
+  {
+    "country": 0,
+    "id": 43,
+    "title": "KV4",
+    "slug": "kv4",
+    "tier": 8,
+    "price": {
+      "credits": 3561000
+    },
+    "type": 3
+  },
+  {
+    "country": 0,
+    "id": 42,
+    "title": "ST_I",
+    "slug": "st_i",
     "tier": 9,
     "price": {
       "credits": 3561000
