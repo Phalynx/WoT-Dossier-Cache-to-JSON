@@ -164,8 +164,8 @@ def main():
 def get_tank_title(tanksdata, countryid, tankid):
 
 	for tankdata in tanksdata:
-		if tankdata['country'] == countryid:
-			if tankdata['id'] == tankid:
+		if tankdata['countryid'] == countryid:
+			if tankdata['tankid'] == tankid:
 				return tankdata['title']
 			
 	return "unknown"
