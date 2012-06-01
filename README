@@ -1,4 +1,4 @@
-World of Tanks Dossier Cache to JSON v1.1 / wotdc2j.py
+World of Tanks Dossier Cache to JSON v2.2 / wotdc2j.py
 
 Author: Marius Czyz aka Phalynx
 Contact: marius.czyz@gmail.com
@@ -9,8 +9,6 @@ Demo System: http://www.vbaddict.net/wot
 - Phalynx
 - Gottzilla
 - NJSaaiman
-- tanks.json: AlongTheMilkyWays
-
 
 
 == Usage

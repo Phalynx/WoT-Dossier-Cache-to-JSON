@@ -1,5 +1,5 @@
 ###################################################
-# World of Tanks Dossier Cache to JSON 2.1        #
+# World of Tanks Dossier Cache to JSON 2.2        #
 # Initial version by Phalynx www.vbaddict.net/wot #
 ###################################################
 
@@ -48,7 +48,7 @@ def main():
 		"tankcount": len(tankitems), 
 		"date": time.mktime(time.localtime()),
 		"parser": 'http://www.vbaddict.net/wot', 
-		"parserversion": 3
+		"parserversion": 4
 	})
 	
 	tanks = []
@@ -69,34 +69,42 @@ def main():
 		for m in xrange(0,len(sourcedata)):
 			rawdata.append({m: sourcedata[m]})
 		
-		if getdata(sourcedata, 0, 1) == 0:
+		tankversion = getdata(sourcedata, 0, 1) 
+		
+		if tankversion == 0:
 			continue
 	
-	
-		if getdata(sourcedata, 0, 1) < 20:
-			pre7 = 1
-		else:
-			pre7 = 0
-	
-			
-		if pre7 == 0:
+		
+		if tankversion >= 20:
 		
 			# Data for company battles / Global War
 			company = []
-			if getdata(sourcedata, 161, 4) > 0:
-				company = getdata_tank_specific(sourcedata, 161)
-		
+			
+			if tankversion == 20:
+				if getdata(sourcedata, 161, 4) > 0:
+					company = getdata_tank_specific(sourcedata, 161)
+
+			if tankversion == 22:
+				if getdata(sourcedata, 174, 4) > 0:
+					company = getdata_tank_specific(sourcedata, 174)
+
 		
 			# Currently unused as of WoT v0.7.2
 			clan = []
-			if getdata(sourcedata, 213, 4) > 0:
-				clan = getdata_tank_specific(sourcedata, 213)
+
+			if tankversion == 20:
+				if getdata(sourcedata, 213, 4) > 0:
+					clan = getdata_tank_specific(sourcedata, 213)
+
+			if tankversion == 22:
+				if getdata(sourcedata, 226, 4) > 0:
+					clan = getdata_tank_specific(sourcedata, 226)
 
 
-				
+
 		tankdata = getdata_tank(sourcedata)
 		
-		fragslist = getdata_fragslist(sourcedata, pre7)
+		fragslist = getdata_fragslist(sourcedata, tankversion)
 		
 		series = getdata_series(sourcedata)
 		
@@ -114,11 +122,11 @@ def main():
 			"tanktitle": tanktitle,
 			"updated": tankitem[1][0],
 			"lastBattleTime": tankitem[1][0],
-			"basedonversion": getdata(sourcedata, 0, 1)
+			"basedonversion": tankversion
 		}
 
 			
-		if pre7 == 0:
+		if tankversion >= 20:
 			tank = {
 				"common": common,
 				"tankdata": tankdata,
@@ -171,14 +179,18 @@ def get_tank_title(tanksdata, countryid, tankid):
 	return "unknown"
 
 
-def getdata_fragslist(sourcedata, pre7):
+def getdata_fragslist(sourcedata, tankversion):
 		
 	fragslist = []
 	
-	if pre7 == 1:
+	if tankversion < 20:
 		offset = 138
-	else:
+
+	if tankversion == 20:
 		offset = 269
+
+	if tankversion == 22:
+		offset = 282
 	
 	if len(sourcedata) > offset:
 
