@@ -71,7 +71,10 @@ def main():
 		
 		tankversion = getdata(sourcedata, 0, 1) 
 		
-		if tankversion == 0:
+		if tankversion == 0: # Unknown
+			continue
+	
+		if tankversion == 10: # Old
 			continue
 	
 		
@@ -89,7 +92,7 @@ def main():
 					company = getdata_tank_specific(sourcedata, 174)
 
 		
-			# Currently unused as of WoT v0.7.2
+			# Currently unused as of WoT v0.7.4
 			clan = []
 
 			if tankversion == 20:
