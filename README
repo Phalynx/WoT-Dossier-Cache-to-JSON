@@ -1,8 +1,14 @@
-World of Tanks Dossier Cache to JSON v2.5 / wotdc2j.py
+World of Tanks Dossier Cache to JSON v7.5 / wotdc2j.py
 
 Author: Marius Czyz aka Phalynx
 Contact: marius.czyz@gmail.com
-Demo System: http://www.vbaddict.net/wot
+Demo Systems:
+WoT Performance Analyzer Charts (Online) http://www.vbaddict.net/wot
+WOT Statistics (Offline) http://www.saais.co.za/
+
+== Supported Versions
+- WoT 0.6.x
+- WoT 0.7.x up to 0.7.5
 
 
 == Contributors WoTDC2J.py

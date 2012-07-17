@@ -1,26 +1,30 @@
 ###################################################
-# World of Tanks Dossier Cache to JSON 2.2        #
+# World of Tanks Dossier Cache to JSON 7.5        #
 # Initial version by Phalynx www.vbaddict.net/wot #
 ###################################################
+import cPickle, struct, json, time, sys, os
+
+
 
 
 def main():
 	import cPickle, struct, json, time, sys, os
 	
+	global rawdata, sourcedata, structures
+	
 	filename_source = str(sys.argv[1])
+	
+	print '###### WoTDC2J 7.5'
+	
+	if len(sys.argv) == 3:
+		print 'DEBUG mode enabled'
+	
 	print 'Processing ' + filename_source
 	
-	if os.path.exists('tanks.json') and os.path.isfile('tanks.json') and os.access('tanks.json', os.R_OK):
-		print "tanks.json exists and is readable"
-	else:
-		print "tanks.json does not exists!"
-		sys.exit(1)
-	
-	tanksjson = open('tanks.json', 'r')
+	tanksdata = get_json_data("tanks.json")
 
-	tanksdata = json.load(tanksjson)
-	tanksjson.close()
-	
+	structures = get_json_data("structures.json")
+
 	
 	if os.path.exists(filename_source) and os.path.isfile(filename_source) and os.access(filename_source, os.R_OK):
 		print "File exists and is readable"
@@ -34,11 +38,20 @@ def main():
 	if os.path.exists(filename_target) and os.path.isfile(filename_target) and os.access(filename_target, os.R_OK):
 		print "Target File exists and is readable"
 		os.remove(filename_target)
+			
+	cachefile = open(filename_source, 'rb')
+
+	try:
+	  cacheobject = cPickle.load(cachefile)
+	except: 
+	  print "Unable to load data"
+
+	if not 'cacheobject' in locals():
+		sys.exit(1)
+
+	if len(cacheobject) <> 2:
+		sys.exit(1)
 		
-	
-	cachefile = open (filename_source, 'rb')
-	cacheobject = cPickle.load(cachefile)
-	
 	dossierCache = cacheobject[1]
 	
 	tankitems = [(k, v) for k, v in dossierCache.items()]
@@ -48,8 +61,9 @@ def main():
 		"tankcount": len(tankitems), 
 		"date": time.mktime(time.localtime()),
 		"parser": 'http://www.vbaddict.net/wot', 
-		"parserversion": 4
+		"parserversion": 75
 	})
+	
 	
 	tanks = []
 	for tankitem in tankitems:
@@ -60,16 +74,19 @@ def main():
 		
 		tanktitle = get_tank_title(tanksdata, countryid, tankid)
 
+		#print tanktitle		
+
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
 		sourcedata = struct.unpack(tankstruct, data)
 			
 					
-		rawdata = []
+		rawdata = dict()
 		for m in xrange(0,len(sourcedata)):
-			rawdata.append({m: sourcedata[m]})
+			rawdata[m] = sourcedata[m]
+			
 		
-		tankversion = getdata(sourcedata, 0, 1) 
+		tankversion = getdata("Tankversion", 0, 1) 
 		
 		if tankversion == 0: # Unknown
 			continue
@@ -84,40 +101,43 @@ def main():
 			company = []
 			
 			if tankversion == 20:
-				if getdata(sourcedata, 161, 4) > 0:
-					company = getdata_tank_specific(sourcedata, 161)
+				if getdata("Company", 161, 4) > 0:
+					company = getdata_tank_specific(161)
 
 			if tankversion == 22:
-				if getdata(sourcedata, 174, 4) > 0:
-					company = getdata_tank_specific(sourcedata, 174)
+				if getdata("Company", 174, 4) > 0:
+					company = getdata_tank_specific(174)
 
 		
 			# Currently unused as of WoT v0.7.4
 			clan = []
 
 			if tankversion == 20:
-				if getdata(sourcedata, 213, 4) > 0:
-					clan = getdata_tank_specific(sourcedata, 213)
+				if getdata("Clan", 213, 4) > 0:
+					clan = getdata_tank_specific(213)
 
 			if tankversion == 22:
-				if getdata(sourcedata, 226, 4) > 0:
-					clan = getdata_tank_specific(sourcedata, 226)
+				if getdata("Clan", 226, 4) > 0:
+					clan = getdata_tank_specific(226)
 
 
 
-		tankdata = getdata_tank(sourcedata)
+		tankdata = getstructureddata("tankdata", tankversion)
 		
-		fragslist = getdata_fragslist(sourcedata, tankversion)
+		fragslist = getdata_fragslist(tankversion)
 		
-		series = getdata_series(sourcedata)
+		series = getstructureddata("series", tankversion)
 		
-		special = getdata_special(sourcedata)
-		
-		battle = getdata_battle(sourcedata)
+		special = getstructureddata("special", tankversion)
 	
-		major = getdata_major(sourcedata)
+		battle = getstructureddata("battle", tankversion)
+	
+		major = getstructureddata("major", tankversion)
+	
+		epic = getstructureddata("epic", tankversion)
 		
-		epic = getdata_epic(sourcedata)
+		unknown = getstructureddata("unknown", tankversion)
+
 
 		
 		common = {"countryid": countryid,
@@ -133,7 +153,7 @@ def main():
 			tank = {
 				"common": common,
 				"tankdata": tankdata,
-				"kills": fragslist,
+				"unknown": unknown,
 				"series": series,
 				"battle": battle,
 				"special": special,		
@@ -141,16 +161,23 @@ def main():
 				"major": major,
 				"clan": clan,
 				"company": company
+				#"kills": fragslist
 			}
 		else:
 			tank = {
 				"common": common,
 				"tankdata": tankdata,
-				"kills": fragslist}
+				"unknown": unknown,
+				"kills": fragslist
+			}
 			
 	
 		tanks.append({"tank": tank})
-		#tanks.append({"rawdata": rawdata})
+		
+		if len(sys.argv) == 3:
+			tanks.append({"rawdata": rawdata})
+			
+
 		
 	dossier.append({"tanks": tanks})
 		
@@ -170,6 +197,35 @@ def main():
 
 
 ############################################################################################################################
+def getstructureddata(category, tankversion):
+
+	global sourcedata, structures
+	
+	returndata = dict()
+
+	for structureitem in structures:
+		if category == structureitem['category']:
+			if tankversion == structureitem['version']:
+				returndata[structureitem['name']] = getdata(category + " " + structureitem['name'], structureitem['offset'], structureitem['length'])
+
+	return returndata
+		
+	
+def get_json_data(filename):
+	import json, time, sys, os
+	if os.path.exists(filename) and os.path.isfile(filename) and os.access(filename, os.R_OK):
+		print filename + " exists and is readable"
+	else:
+		print filename + " does not exists!"
+		sys.exit(1)
+	
+	file_json = open(filename, 'r')
+
+	file_data = json.load(file_json)
+	file_json.close()
+
+	return file_data
+
 
 
 def get_tank_title(tanksdata, countryid, tankid):
@@ -182,8 +238,10 @@ def get_tank_title(tanksdata, countryid, tankid):
 	return "unknown"
 
 
-def getdata_fragslist(sourcedata, tankversion):
-		
+def getdata_fragslist(tankversion):
+
+	global sourcedata		
+
 	fragslist = []
 	
 	if tankversion < 20:
@@ -197,7 +255,7 @@ def getdata_fragslist(sourcedata, tankversion):
 	
 	if len(sourcedata) > offset:
 
-		numfrags = getdata(sourcedata, offset-2, 2)
+		numfrags = getdata("Kill number of frags", offset-2, 2)
 	
 		if numfrags > 0:			
 			for m in xrange(0, numfrags):
@@ -205,8 +263,8 @@ def getdata_fragslist(sourcedata, tankversion):
 				tankoffset = offset + m*4
 				killoffset = offset + numfrags*4+m*2
 	
-				ptankid = getdata(sourcedata, tankoffset, 2)
-				amount = getdata(sourcedata, killoffset, 2)
+				ptankid = getdata("Kill tankid", tankoffset, 2)
+				amount = getdata("kill amount", killoffset, 2)
 				
 				tankid = ptankid //256
 				countryid = ((ptankid - tankid*256)-1) //16
@@ -216,158 +274,85 @@ def getdata_fragslist(sourcedata, tankversion):
 
 	return fragslist
 
-def getdata_series(sourcedata):
+
+	
+	
+	
+def getdata_tank_specific(offset):
+	
+	global sourcedata
+	
 	data = []
-	data = {"sniperSeries": getdata(sourcedata, 79, 2),
-		"maxSniperSeries": getdata(sourcedata, 81, 2),
-		"invincibleSeries": getdata(sourcedata, 83, 1),
-		"maxInvincibleSeries": getdata(sourcedata, 84, 1),
-		"diehardSeries": getdata(sourcedata, 85, 1),
-		"maxDiehardSeries": getdata(sourcedata, 86, 1),
-		"killingSeries": getdata(sourcedata, 87, 1),
-		"maxKillingSeries": getdata(sourcedata, 88, 1),
-		"piercingSeries": getdata(sourcedata, 89, 1),
-		"maxPiercingSeries": getdata(sourcedata, 90, 1)
-	}
-	
-	return data
-
-
-def getdata_special(sourcedata):
-	data = []
-	data = {"beasthunter": getdata(sourcedata, 145, 2),
-		"mousebane": getdata(sourcedata, 147, 2),
-		"tankExpert": getdata(sourcedata, 149, 1),
-		"sniperspecial": getdata(sourcedata, 150, 1),
-		"invincible": getdata(sourcedata, 151, 1),
-		"diehard": getdata(sourcedata, 152, 1),
-		"raider": getdata(sourcedata, 153, 2),
-		"handOfDeath": getdata(sourcedata, 155, 1),
-		"armorPiercer": getdata(sourcedata, 156, 1),
-		"kamikaze": getdata(sourcedata, 157, 2),
-		"lumberjack": getdata(sourcedata, 159, 1),
-		"markOfMastery": getdata(sourcedata, 160, 1),
-	}
-	
-	return data
-
-def getdata_battle(sourcedata):
-	data = []
-	data = {"battleHeroes": getdata(sourcedata, 91, 2),
-		"warrior": getdata(sourcedata, 93, 2),
-		"invader": getdata(sourcedata, 95, 2),
-		"sniper": getdata(sourcedata, 97, 2),
-		"defender": getdata(sourcedata, 99, 2),
-		"steelwall": getdata(sourcedata, 101, 2),
-		"supporter": getdata(sourcedata, 103, 2),
-		"scout": getdata(sourcedata, 105, 2),
-		"evileye": getdata(sourcedata, 107, 2),
-	}
-	
-	return data
-
-def getdata_major(sourcedata):
-	data = []
-	data = {"Kay": getdata(sourcedata, 109, 1),
-		"Carius": getdata(sourcedata, 110, 1),
-		"Knispel": getdata(sourcedata, 111, 1),
-		"Poppel": getdata(sourcedata, 112, 1),
-		"Abrams": getdata(sourcedata, 113, 1),
-		"LeClerc": getdata(sourcedata, 114, 1),
-		"Lavrinenko": getdata(sourcedata, 115, 1),
-		"Ekins": getdata(sourcedata, 116, 1),
-	}
-	
-	return data
-
-
-def getdata_epic(sourcedata):
-	data = []
-	data = {"Boelter": getdata(sourcedata, 117, 2),
-		"Orlik": getdata(sourcedata, 119, 2),
-		"Oskin": getdata(sourcedata, 121, 2),
-		"Halonen": getdata(sourcedata, 123, 2),
-		"Burda": getdata(sourcedata, 125, 2),
-		"Billotte": getdata(sourcedata, 127, 2),
-		"Kolobanov": getdata(sourcedata, 129, 2),
-		"Fadin": getdata(sourcedata, 131, 2),
-		"HeroesOfRassenai": getdata(sourcedata, 133, 2),
-		"DeLaglanda": getdata(sourcedata, 135, 2),
-		"TamadaYoshio": getdata(sourcedata, 137, 2),
-		"Erohin": getdata(sourcedata, 139, 2),
-		"Horoshilov": getdata(sourcedata, 141, 2),
-		"Lister": getdata(sourcedata, 143, 2),
-	}
-	
-	return data
-
-
-def getdata_tank(sourcedata):
-	data = []
-	data = {"battleLifeTime": getdata(sourcedata, 6, 4),
-		"maxFrags": getdata(sourcedata, 10, 1),
-		"xp": getdata(sourcedata, 11, 4),
-		"maxXP": getdata(sourcedata, 15, 2),
-		"battlesCount": getdata(sourcedata, 17, 4),
-		"wins": getdata(sourcedata, 21, 4),
-		"losses": getdata(sourcedata, 25, 4),
-		"survivedBattles": getdata(sourcedata, 29, 4),
-		"winAndSurvived": getdata(sourcedata, 33, 4),
-		"frags": getdata(sourcedata, 37, 4),
-		"frags8p": getdata(sourcedata, 41, 4),
-		"fragsBeast": getdata(sourcedata, 45, 4),
-		"shots": getdata(sourcedata, 49, 4),
-		"hits": getdata(sourcedata, 53, 4),
-		"spotted": getdata(sourcedata, 57, 4),
-		"damageDealt": getdata(sourcedata, 61, 4),
-		"damageReceived": getdata(sourcedata, 65, 4),
-		"treesCut": getdata(sourcedata, 69, 2),
-		"capturePoints": getdata(sourcedata, 71, 4),
-		"droppedCapturePoints": getdata(sourcedata, 75, 4),
-	}
-	
-	return data
-	
-	
-	
-def getdata_tank_specific(sourcedata, offset):
-	data = []
-	data = {"xp": getdata(sourcedata, offset, 4),
-		"battlesCount": getdata(sourcedata, offset+4, 4),
-		"wins": getdata(sourcedata, offset+8, 4),
-		"losses": getdata(sourcedata, offset+12, 4),
-		"survivedBattles": getdata(sourcedata, offset+16, 4),
-		"frags": getdata(sourcedata, offset+20, 4),
-		"shots": getdata(sourcedata, offset+24, 4),
-		"hits": getdata(sourcedata, offset+28, 4),
-		"spotted": getdata(sourcedata, offset+32, 4),
-		"damageDealt": getdata(sourcedata, offset+36, 4),
-		"damageReceived": getdata(sourcedata, offset+40, 4),
-		"capturePoints": getdata(sourcedata, offset+44, 4),
-		"droppedCapturePoints": getdata(sourcedata, offset+48, 4),
+	data = {"xp": getdata("Tankdata xp", offset, 4),
+		"battlesCount": getdata("Tankdata battlesCount", offset+4, 4),
+		"wins": getdata("Tankdata wins", offset+8, 4),
+		"losses": getdata("Tankdata losses", offset+12, 4),
+		"survivedBattles": getdata("Tankdata survivedBattles", offset+16, 4),
+		"frags": getdata("Tankdata frags", offset+20, 4),
+		"shots": getdata("Tankdata shots", offset+24, 4),
+		"hits": getdata("Tankdata hits", offset+28, 4),
+		"spotted": getdata("Tankdata spotted", offset+32, 4),
+		"damageDealt": getdata("Tankdata damageDealt", offset+36, 4),
+		"damageReceived": getdata("Tankdata damageReceived", offset+40, 4),
+		"capturePoints": getdata("Tankdata capturePoints", offset+44, 4),
+		"droppedCapturePoints": getdata("Tankdata droppedCapturePoints", offset+48, 4),
 	}
 	
 	return data
 
 	
-def getdata(sourcedata, startoffset, offsetlength):
+def getdata(name, startoffset, offsetlength):
+
+	global rawdata, sourcedata
 
 	if len(sourcedata)<startoffset+offsetlength:
+		
 		return 0
 
 	if offsetlength == 1:
-		return sourcedata[startoffset]
+				
+		value = sourcedata[startoffset]
+		
+		rawdata[startoffset] = str(value) + ";" + name
+		
+		#print str(startoffset) + ";" + str(value) + ";" + name
+
+		return value 
+		
 	elif offsetlength == 2:
-	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1]
+		
+		value = sourcedata[startoffset] + 256*sourcedata[startoffset+1] 
+		
+		rawdata[startoffset] = str(value) + ";" + name
+		rawdata[startoffset+1] = str(value) + ";" + name
+
+		return value 
+
 	elif offsetlength == 3:
-	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2]
+		
+		value = sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2]
+		
+		rawdata[startoffset] = str(value) + ";" + name
+		rawdata[startoffset+1] = str(value) + ";" + name
+		rawdata[startoffset+2] = str(value) + ";" + name
+
+		return value 
+
 	elif offsetlength == 4:
-	  return sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2] + 256*256*256*sourcedata[startoffset+3]
+		
+		value = sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2] + 256*256*256*sourcedata[startoffset+3]
+
+		rawdata[startoffset] = str(value) + ";" + name
+		rawdata[startoffset+1] = str(value) + ";" + name
+		rawdata[startoffset+2] = str(value) + ";" + name
+		rawdata[startoffset+3] = str(value) + ";" + name
+		
+		return value
+		
 	else:
 	  return 0
 
 	
-	
-	
+		
 if __name__ == '__main__':
 	main()
