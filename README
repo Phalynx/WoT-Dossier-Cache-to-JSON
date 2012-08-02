@@ -2,13 +2,14 @@ World of Tanks Dossier Cache to JSON v7.5 / wotdc2j.py
 
 Author: Marius Czyz aka Phalynx
 Contact: marius.czyz@gmail.com
+
 Demo Systems:
 WoT Performance Analyzer Charts (Online) http://www.vbaddict.net/wot
 WOT Statistics (Offline) http://www.saais.co.za/
 
 == Supported Versions
-- WoT 0.6.x
-- WoT 0.7.x up to 0.7.5
+- WoT 0.6.x, 0.7.1.x, 0.7.2.x, 0.7.3.x (dossier version 19/20)
+- Wot 0.7.4.x, 0.7.5.x (dossier version 21/22)
 
 
 == Contributors WoTDC2J.py
@@ -18,9 +19,12 @@ WOT Statistics (Offline) http://www.saais.co.za/
 
 
 == Usage
-wotdc2j.py <dossier.dat> <f>
+wotdc2j.py <dossier.dat> [rf]
 
-f - By setting f the JSON will be formatted for better human readability
+-f - By setting f the JSON will be formatted for better human readability
+-r - By setting r the JSON will contain all fields with their values and recognized names
+-k - By setting k the JSON will not contain Kills/Frags
+-s - By setting s the JSON will not include unix timestamp of creation as it is useless for calculation of checksum
 
 Example:
-python.exe wotdc2j.py dossier.dat f
+python.exe wotdc2j.py dossier.dat -f -r
