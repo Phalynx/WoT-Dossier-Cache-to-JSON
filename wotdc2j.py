@@ -14,9 +14,9 @@ def usage():
 
 
 def main():
-	import cPickle, struct, json, time, sys, os, shutil
+	import cPickle, struct, json, time, sys, os, shutil, datetime
 	
-	parserversion = "0.7.5.1"
+	parserversion = "0.8.0.0"
 
 	print '###### WoTDC2J ' + parserversion
 
@@ -129,18 +129,23 @@ def main():
 		rawdata = dict()
 		for m in xrange(0,len(sourcedata)):
 			rawdata[m] = sourcedata[m]
-
+		
+		if len(sourcedata) == 0:
+			continue
 
 		tankversion = getdata("tankversion", 0, 1)
 		
 		
 		if tankversion < 17: # Old
 			if tankversion > 0:
-				write_to_log("unsupported tankversion " + str(tankversion))
 				
-			print get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion)
-			continue
-
+				try:
+					print get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion)
+					catch_fatal('unsupported tankversion')
+					continue				
+				except Exception, e:
+					catch_fatal('unsupported tankversion' + e.message)
+					continue
 
 		if tankversion >= 20:
 
@@ -169,6 +174,7 @@ def main():
 
 
 		numofkills = 0
+		
 		fragslist = getdata_fragslist(tankversion, tanksdata)
 
 		tankdata = getstructureddata("tankdata", tankversion)
@@ -198,6 +204,7 @@ def main():
 			"tier": get_tank_data(tanksdata, countryid, tankid, "tier"),
 			"updated": tankitem[1][0],
 			"lastBattleTime": getdata("lastBattleTime", 2, 4),
+			"lastBattleTimeR": datetime.datetime.fromtimestamp(int(getdata("lastBattleTime", 2, 4))).strftime('%Y-%m-%d %H:%M:%S'),
 			"basedonversion": tankversion,
 			"frags_compare": numofkills
 		}
@@ -279,7 +286,7 @@ def write_to_log(logtext):
 	
 	if option_server == 1:
 		logFile = open("/var/log/wotdc2j/wotdc2j.log", "a+b")
-		logFile.write(now.strftime("%Y-%m-%d %H:%M") + " # " + logtext + " # " + filename_source + "\r\n")
+		logFile.write(str(now.strftime("%Y-%m-%d %H:%M:%S")) + " # " + str(logtext) + " # " + str(filename_source) + "\r\n")
 		logFile.close()
 	#except:
 		#print "Cannot write to wotdc2j.log"
@@ -347,6 +354,9 @@ def getdata_fragslist(tankversion, tanksdata):
 
 	if tankversion == 22:
 		offset = 282
+
+	if tankversion == 24:
+		offset = 302
 
 	if len(sourcedata) > offset:
 
