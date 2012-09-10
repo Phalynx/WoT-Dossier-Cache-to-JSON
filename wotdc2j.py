@@ -85,7 +85,7 @@ def main():
 		sys.exit(1)
 
 	dossierCache = cacheobject[1]
-
+	#print dossierCache
 	tankitems = [(k, v) for k, v in dossierCache.items()]
 
 	dossier = dict()
