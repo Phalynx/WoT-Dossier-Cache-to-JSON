@@ -179,8 +179,11 @@ def main():
 
 		tankdata = getstructureddata("tankdata", tankversion)
 
-		if tankdata['frags'] <> numofkills:
-			print 'Wrong number of kills!'
+		try:
+			if tankdata['frags'] <> numofkills:
+				print 'Wrong number of kills!'
+		except Exception, e:
+				print 'frags does not exists'
 
 		series = getstructureddata("series", tankversion)
 
@@ -309,7 +312,9 @@ def getstructureddata(category, tankversion):
 def get_json_data(filename):
 	import json, time, sys, os
 	
-	os.chdir(os.getcwd())
+	#os.chdir(os.getcwd())
+	os.chdir(sys.path[0])
+	
 	
 	if not os.path.exists(filename) or not os.path.isfile(filename) or not os.access(filename, os.R_OK):
 		catch_fatal(filename + " does not exists!")

@@ -2,12 +2,12 @@
     "header": {
         "parser": "http://www.vbaddict.net/wot", 
         "parserversion": "0.8.0.0", 
-        "tankcount": 39
+        "tankcount": 44
     }, 
     "tanks": {
         "AMX 105AM": {
             "battle": {
-                "battleHeroes": 1, 
+                "battleHeroes": 2, 
                 "confederate": 1, 
                 "defender": 0, 
                 "evileye": 0, 
@@ -15,7 +15,7 @@
                 "scout": 0, 
                 "sniper": 0, 
                 "steelwall": 0, 
-                "topgun": 0, 
+                "topgun": 1, 
                 "unknown": 0, 
                 "warrior": 0
             }, 
@@ -23,15 +23,15 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
-                "frags_compare": 56, 
-                "lastBattleTime": 1342222276, 
-                "lastBattleTimeR": "2012-07-14 01:31:16", 
+                "frags_compare": 74, 
+                "lastBattleTime": 1342820961, 
+                "lastBattleTimeR": "2012-07-20 23:49:21", 
                 "premium": 0, 
                 "tankid": 16, 
                 "tanktitle": "AMX 105AM", 
                 "tier": 4, 
                 "type": 5, 
-                "updated": 1342222276
+                "updated": 1342820961
             }, 
             "company": [], 
             "epic": {
@@ -73,9 +73,9 @@
                 ], 
                 [
                     0, 
-                    208, 
+                    30, 
                     1, 
-                    "KV-5"
+                    "SU-26"
                 ], 
                 [
                     1, 
@@ -90,22 +90,28 @@
                     "PzKpfw 38 nA"
                 ], 
                 [
-                    0, 
-                    30, 
                     1, 
-                    "SU-26"
+                    18, 
+                    2, 
+                    "Sturmpanzer II"
                 ], 
                 [
                     2, 
                     39, 
-                    1, 
+                    3, 
                     "M4A3E2"
                 ], 
                 [
+                    0, 
+                    208, 
                     1, 
-                    4, 
-                    3, 
-                    "StuG III"
+                    "KV-5"
+                ], 
+                [
+                    0, 
+                    6, 
+                    1, 
+                    "T-28"
                 ], 
                 [
                     4, 
@@ -126,9 +132,15 @@
                     "T49"
                 ], 
                 [
+                    0, 
+                    19, 
+                    2, 
+                    "SU-5"
+                ], 
+                [
                     1, 
                     22, 
-                    4, 
+                    5, 
                     "Grille"
                 ], 
                 [
@@ -139,8 +151,20 @@
                 ], 
                 [
                     1, 
-                    7, 
+                    4, 
+                    5, 
+                    "StuG III"
+                ], 
+                [
                     2, 
+                    27, 
+                    1, 
+                    "M10 Wolverine"
+                ], 
+                [
+                    1, 
+                    7, 
+                    3, 
                     "Hetzer"
                 ], 
                 [
@@ -152,7 +176,7 @@
                 [
                     4, 
                     16, 
-                    2, 
+                    3, 
                     "AMX 105AM"
                 ], 
                 [
@@ -168,16 +192,16 @@
                     "M3 Lee"
                 ], 
                 [
-                    2, 
-                    45, 
-                    2, 
-                    "M18 Hellcat"
-                ], 
-                [
                     0, 
                     37, 
                     2, 
                     "T-50"
+                ], 
+                [
+                    2, 
+                    45, 
+                    3, 
+                    "M18 Hellcat"
                 ], 
                 [
                     1, 
@@ -206,20 +230,14 @@
                 [
                     4, 
                     39, 
-                    1, 
+                    2, 
                     "S-35 CA"
                 ], 
                 [
                     1, 
                     1, 
-                    1, 
+                    2, 
                     "Hummel"
-                ], 
-                [
-                    1, 
-                    18, 
-                    1, 
-                    "Sturmpanzer II"
                 ], 
                 [
                     1, 
@@ -230,13 +248,13 @@
                 [
                     0, 
                     11, 
-                    3, 
+                    4, 
                     "KV-1S"
                 ], 
                 [
                     0, 
                     46, 
-                    4, 
+                    5, 
                     "KV-1"
                 ], 
                 [
@@ -248,7 +266,7 @@
                 [
                     0, 
                     27, 
-                    1, 
+                    2, 
                     "SU-85B"
                 ], 
                 [
@@ -271,14 +289,14 @@
             "series": {
                 "diehardSeries": 0, 
                 "invincibleSeries": 0, 
-                "killingSeries": 0, 
+                "killingSeries": 1, 
                 "maxDiehardSeries": 0, 
                 "maxInvincibleSeries": 0, 
                 "maxKillingSeries": 2, 
                 "maxPiercingSeries": 6, 
                 "maxSniperSeries": 6, 
-                "piercingSeries": 0, 
-                "sniperSeries": 0
+                "piercingSeries": 3, 
+                "sniperSeries": 3
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -295,26 +313,26 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 15353, 
-                "battlesCount": 40, 
+                "battleLifeTime": 19746, 
+                "battlesCount": 51, 
                 "capturePoints": 9, 
-                "damageDealt": 23965, 
-                "damageReceived": 4703, 
+                "damageDealt": 31562, 
+                "damageReceived": 5903, 
                 "droppedCapturePoints": 37, 
-                "frags": 56, 
+                "frags": 74, 
                 "frags8p": 3, 
                 "fragsBeast": 2, 
-                "hits": 167, 
-                "losses": 17, 
-                "maxFrags": 5, 
+                "hits": 222, 
+                "losses": 23, 
+                "maxFrags": 7, 
                 "maxXP": 984, 
-                "shots": 551, 
-                "spotted": 6, 
-                "survivedBattles": 23, 
+                "shots": 706, 
+                "spotted": 7, 
+                "survivedBattles": 29, 
                 "treesCut": 0, 
-                "winAndSurvived": 19, 
-                "wins": 23, 
-                "xp": 17167
+                "winAndSurvived": 24, 
+                "wins": 28, 
+                "xp": 22010
             }, 
             "unknown": {
                 "unknown166": 0, 
@@ -519,31 +537,31 @@
         }, 
         "AMX 13 75": {
             "battle": {
-                "battleHeroes": 1, 
+                "battleHeroes": 8, 
                 "confederate": 0, 
                 "defender": 0, 
                 "evileye": 0, 
                 "invader": 1, 
-                "scout": 0, 
-                "sniper": 0, 
+                "scout": 2, 
+                "sniper": 4, 
                 "steelwall": 0, 
-                "topgun": 0, 
+                "topgun": 1, 
                 "unknown": 0, 
-                "warrior": 0
+                "warrior": 1
             }, 
             "clan": [], 
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
-                "frags_compare": 2, 
-                "lastBattleTime": 1342217942, 
-                "lastBattleTimeR": "2012-07-14 00:19:02", 
+                "frags_compare": 48, 
+                "lastBattleTime": 1348695287, 
+                "lastBattleTimeR": "2012-09-26 23:34:47", 
                 "premium": 0, 
                 "tankid": 20, 
                 "tanktitle": "AMX 13 75", 
                 "tier": 7, 
                 "type": 1, 
-                "updated": 1342217942
+                "updated": 1348695287
             }, 
             "company": [], 
             "epic": {
@@ -566,39 +584,243 @@
             }, 
             "kills": [
                 [
+                    0, 
+                    35, 
+                    1, 
+                    "KV-13"
+                ], 
+                [
+                    1, 
+                    32, 
+                    1, 
+                    "PzKpfw 38 nA"
+                ], 
+                [
+                    2, 
+                    20, 
+                    1, 
+                    "M5 Stuart"
+                ], 
+                [
+                    4, 
+                    28, 
+                    1, 
+                    "Lorraine155 50"
+                ], 
+                [
+                    0, 
+                    16, 
+                    1, 
+                    "SU-14"
+                ], 
+                [
+                    1, 
+                    22, 
+                    2, 
+                    "Grille"
+                ], 
+                [
+                    1, 
+                    6, 
+                    1, 
+                    "JagdPz IV"
+                ], 
+                [
+                    1, 
+                    18, 
+                    1, 
+                    "Sturmpanzer II"
+                ], 
+                [
+                    2, 
+                    38, 
+                    1, 
+                    "M24 Chaffee"
+                ], 
+                [
+                    1, 
+                    35, 
+                    3, 
+                    "GW Panther"
+                ], 
+                [
+                    2, 
+                    52, 
+                    1, 
+                    "T26E4 Super Pershing"
+                ], 
+                [
+                    1, 
+                    212, 
+                    1, 
+                    "L?we"
+                ], 
+                [
+                    2, 
+                    17, 
+                    1, 
+                    "T32"
+                ], 
+                [
+                    0, 
+                    22, 
+                    2, 
+                    "SU-8"
+                ], 
+                [
+                    0, 
+                    33, 
+                    1, 
+                    "Object 212"
+                ], 
+                [
+                    2, 
+                    41, 
+                    1, 
+                    "T49"
+                ], 
+                [
+                    3, 
+                    0, 
+                    1, 
+                    "Type 59"
+                ], 
+                [
+                    0, 
+                    34, 
+                    1, 
+                    "Object 261"
+                ], 
+                [
+                    2, 
+                    43, 
+                    1, 
+                    "T25/2"
+                ], 
+                [
+                    4, 
+                    16, 
+                    1, 
+                    "AMX 105AM"
+                ], 
+                [
+                    1, 
+                    40, 
+                    1, 
+                    "E-50"
+                ], 
+                [
+                    4, 
+                    20, 
+                    1, 
+                    "AMX 13 75"
+                ], 
+                [
+                    2, 
+                    6, 
+                    2, 
+                    "T20"
+                ], 
+                [
+                    0, 
+                    37, 
+                    1, 
+                    "T-50"
+                ], 
+                [
+                    0, 
+                    38, 
+                    2, 
+                    "T-50-2"
+                ], 
+                [
                     2, 
                     14, 
-                    1, 
+                    2, 
                     "M7 Priest"
+                ], 
+                [
+                    0, 
+                    23, 
+                    2, 
+                    "KV-3"
+                ], 
+                [
+                    0, 
+                    17, 
+                    1, 
+                    "T-44"
+                ], 
+                [
+                    0, 
+                    8, 
+                    1, 
+                    "A-20"
                 ], 
                 [
                     2, 
                     16, 
                     1, 
                     "M41"
+                ], 
+                [
+                    1, 
+                    1, 
+                    1, 
+                    "Hummel"
+                ], 
+                [
+                    0, 
+                    41, 
+                    1, 
+                    "KV-2"
+                ], 
+                [
+                    1, 
+                    34, 
+                    3, 
+                    "GW Tiger"
+                ], 
+                [
+                    4, 
+                    25, 
+                    2, 
+                    "AMX 12t"
+                ], 
+                [
+                    0, 
+                    10, 
+                    1, 
+                    "T-34-85"
+                ], 
+                [
+                    2, 
+                    51, 
+                    2, 
+                    "T110E4"
                 ]
             ], 
             "major": {
-                "Abrams": 0, 
-                "Carius": 0, 
-                "Ekins": 0, 
+                "Abrams": 4, 
+                "Carius": 4, 
+                "Ekins": 4, 
                 "Kay": 4, 
-                "Knispel": 0, 
+                "Knispel": 3, 
                 "Lavrinenko": 0, 
                 "LeClerc": 4, 
-                "Poppel": 0
+                "Poppel": 3
             }, 
             "series": {
                 "diehardSeries": 0, 
                 "invincibleSeries": 0, 
-                "killingSeries": 1, 
-                "maxDiehardSeries": 1, 
+                "killingSeries": 0, 
+                "maxDiehardSeries": 2, 
                 "maxInvincibleSeries": 1, 
                 "maxKillingSeries": 1, 
-                "maxPiercingSeries": 6, 
-                "maxSniperSeries": 6, 
-                "piercingSeries": 6, 
-                "sniperSeries": 6
+                "maxPiercingSeries": 12, 
+                "maxSniperSeries": 16, 
+                "piercingSeries": 3, 
+                "sniperSeries": 3
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -607,7 +829,365 @@
                 "handOfDeath": 0, 
                 "heroesOfRassenay": 0, 
                 "invincible": 0, 
-                "markOfMastery": 0, 
+                "markOfMastery": 4, 
+                "mousebane": 0, 
+                "raider": 1, 
+                "sinai": 0, 
+                "sniperspecial": 0, 
+                "tankExpert": 0
+            }, 
+            "tankdata": {
+                "battleLifeTime": 16914, 
+                "battlesCount": 107, 
+                "capturePoints": 149, 
+                "damageDealt": 37169, 
+                "damageReceived": 83517, 
+                "droppedCapturePoints": 15, 
+                "frags": 48, 
+                "frags8p": 9, 
+                "fragsBeast": 7, 
+                "hits": 445, 
+                "losses": 60, 
+                "maxFrags": 6, 
+                "maxXP": 1971, 
+                "shots": 630, 
+                "spotted": 310, 
+                "survivedBattles": 12, 
+                "treesCut": 0, 
+                "winAndSurvived": 10, 
+                "wins": 47, 
+                "xp": 52442
+            }, 
+            "unknown": {
+                "unknown166": 0, 
+                "unknown167": 0, 
+                "unknown168": 0, 
+                "unknown170": 0, 
+                "unknown171": 0, 
+                "unknown172": 0, 
+                "unknown278": 24, 
+                "unknown279": 1
+            }
+        }, 
+        "AMX 13 F3 AM": {
+            "battle": {
+                "battleHeroes": 0, 
+                "confederate": 0, 
+                "defender": 0, 
+                "evileye": 0, 
+                "invader": 0, 
+                "scout": 0, 
+                "sniper": 0, 
+                "steelwall": 0, 
+                "topgun": 0, 
+                "unknown": 0, 
+                "warrior": 3
+            }, 
+            "clan": [], 
+            "common": {
+                "basedonversion": 22, 
+                "countryid": 4, 
+                "frags_compare": 66, 
+                "lastBattleTime": 1348437919, 
+                "lastBattleTimeR": "2012-09-24 00:05:19", 
+                "premium": 0, 
+                "tankid": 18, 
+                "tanktitle": "AMX 13 F3 AM", 
+                "tier": 5, 
+                "type": 5, 
+                "updated": 1348437919
+            }, 
+            "company": [], 
+            "epic": {
+                "Billotte": 0, 
+                "Boelter": 0, 
+                "BrunoPietro": 0, 
+                "Burda": 0, 
+                "Dumitru": 0, 
+                "Fadin": 0, 
+                "Halonen": 0, 
+                "Kolobanov": 0, 
+                "LafayettePool": 0, 
+                "Lehvaslaiho": 0, 
+                "Nikolas": 0, 
+                "Orlik": 0, 
+                "Oskin": 0, 
+                "Pascucci": 0, 
+                "RadleyWalters": 0, 
+                "Tarczay": 0
+            }, 
+            "kills": [
+                [
+                    0, 
+                    46, 
+                    1, 
+                    "KV-1"
+                ], 
+                [
+                    2, 
+                    52, 
+                    1, 
+                    "T26E4 Super Pershing"
+                ], 
+                [
+                    1, 
+                    6, 
+                    1, 
+                    "JagdPz IV"
+                ], 
+                [
+                    0, 
+                    21, 
+                    3, 
+                    "IS-3"
+                ], 
+                [
+                    1, 
+                    1, 
+                    8, 
+                    "Hummel"
+                ], 
+                [
+                    1, 
+                    25, 
+                    1, 
+                    "PzKpfw III/IV"
+                ], 
+                [
+                    1, 
+                    2, 
+                    4, 
+                    "PzKpfw VI Tiger"
+                ], 
+                [
+                    1, 
+                    35, 
+                    1, 
+                    "GW Panther"
+                ], 
+                [
+                    2, 
+                    4, 
+                    1, 
+                    "M4 Sherman"
+                ], 
+                [
+                    1, 
+                    4, 
+                    3, 
+                    "StuG III"
+                ], 
+                [
+                    4, 
+                    16, 
+                    1, 
+                    "AMX 105AM"
+                ], 
+                [
+                    1, 
+                    213, 
+                    1, 
+                    "T-25"
+                ], 
+                [
+                    3, 
+                    0, 
+                    1, 
+                    "Type 59"
+                ], 
+                [
+                    1, 
+                    22, 
+                    2, 
+                    "Grille"
+                ], 
+                [
+                    0, 
+                    0, 
+                    2, 
+                    "T-34"
+                ], 
+                [
+                    0, 
+                    16, 
+                    1, 
+                    "SU-14"
+                ], 
+                [
+                    0, 
+                    19, 
+                    1, 
+                    "SU-5"
+                ], 
+                [
+                    2, 
+                    11, 
+                    2, 
+                    "T34"
+                ], 
+                [
+                    4, 
+                    18, 
+                    2, 
+                    "AMX 13 F3 AM"
+                ], 
+                [
+                    2, 
+                    10, 
+                    1, 
+                    "T30"
+                ], 
+                [
+                    0, 
+                    37, 
+                    2, 
+                    "T-50"
+                ], 
+                [
+                    2, 
+                    13, 
+                    1, 
+                    "T1 Heavy"
+                ], 
+                [
+                    1, 
+                    10, 
+                    1, 
+                    "VK 3001 (H)"
+                ], 
+                [
+                    4, 
+                    22, 
+                    1, 
+                    "Lorraine 40 t"
+                ], 
+                [
+                    0, 
+                    23, 
+                    3, 
+                    "KV-3"
+                ], 
+                [
+                    2, 
+                    15, 
+                    1, 
+                    "T29"
+                ], 
+                [
+                    1, 
+                    5, 
+                    1, 
+                    "PzKpfw V Panther"
+                ], 
+                [
+                    1, 
+                    21, 
+                    2, 
+                    "VK 1602 Leopard"
+                ], 
+                [
+                    0, 
+                    8, 
+                    1, 
+                    "A-20"
+                ], 
+                [
+                    2, 
+                    32, 
+                    2, 
+                    "T28"
+                ], 
+                [
+                    1, 
+                    0, 
+                    2, 
+                    "PzKpfw IV"
+                ], 
+                [
+                    0, 
+                    14, 
+                    1, 
+                    "SU-100"
+                ], 
+                [
+                    1, 
+                    212, 
+                    1, 
+                    "L?we"
+                ], 
+                [
+                    0, 
+                    41, 
+                    1, 
+                    "KV-2"
+                ], 
+                [
+                    1, 
+                    28, 
+                    1, 
+                    "VK 3001 (P)"
+                ], 
+                [
+                    1, 
+                    30, 
+                    1, 
+                    "Ferdinand"
+                ], 
+                [
+                    4, 
+                    10, 
+                    1, 
+                    "ARL 44"
+                ], 
+                [
+                    1, 
+                    15, 
+                    1, 
+                    "Jagdpanther"
+                ], 
+                [
+                    2, 
+                    3, 
+                    3, 
+                    "M6"
+                ], 
+                [
+                    1, 
+                    9, 
+                    1, 
+                    "VK 3601 (H)"
+                ]
+            ], 
+            "major": {
+                "Abrams": 4, 
+                "Carius": 4, 
+                "Ekins": 4, 
+                "Kay": 0, 
+                "Knispel": 4, 
+                "Lavrinenko": 4, 
+                "LeClerc": 4, 
+                "Poppel": 0
+            }, 
+            "series": {
+                "diehardSeries": 0, 
+                "invincibleSeries": 0, 
+                "killingSeries": 0, 
+                "maxDiehardSeries": 0, 
+                "maxInvincibleSeries": 0, 
+                "maxKillingSeries": 2, 
+                "maxPiercingSeries": 7, 
+                "maxSniperSeries": 7, 
+                "piercingSeries": 0, 
+                "sniperSeries": 0
+            }, 
+            "special": {
+                "armorPiercer": 1, 
+                "beasthunter": 0, 
+                "diehard": 0, 
+                "handOfDeath": 0, 
+                "heroesOfRassenay": 0, 
+                "invincible": 0, 
+                "markOfMastery": 2, 
                 "mousebane": 0, 
                 "raider": 0, 
                 "sinai": 0, 
@@ -615,26 +1195,26 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 1335, 
-                "battlesCount": 8, 
-                "capturePoints": 100, 
-                "damageDealt": 632, 
-                "damageReceived": 4550, 
-                "droppedCapturePoints": 0, 
-                "frags": 2, 
-                "frags8p": 0, 
-                "fragsBeast": 0, 
-                "hits": 11, 
-                "losses": 6, 
-                "maxFrags": 2, 
-                "maxXP": 594, 
-                "shots": 20, 
-                "spotted": 13, 
-                "survivedBattles": 1, 
+                "battleLifeTime": 26493, 
+                "battlesCount": 78, 
+                "capturePoints": 51, 
+                "damageDealt": 71236, 
+                "damageReceived": 14596, 
+                "droppedCapturePoints": 83, 
+                "frags": 66, 
+                "frags8p": 13, 
+                "fragsBeast": 8, 
+                "hits": 167, 
+                "losses": 36, 
+                "maxFrags": 4, 
+                "maxXP": 1278, 
+                "shots": 521, 
+                "spotted": 10, 
+                "survivedBattles": 31, 
                 "treesCut": 0, 
-                "winAndSurvived": 1, 
-                "wins": 2, 
-                "xp": 2233
+                "winAndSurvived": 29, 
+                "wins": 42, 
+                "xp": 39523
             }, 
             "unknown": {
                 "unknown166": 0, 
@@ -1300,6 +1880,322 @@
                 "winAndSurvived": 40, 
                 "wins": 78, 
                 "xp": 107633
+            }, 
+            "unknown": {
+                "unknown166": 0, 
+                "unknown167": 0, 
+                "unknown168": 1, 
+                "unknown170": 0, 
+                "unknown171": 0, 
+                "unknown172": 0, 
+                "unknown278": 24, 
+                "unknown279": 1
+            }
+        }, 
+        "AMX 50 120": {
+            "battle": {
+                "battleHeroes": 5, 
+                "confederate": 0, 
+                "defender": 1, 
+                "evileye": 0, 
+                "invader": 0, 
+                "scout": 0, 
+                "sniper": 4, 
+                "steelwall": 0, 
+                "topgun": 0, 
+                "unknown": 0, 
+                "warrior": 7
+            }, 
+            "clan": [], 
+            "common": {
+                "basedonversion": 22, 
+                "countryid": 4, 
+                "frags_compare": 52, 
+                "lastBattleTime": 1348607569, 
+                "lastBattleTimeR": "2012-09-25 23:12:49", 
+                "premium": 0, 
+                "tankid": 15, 
+                "tanktitle": "AMX 50 120", 
+                "tier": 9, 
+                "type": 3, 
+                "updated": 1348607569
+            }, 
+            "company": [], 
+            "epic": {
+                "Billotte": 0, 
+                "Boelter": 0, 
+                "BrunoPietro": 0, 
+                "Burda": 0, 
+                "Dumitru": 0, 
+                "Fadin": 0, 
+                "Halonen": 0, 
+                "Kolobanov": 0, 
+                "LafayettePool": 0, 
+                "Lehvaslaiho": 0, 
+                "Nikolas": 0, 
+                "Orlik": 0, 
+                "Oskin": 0, 
+                "Pascucci": 0, 
+                "RadleyWalters": 0, 
+                "Tarczay": 0
+            }, 
+            "kills": [
+                [
+                    0, 
+                    208, 
+                    1, 
+                    "KV-5"
+                ], 
+                [
+                    0, 
+                    28, 
+                    1, 
+                    "IS-7"
+                ], 
+                [
+                    0, 
+                    31, 
+                    3, 
+                    "T-54"
+                ], 
+                [
+                    1, 
+                    1, 
+                    1, 
+                    "Hummel"
+                ], 
+                [
+                    0, 
+                    34, 
+                    1, 
+                    "Object 261"
+                ], 
+                [
+                    1, 
+                    33, 
+                    1, 
+                    "Panther II"
+                ], 
+                [
+                    1, 
+                    34, 
+                    1, 
+                    "GW Tiger"
+                ], 
+                [
+                    1, 
+                    35, 
+                    3, 
+                    "GW Panther"
+                ], 
+                [
+                    4, 
+                    15, 
+                    1, 
+                    "AMX 50 120"
+                ], 
+                [
+                    2, 
+                    37, 
+                    1, 
+                    "M103"
+                ], 
+                [
+                    0, 
+                    32, 
+                    1, 
+                    "Object 704"
+                ], 
+                [
+                    0, 
+                    33, 
+                    1, 
+                    "Object 212"
+                ], 
+                [
+                    0, 
+                    38, 
+                    1, 
+                    "T-50-2"
+                ], 
+                [
+                    1, 
+                    42, 
+                    1, 
+                    "PzKpfw VI Tiger (P)"
+                ], 
+                [
+                    3, 
+                    0, 
+                    5, 
+                    "Type 59"
+                ], 
+                [
+                    1, 
+                    38, 
+                    4, 
+                    "E-75"
+                ], 
+                [
+                    4, 
+                    19, 
+                    4, 
+                    "AMX 13 90"
+                ], 
+                [
+                    4, 
+                    20, 
+                    1, 
+                    "AMX 13 75"
+                ], 
+                [
+                    2, 
+                    44, 
+                    1, 
+                    "T28 Prototype"
+                ], 
+                [
+                    2, 
+                    23, 
+                    1, 
+                    "M26 Pershing"
+                ], 
+                [
+                    0, 
+                    21, 
+                    4, 
+                    "IS-3"
+                ], 
+                [
+                    2, 
+                    29, 
+                    1, 
+                    "M40/M43"
+                ], 
+                [
+                    0, 
+                    54, 
+                    1, 
+                    "T-62A"
+                ], 
+                [
+                    4, 
+                    22, 
+                    1, 
+                    "Lorraine 40 t"
+                ], 
+                [
+                    0, 
+                    7, 
+                    1, 
+                    "S-51"
+                ], 
+                [
+                    1, 
+                    5, 
+                    1, 
+                    "PzKpfw V Panther"
+                ], 
+                [
+                    4, 
+                    55, 
+                    1, 
+                    "ELC AMX"
+                ], 
+                [
+                    2, 
+                    32, 
+                    1, 
+                    "T28"
+                ], 
+                [
+                    1, 
+                    20, 
+                    3, 
+                    "PzKpfw VIB Tiger II"
+                ], 
+                [
+                    4, 
+                    25, 
+                    1, 
+                    "AMX 12t"
+                ], 
+                [
+                    4, 
+                    27, 
+                    1, 
+                    "AMX M4(1945)"
+                ], 
+                [
+                    2, 
+                    35, 
+                    1, 
+                    "M46 Patton"
+                ], 
+                [
+                    2, 
+                    51, 
+                    1, 
+                    "T110E4"
+                ]
+            ], 
+            "major": {
+                "Abrams": 4, 
+                "Carius": 4, 
+                "Ekins": 3, 
+                "Kay": 4, 
+                "Knispel": 3, 
+                "Lavrinenko": 4, 
+                "LeClerc": 0, 
+                "Poppel": 4
+            }, 
+            "series": {
+                "diehardSeries": 0, 
+                "invincibleSeries": 0, 
+                "killingSeries": 0, 
+                "maxDiehardSeries": 3, 
+                "maxInvincibleSeries": 0, 
+                "maxKillingSeries": 5, 
+                "maxPiercingSeries": 17, 
+                "maxSniperSeries": 24, 
+                "piercingSeries": 0, 
+                "sniperSeries": 2
+            }, 
+            "special": {
+                "armorPiercer": 1, 
+                "beasthunter": 0, 
+                "diehard": 0, 
+                "handOfDeath": 0, 
+                "heroesOfRassenay": 0, 
+                "invincible": 0, 
+                "markOfMastery": 2, 
+                "mousebane": 0, 
+                "raider": 1, 
+                "sinai": 0, 
+                "sniperspecial": 0, 
+                "tankExpert": 0
+            }, 
+            "tankdata": {
+                "battleLifeTime": 19573, 
+                "battlesCount": 71, 
+                "capturePoints": 0, 
+                "damageDealt": 87868, 
+                "damageReceived": 113447, 
+                "droppedCapturePoints": 144, 
+                "frags": 52, 
+                "frags8p": 37, 
+                "fragsBeast": 10, 
+                "hits": 504, 
+                "losses": 37, 
+                "maxFrags": 5, 
+                "maxXP": 1423, 
+                "shots": 652, 
+                "spotted": 95, 
+                "survivedBattles": 13, 
+                "treesCut": 0, 
+                "winAndSurvived": 13, 
+                "wins": 33, 
+                "xp": 46284
             }, 
             "unknown": {
                 "unknown166": 0, 
@@ -2253,6 +3149,123 @@
                 "unknown266": 1
             }
         }, 
+        "ELC AMX": {
+            "battle": {
+                "battleHeroes": 0, 
+                "confederate": 0, 
+                "defender": 0, 
+                "evileye": 0, 
+                "invader": 0, 
+                "scout": 0, 
+                "sniper": 0, 
+                "steelwall": 0, 
+                "topgun": 0, 
+                "unknown": 0, 
+                "warrior": 0
+            }, 
+            "clan": [], 
+            "common": {
+                "basedonversion": 22, 
+                "countryid": 4, 
+                "frags_compare": 0, 
+                "lastBattleTime": 1344026858, 
+                "lastBattleTimeR": "2012-08-03 22:47:38", 
+                "premium": 0, 
+                "tankid": 55, 
+                "tanktitle": "ELC AMX", 
+                "tier": 5, 
+                "type": 1, 
+                "updated": 1344026858
+            }, 
+            "company": [], 
+            "epic": {
+                "Billotte": 0, 
+                "Boelter": 0, 
+                "BrunoPietro": 0, 
+                "Burda": 0, 
+                "Dumitru": 0, 
+                "Fadin": 0, 
+                "Halonen": 0, 
+                "Kolobanov": 0, 
+                "LafayettePool": 0, 
+                "Lehvaslaiho": 0, 
+                "Nikolas": 0, 
+                "Orlik": 0, 
+                "Oskin": 0, 
+                "Pascucci": 0, 
+                "RadleyWalters": 0, 
+                "Tarczay": 0
+            }, 
+            "kills": [], 
+            "major": {
+                "Abrams": 0, 
+                "Carius": 0, 
+                "Ekins": 0, 
+                "Kay": 0, 
+                "Knispel": 0, 
+                "Lavrinenko": 0, 
+                "LeClerc": 0, 
+                "Poppel": 0
+            }, 
+            "series": {
+                "diehardSeries": 0, 
+                "invincibleSeries": 0, 
+                "killingSeries": 0, 
+                "maxDiehardSeries": 0, 
+                "maxInvincibleSeries": 0, 
+                "maxKillingSeries": 0, 
+                "maxPiercingSeries": 1, 
+                "maxSniperSeries": 1, 
+                "piercingSeries": 1, 
+                "sniperSeries": 1
+            }, 
+            "special": {
+                "armorPiercer": 0, 
+                "beasthunter": 0, 
+                "diehard": 0, 
+                "handOfDeath": 0, 
+                "heroesOfRassenay": 0, 
+                "invincible": 0, 
+                "markOfMastery": 0, 
+                "mousebane": 0, 
+                "raider": 0, 
+                "sinai": 0, 
+                "sniperspecial": 0, 
+                "tankExpert": 0
+            }, 
+            "tankdata": {
+                "battleLifeTime": 236, 
+                "battlesCount": 2, 
+                "capturePoints": 0, 
+                "damageDealt": 242, 
+                "damageReceived": 800, 
+                "droppedCapturePoints": 0, 
+                "frags": 0, 
+                "frags8p": 0, 
+                "fragsBeast": 0, 
+                "hits": 1, 
+                "losses": 1, 
+                "maxFrags": 0, 
+                "maxXP": 357, 
+                "shots": 2, 
+                "spotted": 10, 
+                "survivedBattles": 0, 
+                "treesCut": 0, 
+                "winAndSurvived": 0, 
+                "wins": 1, 
+                "xp": 600
+            }, 
+            "unknown": {
+                "unknown166": 0, 
+                "unknown167": 0, 
+                "unknown168": 0, 
+                "unknown170": 0, 
+                "unknown171": 0, 
+                "unknown172": 0, 
+                "unknown278": 24, 
+                "unknown279": 1
+            }
+        }, 
         "IS": {
             "battle": {
                 "battleHeroes": 4, 
@@ -2627,31 +3640,31 @@
         }, 
         "IS-3": {
             "battle": {
-                "battleHeroes": 23, 
-                "confederate": 3, 
+                "battleHeroes": 25, 
+                "confederate": 4, 
                 "defender": 1, 
                 "evileye": 0, 
                 "invader": 0, 
                 "scout": 0, 
-                "sniper": 15, 
+                "sniper": 16, 
                 "steelwall": 3, 
                 "topgun": 1, 
                 "unknown": 0, 
-                "warrior": 26
+                "warrior": 30
             }, 
             "clan": [], 
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
-                "frags_compare": 328, 
-                "lastBattleTime": 1341954854, 
-                "lastBattleTimeR": "2012-07-10 23:14:14", 
+                "frags_compare": 351, 
+                "lastBattleTime": 1347833683, 
+                "lastBattleTimeR": "2012-09-17 00:14:43", 
                 "premium": 0, 
                 "tankid": 21, 
                 "tanktitle": "IS-3", 
                 "tier": 8, 
                 "type": 3, 
-                "updated": 1341954854
+                "updated": 1347833683
             }, 
             "company": [], 
             "epic": {
@@ -2675,15 +3688,15 @@
             "kills": [
                 [
                     0, 
-                    22, 
-                    4, 
-                    "SU-8"
+                    46, 
+                    3, 
+                    "KV-1"
                 ], 
                 [
-                    0, 
-                    21, 
-                    8, 
-                    "IS-3"
+                    1, 
+                    25, 
+                    9, 
+                    "PzKpfw III/IV"
                 ], 
                 [
                     1, 
@@ -2693,15 +3706,21 @@
                 ], 
                 [
                     2, 
-                    4, 
-                    4, 
-                    "M4 Sherman"
+                    36, 
+                    3, 
+                    "T25 AT"
+                ], 
+                [
+                    1, 
+                    6, 
+                    5, 
+                    "JagdPz IV"
                 ], 
                 [
                     0, 
-                    2, 
-                    9, 
-                    "IS"
+                    28, 
+                    4, 
+                    "IS-7"
                 ], 
                 [
                     0, 
@@ -2734,28 +3753,28 @@
                     "PzKpfw VI Tiger"
                 ], 
                 [
-                    0, 
-                    28, 
-                    4, 
-                    "IS-7"
+                    2, 
+                    6, 
+                    2, 
+                    "T20"
+                ], 
+                [
+                    1, 
+                    35, 
+                    7, 
+                    "GW Panther"
                 ], 
                 [
                     2, 
-                    5, 
-                    5, 
-                    "M4A3E8 Sherman"
+                    4, 
+                    4, 
+                    "M4 Sherman"
                 ], 
                 [
                     1, 
                     28, 
-                    4, 
+                    6, 
                     "VK 3001 (P)"
-                ], 
-                [
-                    2, 
-                    36, 
-                    3, 
-                    "T25 AT"
                 ], 
                 [
                     0, 
@@ -2778,14 +3797,14 @@
                 [
                     3, 
                     0, 
-                    6, 
+                    7, 
                     "Type 59"
                 ], 
                 [
-                    1, 
-                    6, 
-                    5, 
-                    "JagdPz IV"
+                    0, 
+                    2, 
+                    10, 
+                    "IS"
                 ], 
                 [
                     1, 
@@ -2796,7 +3815,7 @@
                 [
                     1, 
                     20, 
-                    7, 
+                    8, 
                     "PzKpfw VIB Tiger II"
                 ], 
                 [
@@ -2810,6 +3829,12 @@
                     11, 
                     5, 
                     "T34"
+                ], 
+                [
+                    4, 
+                    19, 
+                    2, 
+                    "AMX 13 90"
                 ], 
                 [
                     4, 
@@ -2830,6 +3855,12 @@
                     "M3 Lee"
                 ], 
                 [
+                    4, 
+                    20, 
+                    2, 
+                    "AMX 13 75"
+                ], 
+                [
                     0, 
                     5, 
                     9, 
@@ -2842,28 +3873,22 @@
                     "T1 Heavy"
                 ], 
                 [
-                    0, 
-                    23, 
-                    8, 
-                    "KV-3"
+                    1, 
+                    27, 
+                    1, 
+                    "Maus"
                 ], 
                 [
-                    1, 
-                    10, 
+                    0, 
                     6, 
-                    "VK 3001 (H)"
+                    1, 
+                    "T-28"
                 ], 
                 [
                     2, 
                     14, 
                     1, 
                     "M7 Priest"
-                ], 
-                [
-                    4, 
-                    22, 
-                    1, 
-                    "Lorraine 40 t"
                 ], 
                 [
                     1, 
@@ -2882,6 +3907,12 @@
                     15, 
                     6, 
                     "T29"
+                ], 
+                [
+                    4, 
+                    55, 
+                    1, 
+                    "ELC AMX"
                 ], 
                 [
                     0, 
@@ -2910,13 +3941,13 @@
                 [
                     1, 
                     212, 
-                    8, 
+                    9, 
                     "L?we"
                 ], 
                 [
                     0, 
                     9, 
-                    1, 
+                    2, 
                     "SU-152"
                 ], 
                 [
@@ -2926,10 +3957,10 @@
                     "T32"
                 ], 
                 [
-                    0, 
-                    11, 
-                    2, 
-                    "KV-1S"
+                    1, 
+                    15, 
+                    7, 
+                    "Jagdpanther"
                 ], 
                 [
                     0, 
@@ -2956,10 +3987,10 @@
                     "Object 212"
                 ], 
                 [
-                    1, 
-                    15, 
-                    7, 
-                    "Jagdpanther"
+                    0, 
+                    11, 
+                    2, 
+                    "KV-1S"
                 ], 
                 [
                     1, 
@@ -2980,22 +4011,28 @@
                     "M5 Stuart"
                 ], 
                 [
-                    4, 
-                    19, 
+                    0, 
+                    37, 
                     1, 
-                    "AMX 13 90"
+                    "T-50"
+                ], 
+                [
+                    4, 
+                    22, 
+                    1, 
+                    "Lorraine 40 t"
+                ], 
+                [
+                    0, 
+                    45, 
+                    1, 
+                    "IS-8"
                 ], 
                 [
                     0, 
                     31, 
-                    7, 
+                    8, 
                     "T-54"
-                ], 
-                [
-                    1, 
-                    35, 
-                    6, 
-                    "GW Panther"
                 ], 
                 [
                     1, 
@@ -3022,10 +4059,10 @@
                     "SU-14"
                 ], 
                 [
-                    0, 
-                    6, 
                     1, 
-                    "T-28"
+                    10, 
+                    6, 
+                    "VK 3001 (H)"
                 ], 
                 [
                     1, 
@@ -3038,6 +4075,12 @@
                     17, 
                     8, 
                     "T-44"
+                ], 
+                [
+                    0, 
+                    38, 
+                    1, 
+                    "T-50-2"
                 ], 
                 [
                     1, 
@@ -3062,12 +4105,6 @@
                     4, 
                     1, 
                     "StuG III"
-                ], 
-                [
-                    2, 
-                    3, 
-                    3, 
-                    "M6"
                 ], 
                 [
                     0, 
@@ -3095,33 +4132,45 @@
                 ], 
                 [
                     2, 
+                    5, 
                     6, 
-                    2, 
-                    "T20"
+                    "M4A3E8 Sherman"
                 ], 
                 [
-                    1, 
-                    25, 
-                    9, 
-                    "PzKpfw III/IV"
+                    0, 
+                    21, 
+                    10, 
+                    "IS-3"
                 ], 
                 [
-                    1, 
-                    27, 
-                    1, 
-                    "Maus"
+                    0, 
+                    22, 
+                    4, 
+                    "SU-8"
+                ], 
+                [
+                    0, 
+                    23, 
+                    8, 
+                    "KV-3"
                 ], 
                 [
                     2, 
                     31, 
-                    2, 
+                    3, 
                     "M12"
                 ], 
                 [
                     1, 
                     5, 
-                    8, 
+                    9, 
                     "PzKpfw V Panther"
+                ], 
+                [
+                    2, 
+                    44, 
+                    2, 
+                    "T28 Prototype"
                 ], 
                 [
                     0, 
@@ -3132,7 +4181,7 @@
                 [
                     2, 
                     32, 
-                    1, 
+                    2, 
                     "T28"
                 ], 
                 [
@@ -3154,16 +4203,10 @@
                     "T92"
                 ], 
                 [
-                    0, 
-                    46, 
+                    2, 
                     3, 
-                    "KV-1"
-                ], 
-                [
-                    1, 
-                    30, 
-                    7, 
-                    "Ferdinand"
+                    3, 
+                    "M6"
                 ], 
                 [
                     0, 
@@ -3179,21 +4222,21 @@
                 ], 
                 [
                     2, 
-                    44, 
+                    35, 
                     2, 
-                    "T28 Prototype"
+                    "M46 Patton"
                 ], 
                 [
                     1, 
                     31, 
-                    3, 
+                    4, 
                     "Jagdtiger"
                 ], 
                 [
-                    2, 
-                    35, 
-                    2, 
-                    "M46 Patton"
+                    1, 
+                    30, 
+                    7, 
+                    "Ferdinand"
                 ]
             ], 
             "major": {
@@ -3207,16 +4250,16 @@
                 "Poppel": 3
             }, 
             "series": {
-                "diehardSeries": 3, 
+                "diehardSeries": 1, 
                 "invincibleSeries": 0, 
-                "killingSeries": 0, 
+                "killingSeries": 1, 
                 "maxDiehardSeries": 4, 
                 "maxInvincibleSeries": 1, 
                 "maxKillingSeries": 5, 
                 "maxPiercingSeries": 16, 
                 "maxSniperSeries": 28, 
                 "piercingSeries": 1, 
-                "sniperSeries": 3
+                "sniperSeries": 1
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -3233,26 +4276,26 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 108719, 
-                "battlesCount": 355, 
+                "battleLifeTime": 114411, 
+                "battlesCount": 373, 
                 "capturePoints": 596, 
-                "damageDealt": 436844, 
-                "damageReceived": 441515, 
-                "droppedCapturePoints": 205, 
-                "frags": 328, 
-                "frags8p": 117, 
-                "fragsBeast": 75, 
-                "hits": 1833, 
-                "losses": 176, 
+                "damageDealt": 466847, 
+                "damageReceived": 464050, 
+                "droppedCapturePoints": 230, 
+                "frags": 351, 
+                "frags8p": 127, 
+                "fragsBeast": 80, 
+                "hits": 1950, 
+                "losses": 186, 
                 "maxFrags": 8, 
                 "maxXP": 1861, 
-                "shots": 2298, 
-                "spotted": 385, 
-                "survivedBattles": 105, 
+                "shots": 2450, 
+                "spotted": 406, 
+                "survivedBattles": 110, 
                 "treesCut": 0, 
-                "winAndSurvived": 89, 
-                "wins": 173, 
-                "xp": 240151
+                "winAndSurvived": 93, 
+                "wins": 181, 
+                "xp": 255061
             }, 
             "unknown": {
                 "unknown166": 0, 
@@ -3267,46 +4310,50 @@
         }, 
         "IS-4": {
             "battle": {
-                "battleHeroes": 5, 
-                "confederate": 0, 
+                "battleHeroes": 6, 
+                "confederate": 1, 
                 "defender": 0, 
                 "evileye": 0, 
                 "invader": 0, 
                 "scout": 0, 
                 "sniper": 4, 
                 "steelwall": 1, 
-                "warrior": 0
+                "topgun": 0, 
+                "unknown": 0, 
+                "warrior": 7
             }, 
             "clan": [], 
             "common": {
-                "basedonversion": 20, 
+                "basedonversion": 22, 
                 "countryid": 0, 
-                "frags_compare": 23, 
-                "lastBattleTime": 1339621087, 
-                "lastBattleTimeR": "2012-06-13 22:58:07", 
+                "frags_compare": 26, 
+                "lastBattleTime": 1347831707, 
+                "lastBattleTimeR": "2012-09-16 23:41:47", 
                 "premium": 0, 
                 "tankid": 24, 
                 "tanktitle": "IS-4", 
                 "tier": 10, 
                 "type": 3, 
-                "updated": 1339621087
+                "updated": 1347831707
             }, 
             "company": [], 
             "epic": {
                 "Billotte": 0, 
                 "Boelter": 0, 
+                "BrunoPietro": 0, 
                 "Burda": 0, 
-                "DeLaglanda": 0, 
-                "Erohin": 0, 
+                "Dumitru": 0, 
                 "Fadin": 0, 
                 "Halonen": 0, 
-                "HeroesOfRassenai": 0, 
-                "Horoshilov": 0, 
                 "Kolobanov": 0, 
-                "Lister": 0, 
+                "LafayettePool": 0, 
+                "Lehvaslaiho": 0, 
+                "Nikolas": 0, 
                 "Orlik": 0, 
                 "Oskin": 0, 
-                "TamadaYoshio": 0
+                "Pascucci": 0, 
+                "RadleyWalters": 0, 
+                "Tarczay": 0
             }, 
             "kills": [
                 [
@@ -3318,20 +4365,26 @@
                 [
                     0, 
                     28, 
-                    1, 
+                    2, 
                     "IS-7"
                 ], 
                 [
                     0, 
-                    24, 
-                    3, 
-                    "IS-4"
+                    33, 
+                    1, 
+                    "Object 212"
                 ], 
                 [
                     2, 
                     29, 
                     1, 
                     "M40/M43"
+                ], 
+                [
+                    1, 
+                    42, 
+                    1, 
+                    "PzKpfw VI Tiger (P)"
                 ], 
                 [
                     1, 
@@ -3358,34 +4411,22 @@
                     "M41"
                 ], 
                 [
-                    2, 
-                    35, 
                     1, 
-                    "M46 Patton"
+                    34, 
+                    1, 
+                    "GW Tiger"
                 ], 
                 [
-                    0, 
-                    32, 
                     1, 
-                    "Object 704"
+                    20, 
+                    1, 
+                    "PzKpfw VIB Tiger II"
                 ], 
                 [
                     1, 
                     37, 
-                    1, 
+                    2, 
                     "E-100"
-                ], 
-                [
-                    1, 
-                    42, 
-                    1, 
-                    "PzKpfw VI Tiger (P)"
-                ], 
-                [
-                    0, 
-                    33, 
-                    1, 
-                    "Object 212"
                 ], 
                 [
                     2, 
@@ -3401,6 +4442,12 @@
                 ], 
                 [
                     0, 
+                    32, 
+                    1, 
+                    "Object 704"
+                ], 
+                [
+                    0, 
                     26, 
                     1, 
                     "T-43"
@@ -3412,10 +4459,16 @@
                     "T110E5"
                 ], 
                 [
+                    2, 
+                    35, 
                     1, 
-                    20, 
-                    1, 
-                    "PzKpfw VIB Tiger II"
+                    "M46 Patton"
+                ], 
+                [
+                    0, 
+                    24, 
+                    3, 
+                    "IS-4"
                 ], 
                 [
                     1, 
@@ -3437,7 +4490,7 @@
                 ]
             ], 
             "major": {
-                "Abrams": 0, 
+                "Abrams": 4, 
                 "Carius": 4, 
                 "Ekins": 4, 
                 "Kay": 4, 
@@ -3447,7 +4500,7 @@
                 "Poppel": 4
             }, 
             "series": {
-                "diehardSeries": 0, 
+                "diehardSeries": 1, 
                 "invincibleSeries": 0, 
                 "killingSeries": 0, 
                 "maxDiehardSeries": 2, 
@@ -3455,48 +4508,54 @@
                 "maxKillingSeries": 3, 
                 "maxPiercingSeries": 13, 
                 "maxSniperSeries": 22, 
-                "piercingSeries": 1, 
-                "sniperSeries": 2
+                "piercingSeries": 3, 
+                "sniperSeries": 3
             }, 
             "special": {
                 "armorPiercer": 1, 
                 "beasthunter": 0, 
                 "diehard": 0, 
-                "handOfDeath": 1, 
+                "handOfDeath": 0, 
+                "heroesOfRassenay": 0, 
                 "invincible": 0, 
-                "kamikaze": 0, 
-                "lumberjack": 0, 
                 "markOfMastery": 2, 
                 "mousebane": 0, 
-                "raider": 0, 
-                "sniperspecial": 1, 
+                "raider": 1, 
+                "sinai": 0, 
+                "sniperspecial": 0, 
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 9446, 
-                "battlesCount": 25, 
+                "battleLifeTime": 11969, 
+                "battlesCount": 32, 
                 "capturePoints": 61, 
-                "damageDealt": 50807, 
-                "damageReceived": 49212, 
-                "droppedCapturePoints": 0, 
-                "frags": 23, 
-                "frags8p": 16, 
-                "fragsBeast": 4, 
-                "hits": 217, 
-                "losses": 13, 
+                "damageDealt": 62462, 
+                "damageReceived": 64242, 
+                "droppedCapturePoints": 21, 
+                "frags": 26, 
+                "frags8p": 18, 
+                "fragsBeast": 5, 
+                "hits": 263, 
+                "losses": 17, 
                 "maxFrags": 3, 
                 "maxXP": 1545, 
-                "shots": 257, 
-                "spotted": 30, 
-                "survivedBattles": 8, 
+                "shots": 326, 
+                "spotted": 37, 
+                "survivedBattles": 10, 
                 "treesCut": 0, 
-                "winAndSurvived": 7, 
-                "wins": 12, 
-                "xp": 19019
+                "winAndSurvived": 9, 
+                "wins": 15, 
+                "xp": 23140
             }, 
             "unknown": {
-                "unknown265": 11, 
-                "unknown266": 1
+                "unknown166": 0, 
+                "unknown167": 0, 
+                "unknown168": 1, 
+                "unknown170": 0, 
+                "unknown171": 0, 
+                "unknown172": 0, 
+                "unknown278": 24, 
+                "unknown279": 1
             }
         }, 
         "IS-7": {
@@ -4399,31 +5458,31 @@
         }, 
         "ISU-152": {
             "battle": {
-                "battleHeroes": 1, 
+                "battleHeroes": 2, 
                 "confederate": 0, 
                 "defender": 0, 
                 "evileye": 0, 
                 "invader": 0, 
                 "scout": 0, 
-                "sniper": 1, 
+                "sniper": 2, 
                 "steelwall": 0, 
                 "topgun": 0, 
                 "unknown": 0, 
-                "warrior": 3
+                "warrior": 26
             }, 
             "clan": [], 
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
-                "frags_compare": 43, 
-                "lastBattleTime": 1342215797, 
-                "lastBattleTimeR": "2012-07-13 23:43:17", 
+                "frags_compare": 164, 
+                "lastBattleTime": 1348696299, 
+                "lastBattleTimeR": "2012-09-26 23:51:39", 
                 "premium": 0, 
                 "tankid": 29, 
                 "tanktitle": "ISU-152", 
                 "tier": 8, 
                 "type": 4, 
-                "updated": 1342215797
+                "updated": 1348696299
             }, 
             "company": [], 
             "epic": {
@@ -4447,135 +5506,45 @@
             "kills": [
                 [
                     0, 
-                    45, 
-                    1, 
-                    "IS-8"
+                    44, 
+                    2, 
+                    "T-150"
                 ], 
                 [
                     0, 
                     21, 
-                    2, 
+                    11, 
                     "IS-3"
                 ], 
                 [
                     1, 
-                    40, 
-                    2, 
-                    "E-50"
+                    32, 
+                    1, 
+                    "PzKpfw 38 nA"
                 ], 
                 [
                     2, 
                     11, 
-                    1, 
+                    3, 
                     "T34"
                 ], 
                 [
                     4, 
                     12, 
-                    1, 
+                    2, 
                     "AMX 50 100"
                 ], 
                 [
                     0, 
-                    44, 
-                    1, 
-                    "T-150"
+                    28, 
+                    2, 
+                    "IS-7"
                 ], 
                 [
                     0, 
-                    37, 
-                    2, 
-                    "T-50"
-                ], 
-                [
-                    1, 
-                    1, 
-                    2, 
-                    "Hummel"
-                ], 
-                [
-                    1, 
-                    42, 
-                    1, 
-                    "PzKpfw VI Tiger (P)"
-                ], 
-                [
-                    1, 
-                    10, 
-                    1, 
-                    "VK 3001 (H)"
-                ], 
-                [
-                    4, 
-                    22, 
-                    1, 
-                    "Lorraine 40 t"
-                ], 
-                [
-                    1, 
-                    33, 
-                    1, 
-                    "Panther II"
-                ], 
-                [
-                    1, 
-                    35, 
-                    1, 
-                    "GW Panther"
-                ], 
-                [
-                    2, 
-                    15, 
-                    1, 
-                    "T29"
-                ], 
-                [
-                    4, 
-                    43, 
-                    1, 
-                    "AMX 50 Foch"
-                ], 
-                [
-                    2, 
-                    6, 
-                    1, 
-                    "T20"
-                ], 
-                [
-                    0, 
-                    208, 
-                    1, 
-                    "KV-5"
-                ], 
-                [
-                    1, 
-                    2, 
-                    1, 
-                    "PzKpfw VI Tiger"
-                ], 
-                [
-                    1, 
-                    212, 
-                    2, 
-                    "L?we"
-                ], 
-                [
-                    0, 
-                    1, 
-                    1, 
-                    "SU-85"
-                ], 
-                [
-                    0, 
-                    11, 
-                    2, 
-                    "KV-1S"
-                ], 
-                [
-                    2, 
+                    29, 
                     3, 
-                    1, 
-                    "M6"
+                    "ISU-152"
                 ], 
                 [
                     1, 
@@ -4584,10 +5553,40 @@
                     "E-75"
                 ], 
                 [
-                    4, 
-                    20, 
+                    1, 
+                    41, 
+                    1, 
+                    "VK 4502 (P) Ausf. A"
+                ], 
+                [
+                    1, 
+                    2, 
+                    7, 
+                    "PzKpfw VI Tiger"
+                ], 
+                [
+                    1, 
+                    35, 
+                    1, 
+                    "GW Panther"
+                ], 
+                [
+                    1, 
+                    6, 
                     3, 
-                    "AMX 13 75"
+                    "JagdPz IV"
+                ], 
+                [
+                    2, 
+                    52, 
+                    2, 
+                    "T26E4 Super Pershing"
+                ], 
+                [
+                    2, 
+                    36, 
+                    1, 
+                    "T25 AT"
                 ], 
                 [
                     1, 
@@ -4596,22 +5595,40 @@
                     "StuG III"
                 ], 
                 [
-                    1, 
-                    20, 
-                    2, 
-                    "PzKpfw VIB Tiger II"
-                ], 
-                [
-                    4, 
-                    27, 
-                    1, 
-                    "AMX M4(1945)"
-                ], 
-                [
-                    1, 
-                    15, 
                     3, 
-                    "Jagdpanther"
+                    1, 
+                    1, 
+                    "Type 62"
+                ], 
+                [
+                    1, 
+                    37, 
+                    1, 
+                    "E-100"
+                ], 
+                [
+                    3, 
+                    0, 
+                    4, 
+                    "Type 59"
+                ], 
+                [
+                    1, 
+                    1, 
+                    2, 
+                    "Hummel"
+                ], 
+                [
+                    0, 
+                    2, 
+                    6, 
+                    "IS"
+                ], 
+                [
+                    2, 
+                    42, 
+                    1, 
+                    "T110E5"
                 ], 
                 [
                     2, 
@@ -4621,32 +5638,290 @@
                 ], 
                 [
                     4, 
+                    43, 
+                    1, 
+                    "AMX 50 Foch"
+                ], 
+                [
+                    1, 
+                    40, 
+                    3, 
+                    "E-50"
+                ], 
+                [
+                    2, 
+                    44, 
+                    1, 
+                    "T28 Prototype"
+                ], 
+                [
+                    4, 
+                    20, 
+                    5, 
+                    "AMX 13 75"
+                ], 
+                [
+                    0, 
+                    37, 
+                    3, 
+                    "T-50"
+                ], 
+                [
+                    2, 
+                    45, 
+                    2, 
+                    "M18 Hellcat"
+                ], 
+                [
+                    0, 
+                    38, 
+                    2, 
+                    "T-50-2"
+                ], 
+                [
+                    4, 
+                    22, 
+                    3, 
+                    "Lorraine 40 t"
+                ], 
+                [
+                    1, 
+                    33, 
+                    2, 
+                    "Panther II"
+                ], 
+                [
+                    0, 
+                    7, 
+                    1, 
+                    "S-51"
+                ], 
+                [
+                    2, 
+                    15, 
+                    2, 
+                    "T29"
+                ], 
+                [
+                    4, 
+                    55, 
+                    2, 
+                    "ELC AMX"
+                ], 
+                [
+                    0, 
+                    8, 
+                    1, 
+                    "A-20"
+                ], 
+                [
+                    1, 
+                    45, 
+                    1, 
+                    "Jagdpanther II"
+                ], 
+                [
+                    0, 
+                    208, 
+                    7, 
+                    "KV-5"
+                ], 
+                [
+                    1, 
+                    212, 
+                    9, 
+                    "L?we"
+                ], 
+                [
+                    0, 
+                    41, 
+                    1, 
+                    "KV-2"
+                ], 
+                [
+                    4, 
+                    25, 
+                    2, 
+                    "AMX 12t"
+                ], 
+                [
+                    0, 
+                    11, 
+                    6, 
+                    "KV-1S"
+                ], 
+                [
+                    0, 
+                    10, 
+                    2, 
+                    "T-34-85"
+                ], 
+                [
+                    0, 
+                    43, 
+                    1, 
+                    "KV-4"
+                ], 
+                [
+                    0, 
+                    24, 
+                    1, 
+                    "IS-4"
+                ], 
+                [
+                    1, 
+                    15, 
+                    4, 
+                    "Jagdpanther"
+                ], 
+                [
+                    4, 
+                    27, 
+                    1, 
+                    "AMX M4(1945)"
+                ], 
+                [
+                    1, 
+                    9, 
+                    2, 
+                    "VK 3601 (H)"
+                ], 
+                [
+                    4, 
                     19, 
                     1, 
                     "AMX 13 90"
+                ], 
+                [
+                    0, 
+                    45, 
+                    2, 
+                    "IS-8"
+                ], 
+                [
+                    0, 
+                    31, 
+                    1, 
+                    "T-54"
+                ], 
+                [
+                    2, 
+                    23, 
+                    2, 
+                    "M26 Pershing"
+                ], 
+                [
+                    1, 
+                    20, 
+                    7, 
+                    "PzKpfw VIB Tiger II"
+                ], 
+                [
+                    1, 
+                    10, 
+                    1, 
+                    "VK 3001 (H)"
+                ], 
+                [
+                    0, 
+                    17, 
+                    3, 
+                    "T-44"
+                ], 
+                [
+                    1, 
+                    42, 
+                    2, 
+                    "PzKpfw VI Tiger (P)"
+                ], 
+                [
+                    2, 
+                    28, 
+                    1, 
+                    "M36"
+                ], 
+                [
+                    2, 
+                    6, 
+                    4, 
+                    "T20"
+                ], 
+                [
+                    0, 
+                    53, 
+                    1, 
+                    "Object 268"
+                ], 
+                [
+                    0, 
+                    1, 
+                    1, 
+                    "SU-85"
+                ], 
+                [
+                    1, 
+                    28, 
+                    1, 
+                    "VK 3001 (P)"
+                ], 
+                [
+                    0, 
+                    14, 
+                    1, 
+                    "SU-100"
+                ], 
+                [
+                    0, 
+                    46, 
+                    3, 
+                    "KV-1"
+                ], 
+                [
+                    1, 
+                    30, 
+                    5, 
+                    "Ferdinand"
+                ], 
+                [
+                    2, 
+                    34, 
+                    1, 
+                    "T95"
+                ], 
+                [
+                    4, 
+                    10, 
+                    1, 
+                    "ARL 44"
+                ], 
+                [
+                    2, 
+                    3, 
+                    2, 
+                    "M6"
                 ]
             ], 
             "major": {
                 "Abrams": 4, 
-                "Carius": 4, 
-                "Ekins": 4, 
+                "Carius": 3, 
+                "Ekins": 3, 
                 "Kay": 4, 
-                "Knispel": 4, 
+                "Knispel": 3, 
                 "Lavrinenko": 4, 
                 "LeClerc": 4, 
                 "Poppel": 4
             }, 
             "series": {
-                "diehardSeries": 0, 
-                "invincibleSeries": 0, 
+                "diehardSeries": 1, 
+                "invincibleSeries": 1, 
                 "killingSeries": 0, 
                 "maxDiehardSeries": 3, 
                 "maxInvincibleSeries": 2, 
-                "maxKillingSeries": 2, 
+                "maxKillingSeries": 4, 
                 "maxPiercingSeries": 11, 
                 "maxSniperSeries": 23, 
-                "piercingSeries": 0, 
-                "sniperSeries": 0
+                "piercingSeries": 4, 
+                "sniperSeries": 4
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -4655,7 +5930,7 @@
                 "handOfDeath": 0, 
                 "heroesOfRassenay": 0, 
                 "invincible": 0, 
-                "markOfMastery": 2, 
+                "markOfMastery": 3, 
                 "mousebane": 0, 
                 "raider": 1, 
                 "sinai": 0, 
@@ -4663,31 +5938,31 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 14602, 
-                "battlesCount": 46, 
+                "battleLifeTime": 47393, 
+                "battlesCount": 149, 
                 "capturePoints": 91, 
-                "damageDealt": 53245, 
-                "damageReceived": 34793, 
-                "droppedCapturePoints": 31, 
-                "frags": 43, 
-                "frags8p": 16, 
-                "fragsBeast": 11, 
-                "hits": 255, 
-                "losses": 21, 
-                "maxFrags": 4, 
-                "maxXP": 1479, 
-                "shots": 390, 
-                "spotted": 41, 
-                "survivedBattles": 14, 
+                "damageDealt": 226515, 
+                "damageReceived": 122957, 
+                "droppedCapturePoints": 89, 
+                "frags": 164, 
+                "frags8p": 82, 
+                "fragsBeast": 33, 
+                "hits": 656, 
+                "losses": 72, 
+                "maxFrags": 5, 
+                "maxXP": 1533, 
+                "shots": 981, 
+                "spotted": 121, 
+                "survivedBattles": 45, 
                 "treesCut": 0, 
-                "winAndSurvived": 13, 
-                "wins": 24, 
-                "xp": 27166
+                "winAndSurvived": 42, 
+                "wins": 73, 
+                "xp": 95576
             }, 
             "unknown": {
                 "unknown166": 0, 
                 "unknown167": 0, 
-                "unknown168": 0, 
+                "unknown168": 1, 
                 "unknown170": 0, 
                 "unknown171": 0, 
                 "unknown172": 0, 
@@ -6199,6 +7474,172 @@
             "unknown": {
                 "unknown265": 11, 
                 "unknown266": 1
+            }
+        }, 
+        "S-35 CA": {
+            "battle": {
+                "battleHeroes": 1, 
+                "confederate": 0, 
+                "defender": 0, 
+                "evileye": 0, 
+                "invader": 0, 
+                "scout": 0, 
+                "sniper": 1, 
+                "steelwall": 0, 
+                "topgun": 0, 
+                "unknown": 0, 
+                "warrior": 0
+            }, 
+            "clan": [], 
+            "common": {
+                "basedonversion": 22, 
+                "countryid": 4, 
+                "frags_compare": 8, 
+                "lastBattleTime": 1348695819, 
+                "lastBattleTimeR": "2012-09-26 23:43:39", 
+                "premium": 0, 
+                "tankid": 39, 
+                "tanktitle": "S-35 CA", 
+                "tier": 5, 
+                "type": 4, 
+                "updated": 1348695819
+            }, 
+            "company": [], 
+            "epic": {
+                "Billotte": 0, 
+                "Boelter": 0, 
+                "BrunoPietro": 0, 
+                "Burda": 0, 
+                "Dumitru": 0, 
+                "Fadin": 0, 
+                "Halonen": 0, 
+                "Kolobanov": 0, 
+                "LafayettePool": 0, 
+                "Lehvaslaiho": 0, 
+                "Nikolas": 0, 
+                "Orlik": 0, 
+                "Oskin": 0, 
+                "Pascucci": 0, 
+                "RadleyWalters": 0, 
+                "Tarczay": 0
+            }, 
+            "kills": [
+                [
+                    0, 
+                    46, 
+                    1, 
+                    "KV-1"
+                ], 
+                [
+                    0, 
+                    8, 
+                    1, 
+                    "A-20"
+                ], 
+                [
+                    1, 
+                    0, 
+                    1, 
+                    "PzKpfw IV"
+                ], 
+                [
+                    2, 
+                    30, 
+                    1, 
+                    "T40"
+                ], 
+                [
+                    0, 
+                    12, 
+                    1, 
+                    "T-46"
+                ], 
+                [
+                    0, 
+                    1, 
+                    1, 
+                    "SU-85"
+                ], 
+                [
+                    2, 
+                    27, 
+                    1, 
+                    "M10 Wolverine"
+                ], 
+                [
+                    0, 
+                    37, 
+                    1, 
+                    "T-50"
+                ]
+            ], 
+            "major": {
+                "Abrams": 0, 
+                "Carius": 0, 
+                "Ekins": 0, 
+                "Kay": 4, 
+                "Knispel": 0, 
+                "Lavrinenko": 4, 
+                "LeClerc": 0, 
+                "Poppel": 0
+            }, 
+            "series": {
+                "diehardSeries": 0, 
+                "invincibleSeries": 0, 
+                "killingSeries": 0, 
+                "maxDiehardSeries": 1, 
+                "maxInvincibleSeries": 1, 
+                "maxKillingSeries": 2, 
+                "maxPiercingSeries": 6, 
+                "maxSniperSeries": 9, 
+                "piercingSeries": 2, 
+                "sniperSeries": 2
+            }, 
+            "special": {
+                "armorPiercer": 1, 
+                "beasthunter": 0, 
+                "diehard": 0, 
+                "handOfDeath": 0, 
+                "heroesOfRassenay": 0, 
+                "invincible": 0, 
+                "markOfMastery": 1, 
+                "mousebane": 0, 
+                "raider": 0, 
+                "sinai": 0, 
+                "sniperspecial": 0, 
+                "tankExpert": 0
+            }, 
+            "tankdata": {
+                "battleLifeTime": 2178, 
+                "battlesCount": 7, 
+                "capturePoints": 0, 
+                "damageDealt": 3819, 
+                "damageReceived": 1980, 
+                "droppedCapturePoints": 53, 
+                "frags": 8, 
+                "frags8p": 0, 
+                "fragsBeast": 0, 
+                "hits": 47, 
+                "losses": 1, 
+                "maxFrags": 3, 
+                "maxXP": 669, 
+                "shots": 69, 
+                "spotted": 5, 
+                "survivedBattles": 1, 
+                "treesCut": 0, 
+                "winAndSurvived": 1, 
+                "wins": 6, 
+                "xp": 3719
+            }, 
+            "unknown": {
+                "unknown166": 0, 
+                "unknown167": 0, 
+                "unknown168": 0, 
+                "unknown170": 0, 
+                "unknown171": 0, 
+                "unknown172": 0, 
+                "unknown278": 24, 
+                "unknown279": 1
             }
         }, 
         "SU-100": {
@@ -8080,30 +9521,30 @@
         "T-28": {
             "battle": {
                 "battleHeroes": 15, 
-                "confederate": 0, 
-                "defender": 1, 
+                "defender": 8, 
                 "evileye": 0, 
-                "invader": 2, 
+                "fragsSinai": 0, 
+                "invader": 4, 
+                "medalKay": 0, 
                 "scout": 0, 
-                "sniper": 8, 
-                "steelwall": 0, 
-                "topgun": 4, 
-                "unknown": 0, 
+                "sniper": 2, 
+                "steelwall": 1, 
+                "supporter": 0, 
                 "warrior": 0
             }, 
             "clan": [], 
             "common": {
-                "basedonversion": 22, 
+                "basedonversion": 24, 
                 "countryid": 0, 
-                "frags_compare": 312, 
-                "lastBattleTime": 1340572388, 
-                "lastBattleTimeR": "2012-06-24 23:13:08", 
+                "frags_compare": 324, 
+                "lastBattleTime": 1348772112, 
+                "lastBattleTimeR": "2012-09-27 20:55:12", 
                 "premium": 0, 
                 "tankid": 6, 
                 "tanktitle": "T-28", 
                 "tier": 4, 
                 "type": 2, 
-                "updated": 1340572388
+                "updated": 1348772112
             }, 
             "company": [], 
             "epic": {
@@ -8133,12 +9574,6 @@
                 ], 
                 [
                     1, 
-                    25, 
-                    10, 
-                    "PzKpfw III/IV"
-                ], 
-                [
-                    1, 
                     0, 
                     7, 
                     "PzKpfw IV"
@@ -8151,9 +9586,9 @@
                 ], 
                 [
                     0, 
-                    3, 
-                    8, 
-                    "BT-7"
+                    6, 
+                    14, 
+                    "T-28"
                 ], 
                 [
                     0, 
@@ -8182,7 +9617,7 @@
                 [
                     1, 
                     32, 
-                    8, 
+                    9, 
                     "PzKpfw 38 nA"
                 ], 
                 [
@@ -8192,10 +9627,10 @@
                     "T-25"
                 ], 
                 [
-                    1, 
-                    2, 
-                    1, 
-                    "PzKpfw VI Tiger"
+                    0, 
+                    30, 
+                    6, 
+                    "SU-26"
                 ], 
                 [
                     0, 
@@ -8210,16 +9645,10 @@
                     "PzKpfw III Ausf. A"
                 ], 
                 [
-                    1, 
-                    13, 
-                    7, 
-                    "PzKpfw 38 (t)"
-                ], 
-                [
                     2, 
-                    4, 
+                    14, 
                     3, 
-                    "M4 Sherman"
+                    "M7 Priest"
                 ], 
                 [
                     2, 
@@ -8246,10 +9675,10 @@
                     "M8A1"
                 ], 
                 [
-                    0, 
-                    22, 
                     1, 
-                    "SU-8"
+                    26, 
+                    12, 
+                    "Marder II"
                 ], 
                 [
                     0, 
@@ -8272,7 +9701,7 @@
                 [
                     1, 
                     23, 
-                    2, 
+                    3, 
                     "Wespe"
                 ], 
                 [
@@ -8318,6 +9747,12 @@
                     "D2"
                 ], 
                 [
+                    2, 
+                    5, 
+                    3, 
+                    "M4A3E8 Sherman"
+                ], 
+                [
                     0, 
                     4, 
                     1, 
@@ -8326,7 +9761,7 @@
                 [
                     2, 
                     12, 
-                    13, 
+                    14, 
                     "M3 Lee"
                 ], 
                 [
@@ -8337,14 +9772,14 @@
                 ], 
                 [
                     2, 
-                    5, 
+                    4, 
                     3, 
-                    "M4A3E8 Sherman"
+                    "M4 Sherman"
                 ], 
                 [
                     0, 
                     37, 
-                    4, 
+                    5, 
                     "T-50"
                 ], 
                 [
@@ -8361,15 +9796,15 @@
                 ], 
                 [
                     0, 
-                    6, 
-                    12, 
-                    "T-28"
+                    22, 
+                    1, 
+                    "SU-8"
                 ], 
                 [
                     2, 
-                    14, 
+                    30, 
                     3, 
-                    "M7 Priest"
+                    "T40"
                 ], 
                 [
                     0, 
@@ -8390,9 +9825,15 @@
                     "Sturmpanzer I Bison"
                 ], 
                 [
+                    4, 
+                    11, 
+                    1, 
+                    "AMX 40"
+                ], 
+                [
                     1, 
                     17, 
-                    15, 
+                    16, 
                     "PzKpfw III"
                 ], 
                 [
@@ -8409,14 +9850,20 @@
                 ], 
                 [
                     1, 
-                    26, 
+                    2, 
+                    1, 
+                    "PzKpfw VI Tiger"
+                ], 
+                [
+                    1, 
+                    25, 
                     11, 
-                    "Marder II"
+                    "PzKpfw III/IV"
                 ], 
                 [
                     2, 
                     25, 
-                    3, 
+                    4, 
                     "T82"
                 ], 
                 [
@@ -8432,10 +9879,10 @@
                     "T57"
                 ], 
                 [
-                    0, 
-                    30, 
-                    6, 
-                    "SU-26"
+                    1, 
+                    13, 
+                    7, 
+                    "PzKpfw 38 (t)"
                 ], 
                 [
                     1, 
@@ -8458,7 +9905,7 @@
                 [
                     0, 
                     27, 
-                    6, 
+                    7, 
                     "SU-85B"
                 ], 
                 [
@@ -8474,10 +9921,10 @@
                     "M37"
                 ], 
                 [
-                    2, 
-                    30, 
-                    3, 
-                    "T40"
+                    4, 
+                    26, 
+                    1, 
+                    "BDR G1B"
                 ], 
                 [
                     0, 
@@ -8486,10 +9933,10 @@
                     "A-20"
                 ], 
                 [
-                    4, 
-                    11, 
-                    1, 
-                    "AMX 40"
+                    0, 
+                    3, 
+                    8, 
+                    "BT-7"
                 ], 
                 [
                     0, 
@@ -8523,26 +9970,26 @@
                 ]
             ], 
             "major": {
-                "Abrams": 4, 
-                "Carius": 3, 
+                "Abrams": 3, 
                 "Ekins": 0, 
-                "Kay": 3, 
-                "Knispel": 3, 
                 "Lavrinenko": 4, 
                 "LeClerc": 4, 
-                "Poppel": 3
+                "Poppel": 3, 
+                "medalCarius": 3, 
+                "medalKnispel": 3, 
+                "medalPoppel": 3
             }, 
             "series": {
                 "diehardSeries": 0, 
                 "invincibleSeries": 0, 
-                "killingSeries": 0, 
+                "killingSeries": 1, 
                 "maxDiehardSeries": 4, 
                 "maxInvincibleSeries": 2, 
                 "maxKillingSeries": 5, 
                 "maxPiercingSeries": 18, 
-                "maxSniperSeries": 18, 
-                "piercingSeries": 0, 
-                "sniperSeries": 0
+                "maxSniperSeries": 19, 
+                "piercingSeries": 3, 
+                "sniperSeries": 3
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -8559,36 +10006,36 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 77448, 
-                "battlesCount": 419, 
+                "battleLifeTime": 80163, 
+                "battlesCount": 440, 
                 "capturePoints": 849, 
-                "damageDealt": 125079, 
-                "damageReceived": 131310, 
+                "damageDealt": 131285, 
+                "damageReceived": 138640, 
                 "droppedCapturePoints": 142, 
-                "frags": 312, 
+                "frags": 324, 
                 "frags8p": 0, 
                 "fragsBeast": 5, 
-                "hits": 1249, 
-                "losses": 179, 
+                "hits": 1339, 
+                "losses": 189, 
                 "maxFrags": 9, 
                 "maxXP": 1615, 
-                "shots": 1997, 
-                "spotted": 657, 
-                "survivedBattles": 73, 
+                "shots": 2113, 
+                "spotted": 704, 
+                "survivedBattles": 74, 
                 "treesCut": 0, 
-                "winAndSurvived": 65, 
-                "wins": 228, 
-                "xp": 169436
+                "winAndSurvived": 66, 
+                "wins": 239, 
+                "xp": 176669
             }, 
             "unknown": {
                 "unknown166": 0, 
                 "unknown167": 0, 
                 "unknown168": 1, 
-                "unknown170": 0, 
+                "unknown170": 1, 
                 "unknown171": 0, 
                 "unknown172": 0, 
-                "unknown278": 24, 
-                "unknown279": 1
+                "unknown298": 44, 
+                "unknown299": 1
             }
         }, 
         "T-43": {
@@ -9597,12 +11044,12 @@
         }, 
         "T-50": {
             "battle": {
-                "battleHeroes": 2, 
+                "battleHeroes": 3, 
                 "confederate": 0, 
                 "defender": 0, 
                 "evileye": 0, 
                 "invader": 0, 
-                "scout": 2, 
+                "scout": 3, 
                 "sniper": 0, 
                 "steelwall": 0, 
                 "topgun": 0, 
@@ -9613,15 +11060,15 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
-                "frags_compare": 12, 
-                "lastBattleTime": 1342042114, 
-                "lastBattleTimeR": "2012-07-11 23:28:34", 
+                "frags_compare": 21, 
+                "lastBattleTime": 1345757514, 
+                "lastBattleTimeR": "2012-08-23 23:31:54", 
                 "premium": 0, 
                 "tankid": 37, 
                 "tanktitle": "T-50", 
                 "tier": 4, 
                 "type": 1, 
-                "updated": 1342042114
+                "updated": 1345757514
             }, 
             "company": [], 
             "epic": {
@@ -9651,9 +11098,33 @@
                 ], 
                 [
                     1, 
+                    28, 
+                    1, 
+                    "VK 3001 (P)"
+                ], 
+                [
+                    1, 
+                    4, 
+                    1, 
+                    "StuG III"
+                ], 
+                [
+                    1, 
                     24, 
                     1, 
                     "PzKpfw II Luchs"
+                ], 
+                [
+                    1, 
+                    18, 
+                    3, 
+                    "Sturmpanzer II"
+                ], 
+                [
+                    1, 
+                    22, 
+                    2, 
+                    "Grille"
                 ], 
                 [
                     0, 
@@ -9662,16 +11133,10 @@
                     "T-50"
                 ], 
                 [
+                    2, 
+                    13, 
                     1, 
-                    18, 
-                    1, 
-                    "Sturmpanzer II"
-                ], 
-                [
-                    0, 
-                    30, 
-                    1, 
-                    "SU-26"
+                    "T1 Heavy"
                 ], 
                 [
                     4, 
@@ -9681,9 +11146,21 @@
                 ], 
                 [
                     1, 
-                    22, 
+                    21, 
+                    1, 
+                    "VK 1602 Leopard"
+                ], 
+                [
+                    1, 
+                    1, 
+                    1, 
+                    "Hummel"
+                ], 
+                [
                     2, 
-                    "Grille"
+                    18, 
+                    1, 
+                    "M37"
                 ], 
                 [
                     0, 
@@ -9696,6 +11173,190 @@
                     14, 
                     2, 
                     "M7 Priest"
+                ], 
+                [
+                    1, 
+                    7, 
+                    1, 
+                    "Hetzer"
+                ], 
+                [
+                    0, 
+                    30, 
+                    1, 
+                    "SU-26"
+                ]
+            ], 
+            "major": {
+                "Abrams": 0, 
+                "Carius": 4, 
+                "Ekins": 0, 
+                "Kay": 4, 
+                "Knispel": 4, 
+                "Lavrinenko": 0, 
+                "LeClerc": 4, 
+                "Poppel": 3
+            }, 
+            "series": {
+                "diehardSeries": 0, 
+                "invincibleSeries": 0, 
+                "killingSeries": 1, 
+                "maxDiehardSeries": 1, 
+                "maxInvincibleSeries": 0, 
+                "maxKillingSeries": 1, 
+                "maxPiercingSeries": 8, 
+                "maxSniperSeries": 9, 
+                "piercingSeries": 6, 
+                "sniperSeries": 6
+            }, 
+            "special": {
+                "armorPiercer": 1, 
+                "beasthunter": 0, 
+                "diehard": 0, 
+                "handOfDeath": 0, 
+                "heroesOfRassenay": 0, 
+                "invincible": 0, 
+                "markOfMastery": 3, 
+                "mousebane": 0, 
+                "raider": 0, 
+                "sinai": 0, 
+                "sniperspecial": 0, 
+                "tankExpert": 0
+            }, 
+            "tankdata": {
+                "battleLifeTime": 11853, 
+                "battlesCount": 99, 
+                "capturePoints": 45, 
+                "damageDealt": 10636, 
+                "damageReceived": 35149, 
+                "droppedCapturePoints": 0, 
+                "frags": 21, 
+                "frags8p": 0, 
+                "fragsBeast": 0, 
+                "hits": 242, 
+                "losses": 47, 
+                "maxFrags": 3, 
+                "maxXP": 1396, 
+                "shots": 421, 
+                "spotted": 404, 
+                "survivedBattles": 4, 
+                "treesCut": 0, 
+                "winAndSurvived": 4, 
+                "wins": 50, 
+                "xp": 37890
+            }, 
+            "unknown": {
+                "unknown166": 0, 
+                "unknown167": 0, 
+                "unknown168": 0, 
+                "unknown170": 1, 
+                "unknown171": 0, 
+                "unknown172": 0, 
+                "unknown278": 24, 
+                "unknown279": 1
+            }
+        }, 
+        "T-50-2": {
+            "battle": {
+                "battleHeroes": 6, 
+                "confederate": 0, 
+                "defender": 0, 
+                "evileye": 0, 
+                "invader": 0, 
+                "scout": 5, 
+                "sniper": 1, 
+                "steelwall": 0, 
+                "topgun": 0, 
+                "unknown": 0, 
+                "warrior": 0
+            }, 
+            "clan": [], 
+            "common": {
+                "basedonversion": 22, 
+                "countryid": 0, 
+                "frags_compare": 11, 
+                "lastBattleTime": 1348605995, 
+                "lastBattleTimeR": "2012-09-25 22:46:35", 
+                "premium": 0, 
+                "tankid": 38, 
+                "tanktitle": "T-50-2", 
+                "tier": 5, 
+                "type": 1, 
+                "updated": 1348605995
+            }, 
+            "company": [], 
+            "epic": {
+                "Billotte": 0, 
+                "Boelter": 0, 
+                "BrunoPietro": 0, 
+                "Burda": 0, 
+                "Dumitru": 0, 
+                "Fadin": 0, 
+                "Halonen": 0, 
+                "Kolobanov": 0, 
+                "LafayettePool": 0, 
+                "Lehvaslaiho": 0, 
+                "Nikolas": 0, 
+                "Orlik": 0, 
+                "Oskin": 0, 
+                "Pascucci": 0, 
+                "RadleyWalters": 0, 
+                "Tarczay": 0
+            }, 
+            "kills": [
+                [
+                    0, 
+                    37, 
+                    1, 
+                    "T-50"
+                ], 
+                [
+                    1, 
+                    21, 
+                    1, 
+                    "VK 1602 Leopard"
+                ], 
+                [
+                    4, 
+                    16, 
+                    1, 
+                    "AMX 105AM"
+                ], 
+                [
+                    0, 
+                    0, 
+                    1, 
+                    "T-34"
+                ], 
+                [
+                    0, 
+                    17, 
+                    1, 
+                    "T-44"
+                ], 
+                [
+                    0, 
+                    38, 
+                    1, 
+                    "T-50-2"
+                ], 
+                [
+                    1, 
+                    6, 
+                    1, 
+                    "JagdPz IV"
+                ], 
+                [
+                    1, 
+                    22, 
+                    2, 
+                    "Grille"
+                ], 
+                [
+                    1, 
+                    1, 
+                    2, 
+                    "Hummel"
                 ]
             ], 
             "major": {
@@ -9713,12 +11374,12 @@
                 "invincibleSeries": 0, 
                 "killingSeries": 0, 
                 "maxDiehardSeries": 1, 
-                "maxInvincibleSeries": 0, 
+                "maxInvincibleSeries": 1, 
                 "maxKillingSeries": 1, 
-                "maxPiercingSeries": 8, 
-                "maxSniperSeries": 9, 
-                "piercingSeries": 2, 
-                "sniperSeries": 2
+                "maxPiercingSeries": 6, 
+                "maxSniperSeries": 18, 
+                "piercingSeries": 1, 
+                "sniperSeries": 1
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -9729,38 +11390,38 @@
                 "invincible": 0, 
                 "markOfMastery": 2, 
                 "mousebane": 0, 
-                "raider": 0, 
+                "raider": 1, 
                 "sinai": 0, 
                 "sniperspecial": 0, 
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 7385, 
-                "battlesCount": 60, 
-                "capturePoints": 45, 
-                "damageDealt": 5988, 
-                "damageReceived": 21277, 
-                "droppedCapturePoints": 0, 
-                "frags": 12, 
-                "frags8p": 0, 
+                "battleLifeTime": 5859, 
+                "battlesCount": 47, 
+                "capturePoints": 62, 
+                "damageDealt": 9010, 
+                "damageReceived": 25669, 
+                "droppedCapturePoints": 4, 
+                "frags": 11, 
+                "frags8p": 1, 
                 "fragsBeast": 0, 
-                "hits": 148, 
-                "losses": 27, 
+                "hits": 140, 
+                "losses": 23, 
                 "maxFrags": 2, 
-                "maxXP": 993, 
-                "shots": 255, 
-                "spotted": 238, 
-                "survivedBattles": 3, 
+                "maxXP": 1422, 
+                "shots": 223, 
+                "spotted": 236, 
+                "survivedBattles": 2, 
                 "treesCut": 0, 
-                "winAndSurvived": 3, 
-                "wins": 32, 
-                "xp": 23713
+                "winAndSurvived": 2, 
+                "wins": 24, 
+                "xp": 23018
             }, 
             "unknown": {
                 "unknown166": 0, 
                 "unknown167": 0, 
                 "unknown168": 0, 
-                "unknown170": 1, 
+                "unknown170": 0, 
                 "unknown171": 0, 
                 "unknown172": 0, 
                 "unknown278": 24, 
@@ -9769,31 +11430,31 @@
         }, 
         "T-54": {
             "battle": {
-                "battleHeroes": 22, 
-                "confederate": 3, 
+                "battleHeroes": 30, 
+                "confederate": 5, 
                 "defender": 0, 
                 "evileye": 0, 
                 "invader": 0, 
                 "scout": 0, 
-                "sniper": 14, 
+                "sniper": 20, 
                 "steelwall": 3, 
                 "topgun": 2, 
                 "unknown": 0, 
-                "warrior": 22
+                "warrior": 28
             }, 
             "clan": [], 
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
-                "frags_compare": 174, 
-                "lastBattleTime": 1342220139, 
-                "lastBattleTimeR": "2012-07-14 00:55:39", 
+                "frags_compare": 221, 
+                "lastBattleTime": 1348607907, 
+                "lastBattleTimeR": "2012-09-25 23:18:27", 
                 "premium": 0, 
                 "tankid": 31, 
                 "tanktitle": "T-54", 
                 "tier": 9, 
                 "type": 2, 
-                "updated": 1342220139
+                "updated": 1348607907
             }, 
             "company": [], 
             "epic": {
@@ -9822,12 +11483,6 @@
                     "IS-4"
                 ], 
                 [
-                    2, 
-                    36, 
-                    3, 
-                    "T25 AT"
-                ], 
-                [
                     0, 
                     28, 
                     2, 
@@ -9835,129 +11490,21 @@
                 ], 
                 [
                     2, 
-                    29, 
-                    1, 
-                    "M40/M43"
-                ], 
-                [
-                    1, 
-                    29, 
-                    1, 
-                    "VK 4502 (P) Ausf. B"
-                ], 
-                [
-                    0, 
-                    29, 
-                    2, 
-                    "ISU-152"
-                ], 
-                [
-                    1, 
-                    38, 
-                    4, 
-                    "E-75"
-                ], 
-                [
-                    1, 
-                    9, 
-                    1, 
-                    "VK 3601 (H)"
-                ], 
-                [
-                    1, 
-                    2, 
-                    6, 
-                    "PzKpfw VI Tiger"
-                ], 
-                [
-                    1, 
-                    35, 
-                    8, 
-                    "GW Panther"
-                ], 
-                [
-                    4, 
-                    14, 
-                    4, 
-                    "Bat Chatillon 25 t"
-                ], 
-                [
-                    0, 
-                    2, 
-                    9, 
-                    "IS"
-                ], 
-                [
-                    0, 
-                    31, 
-                    9, 
-                    "T-54"
-                ], 
-                [
-                    2, 
-                    23, 
-                    2, 
-                    "M26 Pershing"
-                ], 
-                [
-                    4, 
-                    15, 
-                    2, 
-                    "AMX 50 120"
-                ], 
-                [
-                    2, 
-                    11, 
-                    7, 
-                    "T34"
-                ], 
-                [
-                    0, 
-                    32, 
-                    1, 
-                    "Object 704"
-                ], 
-                [
-                    0, 
-                    22, 
-                    1, 
-                    "SU-8"
-                ], 
-                [
-                    1, 
-                    5, 
-                    2, 
-                    "PzKpfw V Panther"
-                ], 
-                [
+                    36, 
                     3, 
-                    0, 
-                    10, 
-                    "Type 59"
+                    "T25 AT"
                 ], 
                 [
+                    4, 
+                    12, 
                     2, 
-                    10, 
-                    1, 
-                    "T30"
+                    "AMX 50 100"
                 ], 
                 [
                     0, 
-                    34, 
-                    1, 
-                    "Object 261"
-                ], 
-                [
-                    2, 
-                    42, 
-                    2, 
-                    "T110E5"
-                ], 
-                [
-                    1, 
-                    20, 
+                    21, 
                     3, 
-                    "PzKpfw VIB Tiger II"
+                    "IS-3"
                 ], 
                 [
                     0, 
@@ -9966,27 +11513,117 @@
                     "KV-13"
                 ], 
                 [
+                    0, 
+                    29, 
+                    2, 
+                    "ISU-152"
+                ], 
+                [
+                    0, 
+                    34, 
+                    2, 
+                    "Object 261"
+                ], 
+                [
+                    1, 
+                    38, 
+                    5, 
+                    "E-75"
+                ], 
+                [
                     1, 
                     1, 
                     1, 
                     "Hummel"
                 ], 
                 [
+                    1, 
+                    34, 
+                    5, 
+                    "GW Tiger"
+                ], 
+                [
+                    2, 
+                    38, 
+                    2, 
+                    "M24 Chaffee"
+                ], 
+                [
+                    1, 
+                    35, 
+                    10, 
+                    "GW Panther"
+                ], 
+                [
+                    4, 
+                    15, 
+                    3, 
+                    "AMX 50 120"
+                ], 
+                [
+                    2, 
+                    29, 
+                    1, 
+                    "M40/M43"
+                ], 
+                [
+                    0, 
+                    32, 
+                    1, 
+                    "Object 704"
+                ], 
+                [
+                    1, 
+                    37, 
+                    2, 
+                    "E-100"
+                ], 
+                [
+                    3, 
+                    0, 
+                    11, 
+                    "Type 59"
+                ], 
+                [
+                    0, 
+                    2, 
+                    10, 
+                    "IS"
+                ], 
+                [
+                    2, 
+                    10, 
+                    1, 
+                    "T30"
+                ], 
+                [
+                    1, 
+                    39, 
+                    1, 
+                    "VK 2801"
+                ], 
+                [
+                    2, 
+                    11, 
+                    8, 
+                    "T34"
+                ], 
+                [
                     4, 
                     19, 
-                    5, 
+                    8, 
                     "AMX 13 90"
                 ], 
                 [
                     4, 
-                    12, 
-                    1, 
-                    "AMX 50 100"
+                    28, 
+                    2, 
+                    "Lorraine155 50"
                 ], 
                 [
                     1, 
                     40, 
-                    7, 
+                    11, 
                     "E-50"
                 ], 
                 [
@@ -10002,34 +11639,16 @@
                     "AMX 13 75"
                 ], 
                 [
+                    0, 
+                    37, 
                     2, 
-                    38, 
-                    1, 
-                    "M24 Chaffee"
-                ], 
-                [
-                    0, 
-                    45, 
-                    1, 
-                    "IS-8"
-                ], 
-                [
-                    0, 
-                    21, 
-                    1, 
-                    "IS-3"
+                    "T-50"
                 ], 
                 [
                     2, 
                     45, 
                     1, 
                     "M18 Hellcat"
-                ], 
-                [
-                    0, 
-                    23, 
-                    5, 
-                    "KV-3"
                 ], 
                 [
                     1, 
@@ -10046,14 +11665,8 @@
                 [
                     4, 
                     22, 
-                    5, 
+                    8, 
                     "Lorraine 40 t"
-                ], 
-                [
-                    2, 
-                    31, 
-                    1, 
-                    "M12"
                 ], 
                 [
                     0, 
@@ -10068,16 +11681,10 @@
                     "T29"
                 ], 
                 [
-                    0, 
-                    17, 
-                    3, 
-                    "T-44"
-                ], 
-                [
-                    0, 
-                    33, 
-                    3, 
-                    "Object 212"
+                    2, 
+                    16, 
+                    1, 
+                    "M41"
                 ], 
                 [
                     4, 
@@ -10087,20 +11694,14 @@
                 ], 
                 [
                     1, 
-                    34, 
-                    3, 
-                    "GW Tiger"
-                ], 
-                [
-                    0, 
-                    14, 
-                    1, 
-                    "SU-100"
+                    2, 
+                    8, 
+                    "PzKpfw VI Tiger"
                 ], 
                 [
                     1, 
                     212, 
-                    5, 
+                    6, 
                     "L?we"
                 ], 
                 [
@@ -10112,8 +11713,32 @@
                 [
                     2, 
                     17, 
-                    2, 
+                    4, 
                     "T32"
+                ], 
+                [
+                    4, 
+                    25, 
+                    3, 
+                    "AMX 12t"
+                ], 
+                [
+                    1, 
+                    15, 
+                    3, 
+                    "Jagdpanther"
+                ], 
+                [
+                    0, 
+                    43, 
+                    1, 
+                    "KV-4"
+                ], 
+                [
+                    0, 
+                    31, 
+                    11, 
+                    "T-54"
                 ], 
                 [
                     0, 
@@ -10122,10 +11747,94 @@
                     "KV-1S"
                 ], 
                 [
+                    4, 
+                    27, 
+                    2, 
+                    "AMX M4(1945)"
+                ], 
+                [
                     1, 
-                    15, 
+                    9, 
+                    1, 
+                    "VK 3601 (H)"
+                ], 
+                [
+                    4, 
+                    14, 
+                    4, 
+                    "Bat Chatillon 25 t"
+                ], 
+                [
+                    0, 
+                    45, 
                     3, 
-                    "Jagdpanther"
+                    "IS-8"
+                ], 
+                [
+                    0, 
+                    14, 
+                    1, 
+                    "SU-100"
+                ], 
+                [
+                    1, 
+                    20, 
+                    6, 
+                    "PzKpfw VIB Tiger II"
+                ], 
+                [
+                    0, 
+                    17, 
+                    3, 
+                    "T-44"
+                ], 
+                [
+                    1, 
+                    36, 
+                    1, 
+                    "GW Typ E"
+                ], 
+                [
+                    2, 
+                    23, 
+                    2, 
+                    "M26 Pershing"
+                ], 
+                [
+                    0, 
+                    22, 
+                    1, 
+                    "SU-8"
+                ], 
+                [
+                    0, 
+                    23, 
+                    5, 
+                    "KV-3"
+                ], 
+                [
+                    2, 
+                    31, 
+                    1, 
+                    "M12"
+                ], 
+                [
+                    1, 
+                    5, 
+                    3, 
+                    "PzKpfw V Panther"
+                ], 
+                [
+                    0, 
+                    33, 
+                    3, 
+                    "Object 212"
+                ], 
+                [
+                    1, 
+                    29, 
+                    1, 
+                    "VK 4502 (P) Ausf. B"
                 ], 
                 [
                     2, 
@@ -10152,10 +11861,10 @@
                     "ARL 44"
                 ], 
                 [
-                    0, 
-                    43, 
-                    1, 
-                    "KV-4"
+                    2, 
+                    42, 
+                    2, 
+                    "T110E5"
                 ], 
                 [
                     1, 
@@ -10168,41 +11877,29 @@
                     35, 
                     2, 
                     "M46 Patton"
-                ], 
-                [
-                    4, 
-                    27, 
-                    2, 
-                    "AMX M4(1945)"
-                ], 
-                [
-                    1, 
-                    37, 
-                    2, 
-                    "E-100"
                 ]
             ], 
             "major": {
-                "Abrams": 4, 
+                "Abrams": 3, 
                 "Carius": 3, 
                 "Ekins": 3, 
                 "Kay": 3, 
                 "Knispel": 3, 
                 "Lavrinenko": 4, 
-                "LeClerc": 4, 
+                "LeClerc": 3, 
                 "Poppel": 3
             }, 
             "series": {
                 "diehardSeries": 0, 
                 "invincibleSeries": 0, 
                 "killingSeries": 0, 
-                "maxDiehardSeries": 2, 
+                "maxDiehardSeries": 3, 
                 "maxInvincibleSeries": 1, 
                 "maxKillingSeries": 3, 
-                "maxPiercingSeries": 12, 
+                "maxPiercingSeries": 16, 
                 "maxSniperSeries": 27, 
-                "piercingSeries": 4, 
-                "sniperSeries": 5
+                "piercingSeries": 3, 
+                "sniperSeries": 3
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -10219,26 +11916,26 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 56917, 
-                "battlesCount": 205, 
-                "capturePoints": 324, 
-                "damageDealt": 260181, 
-                "damageReceived": 304690, 
-                "droppedCapturePoints": 68, 
-                "frags": 174, 
-                "frags8p": 97, 
-                "fragsBeast": 44, 
-                "hits": 1496, 
-                "losses": 90, 
+                "battleLifeTime": 79882, 
+                "battlesCount": 298, 
+                "capturePoints": 410, 
+                "damageDealt": 377443, 
+                "damageReceived": 444549, 
+                "droppedCapturePoints": 104, 
+                "frags": 221, 
+                "frags8p": 125, 
+                "fragsBeast": 55, 
+                "hits": 2113, 
+                "losses": 138, 
                 "maxFrags": 6, 
                 "maxXP": 1821, 
-                "shots": 1927, 
-                "spotted": 374, 
-                "survivedBattles": 47, 
+                "shots": 2757, 
+                "spotted": 593, 
+                "survivedBattles": 62, 
                 "treesCut": 0, 
-                "winAndSurvived": 45, 
-                "wins": 108, 
-                "xp": 150816
+                "winAndSurvived": 60, 
+                "wins": 153, 
+                "xp": 214513
             }, 
             "unknown": {
                 "unknown166": 0, 
@@ -10379,31 +12076,31 @@
         }, 
         "Type 59": {
             "battle": {
-                "battleHeroes": 53, 
+                "battleHeroes": 60, 
                 "confederate": 3, 
-                "defender": 4, 
+                "defender": 5, 
                 "evileye": 0, 
                 "invader": 5, 
                 "scout": 2, 
-                "sniper": 25, 
+                "sniper": 31, 
                 "steelwall": 12, 
                 "topgun": 2, 
                 "unknown": 0, 
-                "warrior": 23
+                "warrior": 26
             }, 
             "clan": [], 
             "common": {
                 "basedonversion": 22, 
                 "countryid": 3, 
-                "frags_compare": 527, 
-                "lastBattleTime": 1342217741, 
-                "lastBattleTimeR": "2012-07-14 00:15:41", 
+                "frags_compare": 597, 
+                "lastBattleTime": 1348604475, 
+                "lastBattleTimeR": "2012-09-25 22:21:15", 
                 "premium": 1, 
                 "tankid": 0, 
                 "tanktitle": "Type 59", 
                 "tier": 8, 
                 "type": 2, 
-                "updated": 1342217741
+                "updated": 1348604475
             }, 
             "company": {
                 "battlesCount": 3, 
@@ -10446,12 +12143,6 @@
                     "T-34"
                 ], 
                 [
-                    0, 
-                    21, 
-                    8, 
-                    "IS-3"
-                ], 
-                [
                     1, 
                     32, 
                     9, 
@@ -10460,26 +12151,32 @@
                 [
                     2, 
                     36, 
-                    2, 
+                    3, 
                     "T25 AT"
                 ], 
                 [
-                    4, 
-                    12, 
-                    2, 
-                    "AMX 50 100"
+                    1, 
+                    6, 
+                    15, 
+                    "JagdPz IV"
                 ], 
                 [
                     0, 
-                    2, 
-                    13, 
-                    "IS"
+                    21, 
+                    8, 
+                    "IS-3"
                 ], 
                 [
                     0, 
                     29, 
                     1, 
                     "ISU-152"
+                ], 
+                [
+                    2, 
+                    37, 
+                    1, 
+                    "M103"
                 ], 
                 [
                     1, 
@@ -10489,27 +12186,45 @@
                 ], 
                 [
                     1, 
+                    0, 
+                    20, 
+                    "PzKpfw IV"
+                ], 
+                [
+                    4, 
+                    18, 
                     1, 
-                    15, 
-                    "Hummel"
+                    "AMX 13 F3 AM"
                 ], 
                 [
                     1, 
                     2, 
-                    8, 
+                    9, 
                     "PzKpfw VI Tiger"
                 ], 
                 [
                     2, 
                     6, 
-                    8, 
+                    9, 
                     "T20"
+                ], 
+                [
+                    4, 
+                    14, 
+                    3, 
+                    "Bat Chatillon 25 t"
                 ], 
                 [
                     1, 
                     35, 
-                    8, 
+                    9, 
                     "GW Panther"
+                ], 
+                [
+                    2, 
+                    39, 
+                    2, 
+                    "M4A3E2"
                 ], 
                 [
                     2, 
@@ -10530,16 +12245,22 @@
                     "StuG III"
                 ], 
                 [
+                    3, 
                     1, 
-                    26, 
                     1, 
-                    "Marder II"
+                    "Type 62"
                 ], 
                 [
                     0, 
+                    22, 
+                    4, 
+                    "SU-8"
+                ], 
+                [
                     1, 
-                    8, 
-                    "SU-85"
+                    5, 
+                    15, 
+                    "PzKpfw V Panther"
                 ], 
                 [
                     2, 
@@ -10548,28 +12269,22 @@
                     "T25/2"
                 ], 
                 [
-                    1, 
-                    7, 
-                    1, 
-                    "Hetzer"
-                ], 
-                [
                     3, 
                     0, 
-                    30, 
+                    36, 
                     "Type 59"
                 ], 
                 [
-                    1, 
-                    6, 
+                    0, 
+                    2, 
                     15, 
-                    "JagdPz IV"
+                    "IS"
                 ], 
                 [
+                    0, 
+                    35, 
                     2, 
-                    42, 
-                    1, 
-                    "T110E5"
+                    "KV-13"
                 ], 
                 [
                     1, 
@@ -10580,50 +12295,56 @@
                 [
                     0, 
                     16, 
-                    1, 
+                    2, 
                     "SU-14"
                 ], 
                 [
                     1, 
                     20, 
-                    13, 
+                    14, 
                     "PzKpfw VIB Tiger II"
                 ], 
                 [
-                    0, 
-                    35, 
-                    2, 
-                    "KV-13"
+                    1, 
+                    7, 
+                    1, 
+                    "Hetzer"
                 ], 
                 [
                     2, 
                     11, 
-                    5, 
+                    6, 
                     "T34"
                 ], 
                 [
                     4, 
                     19, 
-                    5, 
+                    7, 
                     "AMX 13 90"
                 ], 
                 [
                     4, 
-                    14, 
-                    3, 
-                    "Bat Chatillon 25 t"
+                    12, 
+                    2, 
+                    "AMX 50 100"
                 ], 
                 [
+                    0, 
+                    36, 
                     1, 
-                    40, 
-                    1, 
-                    "E-50"
+                    "IS-6"
                 ], 
                 [
                     2, 
                     204, 
                     1, 
                     "M4A2E4"
+                ], 
+                [
+                    4, 
+                    20, 
+                    8, 
+                    "AMX 13 75"
                 ], 
                 [
                     0, 
@@ -10634,7 +12355,7 @@
                 [
                     2, 
                     13, 
-                    3, 
+                    4, 
                     "T1 Heavy"
                 ], 
                 [
@@ -10656,33 +12377,51 @@
                     "Lorraine 40 t"
                 ], 
                 [
+                    2, 
+                    31, 
+                    1, 
+                    "M12"
+                ], 
+                [
                     1, 
                     33, 
-                    6, 
+                    8, 
                     "Panther II"
                 ], 
                 [
                     0, 
                     7, 
-                    7, 
+                    8, 
                     "S-51"
                 ], 
                 [
                     2, 
                     15, 
-                    8, 
+                    9, 
                     "T29"
+                ], 
+                [
+                    4, 
+                    55, 
+                    2, 
+                    "ELC AMX"
+                ], 
+                [
+                    1, 
+                    40, 
+                    1, 
+                    "E-50"
                 ], 
                 [
                     0, 
                     17, 
-                    6, 
+                    7, 
                     "T-44"
                 ], 
                 [
                     1, 
                     21, 
-                    9, 
+                    11, 
                     "VK 1602 Leopard"
                 ], 
                 [
@@ -10694,14 +12433,14 @@
                 [
                     2, 
                     16, 
-                    3, 
+                    4, 
                     "M41"
                 ], 
                 [
                     1, 
-                    0, 
+                    1, 
                     17, 
-                    "PzKpfw IV"
+                    "Hummel"
                 ], 
                 [
                     0, 
@@ -10712,7 +12451,7 @@
                 [
                     1, 
                     212, 
-                    4, 
+                    6, 
                     "L?we"
                 ], 
                 [
@@ -10736,7 +12475,7 @@
                 [
                     0, 
                     11, 
-                    5, 
+                    8, 
                     "KV-1S"
                 ], 
                 [
@@ -10748,7 +12487,7 @@
                 [
                     0, 
                     10, 
-                    5, 
+                    6, 
                     "T-34-85"
                 ], 
                 [
@@ -10760,13 +12499,13 @@
                 [
                     0, 
                     31, 
-                    2, 
+                    3, 
                     "T-54"
                 ], 
                 [
                     1, 
                     15, 
-                    12, 
+                    13, 
                     "Jagdpanther"
                 ], 
                 [
@@ -10778,13 +12517,13 @@
                 [
                     1, 
                     9, 
-                    29, 
+                    30, 
                     "VK 3601 (H)"
                 ], 
                 [
                     1, 
                     16, 
-                    7, 
+                    8, 
                     "VK 3002 (DB)"
                 ], 
                 [
@@ -10794,16 +12533,16 @@
                     "M5 Stuart"
                 ], 
                 [
-                    0, 
-                    37, 
-                    7, 
-                    "T-50"
+                    4, 
+                    28, 
+                    1, 
+                    "Lorraine155 50"
                 ], 
                 [
                     4, 
-                    20, 
-                    6, 
-                    "AMX 13 75"
+                    16, 
+                    1, 
+                    "AMX 105AM"
                 ], 
                 [
                     2, 
@@ -10825,8 +12564,14 @@
                 ], 
                 [
                     0, 
+                    37, 
+                    7, 
+                    "T-50"
+                ], 
+                [
+                    0, 
                     44, 
-                    1, 
+                    3, 
                     "T-150"
                 ], 
                 [
@@ -10834,6 +12579,12 @@
                     41, 
                     1, 
                     "VK 4502 (P) Ausf. A"
+                ], 
+                [
+                    2, 
+                    52, 
+                    1, 
+                    "T26E4 Super Pershing"
                 ], 
                 [
                     1, 
@@ -10868,13 +12619,19 @@
                 [
                     1, 
                     22, 
-                    8, 
+                    12, 
                     "Grille"
+                ], 
+                [
+                    2, 
+                    3, 
+                    3, 
+                    "M6"
                 ], 
                 [
                     0, 
                     19, 
-                    3, 
+                    4, 
                     "SU-5"
                 ], 
                 [
@@ -10891,6 +12648,12 @@
                 ], 
                 [
                     2, 
+                    28, 
+                    1, 
+                    "M36"
+                ], 
+                [
+                    2, 
                     5, 
                     8, 
                     "M4A3E8 Sherman"
@@ -10898,7 +12661,7 @@
                 [
                     1, 
                     25, 
-                    7, 
+                    8, 
                     "PzKpfw III/IV"
                 ], 
                 [
@@ -10908,22 +12671,34 @@
                     "M40/M43"
                 ], 
                 [
-                    0, 
-                    22, 
-                    3, 
-                    "SU-8"
+                    4, 
+                    10, 
+                    6, 
+                    "ARL 44"
+                ], 
+                [
+                    2, 
+                    12, 
+                    1, 
+                    "M3 Lee"
+                ], 
+                [
+                    1, 
+                    26, 
+                    1, 
+                    "Marder II"
                 ], 
                 [
                     0, 
                     23, 
-                    14, 
+                    15, 
                     "KV-3"
                 ], 
                 [
+                    0, 
                     1, 
-                    5, 
-                    15, 
-                    "PzKpfw V Panther"
+                    8, 
+                    "SU-85"
                 ], 
                 [
                     2, 
@@ -10974,28 +12749,28 @@
                     "KV-1"
                 ], 
                 [
-                    2, 
-                    3, 
-                    3, 
-                    "M6"
+                    1, 
+                    30, 
+                    5, 
+                    "Ferdinand"
                 ], 
                 [
                     0, 
                     26, 
-                    11, 
+                    12, 
                     "T-43"
                 ], 
                 [
                     4, 
-                    10, 
-                    6, 
-                    "ARL 44"
+                    42, 
+                    1, 
+                    "AMX AC Mle. 1946"
                 ], 
                 [
                     2, 
-                    35, 
+                    42, 
                     1, 
-                    "M46 Patton"
+                    "T110E5"
                 ], 
                 [
                     1, 
@@ -11004,10 +12779,10 @@
                     "Jagdtiger"
                 ], 
                 [
+                    2, 
+                    35, 
                     1, 
-                    30, 
-                    4, 
-                    "Ferdinand"
+                    "M46 Patton"
                 ]
             ], 
             "major": {
@@ -11021,16 +12796,16 @@
                 "Poppel": 3
             }, 
             "series": {
-                "diehardSeries": 0, 
+                "diehardSeries": 1, 
                 "invincibleSeries": 0, 
                 "killingSeries": 0, 
-                "maxDiehardSeries": 4, 
+                "maxDiehardSeries": 5, 
                 "maxInvincibleSeries": 2, 
                 "maxKillingSeries": 3, 
                 "maxPiercingSeries": 19, 
                 "maxSniperSeries": 32, 
                 "piercingSeries": 0, 
-                "sniperSeries": 1
+                "sniperSeries": 0
             }, 
             "special": {
                 "armorPiercer": 1, 
@@ -11047,26 +12822,26 @@
                 "tankExpert": 0
             }, 
             "tankdata": {
-                "battleLifeTime": 133223, 
-                "battlesCount": 496, 
-                "capturePoints": 2282, 
-                "damageDealt": 540269, 
-                "damageReceived": 538273, 
-                "droppedCapturePoints": 789, 
-                "frags": 527, 
-                "frags8p": 119, 
-                "fragsBeast": 79, 
-                "hits": 3788, 
-                "losses": 222, 
+                "battleLifeTime": 151132, 
+                "battlesCount": 562, 
+                "capturePoints": 2393, 
+                "damageDealt": 611496, 
+                "damageReceived": 611557, 
+                "droppedCapturePoints": 909, 
+                "frags": 597, 
+                "frags8p": 139, 
+                "fragsBeast": 87, 
+                "hits": 4314, 
+                "losses": 260, 
                 "maxFrags": 7, 
                 "maxXP": 2106, 
-                "shots": 4999, 
-                "spotted": 925, 
-                "survivedBattles": 157, 
+                "shots": 5706, 
+                "spotted": 1080, 
+                "survivedBattles": 173, 
                 "treesCut": 0, 
-                "winAndSurvived": 137, 
-                "wins": 260, 
-                "xp": 367124
+                "winAndSurvived": 152, 
+                "wins": 288, 
+                "xp": 414053
             }, 
             "unknown": {
                 "unknown166": 0, 
