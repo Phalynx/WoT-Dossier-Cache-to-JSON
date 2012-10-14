@@ -16,7 +16,7 @@ def usage():
 def main():
 	import cPickle, struct, json, time, sys, os, shutil, datetime
 	
-	parserversion = "0.8.0.0"
+	parserversion = "0.8.1.0"
 
 	print '###### WoTDC2J ' + parserversion
 
@@ -52,7 +52,11 @@ def main():
 	
 	tanksdata = get_json_data("tanks.json")
 
-	structures = get_json_data("structures.json")
+	structures = get_json_data("structures_17.json")
+	structures = structures + get_json_data("structures_20.json")
+	structures = structures + get_json_data("structures_22.json")
+	structures = structures + get_json_data("structures_24.json")
+	
 
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
@@ -136,6 +140,7 @@ def main():
 		tankversion = getdata("tankversion", 0, 1)
 		
 		
+		
 		if tankversion < 17: # Old
 			if tankversion > 0:
 				
@@ -148,34 +153,15 @@ def main():
 					continue
 
 		if tankversion >= 20:
-
-			# Data for company battles / Global War
-			company = []
-
-			if tankversion == 20:
-				if getdata("Company", 161, 4) > 0:
-					company = getdata_tank_specific(161)
-
-			if tankversion == 22:
-				if getdata("Company", 174, 4) > 0:
-					company = getdata_tank_specific(174)
-
-
-			# Currently unused as of WoT v0.7.5
-			clan = []
-
-			if tankversion == 20:
-				if getdata("Clan", 213, 4) > 0:
-					clan = getdata_tank_specific(213)
-
-			if tankversion == 22:
-				if getdata("Clan", 226, 4) > 0:
-					clan = getdata_tank_specific(226)
-
-
-		numofkills = 0
+			company = getstructureddata("company", tankversion)
+			clan = getstructureddata("clan", tankversion)
 		
-		fragslist = getdata_fragslist(tankversion, tanksdata)
+		numofkills = 0
+
+		#getdata("fragspos", structureitem['offset'], structureitem['length'])
+		structure = getstructureddata("structure", tankversion)
+		#print structure['fragspos']
+		fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
 
 		tankdata = getstructureddata("tankdata", tankversion)
 
@@ -183,7 +169,7 @@ def main():
 			if tankdata['frags'] <> numofkills:
 				print 'Wrong number of kills!'
 		except Exception, e:
-				print 'frags does not exists'
+				print 'Frags does not exists!'
 
 		series = getstructureddata("series", tankversion)
 
@@ -194,8 +180,6 @@ def main():
 		major = getstructureddata("major", tankversion)
 
 		epic = getstructureddata("epic", tankversion)
-
-		unknown = getstructureddata("unknown", tankversion)
 
 		tanktitle = get_tank_data(tanksdata, countryid, tankid, "title")
 		#"lastBattleTime_": tankitem[1][0],
@@ -220,7 +204,6 @@ def main():
 		
 		tank['tankdata'] = tankdata
 		tank['common'] = common
-		tank['unknown'] = unknown
 		
 		
 		if tankversion >= 20:
@@ -258,7 +241,6 @@ def main():
 	print ''
 	sys.exit(0)
 	
-
 
 
 ############################################################################################################################
@@ -345,23 +327,16 @@ def get_tank_data(tanksdata, countryid, tankid, dataname):
 	return "unknown"
 
 
-def getdata_fragslist(tankversion, tanksdata):
+def getdata_fragslist(tankversion, tanksdata, offset):
 
 	global sourcedata, numofkills
 
 	fragslist = []
 
+	offset = offset + 2
+	
 	if tankversion < 20:
 		offset = 138
-
-	if tankversion == 20:
-		offset = 269
-
-	if tankversion == 22:
-		offset = 282
-
-	if tankversion == 24:
-		offset = 302
 
 	if len(sourcedata) > offset:
 
@@ -384,32 +359,6 @@ def getdata_fragslist(tankversion, tanksdata):
 				fragslist.append(tankill)
 
 	return fragslist
-
-
-
-
-
-def getdata_tank_specific(offset):
-
-	global sourcedata
-
-	data = []
-	data = {"xp": getdata("Tankdata xp", offset, 4),
-		"battlesCount": getdata("Tankdata battlesCount", offset+4, 4),
-		"wins": getdata("Tankdata wins", offset+8, 4),
-		"losses": getdata("Tankdata losses", offset+12, 4),
-		"survivedBattles": getdata("Tankdata survivedBattles", offset+16, 4),
-		"frags": getdata("Tankdata frags", offset+20, 4),
-		"shots": getdata("Tankdata shots", offset+24, 4),
-		"hits": getdata("Tankdata hits", offset+28, 4),
-		"spotted": getdata("Tankdata spotted", offset+32, 4),
-		"damageDealt": getdata("Tankdata damageDealt", offset+36, 4),
-		"damageReceived": getdata("Tankdata damageReceived", offset+40, 4),
-		"capturePoints": getdata("Tankdata capturePoints", offset+44, 4),
-		"droppedCapturePoints": getdata("Tankdata droppedCapturePoints", offset+48, 4),
-	}
-
-	return data
 
 
 def getdata(name, startoffset, offsetlength):
