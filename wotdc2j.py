@@ -16,14 +16,14 @@ def usage():
 def main():
 	import cPickle, struct, json, time, sys, os, shutil, datetime
 	
-	parserversion = "0.8.1.0"
+	parserversion = "0.8.2.0"
 
 	print '###### WoTDC2J ' + parserversion
 
 	global rawdata, sourcedata, structures, numofkills, filename_source, working_directory, option_server
 	option_raw = 0
 	option_format = 0
-	option_server = 1
+	option_server = 0
 	option_frags = 1
 	
 	working_directory = os.path.dirname(os.path.realpath(__file__))
@@ -40,22 +40,27 @@ def main():
 			option_format = 1
 			print '-- FORMAT mode enabled'
 		elif argument == "-s":
-			option_server = 0
-			print '-- SERVER mode disabled'
+			option_server = 1
+			print '-- SERVER mode enabled'
 		elif argument == "-k":
 			option_frags = 0
-			print '-- KILLS/FRAGS will be exluded'
+			print '-- KILLS/FRAGS will be excluded'
 
 	filename_source = str(sys.argv[1])
 
 	print 'Processing ' + filename_source
 	
-	tanksdata = get_json_data("tanks.json")
+	tanksdata = dict()
+	
+	if option_server == 0:
+		tanksdata = get_json_data("tanks.json")
 
-	structures = get_json_data("structures_17.json")
+	structures = get_json_data("structures_18.json")
 	structures = structures + get_json_data("structures_20.json")
 	structures = structures + get_json_data("structures_22.json")
 	structures = structures + get_json_data("structures_24.json")
+	structures = structures + get_json_data("structures_26.json")
+
 	
 
 
@@ -138,14 +143,17 @@ def main():
 			continue
 
 		tankversion = getdata("tankversion", 0, 1)
-		
-		
-		
+		#tankversion = tankversion - 1
+		#rawdata[0] = str(tankversion) + " / " + str(tankversion) +  "; tankversion"
+	
+		#print "V: " + str(tankversion)
+	
 		if tankversion < 17: # Old
 			if tankversion > 0:
 				
 				try:
-					print get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion)
+					if option_server == 0:
+						print get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion)
 					catch_fatal('unsupported tankversion')
 					continue				
 				except Exception, e:
@@ -181,7 +189,11 @@ def main():
 
 		epic = getstructureddata("epic", tankversion)
 
-		tanktitle = get_tank_data(tanksdata, countryid, tankid, "title")
+		if option_server == 0:
+			tanktitle = get_tank_data(tanksdata, countryid, tankid, "title")
+		else:
+			tanktitle = str(countryid) + '_' + str(tankid)
+			
 		#"lastBattleTime_": tankitem[1][0],
 		common = {"countryid": countryid,
 			"tankid": tankid,
@@ -193,6 +205,7 @@ def main():
 			"lastBattleTime": getdata("lastBattleTime", 2, 4),
 			"lastBattleTimeR": datetime.datetime.fromtimestamp(int(getdata("lastBattleTime", 2, 4))).strftime('%Y-%m-%d %H:%M:%S'),
 			"basedonversion": tankversion,
+			"frags": tankdata['frags'],
 			"frags_compare": numofkills
 		}
 
@@ -319,12 +332,13 @@ def get_json_data(filename):
 
 def get_tank_data(tanksdata, countryid, tankid, dataname):
 
-	for tankdata in tanksdata:
-		if tankdata['countryid'] == countryid:
-			if tankdata['tankid'] == tankid:
-				return tankdata[dataname]
+	if option_server == 0:
+		for tankdata in tanksdata:
+			if tankdata['countryid'] == countryid:
+				if tankdata['tankid'] == tankid:
+					return tankdata[dataname]
 
-	return "unknown"
+	return "-"
 
 
 def getdata_fragslist(tankversion, tanksdata, offset):
@@ -334,9 +348,6 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 	fragslist = []
 
 	offset = offset + 2
-	
-	if tankversion < 20:
-		offset = 138
 
 	if len(sourcedata) > offset:
 
@@ -354,7 +365,12 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 				tankid = ptankid //256
 				countryid = ((ptankid - tankid*256)-1) //16
 				numofkills = numofkills + amount
-				tankname = get_tank_data(tanksdata, countryid, tankid, "title")
+				
+				if option_server == 0:
+					tankname = get_tank_data(tanksdata, countryid, tankid, "title")
+				else:
+					tankname = "-"					
+					
 				tankill = [countryid, tankid, amount, tankname]
 				fragslist.append(tankill)
 
