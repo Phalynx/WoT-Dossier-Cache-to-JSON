@@ -48,8 +48,6 @@
 
 
 
-
-
 {"version": 22, "category": "major", "name": "Kay", "offset": 113, "length": 1},
 {"version": 22, "category": "major", "name": "Carius", "offset": 114, "length": 1},
 {"version": 22, "category": "major", "name": "Knispel", "offset": 115, "length": 1},
@@ -123,6 +121,8 @@
 {"version": 22, "category": "clan", "name": "damageReceived", "offset": 266, "length": 4},
 {"version": 22, "category": "clan", "name": "capturePoints", "offset": 270, "length": 4},
 {"version": 22, "category": "clan", "name": "droppedCapturePoints", "offset": 274, "length": 4},
+
+
 
 {"version": 22, "category": "structure", "name": "fragspos", "offset": 278, "length": 2}
 
