@@ -1,7 +1,8 @@
 {
     "header": {
+        "date": 1354911972.0, 
         "parser": "http://www.vbaddict.net/wot", 
-        "parserversion": "0.8.1.0", 
+        "parserversion": "0.8.2.0", 
         "tankcount": 44
     }, 
     "tanks": {
@@ -36,6 +37,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 74, 
                 "frags_compare": 74, 
                 "lastBattleTime": 1342820961, 
                 "lastBattleTimeR": "2012-07-20 23:49:21", 
@@ -126,7 +128,7 @@
                     2, 
                     39, 
                     3, 
-                    "M4A3E2"
+                    "M4A3E2 Sherman Jumbo"
                 ], 
                 [
                     0, 
@@ -270,7 +272,7 @@
                     1, 
                     212, 
                     1, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -902,6 +904,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 13, 
                 "frags_compare": 13, 
                 "lastBattleTime": 1341180303, 
                 "lastBattleTimeR": "2012-07-02 00:05:03", 
@@ -980,7 +983,7 @@
                     0, 
                     213, 
                     1, 
-                    "MkVII Tetrarch"
+                    "Tetrarch"
                 ], 
                 [
                     0, 
@@ -1468,6 +1471,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 48, 
                 "frags_compare": 48, 
                 "lastBattleTime": 1348695287, 
                 "lastBattleTimeR": "2012-09-26 23:34:47", 
@@ -1582,7 +1586,7 @@
                     1, 
                     212, 
                     1, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     2, 
@@ -2322,6 +2326,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 66, 
                 "frags_compare": 66, 
                 "lastBattleTime": 1348437919, 
                 "lastBattleTimeR": "2012-09-24 00:05:19", 
@@ -2496,7 +2501,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -2562,7 +2567,7 @@
                     1, 
                     212, 
                     1, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -3223,6 +3228,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 4, 
+                "frags": 0, 
                 "frags_compare": 0, 
                 "lastBattleTime": 1335650878, 
                 "lastBattleTimeR": "2012-04-29 00:07:58", 
@@ -3627,6 +3633,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 174, 
                 "frags_compare": 174, 
                 "lastBattleTime": 1341956664, 
                 "lastBattleTimeR": "2012-07-10 23:44:24", 
@@ -3879,7 +3886,7 @@
                     1, 
                     212, 
                     3, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -4011,7 +4018,7 @@
                     2, 
                     28, 
                     2, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -4901,6 +4908,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 52, 
                 "frags_compare": 52, 
                 "lastBattleTime": 1348607569, 
                 "lastBattleTimeR": "2012-09-25 23:12:49", 
@@ -5718,6 +5726,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 4, 
+                "frags": 76, 
                 "frags_compare": 76, 
                 "lastBattleTime": 1332967858, 
                 "lastBattleTimeR": "2012-03-28 22:50:58", 
@@ -5812,7 +5821,7 @@
                     2, 
                     39, 
                     1, 
-                    "M4A3E2"
+                    "M4A3E2 Sherman Jumbo"
                 ], 
                 [
                     2, 
@@ -5890,7 +5899,7 @@
                     2, 
                     28, 
                     1, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     4, 
@@ -5914,7 +5923,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -6662,6 +6671,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 4, 
+                "frags": 31, 
                 "frags_compare": 31, 
                 "lastBattleTime": 1328314227, 
                 "lastBattleTimeR": "2012-02-04 01:10:27", 
@@ -6732,7 +6742,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -6756,7 +6766,7 @@
                     0, 
                     202, 
                     1, 
-                    "Churchill"
+                    "Churchill III"
                 ], 
                 [
                     0, 
@@ -6780,7 +6790,7 @@
                     1, 
                     212, 
                     1, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -7354,6 +7364,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 4, 
+                "frags": 23, 
                 "frags_compare": 23, 
                 "lastBattleTime": 1326147987, 
                 "lastBattleTimeR": "2012-01-09 23:26:27", 
@@ -7920,7 +7931,7 @@
                 "xp": 8148
             }
         }, 
-        "Churchill": {
+        "Churchill III": {
             "battle": {
                 "battleHeroes": 0, 
                 "confederate": 0, 
@@ -7950,12 +7961,13 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 0, 
                 "frags_compare": 0, 
                 "lastBattleTime": 1311025172, 
                 "lastBattleTimeR": "2011-07-18 23:39:32", 
                 "premium": 1, 
                 "tankid": 202, 
-                "tanktitle": "Churchill", 
+                "tanktitle": "Churchill III", 
                 "tier": 5, 
                 "type": 3, 
                 "updated": 1311025172
@@ -8354,6 +8366,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 0, 
                 "frags_compare": 0, 
                 "lastBattleTime": 1344026858, 
                 "lastBattleTimeR": "2012-08-03 22:47:38", 
@@ -8774,6 +8787,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 90, 
                 "frags_compare": 90, 
                 "lastBattleTime": 1314911470, 
                 "lastBattleTimeR": "2011-09-01 23:11:10", 
@@ -8970,7 +8984,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     0, 
@@ -9012,7 +9026,7 @@
                     2, 
                     28, 
                     2, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     1, 
@@ -9048,7 +9062,7 @@
                     1, 
                     212, 
                     1, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -9707,6 +9721,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 351, 
                 "frags_compare": 351, 
                 "lastBattleTime": 1347833683, 
                 "lastBattleTimeR": "2012-09-17 00:14:43", 
@@ -9935,7 +9950,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -10007,7 +10022,7 @@
                     1, 
                     212, 
                     9, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -10193,7 +10208,7 @@
                     2, 
                     28, 
                     4, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -11233,6 +11248,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 26, 
                 "frags_compare": 26, 
                 "lastBattleTime": 1347831707, 
                 "lastBattleTimeR": "2012-09-16 23:41:47", 
@@ -11918,6 +11934,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 33, 
                 "frags_compare": 33, 
                 "lastBattleTime": 1332542133, 
                 "lastBattleTimeR": "2012-03-23 23:35:33", 
@@ -12000,7 +12017,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -12599,6 +12616,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 534, 
                 "frags_compare": 534, 
                 "lastBattleTime": 1340744923, 
                 "lastBattleTimeR": "2012-06-26 23:08:43", 
@@ -12719,7 +12737,7 @@
                     2, 
                     39, 
                     1, 
-                    "M4A3E2"
+                    "M4A3E2 Sherman Jumbo"
                 ], 
                 [
                     4, 
@@ -12899,7 +12917,7 @@
                     1, 
                     212, 
                     15, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -13079,7 +13097,7 @@
                     2, 
                     28, 
                     3, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -14089,6 +14107,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 164, 
                 "frags_compare": 164, 
                 "lastBattleTime": 1348696299, 
                 "lastBattleTimeR": "2012-09-26 23:51:39", 
@@ -14359,7 +14378,7 @@
                     1, 
                     212, 
                     9, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -14467,7 +14486,7 @@
                     2, 
                     28, 
                     1, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -15302,6 +15321,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 79, 
                 "frags_compare": 79, 
                 "lastBattleTime": 1335991163, 
                 "lastBattleTimeR": "2012-05-02 22:39:23", 
@@ -15468,7 +15488,7 @@
                     2, 
                     28, 
                     1, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -15492,7 +15512,7 @@
                     2, 
                     13, 
                     3, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -16198,6 +16218,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 95, 
                 "frags_compare": 95, 
                 "lastBattleTime": 1313799206, 
                 "lastBattleTimeR": "2011-08-20 02:13:26", 
@@ -16304,7 +16325,7 @@
                     2, 
                     204, 
                     1, 
-                    "M4A2E4"
+                    "M4A2E4 Sherman"
                 ], 
                 [
                     0, 
@@ -16376,7 +16397,7 @@
                     2, 
                     13, 
                     2, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     0, 
@@ -16412,7 +16433,7 @@
                     2, 
                     28, 
                     1, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     1, 
@@ -16454,7 +16475,7 @@
                     1, 
                     212, 
                     4, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -16496,7 +16517,7 @@
                     0, 
                     202, 
                     1, 
-                    "Churchill"
+                    "Churchill III"
                 ], 
                 [
                     1, 
@@ -17166,6 +17187,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 1, 
                 "frags_compare": 1, 
                 "lastBattleTime": 1337205050, 
                 "lastBattleTimeR": "2012-05-16 23:50:50", 
@@ -17582,6 +17604,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 1, 
+                "frags": 1, 
                 "frags_compare": 1, 
                 "lastBattleTime": 1335649518, 
                 "lastBattleTimeR": "2012-04-28 23:45:18", 
@@ -17968,7 +17991,7 @@
                 "xp": 623
             }
         }, 
-        "M3 Stuart": {
+        "M3 Stuart LL": {
             "battle": {
                 "battleHeroes": 0, 
                 "confederate": 0, 
@@ -17998,12 +18021,13 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 0, 
                 "frags_compare": 0, 
                 "lastBattleTime": 1323470414, 
                 "lastBattleTimeR": "2011-12-09 23:40:14", 
                 "premium": 1, 
                 "tankid": 206, 
-                "tanktitle": "M3 Stuart", 
+                "tanktitle": "M3 Stuart LL", 
                 "tier": 3, 
                 "type": 1, 
                 "updated": 1323470414
@@ -18401,6 +18425,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 212, 
                 "frags_compare": 212, 
                 "lastBattleTime": 1326545261, 
                 "lastBattleTimeR": "2012-01-14 13:47:41", 
@@ -18943,409 +18968,6 @@
                 "xp": 48155
             }
         }, 
-        "MkVII Tetrarch": {
-            "battle": {
-                "battleHeroes": 0, 
-                "confederate": 0, 
-                "defender": 0, 
-                "evileye": 0, 
-                "invader": 0, 
-                "scout": 0, 
-                "sniper": 0, 
-                "steelwall": 0, 
-                "warrior": 0
-            }, 
-            "clan": {
-                "battlesCount": 0, 
-                "capturePoints": 0, 
-                "damageDealt": 0, 
-                "damageReceived": 0, 
-                "droppedCapturePoints": 0, 
-                "frags": 0, 
-                "hits": 0, 
-                "losses": 0, 
-                "shots": 0, 
-                "spotted": 0, 
-                "survivedBattles": 0, 
-                "wins": 0, 
-                "xp": 0
-            }, 
-            "common": {
-                "basedonversion": 20, 
-                "countryid": 0, 
-                "frags_compare": 0, 
-                "lastBattleTime": 1325797817, 
-                "lastBattleTimeR": "2012-01-05 22:10:17", 
-                "premium": 1, 
-                "tankid": 213, 
-                "tanktitle": "MkVII Tetrarch", 
-                "tier": 2, 
-                "type": 1, 
-                "updated": 1325797817
-            }, 
-            "company": {
-                "battlesCount": 0, 
-                "capturePoints": 0, 
-                "damageDealt": 0, 
-                "damageReceived": 0, 
-                "droppedCapturePoints": 0, 
-                "frags": 0, 
-                "hits": 0, 
-                "losses": 0, 
-                "shots": 0, 
-                "spotted": 0, 
-                "survivedBattles": 0, 
-                "wins": 0, 
-                "xp": 0
-            }, 
-            "epic": {
-                "Billotte": 0, 
-                "Boelter": 0, 
-                "Burda": 0, 
-                "DeLaglanda": 0, 
-                "Erohin": 0, 
-                "Fadin": 0, 
-                "Halonen": 0, 
-                "HeroesOfRassenai": 0, 
-                "Horoshilov": 0, 
-                "Kolobanov": 0, 
-                "Lister": 0, 
-                "Orlik": 0, 
-                "Oskin": 0, 
-                "TamadaYoshio": 0
-            }, 
-            "kills": [], 
-            "major": {
-                "Abrams": 0, 
-                "Carius": 0, 
-                "Ekins": 0, 
-                "Kay": 0, 
-                "Knispel": 0, 
-                "Lavrinenko": 0, 
-                "LeClerc": 0, 
-                "Poppel": 0
-            }, 
-            "rawdata": {
-                "0": "20 / 20; tankversion", 
-                "1": 0, 
-                "2": "1325797817 / 185; lastBattleTime", 
-                "3": "1325797817 / 17; lastBattleTime", 
-                "4": "1325797817 / 6; lastBattleTime", 
-                "5": "1325797817 / 79; lastBattleTime", 
-                "6": "32 / 32; tankdata battleLifeTime", 
-                "7": "32 / 0; tankdata battleLifeTime", 
-                "8": "32 / 0; tankdata battleLifeTime", 
-                "9": "32 / 0; tankdata battleLifeTime", 
-                "10": "0 / 0; tankdata maxFrags", 
-                "11": "252 / 252; tankdata xp", 
-                "12": "252 / 0; tankdata xp", 
-                "13": "252 / 0; tankdata xp", 
-                "14": "252 / 0; tankdata xp", 
-                "15": "252 / 252; tankdata maxXP", 
-                "16": "252 / 0; tankdata maxXP", 
-                "17": "1 / 1; tankdata battlesCount", 
-                "18": "1 / 0; tankdata battlesCount", 
-                "19": "1 / 0; tankdata battlesCount", 
-                "20": "1 / 0; tankdata battlesCount", 
-                "21": "1 / 1; tankdata wins", 
-                "22": "1 / 0; tankdata wins", 
-                "23": "1 / 0; tankdata wins", 
-                "24": "1 / 0; tankdata wins", 
-                "25": "0 / 0; tankdata losses", 
-                "26": "0 / 0; tankdata losses", 
-                "27": "0 / 0; tankdata losses", 
-                "28": "0 / 0; tankdata losses", 
-                "29": "0 / 0; tankdata survivedBattles", 
-                "30": "0 / 0; tankdata survivedBattles", 
-                "31": "0 / 0; tankdata survivedBattles", 
-                "32": "0 / 0; tankdata survivedBattles", 
-                "33": "0 / 0; tankdata winAndSurvived", 
-                "34": "0 / 0; tankdata winAndSurvived", 
-                "35": "0 / 0; tankdata winAndSurvived", 
-                "36": "0 / 0; tankdata winAndSurvived", 
-                "37": "0 / 0; tankdata frags", 
-                "38": "0 / 0; tankdata frags", 
-                "39": "0 / 0; tankdata frags", 
-                "40": "0 / 0; tankdata frags", 
-                "41": "0 / 0; tankdata frags8p", 
-                "42": "0 / 0; tankdata frags8p", 
-                "43": "0 / 0; tankdata frags8p", 
-                "44": "0 / 0; tankdata frags8p", 
-                "45": "0 / 0; tankdata fragsBeast", 
-                "46": "0 / 0; tankdata fragsBeast", 
-                "47": "0 / 0; tankdata fragsBeast", 
-                "48": "0 / 0; tankdata fragsBeast", 
-                "49": "2 / 2; tankdata shots", 
-                "50": "2 / 0; tankdata shots", 
-                "51": "2 / 0; tankdata shots", 
-                "52": "2 / 0; tankdata shots", 
-                "53": "2 / 2; tankdata hits", 
-                "54": "2 / 0; tankdata hits", 
-                "55": "2 / 0; tankdata hits", 
-                "56": "2 / 0; tankdata hits", 
-                "57": "3 / 3; tankdata spotted", 
-                "58": "3 / 0; tankdata spotted", 
-                "59": "3 / 0; tankdata spotted", 
-                "60": "3 / 0; tankdata spotted", 
-                "61": "86 / 86; tankdata damageDealt", 
-                "62": "86 / 0; tankdata damageDealt", 
-                "63": "86 / 0; tankdata damageDealt", 
-                "64": "86 / 0; tankdata damageDealt", 
-                "65": "140 / 140; tankdata damageReceived", 
-                "66": "140 / 0; tankdata damageReceived", 
-                "67": "140 / 0; tankdata damageReceived", 
-                "68": "140 / 0; tankdata damageReceived", 
-                "69": "0 / 0; tankdata treesCut", 
-                "70": "0 / 0; tankdata treesCut", 
-                "71": "0 / 0; tankdata capturePoints", 
-                "72": "0 / 0; tankdata capturePoints", 
-                "73": "0 / 0; tankdata capturePoints", 
-                "74": "0 / 0; tankdata capturePoints", 
-                "75": "0 / 0; tankdata droppedCapturePoints", 
-                "76": "0 / 0; tankdata droppedCapturePoints", 
-                "77": "0 / 0; tankdata droppedCapturePoints", 
-                "78": "0 / 0; tankdata droppedCapturePoints", 
-                "79": "2 / 2; series sniperSeries", 
-                "80": "2 / 0; series sniperSeries", 
-                "81": "2 / 2; series maxSniperSeries", 
-                "82": "2 / 0; series maxSniperSeries", 
-                "83": "0 / 0; series invincibleSeries", 
-                "84": "0 / 0; series maxInvincibleSeries", 
-                "85": "0 / 0; series diehardSeries", 
-                "86": "0 / 0; series maxDiehardSeries", 
-                "87": "0 / 0; series killingSeries", 
-                "88": "0 / 0; series maxKillingSeries", 
-                "89": "2 / 2; series piercingSeries", 
-                "90": "2 / 2; series maxPiercingSeries", 
-                "91": "0 / 0; battle battleHeroes", 
-                "92": "0 / 0; battle battleHeroes", 
-                "93": "0 / 0; battle warrior", 
-                "94": "0 / 0; battle warrior", 
-                "95": "0 / 0; battle invader", 
-                "96": "0 / 0; battle invader", 
-                "97": "0 / 0; battle sniper", 
-                "98": "0 / 0; battle sniper", 
-                "99": "0 / 0; battle defender", 
-                "100": "0 / 0; battle defender", 
-                "101": "0 / 0; battle steelwall", 
-                "102": "0 / 0; battle steelwall", 
-                "103": "0 / 0; battle confederate", 
-                "104": "0 / 0; battle confederate", 
-                "105": "0 / 0; battle scout", 
-                "106": "0 / 0; battle scout", 
-                "107": "0 / 0; battle evileye", 
-                "108": "0 / 0; battle evileye", 
-                "109": "0 / 0; major Kay", 
-                "110": "0 / 0; major Carius", 
-                "111": "0 / 0; major Knispel", 
-                "112": "0 / 0; major Poppel", 
-                "113": "0 / 0; major Abrams", 
-                "114": "0 / 0; major LeClerc", 
-                "115": "0 / 0; major Lavrinenko", 
-                "116": "0 / 0; major Ekins", 
-                "117": "0 / 0; epic Boelter", 
-                "118": "0 / 0; epic Boelter", 
-                "119": "0 / 0; epic Orlik", 
-                "120": "0 / 0; epic Orlik", 
-                "121": "0 / 0; epic Oskin", 
-                "122": "0 / 0; epic Oskin", 
-                "123": "0 / 0; epic Halonen", 
-                "124": "0 / 0; epic Halonen", 
-                "125": "0 / 0; epic Burda", 
-                "126": "0 / 0; epic Burda", 
-                "127": "0 / 0; epic Billotte", 
-                "128": "0 / 0; epic Billotte", 
-                "129": "0 / 0; epic Kolobanov", 
-                "130": "0 / 0; epic Kolobanov", 
-                "131": "0 / 0; epic Fadin", 
-                "132": "0 / 0; epic Fadin", 
-                "133": "0 / 0; epic HeroesOfRassenai", 
-                "134": "0 / 0; epic HeroesOfRassenai", 
-                "135": "0 / 0; epic DeLaglanda", 
-                "136": "0 / 0; epic DeLaglanda", 
-                "137": "0 / 0; epic TamadaYoshio", 
-                "138": "0 / 0; epic TamadaYoshio", 
-                "139": "0 / 0; epic Erohin", 
-                "140": "0 / 0; epic Erohin", 
-                "141": "0 / 0; epic Horoshilov", 
-                "142": "0 / 0; epic Horoshilov", 
-                "143": "0 / 0; epic Lister", 
-                "144": "0 / 0; epic Lister", 
-                "145": "0 / 0; special beasthunter", 
-                "146": "0 / 0; special beasthunter", 
-                "147": "0 / 0; special mousebane", 
-                "148": "0 / 0; special mousebane", 
-                "149": "0 / 0; special tankExpert", 
-                "150": "0 / 0; special sniperspecial", 
-                "151": "0 / 0; special invincible", 
-                "152": "0 / 0; special diehard", 
-                "153": "0 / 0; special raider", 
-                "154": "0 / 0; special raider", 
-                "155": "0 / 0; special handOfDeath", 
-                "156": "0 / 0; special armorPiercer", 
-                "157": "0 / 0; special kamikaze", 
-                "158": "0 / 0; special kamikaze", 
-                "159": "0 / 0; special lumberjack", 
-                "160": "0 / 0; special markOfMastery", 
-                "161": "0 / 0; company xp", 
-                "162": "0 / 0; company xp", 
-                "163": "0 / 0; company xp", 
-                "164": "0 / 0; company xp", 
-                "165": "0 / 0; company battlesCount", 
-                "166": "0 / 0; company battlesCount", 
-                "167": "0 / 0; company battlesCount", 
-                "168": "0 / 0; company battlesCount", 
-                "169": "0 / 0; company wins", 
-                "170": "0 / 0; company wins", 
-                "171": "0 / 0; company wins", 
-                "172": "0 / 0; company wins", 
-                "173": "0 / 0; company losses", 
-                "174": "0 / 0; company losses", 
-                "175": "0 / 0; company losses", 
-                "176": "0 / 0; company losses", 
-                "177": "0 / 0; company survivedBattles", 
-                "178": "0 / 0; company survivedBattles", 
-                "179": "0 / 0; company survivedBattles", 
-                "180": "0 / 0; company survivedBattles", 
-                "181": "0 / 0; company frags", 
-                "182": "0 / 0; company frags", 
-                "183": "0 / 0; company frags", 
-                "184": "0 / 0; company frags", 
-                "185": "0 / 0; company shots", 
-                "186": "0 / 0; company shots", 
-                "187": "0 / 0; company shots", 
-                "188": "0 / 0; company shots", 
-                "189": "0 / 0; company hits", 
-                "190": "0 / 0; company hits", 
-                "191": "0 / 0; company hits", 
-                "192": "0 / 0; company hits", 
-                "193": "0 / 0; company spotted", 
-                "194": "0 / 0; company spotted", 
-                "195": "0 / 0; company spotted", 
-                "196": "0 / 0; company spotted", 
-                "197": "0 / 0; company damageDealt", 
-                "198": "0 / 0; company damageDealt", 
-                "199": "0 / 0; company damageDealt", 
-                "200": "0 / 0; company damageDealt", 
-                "201": "0 / 0; company damageReceived", 
-                "202": "0 / 0; company damageReceived", 
-                "203": "0 / 0; company damageReceived", 
-                "204": "0 / 0; company damageReceived", 
-                "205": "0 / 0; company capturePoints", 
-                "206": "0 / 0; company capturePoints", 
-                "207": "0 / 0; company capturePoints", 
-                "208": "0 / 0; company capturePoints", 
-                "209": "0 / 0; company droppedCapturePoints", 
-                "210": "0 / 0; company droppedCapturePoints", 
-                "211": "0 / 0; company droppedCapturePoints", 
-                "212": "0 / 0; company droppedCapturePoints", 
-                "213": "0 / 0; clan xp", 
-                "214": "0 / 0; clan xp", 
-                "215": "0 / 0; clan xp", 
-                "216": "0 / 0; clan xp", 
-                "217": "0 / 0; clan battlesCount", 
-                "218": "0 / 0; clan battlesCount", 
-                "219": "0 / 0; clan battlesCount", 
-                "220": "0 / 0; clan battlesCount", 
-                "221": "0 / 0; clan wins", 
-                "222": "0 / 0; clan wins", 
-                "223": "0 / 0; clan wins", 
-                "224": "0 / 0; clan wins", 
-                "225": "0 / 0; clan losses", 
-                "226": "0 / 0; clan losses", 
-                "227": "0 / 0; clan losses", 
-                "228": "0 / 0; clan losses", 
-                "229": "0 / 0; clan survivedBattles", 
-                "230": "0 / 0; clan survivedBattles", 
-                "231": "0 / 0; clan survivedBattles", 
-                "232": "0 / 0; clan survivedBattles", 
-                "233": "0 / 0; clan frags", 
-                "234": "0 / 0; clan frags", 
-                "235": "0 / 0; clan frags", 
-                "236": "0 / 0; clan frags", 
-                "237": "0 / 0; clan shots", 
-                "238": "0 / 0; clan shots", 
-                "239": "0 / 0; clan shots", 
-                "240": "0 / 0; clan shots", 
-                "241": "0 / 0; clan hits", 
-                "242": "0 / 0; clan hits", 
-                "243": "0 / 0; clan hits", 
-                "244": "0 / 0; clan hits", 
-                "245": "0 / 0; clan spotted", 
-                "246": "0 / 0; clan spotted", 
-                "247": "0 / 0; clan spotted", 
-                "248": "0 / 0; clan spotted", 
-                "249": "0 / 0; clan damageDealt", 
-                "250": "0 / 0; clan damageDealt", 
-                "251": "0 / 0; clan damageDealt", 
-                "252": "0 / 0; clan damageDealt", 
-                "253": "0 / 0; clan damageReceived", 
-                "254": "0 / 0; clan damageReceived", 
-                "255": "0 / 0; clan damageReceived", 
-                "256": "0 / 0; clan damageReceived", 
-                "257": "0 / 0; clan capturePoints", 
-                "258": "0 / 0; clan capturePoints", 
-                "259": "0 / 0; clan capturePoints", 
-                "260": "0 / 0; clan capturePoints", 
-                "261": "0 / 0; clan droppedCapturePoints", 
-                "262": "0 / 0; clan droppedCapturePoints", 
-                "263": "0 / 0; clan droppedCapturePoints", 
-                "264": "0 / 0; clan droppedCapturePoints", 
-                "265": "267 / 11; structure fragspos", 
-                "266": "267 / 1; structure fragspos", 
-                "267": 0, 
-                "268": 0
-            }, 
-            "series": {
-                "diehardSeries": 0, 
-                "invincibleSeries": 0, 
-                "killingSeries": 0, 
-                "maxDiehardSeries": 0, 
-                "maxInvincibleSeries": 0, 
-                "maxKillingSeries": 0, 
-                "maxPiercingSeries": 2, 
-                "maxSniperSeries": 2, 
-                "piercingSeries": 2, 
-                "sniperSeries": 2
-            }, 
-            "special": {
-                "armorPiercer": 0, 
-                "beasthunter": 0, 
-                "diehard": 0, 
-                "handOfDeath": 0, 
-                "invincible": 0, 
-                "kamikaze": 0, 
-                "lumberjack": 0, 
-                "markOfMastery": 0, 
-                "mousebane": 0, 
-                "raider": 0, 
-                "sniperspecial": 0, 
-                "tankExpert": 0
-            }, 
-            "tankdata": {
-                "battleLifeTime": 32, 
-                "battlesCount": 1, 
-                "capturePoints": 0, 
-                "damageDealt": 86, 
-                "damageReceived": 140, 
-                "droppedCapturePoints": 0, 
-                "frags": 0, 
-                "frags8p": 0, 
-                "fragsBeast": 0, 
-                "hits": 2, 
-                "lastBattleTime": 1325797817, 
-                "losses": 0, 
-                "maxFrags": 0, 
-                "maxXP": 252, 
-                "shots": 2, 
-                "spotted": 3, 
-                "survivedBattles": 0, 
-                "treesCut": 0, 
-                "winAndSurvived": 0, 
-                "wins": 1, 
-                "xp": 252
-            }
-        }, 
         "RenaultFT": {
             "battle": {
                 "battleHeroes": 0, 
@@ -19376,6 +18998,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 4, 
+                "frags": 1, 
                 "frags_compare": 1, 
                 "lastBattleTime": 1331502212, 
                 "lastBattleTimeR": "2012-03-11 22:43:32", 
@@ -19793,6 +19416,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 4, 
+                "frags": 8, 
                 "frags_compare": 8, 
                 "lastBattleTime": 1348695819, 
                 "lastBattleTimeR": "2012-09-26 23:43:39", 
@@ -20310,6 +19934,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 43, 
                 "frags_compare": 43, 
                 "lastBattleTime": 1334005961, 
                 "lastBattleTimeR": "2012-04-09 23:12:41", 
@@ -20470,7 +20095,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     0, 
@@ -21110,6 +20735,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 150, 
                 "frags_compare": 150, 
                 "lastBattleTime": 1339796943, 
                 "lastBattleTimeR": "2012-06-15 23:49:03", 
@@ -21204,7 +20830,7 @@
                     0, 
                     206, 
                     1, 
-                    "M3 Stuart"
+                    "M3 Stuart LL"
                 ], 
                 [
                     2, 
@@ -21294,7 +20920,7 @@
                     2, 
                     13, 
                     3, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     0, 
@@ -21342,7 +20968,7 @@
                     1, 
                     212, 
                     2, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -21462,7 +21088,7 @@
                     2, 
                     28, 
                     1, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -22306,6 +21932,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 0, 
                 "frags_compare": 0, 
                 "lastBattleTime": 1311536224, 
                 "lastBattleTimeR": "2011-07-24 21:37:04", 
@@ -22709,6 +22336,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 15, 
                 "frags_compare": 15, 
                 "lastBattleTime": 1311701161, 
                 "lastBattleTimeR": "2011-07-26 19:26:01", 
@@ -23269,6 +22897,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 51, 
                 "frags_compare": 51, 
                 "lastBattleTime": 1331939027, 
                 "lastBattleTimeR": "2012-03-17 00:03:47", 
@@ -23381,7 +23010,7 @@
                     2, 
                     202, 
                     1, 
-                    "Ram-II"
+                    "Ram II"
                 ], 
                 [
                     1, 
@@ -23429,7 +23058,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -24057,6 +23686,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 5, 
                 "frags_compare": 5, 
                 "lastBattleTime": 1325286438, 
                 "lastBattleTimeR": "2011-12-31 00:07:18", 
@@ -24521,6 +24151,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 0, 
                 "frags_compare": 0, 
                 "lastBattleTime": 1335994283, 
                 "lastBattleTimeR": "2012-05-02 23:31:23", 
@@ -24924,6 +24555,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 83, 
                 "frags_compare": 83, 
                 "lastBattleTime": 1333832355, 
                 "lastBattleTimeR": "2012-04-07 22:59:15", 
@@ -24988,7 +24620,7 @@
                     0, 
                     213, 
                     2, 
-                    "MkVII Tetrarch"
+                    "Tetrarch"
                 ], 
                 [
                     1, 
@@ -25006,7 +24638,7 @@
                     0, 
                     206, 
                     1, 
-                    "M3 Stuart"
+                    "M3 Stuart LL"
                 ], 
                 [
                     2, 
@@ -25042,7 +24674,7 @@
                     2, 
                     206, 
                     1, 
-                    "M22"
+                    "M22 Locust"
                 ], 
                 [
                     2, 
@@ -25569,6 +25201,7 @@
             "common": {
                 "basedonversion": 24, 
                 "countryid": 0, 
+                "frags": 324, 
                 "frags_compare": 324, 
                 "lastBattleTime": 1348772112, 
                 "lastBattleTimeR": "2012-09-27 20:55:12", 
@@ -25763,7 +25396,7 @@
                     2, 
                     202, 
                     2, 
-                    "Ram-II"
+                    "Ram II"
                 ], 
                 [
                     1, 
@@ -25835,7 +25468,7 @@
                     2, 
                     13, 
                     5, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     0, 
@@ -25943,7 +25576,7 @@
                     0, 
                     205, 
                     2, 
-                    "Valentine"
+                    "Valentine II"
                 ], 
                 [
                     2, 
@@ -25961,7 +25594,7 @@
                     1, 
                     14, 
                     6, 
-                    "Panzerj?ger I"
+                    "Panzerjaeger I"
                 ], 
                 [
                     2, 
@@ -25991,7 +25624,7 @@
                     0, 
                     206, 
                     2, 
-                    "M3 Stuart"
+                    "M3 Stuart LL"
                 ], 
                 [
                     1, 
@@ -26816,6 +26449,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 54, 
                 "frags_compare": 54, 
                 "lastBattleTime": 1322693645, 
                 "lastBattleTimeR": "2011-11-30 23:54:05", 
@@ -26910,7 +26544,7 @@
                     2, 
                     39, 
                     1, 
-                    "M4A3E2"
+                    "M4A3E2 Sherman Jumbo"
                 ], 
                 [
                     2, 
@@ -26946,7 +26580,7 @@
                     2, 
                     202, 
                     1, 
-                    "Ram-II"
+                    "Ram II"
                 ], 
                 [
                     1, 
@@ -27604,6 +27238,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 197, 
                 "frags_compare": 197, 
                 "lastBattleTime": 1330128490, 
                 "lastBattleTimeR": "2012-02-25 01:08:10", 
@@ -27776,7 +27411,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     1, 
@@ -27974,7 +27609,7 @@
                     2, 
                     28, 
                     3, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
@@ -28776,6 +28411,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 0, 
+                "frags": 18, 
                 "frags_compare": 18, 
                 "lastBattleTime": 1311967694, 
                 "lastBattleTimeR": "2011-07-29 21:28:14", 
@@ -29361,6 +28997,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 21, 
                 "frags_compare": 21, 
                 "lastBattleTime": 1345757514, 
                 "lastBattleTimeR": "2012-08-23 23:31:54", 
@@ -29451,7 +29088,7 @@
                     2, 
                     13, 
                     1, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     4, 
@@ -29975,6 +29612,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 11, 
                 "frags_compare": 11, 
                 "lastBattleTime": 1348605995, 
                 "lastBattleTimeR": "2012-09-25 22:46:35", 
@@ -30505,6 +30143,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 0, 
+                "frags": 221, 
                 "frags_compare": 221, 
                 "lastBattleTime": 1348607907, 
                 "lastBattleTimeR": "2012-09-25 23:18:27", 
@@ -30775,7 +30414,7 @@
                     1, 
                     212, 
                     6, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -31730,6 +31369,7 @@
             "common": {
                 "basedonversion": 20, 
                 "countryid": 2, 
+                "frags": 3, 
                 "frags_compare": 3, 
                 "lastBattleTime": 1337209039, 
                 "lastBattleTimeR": "2012-05-17 00:57:19", 
@@ -31788,7 +31428,7 @@
                     1, 
                     14, 
                     1, 
-                    "Panzerj?ger I"
+                    "Panzerjaeger I"
                 ]
             ], 
             "major": {
@@ -32140,6 +31780,410 @@
                 "xp": 972
             }
         }, 
+        "Tetrarch": {
+            "battle": {
+                "battleHeroes": 0, 
+                "confederate": 0, 
+                "defender": 0, 
+                "evileye": 0, 
+                "invader": 0, 
+                "scout": 0, 
+                "sniper": 0, 
+                "steelwall": 0, 
+                "warrior": 0
+            }, 
+            "clan": {
+                "battlesCount": 0, 
+                "capturePoints": 0, 
+                "damageDealt": 0, 
+                "damageReceived": 0, 
+                "droppedCapturePoints": 0, 
+                "frags": 0, 
+                "hits": 0, 
+                "losses": 0, 
+                "shots": 0, 
+                "spotted": 0, 
+                "survivedBattles": 0, 
+                "wins": 0, 
+                "xp": 0
+            }, 
+            "common": {
+                "basedonversion": 20, 
+                "countryid": 0, 
+                "frags": 0, 
+                "frags_compare": 0, 
+                "lastBattleTime": 1325797817, 
+                "lastBattleTimeR": "2012-01-05 22:10:17", 
+                "premium": 1, 
+                "tankid": 213, 
+                "tanktitle": "Tetrarch", 
+                "tier": 2, 
+                "type": 1, 
+                "updated": 1325797817
+            }, 
+            "company": {
+                "battlesCount": 0, 
+                "capturePoints": 0, 
+                "damageDealt": 0, 
+                "damageReceived": 0, 
+                "droppedCapturePoints": 0, 
+                "frags": 0, 
+                "hits": 0, 
+                "losses": 0, 
+                "shots": 0, 
+                "spotted": 0, 
+                "survivedBattles": 0, 
+                "wins": 0, 
+                "xp": 0
+            }, 
+            "epic": {
+                "Billotte": 0, 
+                "Boelter": 0, 
+                "Burda": 0, 
+                "DeLaglanda": 0, 
+                "Erohin": 0, 
+                "Fadin": 0, 
+                "Halonen": 0, 
+                "HeroesOfRassenai": 0, 
+                "Horoshilov": 0, 
+                "Kolobanov": 0, 
+                "Lister": 0, 
+                "Orlik": 0, 
+                "Oskin": 0, 
+                "TamadaYoshio": 0
+            }, 
+            "kills": [], 
+            "major": {
+                "Abrams": 0, 
+                "Carius": 0, 
+                "Ekins": 0, 
+                "Kay": 0, 
+                "Knispel": 0, 
+                "Lavrinenko": 0, 
+                "LeClerc": 0, 
+                "Poppel": 0
+            }, 
+            "rawdata": {
+                "0": "20 / 20; tankversion", 
+                "1": 0, 
+                "2": "1325797817 / 185; lastBattleTime", 
+                "3": "1325797817 / 17; lastBattleTime", 
+                "4": "1325797817 / 6; lastBattleTime", 
+                "5": "1325797817 / 79; lastBattleTime", 
+                "6": "32 / 32; tankdata battleLifeTime", 
+                "7": "32 / 0; tankdata battleLifeTime", 
+                "8": "32 / 0; tankdata battleLifeTime", 
+                "9": "32 / 0; tankdata battleLifeTime", 
+                "10": "0 / 0; tankdata maxFrags", 
+                "11": "252 / 252; tankdata xp", 
+                "12": "252 / 0; tankdata xp", 
+                "13": "252 / 0; tankdata xp", 
+                "14": "252 / 0; tankdata xp", 
+                "15": "252 / 252; tankdata maxXP", 
+                "16": "252 / 0; tankdata maxXP", 
+                "17": "1 / 1; tankdata battlesCount", 
+                "18": "1 / 0; tankdata battlesCount", 
+                "19": "1 / 0; tankdata battlesCount", 
+                "20": "1 / 0; tankdata battlesCount", 
+                "21": "1 / 1; tankdata wins", 
+                "22": "1 / 0; tankdata wins", 
+                "23": "1 / 0; tankdata wins", 
+                "24": "1 / 0; tankdata wins", 
+                "25": "0 / 0; tankdata losses", 
+                "26": "0 / 0; tankdata losses", 
+                "27": "0 / 0; tankdata losses", 
+                "28": "0 / 0; tankdata losses", 
+                "29": "0 / 0; tankdata survivedBattles", 
+                "30": "0 / 0; tankdata survivedBattles", 
+                "31": "0 / 0; tankdata survivedBattles", 
+                "32": "0 / 0; tankdata survivedBattles", 
+                "33": "0 / 0; tankdata winAndSurvived", 
+                "34": "0 / 0; tankdata winAndSurvived", 
+                "35": "0 / 0; tankdata winAndSurvived", 
+                "36": "0 / 0; tankdata winAndSurvived", 
+                "37": "0 / 0; tankdata frags", 
+                "38": "0 / 0; tankdata frags", 
+                "39": "0 / 0; tankdata frags", 
+                "40": "0 / 0; tankdata frags", 
+                "41": "0 / 0; tankdata frags8p", 
+                "42": "0 / 0; tankdata frags8p", 
+                "43": "0 / 0; tankdata frags8p", 
+                "44": "0 / 0; tankdata frags8p", 
+                "45": "0 / 0; tankdata fragsBeast", 
+                "46": "0 / 0; tankdata fragsBeast", 
+                "47": "0 / 0; tankdata fragsBeast", 
+                "48": "0 / 0; tankdata fragsBeast", 
+                "49": "2 / 2; tankdata shots", 
+                "50": "2 / 0; tankdata shots", 
+                "51": "2 / 0; tankdata shots", 
+                "52": "2 / 0; tankdata shots", 
+                "53": "2 / 2; tankdata hits", 
+                "54": "2 / 0; tankdata hits", 
+                "55": "2 / 0; tankdata hits", 
+                "56": "2 / 0; tankdata hits", 
+                "57": "3 / 3; tankdata spotted", 
+                "58": "3 / 0; tankdata spotted", 
+                "59": "3 / 0; tankdata spotted", 
+                "60": "3 / 0; tankdata spotted", 
+                "61": "86 / 86; tankdata damageDealt", 
+                "62": "86 / 0; tankdata damageDealt", 
+                "63": "86 / 0; tankdata damageDealt", 
+                "64": "86 / 0; tankdata damageDealt", 
+                "65": "140 / 140; tankdata damageReceived", 
+                "66": "140 / 0; tankdata damageReceived", 
+                "67": "140 / 0; tankdata damageReceived", 
+                "68": "140 / 0; tankdata damageReceived", 
+                "69": "0 / 0; tankdata treesCut", 
+                "70": "0 / 0; tankdata treesCut", 
+                "71": "0 / 0; tankdata capturePoints", 
+                "72": "0 / 0; tankdata capturePoints", 
+                "73": "0 / 0; tankdata capturePoints", 
+                "74": "0 / 0; tankdata capturePoints", 
+                "75": "0 / 0; tankdata droppedCapturePoints", 
+                "76": "0 / 0; tankdata droppedCapturePoints", 
+                "77": "0 / 0; tankdata droppedCapturePoints", 
+                "78": "0 / 0; tankdata droppedCapturePoints", 
+                "79": "2 / 2; series sniperSeries", 
+                "80": "2 / 0; series sniperSeries", 
+                "81": "2 / 2; series maxSniperSeries", 
+                "82": "2 / 0; series maxSniperSeries", 
+                "83": "0 / 0; series invincibleSeries", 
+                "84": "0 / 0; series maxInvincibleSeries", 
+                "85": "0 / 0; series diehardSeries", 
+                "86": "0 / 0; series maxDiehardSeries", 
+                "87": "0 / 0; series killingSeries", 
+                "88": "0 / 0; series maxKillingSeries", 
+                "89": "2 / 2; series piercingSeries", 
+                "90": "2 / 2; series maxPiercingSeries", 
+                "91": "0 / 0; battle battleHeroes", 
+                "92": "0 / 0; battle battleHeroes", 
+                "93": "0 / 0; battle warrior", 
+                "94": "0 / 0; battle warrior", 
+                "95": "0 / 0; battle invader", 
+                "96": "0 / 0; battle invader", 
+                "97": "0 / 0; battle sniper", 
+                "98": "0 / 0; battle sniper", 
+                "99": "0 / 0; battle defender", 
+                "100": "0 / 0; battle defender", 
+                "101": "0 / 0; battle steelwall", 
+                "102": "0 / 0; battle steelwall", 
+                "103": "0 / 0; battle confederate", 
+                "104": "0 / 0; battle confederate", 
+                "105": "0 / 0; battle scout", 
+                "106": "0 / 0; battle scout", 
+                "107": "0 / 0; battle evileye", 
+                "108": "0 / 0; battle evileye", 
+                "109": "0 / 0; major Kay", 
+                "110": "0 / 0; major Carius", 
+                "111": "0 / 0; major Knispel", 
+                "112": "0 / 0; major Poppel", 
+                "113": "0 / 0; major Abrams", 
+                "114": "0 / 0; major LeClerc", 
+                "115": "0 / 0; major Lavrinenko", 
+                "116": "0 / 0; major Ekins", 
+                "117": "0 / 0; epic Boelter", 
+                "118": "0 / 0; epic Boelter", 
+                "119": "0 / 0; epic Orlik", 
+                "120": "0 / 0; epic Orlik", 
+                "121": "0 / 0; epic Oskin", 
+                "122": "0 / 0; epic Oskin", 
+                "123": "0 / 0; epic Halonen", 
+                "124": "0 / 0; epic Halonen", 
+                "125": "0 / 0; epic Burda", 
+                "126": "0 / 0; epic Burda", 
+                "127": "0 / 0; epic Billotte", 
+                "128": "0 / 0; epic Billotte", 
+                "129": "0 / 0; epic Kolobanov", 
+                "130": "0 / 0; epic Kolobanov", 
+                "131": "0 / 0; epic Fadin", 
+                "132": "0 / 0; epic Fadin", 
+                "133": "0 / 0; epic HeroesOfRassenai", 
+                "134": "0 / 0; epic HeroesOfRassenai", 
+                "135": "0 / 0; epic DeLaglanda", 
+                "136": "0 / 0; epic DeLaglanda", 
+                "137": "0 / 0; epic TamadaYoshio", 
+                "138": "0 / 0; epic TamadaYoshio", 
+                "139": "0 / 0; epic Erohin", 
+                "140": "0 / 0; epic Erohin", 
+                "141": "0 / 0; epic Horoshilov", 
+                "142": "0 / 0; epic Horoshilov", 
+                "143": "0 / 0; epic Lister", 
+                "144": "0 / 0; epic Lister", 
+                "145": "0 / 0; special beasthunter", 
+                "146": "0 / 0; special beasthunter", 
+                "147": "0 / 0; special mousebane", 
+                "148": "0 / 0; special mousebane", 
+                "149": "0 / 0; special tankExpert", 
+                "150": "0 / 0; special sniperspecial", 
+                "151": "0 / 0; special invincible", 
+                "152": "0 / 0; special diehard", 
+                "153": "0 / 0; special raider", 
+                "154": "0 / 0; special raider", 
+                "155": "0 / 0; special handOfDeath", 
+                "156": "0 / 0; special armorPiercer", 
+                "157": "0 / 0; special kamikaze", 
+                "158": "0 / 0; special kamikaze", 
+                "159": "0 / 0; special lumberjack", 
+                "160": "0 / 0; special markOfMastery", 
+                "161": "0 / 0; company xp", 
+                "162": "0 / 0; company xp", 
+                "163": "0 / 0; company xp", 
+                "164": "0 / 0; company xp", 
+                "165": "0 / 0; company battlesCount", 
+                "166": "0 / 0; company battlesCount", 
+                "167": "0 / 0; company battlesCount", 
+                "168": "0 / 0; company battlesCount", 
+                "169": "0 / 0; company wins", 
+                "170": "0 / 0; company wins", 
+                "171": "0 / 0; company wins", 
+                "172": "0 / 0; company wins", 
+                "173": "0 / 0; company losses", 
+                "174": "0 / 0; company losses", 
+                "175": "0 / 0; company losses", 
+                "176": "0 / 0; company losses", 
+                "177": "0 / 0; company survivedBattles", 
+                "178": "0 / 0; company survivedBattles", 
+                "179": "0 / 0; company survivedBattles", 
+                "180": "0 / 0; company survivedBattles", 
+                "181": "0 / 0; company frags", 
+                "182": "0 / 0; company frags", 
+                "183": "0 / 0; company frags", 
+                "184": "0 / 0; company frags", 
+                "185": "0 / 0; company shots", 
+                "186": "0 / 0; company shots", 
+                "187": "0 / 0; company shots", 
+                "188": "0 / 0; company shots", 
+                "189": "0 / 0; company hits", 
+                "190": "0 / 0; company hits", 
+                "191": "0 / 0; company hits", 
+                "192": "0 / 0; company hits", 
+                "193": "0 / 0; company spotted", 
+                "194": "0 / 0; company spotted", 
+                "195": "0 / 0; company spotted", 
+                "196": "0 / 0; company spotted", 
+                "197": "0 / 0; company damageDealt", 
+                "198": "0 / 0; company damageDealt", 
+                "199": "0 / 0; company damageDealt", 
+                "200": "0 / 0; company damageDealt", 
+                "201": "0 / 0; company damageReceived", 
+                "202": "0 / 0; company damageReceived", 
+                "203": "0 / 0; company damageReceived", 
+                "204": "0 / 0; company damageReceived", 
+                "205": "0 / 0; company capturePoints", 
+                "206": "0 / 0; company capturePoints", 
+                "207": "0 / 0; company capturePoints", 
+                "208": "0 / 0; company capturePoints", 
+                "209": "0 / 0; company droppedCapturePoints", 
+                "210": "0 / 0; company droppedCapturePoints", 
+                "211": "0 / 0; company droppedCapturePoints", 
+                "212": "0 / 0; company droppedCapturePoints", 
+                "213": "0 / 0; clan xp", 
+                "214": "0 / 0; clan xp", 
+                "215": "0 / 0; clan xp", 
+                "216": "0 / 0; clan xp", 
+                "217": "0 / 0; clan battlesCount", 
+                "218": "0 / 0; clan battlesCount", 
+                "219": "0 / 0; clan battlesCount", 
+                "220": "0 / 0; clan battlesCount", 
+                "221": "0 / 0; clan wins", 
+                "222": "0 / 0; clan wins", 
+                "223": "0 / 0; clan wins", 
+                "224": "0 / 0; clan wins", 
+                "225": "0 / 0; clan losses", 
+                "226": "0 / 0; clan losses", 
+                "227": "0 / 0; clan losses", 
+                "228": "0 / 0; clan losses", 
+                "229": "0 / 0; clan survivedBattles", 
+                "230": "0 / 0; clan survivedBattles", 
+                "231": "0 / 0; clan survivedBattles", 
+                "232": "0 / 0; clan survivedBattles", 
+                "233": "0 / 0; clan frags", 
+                "234": "0 / 0; clan frags", 
+                "235": "0 / 0; clan frags", 
+                "236": "0 / 0; clan frags", 
+                "237": "0 / 0; clan shots", 
+                "238": "0 / 0; clan shots", 
+                "239": "0 / 0; clan shots", 
+                "240": "0 / 0; clan shots", 
+                "241": "0 / 0; clan hits", 
+                "242": "0 / 0; clan hits", 
+                "243": "0 / 0; clan hits", 
+                "244": "0 / 0; clan hits", 
+                "245": "0 / 0; clan spotted", 
+                "246": "0 / 0; clan spotted", 
+                "247": "0 / 0; clan spotted", 
+                "248": "0 / 0; clan spotted", 
+                "249": "0 / 0; clan damageDealt", 
+                "250": "0 / 0; clan damageDealt", 
+                "251": "0 / 0; clan damageDealt", 
+                "252": "0 / 0; clan damageDealt", 
+                "253": "0 / 0; clan damageReceived", 
+                "254": "0 / 0; clan damageReceived", 
+                "255": "0 / 0; clan damageReceived", 
+                "256": "0 / 0; clan damageReceived", 
+                "257": "0 / 0; clan capturePoints", 
+                "258": "0 / 0; clan capturePoints", 
+                "259": "0 / 0; clan capturePoints", 
+                "260": "0 / 0; clan capturePoints", 
+                "261": "0 / 0; clan droppedCapturePoints", 
+                "262": "0 / 0; clan droppedCapturePoints", 
+                "263": "0 / 0; clan droppedCapturePoints", 
+                "264": "0 / 0; clan droppedCapturePoints", 
+                "265": "267 / 11; structure fragspos", 
+                "266": "267 / 1; structure fragspos", 
+                "267": 0, 
+                "268": 0
+            }, 
+            "series": {
+                "diehardSeries": 0, 
+                "invincibleSeries": 0, 
+                "killingSeries": 0, 
+                "maxDiehardSeries": 0, 
+                "maxInvincibleSeries": 0, 
+                "maxKillingSeries": 0, 
+                "maxPiercingSeries": 2, 
+                "maxSniperSeries": 2, 
+                "piercingSeries": 2, 
+                "sniperSeries": 2
+            }, 
+            "special": {
+                "armorPiercer": 0, 
+                "beasthunter": 0, 
+                "diehard": 0, 
+                "handOfDeath": 0, 
+                "invincible": 0, 
+                "kamikaze": 0, 
+                "lumberjack": 0, 
+                "markOfMastery": 0, 
+                "mousebane": 0, 
+                "raider": 0, 
+                "sniperspecial": 0, 
+                "tankExpert": 0
+            }, 
+            "tankdata": {
+                "battleLifeTime": 32, 
+                "battlesCount": 1, 
+                "capturePoints": 0, 
+                "damageDealt": 86, 
+                "damageReceived": 140, 
+                "droppedCapturePoints": 0, 
+                "frags": 0, 
+                "frags8p": 0, 
+                "fragsBeast": 0, 
+                "hits": 2, 
+                "lastBattleTime": 1325797817, 
+                "losses": 0, 
+                "maxFrags": 0, 
+                "maxXP": 252, 
+                "shots": 2, 
+                "spotted": 3, 
+                "survivedBattles": 0, 
+                "treesCut": 0, 
+                "winAndSurvived": 0, 
+                "wins": 1, 
+                "xp": 252
+            }
+        }, 
         "Type 59": {
             "battle": {
                 "battleHeroes": 60, 
@@ -32171,6 +32215,7 @@
             "common": {
                 "basedonversion": 22, 
                 "countryid": 3, 
+                "frags": 597, 
                 "frags_compare": 597, 
                 "lastBattleTime": 1348604475, 
                 "lastBattleTimeR": "2012-09-25 22:21:15", 
@@ -32303,7 +32348,7 @@
                     2, 
                     39, 
                     2, 
-                    "M4A3E2"
+                    "M4A3E2 Sherman Jumbo"
                 ], 
                 [
                     2, 
@@ -32417,7 +32462,7 @@
                     2, 
                     204, 
                     1, 
-                    "M4A2E4"
+                    "M4A2E4 Sherman"
                 ], 
                 [
                     4, 
@@ -32435,7 +32480,7 @@
                     2, 
                     13, 
                     4, 
-                    "T1 Heavy"
+                    "T1 Heavy Tank"
                 ], 
                 [
                     0, 
@@ -32531,7 +32576,7 @@
                     1, 
                     212, 
                     6, 
-                    "L?we"
+                    "Loewe"
                 ], 
                 [
                     0, 
@@ -32729,7 +32774,7 @@
                     2, 
                     28, 
                     1, 
-                    "M36"
+                    "M36 Jackson"
                 ], 
                 [
                     2, 
