@@ -14,9 +14,10 @@ def usage():
 
 
 def main():
-	import cPickle, struct, json, time, sys, os, shutil, datetime
 	
-	parserversion = "0.8.2.0"
+	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
+	
+	parserversion = "0.8.3.0"
 
 	print '###### WoTDC2J ' + parserversion
 
@@ -104,6 +105,18 @@ def main():
 	dossierheader['parser'] = 'http://www.vbaddict.net/wot'
 	dossierheader['parserversion'] = parserversion
 	dossierheader['tankcount'] = len(tankitems)
+
+	
+	base32name = "?;?"
+	try:
+		base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
+	except Exception, e:
+		# nothing
+		print 'cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message
+
+	dossierheader['server'] = base32name.split(';', 1)[0];
+	dossierheader['username'] = base32name.split(';', 1)[1];
+
 	
 	if option_server == 0:
 		dossierheader['date'] = time.mktime(time.localtime())
