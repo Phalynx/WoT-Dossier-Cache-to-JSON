@@ -93,7 +93,7 @@
 {"version": 26, "category": "special", "name": "invincible", "offset": 164, "length": 1},
 {"version": 26, "category": "special", "name": "diehard", "offset": 165, "length": 1},
 {"version": 26, "category": "special", "name": "raider", "offset": 166, "length": 2},
-{"version": 26, "category": "special", "name": "handOfDeath", "offset": 168, "length": 2},
+{"version": 26, "category": "special", "name": "handOfDeath", "offset": 168, "length": 1},
 {"version": 26, "category": "special", "name": "armorPiercer", "offset": 169, "length": 1},
 {"version": 26, "category": "special", "name": "kamikaze", "offset": 170, "length": 2},
 {"version": 26, "category": "special", "name": "lumberjack", "offset": 172, "length": 1},
