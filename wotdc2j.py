@@ -186,6 +186,9 @@ def main():
 
 		tankdata = getstructureddata("tankdata", tankversion)
 
+		if not "creationTime" in tankdata:
+			tankdata['creationTime'] = 1356998400
+
 		try:
 			if tankdata['frags'] <> numofkills:
 				print 'Wrong number of kills!'
@@ -207,7 +210,8 @@ def main():
 		else:
 			tanktitle = str(countryid) + '_' + str(tankid)
 			
-		#"lastBattleTime_": tankitem[1][0],
+		
+			
 		common = {"countryid": countryid,
 			"tankid": tankid,
 			"tanktitle": tanktitle,
@@ -215,8 +219,10 @@ def main():
 			"premium": get_tank_data(tanksdata, countryid, tankid, "premium"),
 			"tier": get_tank_data(tanksdata, countryid, tankid, "tier"),
 			"updated": tankitem[1][0],
-			"lastBattleTime": getdata("lastBattleTime", 2, 4),
-			"lastBattleTimeR": datetime.datetime.fromtimestamp(int(getdata("lastBattleTime", 2, 4))).strftime('%Y-%m-%d %H:%M:%S'),
+			"creationTime": tankdata['creationTime'],
+			"creationTimeR": datetime.datetime.fromtimestamp(int(tankdata['creationTime'])).strftime('%Y-%m-%d %H:%M:%S'),
+			"lastBattleTime": tankdata['lastBattleTime'],
+			"lastBattleTimeR": datetime.datetime.fromtimestamp(int(tankdata['lastBattleTime'])).strftime('%Y-%m-%d %H:%M:%S'),
 			"basedonversion": tankversion,
 			"frags": tankdata['frags'],
 			"frags_compare": numofkills
