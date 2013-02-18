@@ -63,9 +63,6 @@ def main():
 	structures = structures + get_json_data("structures_26.json")
 	structures = structures + get_json_data("structures_27.json")
 
-	
-
-
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
 		catch_fatal('Dossier file does not exists!')
 		sys.exit(1)
@@ -96,25 +93,26 @@ def main():
 		sys.exit(1)
 
 	dossierCache = cacheobject[1]
+	print "Dossier version " + str(cacheobject[0])
 	
 	tankitems = [(k, v) for k, v in dossierCache.items()]
 
 	dossier = dict()
 		
 	dossierheader = dict()
-	dossierheader['tankcount'] = len(tankitems)
+	dossierheader['dossierversion'] = str(cacheobject[0])
 	dossierheader['parser'] = 'http://www.vbaddict.net/wot'
 	dossierheader['parserversion'] = parserversion
 	dossierheader['tankcount'] = len(tankitems)
 
 	
 	base32name = "?;?"
-	try:
-		base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
-	except Exception, e:
-		# nothing
-		#print 'cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message
-		print ""
+	if option_server == 0:
+		try:
+			base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
+		except Exception, e:
+				print 'cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message
+
 
 	dossierheader['server'] = base32name.split(';', 1)[0];
 	dossierheader['username'] = base32name.split(';', 1)[1];
@@ -128,9 +126,6 @@ def main():
 
 	tanks = dict()
 	for tankitem in tankitems:
-
-		
-
 
 		try:
 			tankid = tankitem[0][1] >> 8 & 65535
@@ -157,8 +152,6 @@ def main():
 			continue
 
 		tankversion = getdata("tankversion", 0, 1)
-		#tankversion = tankversion - 1
-		#rawdata[0] = str(tankversion) + " / " + str(tankversion) +  "; tankversion"
 	
 		#print "V: " + str(tankversion)
 	
@@ -180,7 +173,6 @@ def main():
 		
 		numofkills = 0
 
-		#getdata("fragspos", structureitem['offset'], structureitem['length'])
 		structure = getstructureddata("structure", tankversion)
 		fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
 
@@ -209,8 +201,7 @@ def main():
 			tanktitle = get_tank_data(tanksdata, countryid, tankid, "title")
 		else:
 			tanktitle = str(countryid) + '_' + str(tankid)
-			
-		
+				
 			
 		common = {"countryid": countryid,
 			"tankid": tankid,
@@ -229,9 +220,7 @@ def main():
 		}
 
 		tank = dict()
-		
-		
-		
+				
 		tank['tankdata'] = tankdata
 		tank['common'] = common
 		
