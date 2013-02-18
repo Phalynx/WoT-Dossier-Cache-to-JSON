@@ -28,7 +28,7 @@
 {"version": 27, "category": "series", "name": "invincibleSeries", "offset": 87, "length": 1},
 {"version": 27, "category": "series", "name": "maxInvincibleSeries", "offset": 88, "length": 1},
 {"version": 27, "category": "series", "name": "diehardSeries", "offset": 89, "length": 1},
-{"version": 27, "category": "series", "name": "maxDiehardSeries", "offset": 93, "length": 1},
+{"version": 27, "category": "series", "name": "maxDiehardSeries", "offset": 90, "length": 1},
 {"version": 27, "category": "series", "name": "killingSeries", "offset": 91, "length": 1},
 {"version": 27, "category": "series", "name": "maxKillingSeries", "offset": 92, "length": 1},
 {"version": 27, "category": "series", "name": "piercingSeries", "offset": 93, "length": 1},
@@ -63,7 +63,7 @@
 {"version": 27, "category": "epic", "name": "medalKolobanov", "offset": 137, "length": 2},
 {"version": 27, "category": "epic", "name": "medalFadin", "offset": 139, "length": 2},
 {"version": 27, "category": "epic", "name": "medalRadleyWalters", "offset": 141, "length": 2},
-{"version": 27, "category": "epic", "name": "medalBrunoPietro", "offset": 144, "length": 2},
+{"version": 27, "category": "epic", "name": "medalBrunoPietro", "offset": 143, "length": 2},
 {"version": 27, "category": "epic", "name": "medalTarczay", "offset": 145, "length": 2},
 {"version": 27, "category": "epic", "name": "medalPascucci", "offset": 147, "length": 2},
 {"version": 27, "category": "epic", "name": "medalDumitru", "offset": 149, "length": 2},
@@ -128,6 +128,4 @@
 {"version": 27, "category": "clan", "name": "droppedCapturePoints", "offset": 278, "length": 4},
 
 {"version": 27, "category": "structure", "name": "fragspos", "offset": 308, "length": 2}
-
-
 ]
