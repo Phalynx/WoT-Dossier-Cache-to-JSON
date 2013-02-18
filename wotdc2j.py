@@ -17,7 +17,7 @@ def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
 	
-	parserversion = "0.8.3.0"
+	parserversion = "0.8.4.0"
 
 	print '###### WoTDC2J ' + parserversion
 
@@ -61,6 +61,7 @@ def main():
 	structures = structures + get_json_data("structures_22.json")
 	structures = structures + get_json_data("structures_24.json")
 	structures = structures + get_json_data("structures_26.json")
+	structures = structures + get_json_data("structures_27.json")
 
 	
 
@@ -95,7 +96,7 @@ def main():
 		sys.exit(1)
 
 	dossierCache = cacheobject[1]
-	#print dossierCache
+	
 	tankitems = [(k, v) for k, v in dossierCache.items()]
 
 	dossier = dict()
@@ -112,7 +113,8 @@ def main():
 		base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
 	except Exception, e:
 		# nothing
-		print 'cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message
+		#print 'cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message
+		print ""
 
 	dossierheader['server'] = base32name.split(';', 1)[0];
 	dossierheader['username'] = base32name.split(';', 1)[1];
@@ -123,25 +125,24 @@ def main():
 	
 	
 	dossier['header'] = dossierheader
-	
-
 
 	tanks = dict()
 	for tankitem in tankitems:
 
+		
+
 
 		try:
-			tankid = tankitem[0][1] //256
+			tankid = tankitem[0][1] >> 8 & 65535
 		except Exception, e:
 			catch_fatal('cannot get tankid ' + e.message)
 			sys.exit(1)
 			
 		try:
-			countryid = ((tankitem[0][1] - tankid*256)-1) //16
+			countryid = tankitem[0][1] >> 4 & 15
 		except Exception, e:
 			catch_fatal('cannot get countryid ' + e.message)
 			sys.exit(1)
-		
 
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
@@ -181,7 +182,6 @@ def main():
 
 		#getdata("fragspos", structureitem['offset'], structureitem['length'])
 		structure = getstructureddata("structure", tankversion)
-		#print structure['fragspos']
 		fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
 
 		tankdata = getstructureddata("tankdata", tankversion)
@@ -221,8 +221,6 @@ def main():
 			"frags": tankdata['frags'],
 			"frags_compare": numofkills
 		}
-
-
 
 		tank = dict()
 		
@@ -375,8 +373,8 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 				ptankid = getdata("Kill tankid", tankoffset, 2)
 				amount = getdata("kill amount", killoffset, 2)
 
-				tankid = ptankid //256
-				countryid = ((ptankid - tankid*256)-1) //16
+				tankid = ptankid >> 8 & 65535
+				countryid = ptankid >> 4 & 15
 				numofkills = numofkills + amount
 				
 				if option_server == 0:
