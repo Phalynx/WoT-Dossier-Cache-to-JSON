@@ -26,7 +26,7 @@ Contact: marius.czyz@gmail.com
 
 
 == Usage
-wotdc2j.py <dossier.dat> [rf]
+wotdc2j.py <dossier.dat> [rfks]
 
 -f - By setting f the JSON will be formatted for better human readability
 -r - By setting r the JSON will contain all fields with their values and recognized names
