@@ -9,7 +9,7 @@ def usage():
 	print 'Options:'
 	print '-f Formats the JSON to be more human readable'
 	print '-r Export all fields with their values and recognized names'
-	print '-k Dont export Kills/Frags'
+	print '-k Dont export Frags'
 	print '-s Server Mode, disable writing of timestamp, enable logging'
 
 
@@ -19,37 +19,40 @@ def main():
 	
 	parserversion = "0.8.4.0"
 
-	print '###### WoTDC2J ' + parserversion
+	if len(sys.argv) == 1:
+		usage()
+		sys.exit(2)
 
-	global rawdata, sourcedata, structures, numofkills, filename_source, working_directory, option_server
+	global rawdata, sourcedata, structures, numoffrags, working_directory
+	global filename_source, filename_target
+	global option_server, option_format
+	
 	option_raw = 0
 	option_format = 0
 	option_server = 0
 	option_frags = 1
 	
-	working_directory = os.path.dirname(os.path.realpath(__file__))
-	
-	if len(sys.argv) == 1:
-		usage()
-		sys.exit(2)
-
 	for argument in sys.argv:
-		if argument == "-r":
+		if argument == "-s":
+			option_server = 1
+			#print '-- SERVER mode enabled'
+		elif argument == "-r":
 			option_raw = 1
-			print '-- RAW mode enabled'
+			#print '-- RAW mode enabled'
 		elif argument == "-f":
 			option_format = 1
-			print '-- FORMAT mode enabled'
-		elif argument == "-s":
-			option_server = 1
-			print '-- SERVER mode enabled'
+			#print '-- FORMAT mode enabled'
 		elif argument == "-k":
 			option_frags = 0
-			print '-- KILLS/FRAGS will be excluded'
-
+			#print '-- FRAGS will be excluded'
+	
+	printmessage('###### WoTDC2J ' + parserversion)
+	
+	working_directory = os.path.dirname(os.path.realpath(__file__))
+	
 	filename_source = str(sys.argv[1])
 
-	print 'Processing ' + filename_source
+	printmessage('Processing ' + filename_source)
 	
 	tanksdata = dict()
 	
@@ -81,19 +84,16 @@ def main():
 	try:
 	  cacheobject = cPickle.load(cachefile)
 	except Exception, e:
-		catch_fatal('Dossier cannot be read (pickle could not be read) ' + e.message)
-		sys.exit(1)
+		exitwitherror('Dossier cannot be read (pickle could not be read) ' + e.message)
 
 	if not 'cacheobject' in locals():
-		catch_fatal('Dossier cannot be read (cacheobject does not exist)')
-		sys.exit(1)
+		exitwitherror('Dossier cannot be read (cacheobject does not exist)')
 
 	if len(cacheobject) <> 2:
-		catch_fatal('Dossier cannot be read (cacheobject empty')
-		sys.exit(1)
+		exitwitherror('Dossier cannot be read (cacheobject empty')
 
 	dossierCache = cacheobject[1]
-	print "Dossier version " + str(cacheobject[0])
+	printmessage("Dossier version " + str(cacheobject[0]))
 	
 	tankitems = [(k, v) for k, v in dossierCache.items()]
 
@@ -111,33 +111,29 @@ def main():
 		try:
 			base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
 		except Exception, e:
-				print 'cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message
+				printmessage('cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message)
 
 
 	dossierheader['server'] = base32name.split(';', 1)[0];
 	dossierheader['username'] = base32name.split(';', 1)[1];
-
+	
 	
 	if option_server == 0:
 		dossierheader['date'] = time.mktime(time.localtime())
 	
-	
-	dossier['header'] = dossierheader
-
 	tanks = dict()
 	for tankitem in tankitems:
 
 		try:
 			tankid = tankitem[0][1] >> 8 & 65535
 		except Exception, e:
-			catch_fatal('cannot get tankid ' + e.message)
-			sys.exit(1)
+			exitwitherror('cannot get tankid ' + e.message)
+
 			
 		try:
 			countryid = tankitem[0][1] >> 4 & 15
 		except Exception, e:
-			catch_fatal('cannot get countryid ' + e.message)
-			sys.exit(1)
+			exitwitherror('cannot get countryid ' + e.message)
 
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
@@ -153,25 +149,26 @@ def main():
 
 		tankversion = getdata("tankversion", 0, 1)
 	
-		#print "V: " + str(tankversion)
+		#printmessage("V: " + str(tankversion))
 	
 		if tankversion < 17: # Old
 			if tankversion > 0:
 				
 				try:
 					if option_server == 0:
-						print get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion)
-					catch_fatal('unsupported tankversion')
+						printmessage(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
+					
+					exitwitherror('unsupported tankversion')
 					continue				
 				except Exception, e:
-					catch_fatal('unsupported tankversion' + e.message)
+					exitwitherror('unsupported tankversion' + e.message)
 					continue
 
 		if tankversion >= 20:
 			company = getstructureddata("company", tankversion)
 			clan = getstructureddata("clan", tankversion)
 		
-		numofkills = 0
+		numoffrags = 0
 
 		structure = getstructureddata("structure", tankversion)
 		fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
@@ -182,10 +179,10 @@ def main():
 			tankdata['creationTime'] = 1356998400
 
 		try:
-			if tankdata['frags'] <> numofkills:
-				print 'Wrong number of kills!'
+			if tankdata['frags'] <> numoffrags:
+				printmessage('Wrong number of frags!')
 		except Exception, e:
-				print 'Frags does not exists!'
+				printmessage('Frags does not exists!')
 
 		series = getstructureddata("series", tankversion)
 
@@ -216,7 +213,7 @@ def main():
 			"lastBattleTimeR": datetime.datetime.fromtimestamp(int(tankdata['lastBattleTime'])).strftime('%Y-%m-%d %H:%M:%S'),
 			"basedonversion": tankversion,
 			"frags": tankdata['frags'],
-			"frags_compare": numofkills
+			"frags_compare": numoffrags
 		}
 
 		tank = dict()
@@ -246,58 +243,88 @@ def main():
 		
 		
 
-
+	dossierheader['result'] = "ok"
+	dossierheader['message'] = "ok"
+	
+	dossier['header'] = dossierheader
 	dossier['tanks'] = tanks
 
-	finalfile = open(filename_target, 'w')
+	dumpjson(dossier)
 
-	if option_format == 1:
-		finalfile.write(json.dumps(dossier, sort_keys=True, indent=4))
-	else:
-		finalfile.write(json.dumps(dossier))
-
-	print '###### Done!'
-	print ''
+	printmessage('###### Done!')
+	printmessage('')
 	sys.exit(0)
 	
 
 
 ############################################################################################################################
-def catch_fatal(message):
-	import shutil
-	
-	write_to_log(message)
 
-	if os.path.exists(filename_source) and os.path.isfile(filename_source) and os.access(filename_source, os.R_OK):
-		try:
-			shutil.copyfile(filename_source, filename_source + '.backup')
-			#write_to_log('File has been saved for further analyzing : ' + filename_source + '.backup')
-		except Exception, e:
-			write_to_log('Cannot create backup: ' + filename_source + '.backup ' + e.message)
+def printmessage(message):
+	global option_server
+	
+	if option_server == 0:
+		print message
+
+
+def exitwitherror(message):
+	catch_fatal(message)
+	dossier = dict()
+	dossierheader = dict()
+	dossierheader['result'] = "error"
+	dossierheader['message'] = message
+	dossier['header'] = dossierheader
+	dumpjson(dossier)
+	sys.exit(1)
+
+
+def dumpjson(dossier):
+	global option_format, option_server, filename_target
+	
+	
+	if option_server == 0:
+		finalfile = open(filename_target, 'w')
+	
+		if option_format == 1:
+			finalfile.write(json.dumps(dossier, sort_keys=True, indent=4))
+		else:
+			finalfile.write(json.dumps(dossier))
+	else:
+		print json.dumps(dossier)
+
+
+def catch_fatal(message):
+	global option_server
+	import shutil
+		
+	write_to_log("ERROR: " + str(message))
+
+#	if option_server == 1:
+#		if os.path.exists(filename_source) and os.path.isfile(filename_source) and os.access(filename_source, os.R_OK):
+#			try:
+#				shutil.copyfile(filename_source, filename_source + '.backup')
+#			except Exception, e:
+#				write_to_log('Cannot create backup: ' + filename_source + '.backup ' + e.message)
 		  
 
 
 def write_to_log(logtext):
+	global working_directory, option_server
 	import datetime, os
 	
-	global working_directory, option_server
-	
-	print logtext
+	printmessage(logtext)
 	now = datetime.datetime.now()
 	
-	#try:
 	#working_directory
-	
 	if option_server == 1:
-		logFile = open("/var/log/wotdc2j/wotdc2j.log", "a+b")
-		logFile.write(str(now.strftime("%Y-%m-%d %H:%M:%S")) + " # " + str(logtext) + " # " + str(filename_source) + "\r\n")
-		logFile.close()
-	#except:
-		#print "Cannot write to wotdc2j.log"
+		try:
+			logFile = open("/var/log/wotdc2j/wotdc2j.log", "a+b")
+			logFile.write(str(now.strftime("%Y-%m-%d %H:%M:%S")) + " # " + str(logtext) + " # " + str(filename_source) + "\r\n")
+			logFile.close()
+		except:
+			printmessage("Cannot write to wotdc2j.log")
 		
 
 def getstructureddata(category, tankversion):
-
 	global sourcedata, structures
 
 	returndata = dict()
@@ -348,8 +375,7 @@ def get_tank_data(tanksdata, countryid, tankid, dataname):
 
 
 def getdata_fragslist(tankversion, tanksdata, offset):
-
-	global sourcedata, numofkills
+	global sourcedata, numoffrags
 
 	fragslist = []
 
@@ -357,34 +383,33 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 
 	if len(sourcedata) > offset:
 
-		numfrags = getdata("Kill number of frags", offset-2, 2)
+		numfrags = getdata("Number of frags", offset-2, 2)
 
 		if numfrags > 0:
 			for m in xrange(0, numfrags):
 
 				tankoffset = offset + m*4
-				killoffset = offset + numfrags*4+m*2
+				fragoffset = offset + numfrags*4+m*2
 
-				ptankid = getdata("Kill tankid", tankoffset, 2)
-				amount = getdata("kill amount", killoffset, 2)
+				ptankid = getdata("Frag tankid", tankoffset, 2)
+				amount = getdata("Frag amount", fragoffset, 2)
 
 				tankid = ptankid >> 8 & 65535
 				countryid = ptankid >> 4 & 15
-				numofkills = numofkills + amount
+				numoffrags = numoffrags + amount
 				
 				if option_server == 0:
 					tankname = get_tank_data(tanksdata, countryid, tankid, "title")
 				else:
 					tankname = "-"					
 					
-				tankill = [countryid, tankid, amount, tankname]
-				fragslist.append(tankill)
+				tankfrag = [countryid, tankid, amount, tankname]
+				fragslist.append(tankfrag)
 
 	return fragslist
 
 
 def getdata(name, startoffset, offsetlength):
-
 	global rawdata, sourcedata
 
 	if len(sourcedata)<startoffset+offsetlength:
