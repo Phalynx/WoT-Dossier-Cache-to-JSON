@@ -23,6 +23,7 @@ def main():
 	global filename_source, filename_target
 	global option_server, option_format
 	
+	filename_source = ""
 	option_raw = 0
 	option_format = 0
 	option_server = 0
