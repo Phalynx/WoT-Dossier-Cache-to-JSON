@@ -17,12 +17,8 @@ def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
 	
-	parserversion = "0.8.4.0"
-
-	if len(sys.argv) == 1:
-		usage()
-		sys.exit(2)
-
+	parserversion = "0.8.4.1"
+	
 	global rawdata, sourcedata, structures, numoffrags, working_directory
 	global filename_source, filename_target
 	global option_server, option_format
@@ -45,13 +41,17 @@ def main():
 		elif argument == "-k":
 			option_frags = 0
 			#print '-- FRAGS will be excluded'
+		elif argument != sys.argv[0]:
+			filename_source = argument
+	
+	if filename_source == "":
+		usage()
+		sys.exit(2)
 	
 	printmessage('###### WoTDC2J ' + parserversion)
 	
 	working_directory = os.path.dirname(os.path.realpath(__file__))
 	
-	filename_source = str(sys.argv[1])
-
 	printmessage('Processing ' + filename_source)
 	
 	tanksdata = dict()
