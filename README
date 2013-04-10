@@ -1,4 +1,4 @@
-World of Tanks Dossier Cache to JSON v8.4 / wotdc2j.py
+World of Tanks Dossier Cache to JSON v8.5 / wotdc2j.py
 
 Author: Marius Czyz aka Phalynx
 Contact: marius.czyz@gmail.com
@@ -17,7 +17,8 @@ Contact: marius.czyz@gmail.com
 - WoT 0.8.0.x, 0.8.1.x (dossier version 22)
 - WoT 0.8.2.x (dossier version 24)
 - WoT 0.8.3.x (dossier version 26)
-- WoT 0.8.4.x (dossier version 27)
+- WoT 0.8.4.x, 0.8.5.x (dossier version 27)
+
 
 == Contributors WoTDC2J.py
 - Phalynx
