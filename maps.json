@@ -27,11 +27,12 @@
 {"mapid": 27, "mapidname": "03_campania", "mapname": "Province"},
 {"mapid": 28, "mapidname": "17_munchen", "mapname": "Widepark"},
 {"mapid": 31, "mapidname": "44_north_america", "mapname": "Live Oaks"},
-{"mapid": 34, "mapidname": "45_north_america", "mapname": "Highway"},
 {"mapid": 32, "mapidname": "39_crimea", "mapname": "South Coast"},
+{"mapid": 34, "mapidname": "45_north_america", "mapname": "Highway"},
 {"mapid": 36, "mapidname": "42_north_america", "mapname": "Port"},
 {"mapid": 44, "mapidname": "51_asia", "mapname": "Dragon Ridge"},
 {"mapid": 49, "mapidname": "47_canada_a", "mapname": "Serene Coast"},
 {"mapid": 1957, "mapidname": "60_asia_miao", "mapname": "Pearl River"},
+{"mapid": 1983, "mapidname": "73_asia_korea", "mapname": "Sacred Valley"},
 {"mapid": 2021, "mapidname": "00_tank_tutorial", "mapname": "Training area"}
 ]
