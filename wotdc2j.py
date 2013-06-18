@@ -17,7 +17,7 @@ def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
 	
-	parserversion = "0.8.4.1"
+	parserversion = "0.8.6.0"
 	
 	global rawdata, sourcedata, structures, numoffrags, working_directory
 	global filename_source, filename_target
@@ -66,6 +66,7 @@ def main():
 	structures = structures + get_json_data("structures_24.json")
 	structures = structures + get_json_data("structures_26.json")
 	structures = structures + get_json_data("structures_27.json")
+	structures = structures + get_json_data("structures_28.json")
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
 		catch_fatal('Dossier file does not exists!')
@@ -112,6 +113,7 @@ def main():
 		try:
 			base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
 		except Exception, e:
+			if e.message != 'Incorrect padding':
 				printmessage('cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message)
 
 
@@ -157,12 +159,12 @@ def main():
 				
 				try:
 					if option_server == 0:
-						printmessage(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
+						write_to_log(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
 					
-					exitwitherror('unsupported tankversion')
+					printmessage('unsupported tankversion')
 					continue				
 				except Exception, e:
-					exitwitherror('unsupported tankversion' + e.message)
+					printmessage('unsupported tankversion' + e.message)
 					continue
 
 		if tankversion >= 20:
@@ -172,6 +174,11 @@ def main():
 		numoffrags = 0
 
 		structure = getstructureddata("structure", tankversion)
+		
+		if 'fragspos' not in structure:
+			write_to_log('tankversion ' + str(tankversion) + ' not in JSON')
+			continue
+		
 		fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
 
 		tankdata = getstructureddata("tankdata", tankversion)
@@ -183,7 +190,7 @@ def main():
 			if tankdata['frags'] <> numoffrags:
 				printmessage('Wrong number of frags!')
 		except Exception, e:
-				printmessage('Frags does not exists!')
+				write_to_log('Error processing frags: ' + e.message)
 
 		series = getstructureddata("series", tankversion)
 
