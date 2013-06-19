@@ -1,0 +1,6 @@
+{
+    "header": {
+        "message": "Dossier cannot be read (pickle could not be read) ", 
+        "result": "error"
+    }
+}

@@ -43,44 +43,34 @@
 {"version": 22, "category": "battle", "name": "scout", "offset": 109, "length": 2},
 {"version": 22, "category": "battle", "name": "evileye", "offset": 111, "length": 2},
 
+{"version": 22, "category": "major", "name": "medalKay", "offset": 113, "length": 1},
+{"version": 22, "category": "major", "name": "medalCarius", "offset": 114, "length": 1},
+{"version": 22, "category": "major", "name": "medalKnispel", "offset": 115, "length": 1},
+{"version": 22, "category": "major", "name": "medalPoppel", "offset": 116, "length": 1},
+{"version": 22, "category": "major", "name": "medalAbrams", "offset": 117, "length": 1},
+{"version": 22, "category": "major", "name": "medalLeClerc", "offset": 118, "length": 1},
+{"version": 22, "category": "major", "name": "medalLavrinenko", "offset": 119, "length": 1},
+{"version": 22, "category": "major", "name": "medalEkins", "offset": 120, "length": 1},
 
-
-
-
-
-{"version": 22, "category": "major", "name": "Kay", "offset": 113, "length": 1},
-{"version": 22, "category": "major", "name": "Carius", "offset": 114, "length": 1},
-{"version": 22, "category": "major", "name": "Knispel", "offset": 115, "length": 1},
-{"version": 22, "category": "major", "name": "Poppel", "offset": 116, "length": 1},
-{"version": 22, "category": "major", "name": "Abrams", "offset": 117, "length": 1},
-{"version": 22, "category": "major", "name": "LeClerc", "offset": 118, "length": 1},
-{"version": 22, "category": "major", "name": "Lavrinenko", "offset": 119, "length": 1},
-{"version": 22, "category": "major", "name": "Ekins", "offset": 120, "length": 1},
-
-
-
-{"version": 22, "category": "epic", "name": "Wittmann", "offset": 121, "length": 2},
-{"version": 22, "category": "epic", "name": "Orlik", "offset": 123, "length": 2},
-{"version": 22, "category": "epic", "name": "Oskin", "offset": 125, "length": 2},
-{"version": 22, "category": "epic", "name": "Halonen", "offset": 127, "length": 2},
-{"version": 22, "category": "epic", "name": "Burda", "offset": 129, "length": 2},
-{"version": 22, "category": "epic", "name": "Billotte", "offset": 131, "length": 2},
-{"version": 22, "category": "epic", "name": "Kolobanov", "offset": 133, "length": 2},
-{"version": 22, "category": "epic", "name": "Fadin", "offset": 135, "length": 2},
-{"version": 22, "category": "epic", "name": "RadleyWalters", "offset": 137, "length": 2},
-{"version": 22, "category": "epic", "name": "BrunoPietro", "offset": 139, "length": 2},
-{"version": 22, "category": "epic", "name": "Tarczay", "offset": 141, "length": 2},
-{"version": 22, "category": "epic", "name": "Pascucci", "offset": 143, "length": 2},
-{"version": 22, "category": "epic", "name": "Dumitru", "offset": 145, "length": 2},
-{"version": 22, "category": "epic", "name": "Lehvaslaiho", "offset": 147, "length": 2},
-{"version": 22, "category": "epic", "name": "Nikolas", "offset": 149, "length": 2},
-{"version": 22, "category": "epic", "name": "LafayettePool", "offset": 151, "length": 2},
-
+{"version": 22, "category": "epic", "name": "medalWittmann", "offset": 121, "length": 2},
+{"version": 22, "category": "epic", "name": "medalOrlik", "offset": 123, "length": 2},
+{"version": 22, "category": "epic", "name": "medalOskin", "offset": 125, "length": 2},
+{"version": 22, "category": "epic", "name": "medalHalonen", "offset": 127, "length": 2},
+{"version": 22, "category": "epic", "name": "medalBurda", "offset": 129, "length": 2},
+{"version": 22, "category": "epic", "name": "medalBillotte", "offset": 131, "length": 2},
+{"version": 22, "category": "epic", "name": "medalKolobanov", "offset": 133, "length": 2},
+{"version": 22, "category": "epic", "name": "medalFadin", "offset": 135, "length": 2},
+{"version": 22, "category": "epic", "name": "medalRadleyWalters", "offset": 137, "length": 2},
+{"version": 22, "category": "epic", "name": "medalBrunoPietro", "offset": 139, "length": 2},
+{"version": 22, "category": "epic", "name": "medalTarczay", "offset": 141, "length": 2},
+{"version": 22, "category": "epic", "name": "medalPascucci", "offset": 143, "length": 2},
+{"version": 22, "category": "epic", "name": "medalDumitru", "offset": 145, "length": 2},
+{"version": 22, "category": "epic", "name": "medalLehvaslaiho", "offset": 147, "length": 2},
+{"version": 22, "category": "epic", "name": "medalNikolas", "offset": 149, "length": 2},
+{"version": 22, "category": "epic", "name": "medalLafayettePool", "offset": 151, "length": 2},
 
 {"version": 22, "category": "special", "name": "sinai", "offset": 153, "length": 2},
 {"version": 22, "category": "special", "name": "heroesOfRassenay", "offset": 155, "length": 2},
-
-
 {"version": 22, "category": "special", "name": "beasthunter", "offset": 157, "length": 2},
 {"version": 22, "category": "special", "name": "mousebane", "offset": 159, "length": 2},
 {"version": 22, "category": "special", "name": "tankExpertStrg", "offset": 161, "length": 2},
