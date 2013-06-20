@@ -96,7 +96,7 @@
 {"version": 28, "category": "special", "name": "handOfDeath", "offset": 172, "length": 1},
 {"version": 28, "category": "special", "name": "armorPiercer", "offset": 173, "length": 1},
 {"version": 28, "category": "special", "name": "kamikaze", "offset": 174, "length": 2},
-{"version": 28, "category": "special", "name": "lumberjack", "offset": 176, "length": 1},
+{"version": 28, "category": "special", "name": "lumberjack", "offset": 176, "length": 2},
 {"version": 28, "category": "special", "name": "markOfMastery", "offset": 178, "length": 1},
 
 {"version": 28, "category": "company", "name": "xp", "offset": 179, "length": 4},
@@ -128,6 +128,5 @@
 {"version": 28, "category": "clan", "name": "droppedCapturePoints", "offset": 279, "length": 4},
 
 {"version": 28, "category": "structure", "name": "fragspos", "offset": 309, "length": 2}
-
 
 ]
