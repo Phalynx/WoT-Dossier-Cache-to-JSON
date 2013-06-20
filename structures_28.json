@@ -70,19 +70,19 @@
 {"version": 28, "category": "epic", "name": "medalLehvaslaiho", "offset": 151, "length": 2},
 {"version": 28, "category": "epic", "name": "medalNikolas", "offset": 153, "length": 2},
 {"version": 28, "category": "epic", "name": "medalLafayettePool", "offset": 155, "length": 2},
-{"version": 28, "category": "epic", "name": "medalBrothersInArms", "offset": 282, "length": 2},
-{"version": 28, "category": "epic", "name": "medalCrucialContribution", "offset": 284, "length": 2},
-{"version": 28, "category": "epic", "name": "medalDeLanglade", "offset": 286, "length": 2},
-{"version": 28, "category": "epic", "name": "medalTamadaYoshio", "offset": 288, "length": 2},
+{"version": 28, "category": "epic", "name": "medalBrothersInArms", "offset": 283, "length": 2},
+{"version": 28, "category": "epic", "name": "medalCrucialContribution", "offset": 285, "length": 2},
+{"version": 28, "category": "epic", "name": "medalDeLanglade", "offset": 287, "length": 2},
+{"version": 28, "category": "epic", "name": "medalTamadaYoshio", "offset": 289, "length": 2},
 
-{"version": 28, "category": "special", "name": "bombardier", "offset": 290, "length": 2},
-{"version": 28, "category": "special", "name": "huntsman", "offset": 292, "length": 2},
-{"version": 28, "category": "special", "name": "alaric", "offset": 294, "length": 2},
-{"version": 28, "category": "special", "name": "sturdy", "offset": 296, "length": 2},
-{"version": 28, "category": "special", "name": "ironMan", "offset": 298, "length": 2},
-{"version": 28, "category": "special", "name": "luckyDevil", "offset": 300, "length": 2},
-{"version": 28, "category": "special", "name": "pattonValley", "offset": 302, "length": 2},
-{"version": 28, "category": "special", "name": "fragsPatton", "offset": 304, "length": 4},
+{"version": 28, "category": "special", "name": "bombardier", "offset": 291, "length": 2},
+{"version": 28, "category": "special", "name": "huntsman", "offset": 293, "length": 2},
+{"version": 28, "category": "special", "name": "alaric", "offset": 295, "length": 2},
+{"version": 28, "category": "special", "name": "sturdy", "offset": 297, "length": 2},
+{"version": 28, "category": "special", "name": "ironMan", "offset": 299, "length": 2},
+{"version": 28, "category": "special", "name": "luckyDevil", "offset": 301, "length": 2},
+{"version": 28, "category": "special", "name": "pattonValley", "offset": 303, "length": 2},
+{"version": 28, "category": "special", "name": "fragsPatton", "offset": 305, "length": 4},
 
 {"version": 28, "category": "special", "name": "sinai", "offset": 157, "length": 2},
 {"version": 28, "category": "special", "name": "heroesOfRassenay", "offset": 159, "length": 2},
@@ -128,6 +128,4 @@
 {"version": 28, "category": "clan", "name": "droppedCapturePoints", "offset": 278, "length": 4},
 
 {"version": 28, "category": "structure", "name": "fragspos", "offset": 309, "length": 2}
-
-
 ]
