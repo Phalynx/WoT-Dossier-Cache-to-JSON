@@ -17,7 +17,7 @@ def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
 	
-	parserversion = "0.8.6.0"
+	parserversion = "0.8.8.0"
 	
 	global rawdata, sourcedata, structures, numoffrags, working_directory
 	global filename_source, filename_target
@@ -67,6 +67,7 @@ def main():
 	structures = structures + get_json_data("structures_26.json")
 	structures = structures + get_json_data("structures_27.json")
 	structures = structures + get_json_data("structures_28.json")
+	structures = structures + get_json_data("structures_29.json")
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
 		catch_fatal('Dossier file does not exists!')
