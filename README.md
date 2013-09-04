@@ -35,15 +35,15 @@ World of Tanks Dossier Cache to JSON v8.8
 
 
 # Usage
-*wotdc2j.py <dossier.dat> [rfks]
+* wotdc2j.py <dossier.dat> [rfks]
 
 ## Parameters
-*-f - By setting f the JSON will be formatted for better human readability
-*-r - By setting r the JSON will contain all fields with their values and recognized names
-*-k - By setting k the JSON will not contain Kills/Frags
-*-s - By setting s the JSON will not include unix timestamp of creation as it is useless for calculation of checksum
+* -f - By setting f the JSON will be formatted for better human readability
+* -r - By setting r the JSON will contain all fields with their values and recognized names
+* -k - By setting k the JSON will not contain Kills/Frags
+* -s - By setting s the JSON will not include unix timestamp of creation as it is useless for calculation of checksum
 
 
 
 ## Example
-python.exe wotdc2j.py dossier.dat -f -r
+* python.exe wotdc2j.py dossier.dat -f -r
