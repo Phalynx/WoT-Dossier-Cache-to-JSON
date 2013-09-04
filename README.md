@@ -1,19 +1,22 @@
-World of Tanks Dossier Cache to JSON v8.8 / wotdc2j.py
+World of Tanks Dossier Cache to JSON v8.8
 ==============================================================
 
-Author: Marius Czyz aka Phalynx
-Contact: marius.czyz@gmail.com
+# About Author
+* Marius Czyz aka Phalynx
+* Contact: marius.czyz@gmail.com
 
-## Demo Systems:
-- WoT Performance Analyzer Charts (Online) http://www.vbaddict.net
-- WOT Statistics (Offline) http://www.saais.co.za/
 
-## WoT Developer Wiki 
+# Demo Systems:
+* WoT Performance Analyzer Charts (Online) http://www.vbaddict.net
+* WOT Statistics (Offline) http://www.saais.co.za/
+
+
+# WoT Developer Wiki 
 More information regarding the file structure on the :
 * http://www.vbaddict.net/content/10-WoT-Developer-Wiki
 
 
-## Supported Versions
+# Supported Versions
 * WoT 0.6.x, 0.7.1.x, 0.7.2.x, 0.7.3.x (dossier version 18)
 * Wot 0.7.4.x, 0.7.5.x (dossier version 20)
 * WoT 0.8.0.x, 0.8.1.x (dossier version 22)
@@ -24,13 +27,14 @@ More information regarding the file structure on the :
 * WoT 0.8.8.x (dossier version 29)
 
 
-## Contributors WoTDC2J.py
+# Contributors WoTDC2J.py
 * Phalynx
 * Gottzilla
 * NJSaaiman
 
 
-## Usage
+
+# Usage
 wotdc2j.py <dossier.dat> [rfks]
 
 -f - By setting f the JSON will be formatted for better human readability
@@ -38,5 +42,7 @@ wotdc2j.py <dossier.dat> [rfks]
 -k - By setting k the JSON will not contain Kills/Frags
 -s - By setting s the JSON will not include unix timestamp of creation as it is useless for calculation of checksum
 
-### Example:
+
+
+## Example:
 python.exe wotdc2j.py dossier.dat -f -r
