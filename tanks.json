@@ -290,7 +290,7 @@
 {"tankid": 209, "countryid": 2, "type": 1, "tier": 2, "premium": 1, "title": "T1E6", "title_short": "T1E6", "icon": "t1_e6", "icon_orig": "T1_E6"},
 {"tankid": 211, "countryid": 2, "type": 5, "tier": 3, "premium": 1, "title": "Sexton_I", "icon": "sexton_i", "icon_orig": "Sexton_I"},
 {"tankid": 212, "countryid": 2, "type": 2, "tier": 6, "premium": 0, "title": "M4A3E8 Sherman", "title_short": "M4A3E8", "icon": "m4a3e8_sherman_training", "icon_orig": "M4A3E8_Sherman_training"},
-{"tankid": 0, "countryid": 5, "type": 1, "tier": 1, "premium": 0, "title": "Vickers Medium Mk. I", "title_short": "Medium I", "icon": "gb01_medium_mark_i", "icon_orig": "GB01_Medium_Mark_I"},
+{"tankid": 0, "countryid": 5, "type": 2, "tier": 1, "premium": 0, "title": "Vickers Medium Mk. I", "title_short": "Medium I", "icon": "gb01_medium_mark_i", "icon_orig": "GB01_Medium_Mark_I"},
 {"tankid": 1, "countryid": 5, "type": 2, "tier": 2, "premium": 0, "title": "Vickers Medium Mk. II", "title_short": "Medium II", "icon": "gb05_vickers_medium_mk_ii", "icon_orig": "GB05_Vickers_Medium_Mk_II"},
 {"tankid": 3, "countryid": 5, "type": 2, "tier": 4, "premium": 0, "title": "Matilda", "title_short": "Matilda", "icon": "gb07_matilda", "icon_orig": "GB07_Matilda"},
 {"tankid": 4, "countryid": 5, "type": 2, "tier": 6, "premium": 0, "title": "Cromwell", "title_short": "Cromwell", "icon": "gb21_cromwell", "icon_orig": "GB21_Cromwell"},
