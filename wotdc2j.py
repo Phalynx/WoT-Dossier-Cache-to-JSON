@@ -3,7 +3,7 @@
 # Initial version by Phalynx www.vbaddict.net/wot #
 ###################################################
 import cPickle, struct, json, time, sys, os
-
+	
 def usage():
 	print str(sys.argv[0]) + " dossierfilename.dat [options]"
 	print 'Options:'
@@ -16,10 +16,10 @@ def usage():
 def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
+
+	parserversion = "0.8.9.0"
 	
-	parserversion = "0.8.8.0"
-	
-	global rawdata, sourcedata, structures, numoffrags, working_directory
+	global rawdata, tupledata, data, structures, numoffrags, working_directory
 	global filename_source, filename_target
 	global option_server, option_format
 	
@@ -48,7 +48,7 @@ def main():
 	if filename_source == "":
 		usage()
 		sys.exit(2)
-	
+	printmessage('############################################')
 	printmessage('###### WoTDC2J ' + parserversion)
 	
 	working_directory = os.path.dirname(os.path.realpath(__file__))
@@ -68,6 +68,7 @@ def main():
 	structures = structures + get_json_data("structures_27.json")
 	structures = structures + get_json_data("structures_28.json")
 	structures = structures + get_json_data("structures_29.json")
+	structures = structures + get_json_data("structures_65.json")
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
 		catch_fatal('Dossier file does not exists!')
@@ -126,7 +127,11 @@ def main():
 		dossierheader['date'] = time.mktime(time.localtime())
 	
 	tanks = dict()
+	tanks_v2 = dict()
+	
 	for tankitem in tankitems:
+
+		
 
 		try:
 			tankid = tankitem[0][1] >> 8 & 65535
@@ -141,20 +146,22 @@ def main():
 
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
-		sourcedata = struct.unpack(tankstruct, data)
+		tupledata = struct.unpack(tankstruct, data)
 
 
 		rawdata = dict()
-		for m in xrange(0,len(sourcedata)):
-			rawdata[m] = sourcedata[m]
+		for m in xrange(0,len(tupledata)):
+			rawdata[m] = tupledata[m]
 		
-		if len(sourcedata) == 0:
+		if len(tupledata) == 0:
 			continue
 
 		tankversion = getdata("tankversion", 0, 1)
 	
-		#printmessage("V: " + str(tankversion))
-	
+		#if (tankversion<65):
+		#	continue
+
+
 		if tankversion < 17: # Old
 			if tankversion > 0:
 				
@@ -168,86 +175,178 @@ def main():
 					printmessage('unsupported tankversion' + e.message)
 					continue
 
-		if tankversion >= 20:
-			company = getstructureddata("company", tankversion)
-			clan = getstructureddata("clan", tankversion)
-		
-		numoffrags = 0
 
-		structure = getstructureddata("structure", tankversion)
-		
-		if 'fragspos' not in structure:
-			write_to_log('tankversion ' + str(tankversion) + ' not in JSON')
-			continue
-		
-		fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
-
-		tankdata = getstructureddata("tankdata", tankversion)
-
-		if not "creationTime" in tankdata:
-			tankdata['creationTime'] = 1356998400
-
-		try:
-			if tankdata['frags'] <> numoffrags:
-				printmessage('Wrong number of frags!')
-		except Exception, e:
-				write_to_log('Error processing frags: ' + e.message)
-
-		series = getstructureddata("series", tankversion)
-
-		special = getstructureddata("special", tankversion)
-
-		battle = getstructureddata("battle", tankversion)
-
-		major = getstructureddata("major", tankversion)
-
-		epic = getstructureddata("epic", tankversion)
 
 		if option_server == 0:
 			tanktitle = get_tank_data(tanksdata, countryid, tankid, "title")
 		else:
 			tanktitle = str(countryid) + '_' + str(tankid)
-				
-			
-		common = {"countryid": countryid,
-			"tankid": tankid,
-			"tanktitle": tanktitle,
-			"type": get_tank_data(tanksdata, countryid, tankid, "type"),
-			"premium": get_tank_data(tanksdata, countryid, tankid, "premium"),
-			"tier": get_tank_data(tanksdata, countryid, tankid, "tier"),
-			"updated": tankitem[1][0],
-			"creationTime": tankdata['creationTime'],
-			"creationTimeR": datetime.datetime.fromtimestamp(int(tankdata['creationTime'])).strftime('%Y-%m-%d %H:%M:%S'),
-			"lastBattleTime": tankdata['lastBattleTime'],
-			"lastBattleTimeR": datetime.datetime.fromtimestamp(int(tankdata['lastBattleTime'])).strftime('%Y-%m-%d %H:%M:%S'),
-			"basedonversion": tankversion,
-			"frags": tankdata['frags'],
-			"frags_compare": numoffrags
-		}
 
-		tank = dict()
-				
-		tank['tankdata'] = tankdata
-		tank['common'] = common
-		
-		
-		if tankversion >= 20:
-			tank['series'] = series
-			tank['battle'] = battle
-			tank['special'] = special
-			tank['epic'] = epic
-			tank['major'] = major
-			tank['clan'] = clan
-			tank['company'] = company
+		if tankversion >= 65:
+			tank_v2 = dict()
+			blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
+			blockcount = len(list(blocks))+1
+			newbaseoffset = (blockcount * 2)
+			header = struct.unpack_from('<' + 'H' * blockcount, data)
+			blocksizes = list(header[1:])
+			blocknumber = 0
+			fragslist = []
+			numoffrags_list = 0
+			numoffrags_a15x15 = 0
 			
-		if option_frags == 1:
-			tank['kills'] = fragslist
+			for blockname in blocks:
+				if blocksizes[blocknumber] > 0:
+					if blockname == 'frags':
+						if option_frags == 1:
+							fmt = '<' + 'IH' * (blocksizes[blocknumber]/6)
+							fragsdata = struct.unpack_from(fmt, data, newbaseoffset)
+							
+						 	for x in range(0, blocksizes[blocknumber]):
+						 		rawdata[newbaseoffset+x] = str(tupledata[newbaseoffset+x]) + " / Frags; "
+
+							index = 0
+							for i in xrange((blocksizes[blocknumber]/6)):
+								compDescr, amount = (fragsdata[index], fragsdata[index + 1])
+								numoffrags_list += amount	
+								countryid, tankid, tankname = get_tank_details(compDescr, tanksdata)
+								tankfrag = [countryid, tankid, amount, tankname]
+								fragslist.append(tankfrag)
+								index += 2
+						
+							newbaseoffset += blocksizes[blocknumber]
+							tank_v2['fragslist'] = fragslist
+						
+					else:
+						oldbaseoffset = newbaseoffset
+						structureddata = getstructureddata(blockname, tankversion, newbaseoffset)
+						newbaseoffset = oldbaseoffset+blocksizes[blocknumber]
+						tank_v2[blockname] = structureddata
+
+				blocknumber +=1
 		
-		if option_raw == 1:
-			tank['rawdata'] = rawdata
 		
-		tanks[tanktitle] = tank
-		#tanks = sorted(tanks.values())
+			if option_frags == 1:
+
+				if contains_block('a15x15', tank_v2):
+					numoffrags_a15x15 = int(tank_v2['a15x15']['frags'])
+
+				try:
+					if numoffrags_list <> numoffrags_a15x15:
+						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' / ' + str(numoffrags_a15x15))
+				except Exception, e:
+						write_to_log('Error processing frags: ' + e.message)
+		
+			
+				
+			tank_v2['common'] = {"countryid": countryid,
+				"tankid": tankid,
+				"tanktitle": tanktitle,
+				"compactDescr": tankitem[0][1],
+				"type": get_tank_data(tanksdata, countryid, tankid, "type"),
+				"premium": get_tank_data(tanksdata, countryid, tankid, "premium"),
+				"tier": get_tank_data(tanksdata, countryid, tankid, "tier"),
+				"updated": tankitem[1][0],
+				"updatedR": datetime.datetime.fromtimestamp(int(tankitem[1][0])).strftime('%Y-%m-%d %H:%M:%S'),
+				"creationTime": tank_v2['total']['creationTime'],
+				"creationTimeR": datetime.datetime.fromtimestamp(int(tank_v2['total']['creationTime'])).strftime('%Y-%m-%d %H:%M:%S'),
+				"lastBattleTime": tank_v2['total']['lastBattleTime'],
+				"lastBattleTimeR": datetime.datetime.fromtimestamp(int(tank_v2['total']['lastBattleTime'])).strftime('%Y-%m-%d %H:%M:%S'),
+				"basedonversion": tankversion,
+				"frags":  numoffrags_a15x15,
+				"frags_compare": numoffrags_list,
+				"has_15x15": contains_block("a15x15", tank_v2),
+				"has_7x7": contains_block("a7x7", tank_v2),
+				"has_clan": contains_block("clan", tank_v2),
+				"has_company": contains_block("company", tank_v2)
+				
+			}
+			
+			if option_raw == 1:
+				tank_v2['rawdata'] = rawdata
+
+			tanks_v2[tanktitle] = tank_v2
+			
+			
+		if tankversion < 65:
+			if tankversion >= 20:
+				company = getstructureddata("company", tankversion, 0)
+				clan = getstructureddata("clan", tankversion, 0)
+			
+			numoffrags = 0
+	
+			structure = getstructureddata("structure", tankversion, 0)
+			
+			if 'fragspos' not in structure:
+				write_to_log('tankversion ' + str(tankversion) + ' not in JSON')
+				continue
+			
+			if option_frags == 1:
+				fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
+	
+			tankdata = getstructureddata("tankdata", tankversion, 0)
+	
+			if not "creationTime" in tankdata:
+				tankdata['creationTime'] = 1356998400
+	
+			common = {"countryid": countryid,
+				"tankid": tankid,
+				"tanktitle": tanktitle,
+				"compactDescr": tankitem[0][1],
+				"type": get_tank_data(tanksdata, countryid, tankid, "type"),
+				"premium": get_tank_data(tanksdata, countryid, tankid, "premium"),
+				"tier": get_tank_data(tanksdata, countryid, tankid, "tier"),
+				"updated": tankitem[1][0],
+				"updatedR": datetime.datetime.fromtimestamp(int(tankitem[1][0])).strftime('%Y-%m-%d %H:%M:%S'),
+				"creationTime": tankdata['creationTime'],
+				"creationTimeR": datetime.datetime.fromtimestamp(int(tankdata['creationTime'])).strftime('%Y-%m-%d %H:%M:%S'),
+				"lastBattleTime": tankdata['lastBattleTime'],
+				"lastBattleTimeR": datetime.datetime.fromtimestamp(int(tankdata['lastBattleTime'])).strftime('%Y-%m-%d %H:%M:%S'),
+				"basedonversion": tankversion,
+				"frags": tankdata['frags'],
+				"frags_compare": numoffrags
+			}
+	
+			if option_frags == 1:
+				try:
+					if tankdata['frags'] <> numoffrags:
+						printmessage('Wrong number of frags!')
+				except Exception, e:
+						write_to_log('Error processing frags: ' + e.message)
+	
+			series = getstructureddata("series", tankversion, 0)
+	
+			special = getstructureddata("special", tankversion, 0)
+	
+			battle = getstructureddata("battle", tankversion, 0)
+	
+			major = getstructureddata("major", tankversion, 0)
+	
+			epic = getstructureddata("epic", tankversion, 0)
+	
+	
+	
+			tank = dict()
+			
+			tank['tankdata'] = tankdata
+			tank['common'] = common
+	
+			if tankversion >= 20:
+				tank['series'] = series
+				tank['battle'] = battle
+				tank['special'] = special
+				tank['epic'] = epic
+				tank['major'] = major
+				tank['clan'] = clan
+				tank['company'] = company
+				
+			if option_frags == 1:
+				tank['kills'] = fragslist
+			
+			if option_raw == 1:
+				tank['rawdata'] = rawdata
+			
+			tanks[tanktitle] = tank
+			#tanks = sorted(tanks.values())
 
 		
 		
@@ -257,6 +356,7 @@ def main():
 	
 	dossier['header'] = dossierheader
 	dossier['tanks'] = tanks
+	dossier['tanks_v2'] = tanks_v2
 
 	dumpjson(dossier)
 
@@ -267,6 +367,27 @@ def main():
 
 
 ############################################################################################################################
+
+def contains_block(blockname, blockdata):
+	
+	if blockname in blockdata:
+		return 1
+	
+	return 0
+
+
+def get_tank_details(compDescr, tanksdata):
+
+	tankid = compDescr >> 8 & 65535
+	countryid = compDescr >> 4 & 15
+		
+	if option_server == 0:
+		tankname = get_tank_data(tanksdata, countryid, tankid, "title")
+	else:
+		tankname = "-"	
+
+	return countryid, tankid, tankname
+
 
 def printmessage(message):
 	global option_server
@@ -289,31 +410,26 @@ def exitwitherror(message):
 def dumpjson(dossier):
 	global option_format, option_server, filename_target
 	
-	
-	if option_server == 0:
-		finalfile = open(filename_target, 'w')
-	
-		if option_format == 1:
-			finalfile.write(json.dumps(dossier, sort_keys=True, indent=4))
+	try:
+		
+		if option_server == 0:
+			finalfile = open(filename_target, 'w')
+		
+			if option_format == 1:
+				finalfile.write(json.dumps(dossier, sort_keys=True, indent=4))
+			else:
+				finalfile.write(json.dumps(dossier))
 		else:
-			finalfile.write(json.dumps(dossier))
-	else:
-		print json.dumps(dossier)
-
+			print json.dumps(dossier)
+	except Exception, e:
+		printmessage(e)
+		
 
 def catch_fatal(message):
 	global option_server
 	import shutil
 		
 	write_to_log("ERROR: " + str(message))
-
-#	if option_server == 1:
-#		if os.path.exists(filename_source) and os.path.isfile(filename_source) and os.access(filename_source, os.R_OK):
-#			try:
-#				shutil.copyfile(filename_source, filename_source + '.backup')
-#			except Exception, e:
-#				write_to_log('Cannot create backup: ' + filename_source + '.backup ' + e.message)
-		  
 
 
 def write_to_log(logtext):
@@ -333,7 +449,22 @@ def write_to_log(logtext):
 			printmessage("Cannot write to wotdc2j.log")
 		
 
-def getstructureddata(category, tankversion):
+#def getstructureddata(category, tankversion):
+#	global tupledata, structures, tankstruct
+#
+#	returndata = dict()
+#	offset = 0
+#	for structureitem in structures:
+#		if tankversion == structureitem['version']:
+#			if category == structureitem['category']:
+#				#offset = basoffset+structureitem['offset']
+#				#print category + ' ' + structureitem['name'] + ' ' + str(offset)
+#				returndata[structureitem['name']] = getdata(category + " " + structureitem['name'], structureitem['offset'], structureitem['length'])
+#				offset = offset + structureitem['length']
+#
+#	return returndata, offset
+
+def getstructureddata(category, tankversion, baseoffset):
 	global sourcedata, structures
 
 	returndata = dict()
@@ -341,10 +472,12 @@ def getstructureddata(category, tankversion):
 	for structureitem in structures:
 		if category == structureitem['category']:
 			if tankversion == structureitem['version']:
-				returndata[structureitem['name']] = getdata(category + " " + structureitem['name'], structureitem['offset'], structureitem['length'])
+				offset = structureitem['offset']
+				if baseoffset > 0:
+					offset += baseoffset
+				returndata[structureitem['name']] = getdata(category + " " + structureitem['name'], offset, structureitem['length'])
 
 	return returndata
-
 
 def get_json_data(filename):
 	import json, time, sys, os
@@ -379,18 +512,22 @@ def get_tank_data(tanksdata, countryid, tankid, dataname):
 			if tankdata['countryid'] == countryid:
 				if tankdata['tankid'] == tankid:
 					return tankdata[dataname]
+	
+	if dataname == 'title':
+		return 'unknown_' + str(countryid) + '_' + str(tankid)
+
 
 	return "-"
 
 
 def getdata_fragslist(tankversion, tanksdata, offset):
-	global sourcedata, numoffrags
+	global tupledata, numoffrags
 
 	fragslist = []
 
 	offset = offset + 2
 
-	if len(sourcedata) > offset:
+	if len(tupledata) > offset:
 
 		numfrags = getdata("Number of frags", offset-2, 2)
 
@@ -400,18 +537,13 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 				tankoffset = offset + m*4
 				fragoffset = offset + numfrags*4+m*2
 
-				ptankid = getdata("Frag tankid", tankoffset, 2)
+				compDescr = getdata("Frag tankid", tankoffset, 2)
 				amount = getdata("Frag amount", fragoffset, 2)
 
-				tankid = ptankid >> 8 & 65535
-				countryid = ptankid >> 4 & 15
+				countryid, tankid, tankname = get_tank_details(compDescr, tanksdata)
 				numoffrags = numoffrags + amount
 				
-				if option_server == 0:
-					tankname = get_tank_data(tanksdata, countryid, tankid, "title")
-				else:
-					tankname = "-"					
-					
+				
 				tankfrag = [countryid, tankid, amount, tankname]
 				fragslist.append(tankfrag)
 
@@ -419,52 +551,30 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 
 
 def getdata(name, startoffset, offsetlength):
-	global rawdata, sourcedata
+	global rawdata, tupledata, data
 
-	if len(sourcedata)<startoffset+offsetlength:
-
+	if len(data)<startoffset+offsetlength:
 		return 0
+	
+	structformat = 'H'
 
-	if offsetlength == 1:
+	if offsetlength==1:
+		structformat = 'B'
 
-		value = sourcedata[startoffset]
+	if offsetlength==2:
+		structformat = 'H'
+		
+	if offsetlength==4:
+		structformat = 'I'
 
-		rawdata[startoffset] = str(value) + " / " + str(sourcedata[startoffset]) +  "; " + name
+	value = struct.unpack_from('<' + structformat, data, startoffset)[0]
+ 	
+ 	for x in range(0, offsetlength):
+ 		rawdata[startoffset+x] = str(tupledata[startoffset+x]) + " / " + str(value) +  "; " + name
 
-		return value
+	
+ 	return value
 
-	elif offsetlength == 2:
-
-		value = sourcedata[startoffset] + 256*sourcedata[startoffset+1]
-
-		rawdata[startoffset] = str(value) + " / " + str(sourcedata[startoffset]) +  "; " + name
-		rawdata[startoffset+1] = str(value) + " / " + str(sourcedata[startoffset+1]) +  "; " + name
-
-		return value
-
-	elif offsetlength == 3:
-
-		value = sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2]
-
-		rawdata[startoffset] = str(value) + " / " + str(sourcedata[startoffset]) + "; " + name
-		rawdata[startoffset+1] = str(value) + " / " + str(sourcedata[startoffset+1]) +  "; " + name
-		rawdata[startoffset+2] = str(value) + " / " + str(sourcedata[startoffset+2]) +  "; " + name
-
-		return value
-
-	elif offsetlength == 4:
-
-		value = sourcedata[startoffset] + 256*sourcedata[startoffset+1] + 256*256*sourcedata[startoffset+2] + 256*256*256*sourcedata[startoffset+3]
-
-		rawdata[startoffset] = str(value) + " / " + str(sourcedata[startoffset]) +  "; " + name
-		rawdata[startoffset+1] = str(value) + " / " + str(sourcedata[startoffset+1]) +  "; " + name
-		rawdata[startoffset+2] = str(value) + " / " + str(sourcedata[startoffset+2]) +  "; " + name
-		rawdata[startoffset+3] = str(value) + " / " + str(sourcedata[startoffset+3]) +  "; " + name
-
-		return value
-
-	else:
-	  return 0
 
 
 
