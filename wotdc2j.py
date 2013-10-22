@@ -197,7 +197,6 @@ def main():
 			for blockname in blocks:
 				if blocksizes[blocknumber] > 0:
 					if blockname == 'frags':
-						if option_frags == 1:
 							fmt = '<' + 'IH' * (blocksizes[blocknumber]/6)
 							fragsdata = struct.unpack_from(fmt, data, newbaseoffset)
 							
@@ -214,7 +213,8 @@ def main():
 								index += 2
 						
 							newbaseoffset += blocksizes[blocknumber]
-							tank_v2['fragslist'] = fragslist
+							if option_frags == 1:
+								tank_v2['fragslist'] = fragslist
 						
 					else:
 						oldbaseoffset = newbaseoffset
@@ -448,21 +448,6 @@ def write_to_log(logtext):
 		except:
 			printmessage("Cannot write to wotdc2j.log")
 		
-
-#def getstructureddata(category, tankversion):
-#	global tupledata, structures, tankstruct
-#
-#	returndata = dict()
-#	offset = 0
-#	for structureitem in structures:
-#		if tankversion == structureitem['version']:
-#			if category == structureitem['category']:
-#				#offset = basoffset+structureitem['offset']
-#				#print category + ' ' + structureitem['name'] + ' ' + str(offset)
-#				returndata[structureitem['name']] = getdata(category + " " + structureitem['name'], structureitem['offset'], structureitem['length'])
-#				offset = offset + structureitem['length']
-#
-#	return returndata, offset
 
 def getstructureddata(category, tankversion, baseoffset):
 	global sourcedata, structures
