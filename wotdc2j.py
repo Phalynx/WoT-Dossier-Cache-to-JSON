@@ -207,8 +207,8 @@ def main():
 							for i in xrange((blocksizes[blocknumber]/6)):
 								compDescr, amount = (fragsdata[index], fragsdata[index + 1])
 								numoffrags_list += amount	
-								countryid, tankid, tankname = get_tank_details(compDescr, tanksdata)
-								tankfrag = [countryid, tankid, amount, tankname]
+								frag_countryid, frag_tankid, frag_tanktitle = get_tank_details(compDescr, tanksdata)
+								tankfrag = [frag_countryid, frag_tankid, amount, frag_tanktitle]
 								fragslist.append(tankfrag)
 								index += 2
 						
