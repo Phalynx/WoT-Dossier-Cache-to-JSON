@@ -167,6 +167,7 @@
 {"category": "achievements", "length": 2, "version": 65, "name": "luckyDevil", "offset": 117},
 {"category": "achievements", "length": 2, "version": 65, "name": "pattonValley", "offset": 119},
 {"category": "achievements", "length": 4, "version": 65, "name": "fragsPatton", "offset": 121},
+{"category": "achievements", "length": 1, "version": 65, "name": "markOfMastery", "offset": 125},
 {"category": "total", "length": 4, "version": 65, "name": "creationTime", "offset": 0},
 {"category": "total", "length": 4, "version": 65, "name": "lastBattleTime", "offset": 4},
 {"category": "total", "length": 4, "version": 65, "name": "battleLifeTime", "offset": 8},
