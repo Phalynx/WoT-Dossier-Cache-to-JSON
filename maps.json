@@ -31,14 +31,12 @@
 {"mapid": 33, "mapidname": "43_north_america", "mapname": "Northwest"},
 {"mapid": 34, "mapidname": "45_north_america", "mapname": "Highway"},
 {"mapid": 36, "mapidname": "42_north_america", "mapname": "Port"},
+{"mapid": 43, "mapidname": "53_japan", "mapname": "Hidden Village"},
 {"mapid": 44, "mapidname": "51_asia", "mapname": "Dragon Ridge"},
 {"mapid": 49, "mapidname": "47_canada_a", "mapname": "Serene Coast"},
 {"mapid": 50, "mapidname": "85_winter", "mapname": "Severogorsk"},
 {"mapid": 51, "mapidname": "73_asia_korea", "mapname": "Sacred Valley"},
 {"mapid": 52, "mapidname": "60_asia_miao", "mapname": "Pearl River"},
 {"mapid": 53, "mapidname": "00_tank_tutorial", "mapname": "Training area"},
-{"mapid": 55, "mapidname": "63_tundra", "mapname": "Tundra"},
-{"mapid": 1957, "mapidname": "60_asia_miao", "mapname": "Pearl River"},
-{"mapid": 1983, "mapidname": "73_asia_korea", "mapname": "Sacred Valley"},
-{"mapid": 2021, "mapidname": "00_tank_tutorial", "mapname": "Training area"}
+{"mapid": 55, "mapidname": "63_tundra", "mapname": "Tundra"}
 ]
