@@ -38,5 +38,8 @@
 {"mapid": 51, "mapidname": "73_asia_korea", "mapname": "Sacred Valley"},
 {"mapid": 52, "mapidname": "60_asia_miao", "mapname": "Pearl River"},
 {"mapid": 53, "mapidname": "00_tank_tutorial", "mapname": "Training area"},
-{"mapid": 55, "mapidname": "63_tundra", "mapname": "Tundra"}
+{"mapid": 55, "mapidname": "63_tundra", "mapname": "Tundra"},
+{"mapid": 1957, "mapidname": "60_asia_miao", "mapname": "Pearl River"},
+{"mapid": 1983, "mapidname": "73_asia_korea", "mapname": "Sacred Valley"},
+{"mapid": 2021, "mapidname": "00_tank_tutorial", "mapname": "Training area"}
 ]
