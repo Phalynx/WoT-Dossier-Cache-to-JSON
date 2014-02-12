@@ -1,0 +1,26 @@
+[
+{"version": 10, "category": "tankdata", "name": "lastBattleTime", "offset": 2, "length": 4},
+{"version": 10, "category": "tankdata", "name": "battleLifeTime", "offset": 6, "length": 4},
+{"version": 10, "category": "tankdata", "name": "maxFrags", "offset": 10, "length": 1},
+{"version": 10, "category": "tankdata", "name": "xp", "offset": 11, "length": 4},
+{"version": 10, "category": "tankdata", "name": "maxXP", "offset": 15, "length": 2},
+{"version": 10, "category": "tankdata", "name": "battlesCount", "offset": 17, "length": 4},
+{"version": 10, "category": "tankdata", "name": "wins", "offset": 21, "length": 4},
+{"version": 10, "category": "tankdata", "name": "losses", "offset": 25, "length": 4},
+{"version": 10, "category": "tankdata", "name": "survivedBattles", "offset": 29, "length": 4},
+{"version": 10, "category": "tankdata", "name": "winAndSurvived", "offset": 33, "length": 4},
+{"version": 10, "category": "tankdata", "name": "frags", "offset": 37, "length": 4},
+{"version": 10, "category": "tankdata", "name": "frags8p", "offset": 41, "length": 4},
+{"version": 10, "category": "tankdata", "name": "fragsBeast", "offset": 45, "length": 4},
+{"version": 10, "category": "tankdata", "name": "shots", "offset": 49, "length": 4},
+{"version": 10, "category": "tankdata", "name": "hits", "offset": 53, "length": 4},
+{"version": 10, "category": "tankdata", "name": "spotted", "offset": 57, "length": 4},
+{"version": 10, "category": "tankdata", "name": "damageDealt", "offset": 61, "length": 4},
+{"version": 10, "category": "tankdata", "name": "damageReceived", "offset": 65, "length": 4},
+{"version": 10, "category": "tankdata", "name": "treesCut", "offset": 69, "length": 2},
+{"version": 10, "category": "tankdata", "name": "capturePoints", "offset": 71, "length": 4},
+{"version": 10, "category": "tankdata", "name": "droppedCapturePoints", "offset": 75, "length": 4},
+
+{"version": 10, "category": "structure", "name": "fragspos", "offset": 0, "length": 2}
+
+]
