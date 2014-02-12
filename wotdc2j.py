@@ -17,7 +17,7 @@ def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.8.9.0"
+	parserversion = "0.8.11.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags, working_directory
 	global filename_source, filename_target
@@ -48,6 +48,7 @@ def main():
 	if filename_source == "":
 		usage()
 		sys.exit(2)
+		
 	printmessage('############################################')
 	printmessage('###### WoTDC2J ' + parserversion)
 	
@@ -60,7 +61,9 @@ def main():
 	if option_server == 0:
 		tanksdata = get_json_data("tanks.json")
 
-	structures = get_json_data("structures_18.json")
+	structures = get_json_data("structures_10.json")
+	structures = structures + get_json_data("structures_17.json")
+	structures = structures + get_json_data("structures_18.json")
 	structures = structures + get_json_data("structures_20.json")
 	structures = structures + get_json_data("structures_22.json")
 	structures = structures + get_json_data("structures_24.json")
@@ -69,6 +72,10 @@ def main():
 	structures = structures + get_json_data("structures_28.json")
 	structures = structures + get_json_data("structures_29.json")
 	structures = structures + get_json_data("structures_65.json")
+	structures = structures + get_json_data("structures_69.json")
+
+	min_supported = 10
+	max_supported = 69
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
 		catch_fatal('Dossier file does not exists!')
@@ -84,27 +91,23 @@ def main():
 			catch_fatal('Cannot remove target file ' + filename_target)
 
 	cachefile = open(filename_source, 'rb')
-	
+
 	try:
-	  cacheobject = cPickle.load(cachefile)
+	  dossierversion, dossierCache = cPickle.load(cachefile)
 	except Exception, e:
 		exitwitherror('Dossier cannot be read (pickle could not be read) ' + e.message)
 
-	if not 'cacheobject' in locals():
-		exitwitherror('Dossier cannot be read (cacheobject does not exist)')
+	if not 'dossierCache' in locals():
+		exitwitherror('Dossier cannot be read (dossierCache does not exist)')
 
-	if len(cacheobject) <> 2:
-		exitwitherror('Dossier cannot be read (cacheobject empty')
-
-	dossierCache = cacheobject[1]
-	printmessage("Dossier version " + str(cacheobject[0]))
+	printmessage("Dossier version " + str(dossierversion))
 	
 	tankitems = [(k, v) for k, v in dossierCache.items()]
 
 	dossier = dict()
 		
 	dossierheader = dict()
-	dossierheader['dossierversion'] = str(cacheobject[0])
+	dossierheader['dossierversion'] = str(dossierversion)
 	dossierheader['parser'] = 'http://www.vbaddict.net/wot'
 	dossierheader['parserversion'] = parserversion
 	dossierheader['tankcount'] = len(tankitems)
@@ -131,18 +134,18 @@ def main():
 	
 	for tankitem in tankitems:
 
-		
-
 		try:
 			tankid = tankitem[0][1] >> 8 & 65535
 		except Exception, e:
 			exitwitherror('cannot get tankid ' + e.message)
+			continue
 
 			
 		try:
 			countryid = tankitem[0][1] >> 4 & 15
 		except Exception, e:
 			exitwitherror('cannot get countryid ' + e.message)
+			continue
 
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
@@ -157,14 +160,13 @@ def main():
 			continue
 
 		tankversion = getdata("tankversion", 0, 1)
-	
-		#if (tankversion<65):
+		
+		#if (tankversion<69):
 		#	continue
+		
+		#print tankversion
 
-
-		if tankversion < 17: # Old
-			if tankversion > 0:
-				
+		if tankversion < min_supported or tankversion > max_supported:
 				try:
 					if option_server == 0:
 						write_to_log(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
@@ -184,7 +186,14 @@ def main():
 
 		if tankversion >= 65:
 			tank_v2 = dict()
-			blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
+			
+			
+			if tankversion == 65:
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
+				
+			if tankversion == 69:
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7')
+			
 			blockcount = len(list(blocks))+1
 			newbaseoffset = (blockcount * 2)
 			header = struct.unpack_from('<' + 'H' * blockcount, data)
@@ -193,8 +202,11 @@ def main():
 			fragslist = []
 			numoffrags_list = 0
 			numoffrags_a15x15 = 0
+			numoffrags_a7x7 = 0
 			
 			for blockname in blocks:
+				
+
 				if blocksizes[blocknumber] > 0:
 					if blockname == 'frags':
 							fmt = '<' + 'IH' * (blocksizes[blocknumber]/6)
@@ -228,11 +240,16 @@ def main():
 			if option_frags == 1:
 
 				if contains_block('a15x15', tank_v2):
-					numoffrags_a15x15 = int(tank_v2['a15x15']['frags'])
+					if 'frags' in tank_v2['a15x15']:
+						numoffrags_a15x15 = int(tank_v2['a15x15']['frags'])
+
+				if contains_block('a7x7', tank_v2):
+					if 'frags' in tank_v2['a7x7']:
+						numoffrags_a7x7 = int(tank_v2['a7x7']['frags'])
 
 				try:
-					if numoffrags_list <> numoffrags_a15x15:
-						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' / ' + str(numoffrags_a15x15))
+					if numoffrags_list <> numoffrags_a15x15 + numoffrags_a7x7:
+						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' / ' + str(numoffrags_a15x15) + ' / ' + str(numoffrags_a7x7))
 				except Exception, e:
 						write_to_log('Error processing frags: ' + e.message)
 		
@@ -253,6 +270,7 @@ def main():
 				"lastBattleTimeR": datetime.datetime.fromtimestamp(int(tank_v2['total']['lastBattleTime'])).strftime('%Y-%m-%d %H:%M:%S'),
 				"basedonversion": tankversion,
 				"frags":  numoffrags_a15x15,
+				"frags_7x7":  numoffrags_a7x7,
 				"frags_compare": numoffrags_list,
 				"has_15x15": contains_block("a15x15", tank_v2),
 				"has_7x7": contains_block("a7x7", tank_v2),
@@ -280,7 +298,7 @@ def main():
 				write_to_log('tankversion ' + str(tankversion) + ' not in JSON')
 				continue
 			
-			if option_frags == 1:
+			if option_frags == 1 and tankversion >= 17:
 				fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
 	
 			tankdata = getstructureddata("tankdata", tankversion, 0)
@@ -306,7 +324,7 @@ def main():
 				"frags_compare": numoffrags
 			}
 	
-			if option_frags == 1:
+			if option_frags == 1 and tankversion >= 17:
 				try:
 					if tankdata['frags'] <> numoffrags:
 						printmessage('Wrong number of frags!')
@@ -364,10 +382,6 @@ def main():
 	printmessage('')
 	sys.exit(0)
 	
-
-
-############################################################################################################################
-
 def contains_block(blockname, blockdata):
 	
 	if blockname in blockdata:
@@ -429,7 +443,7 @@ def catch_fatal(message):
 	global option_server
 	import shutil
 		
-	write_to_log("ERROR: " + str(message))
+	write_to_log("WOTDC2J: " + str(message))
 
 
 def write_to_log(logtext):
