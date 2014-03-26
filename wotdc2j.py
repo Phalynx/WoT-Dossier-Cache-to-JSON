@@ -2,7 +2,7 @@
 # World of Tanks Dossier Cache to JSON            #
 # Initial version by Phalynx www.vbaddict.net/wot #
 ###################################################
-import cPickle, struct, json, time, sys, os
+import cPickle, pickle, struct, json, time, sys, os
 	
 def usage():
 	print str(sys.argv[0]) + " dossierfilename.dat [options]"
@@ -17,19 +17,21 @@ def main():
 	
 	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.8.11.0"
+	parserversion = "0.9.0.1"
 	
-	global rawdata, tupledata, data, structures, numoffrags, working_directory
+	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
-	global option_server, option_format
+	global option_server, option_format, option_tanks
 	
 	filename_source = ""
 	option_raw = 0
 	option_format = 0
 	option_server = 0
 	option_frags = 1
+	option_tanks = 0
 	
 	for argument in sys.argv:
+		#print "--+++++ " + str(argument)
 		if argument == "-s":
 			option_server = 1
 			#print '-- SERVER mode enabled'
@@ -42,8 +44,11 @@ def main():
 		elif argument == "-k":
 			option_frags = 0
 			#print '-- FRAGS will be excluded'
-		elif argument != sys.argv[0]:
-			filename_source = argument
+		elif argument == "-t":
+			option_tanks = 1
+			#print '-- TANK info will be included'
+
+	filename_source = sys.argv[1]
 	
 	if filename_source == "":
 		usage()
@@ -52,13 +57,12 @@ def main():
 	printmessage('############################################')
 	printmessage('###### WoTDC2J ' + parserversion)
 	
-	working_directory = os.path.dirname(os.path.realpath(__file__))
-	
+
 	printmessage('Processing ' + filename_source)
 	
 	tanksdata = dict()
 	
-	if option_server == 0:
+	if option_server == 0 or option_tanks == 1:
 		tanksdata = get_json_data("tanks.json")
 
 	structures = get_json_data("structures_10.json")
@@ -73,9 +77,10 @@ def main():
 	structures = structures + get_json_data("structures_29.json")
 	structures = structures + get_json_data("structures_65.json")
 	structures = structures + get_json_data("structures_69.json")
+	structures = structures + get_json_data("structures_77.json")
 
 	min_supported = 10
-	max_supported = 69
+	max_supported = 77
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
 		catch_fatal('Dossier file does not exists!')
@@ -83,6 +88,7 @@ def main():
 
 	filename_target = os.path.splitext(filename_source)[0]
 	filename_target = filename_target + '.json'
+
 
 	if os.path.exists(filename_target) and os.path.isfile(filename_target) and os.access(filename_target, os.R_OK):
 		try:
@@ -108,7 +114,7 @@ def main():
 		
 	dossierheader = dict()
 	dossierheader['dossierversion'] = str(dossierversion)
-	dossierheader['parser'] = 'http://www.vbaddict.net/wot'
+	dossierheader['parser'] = 'http://www.vbaddict.net'
 	dossierheader['parserversion'] = parserversion
 	dossierheader['tankcount'] = len(tankitems)
 
@@ -161,10 +167,10 @@ def main():
 
 		tankversion = getdata("tankversion", 0, 1)
 		
-		#if (tankversion<69):
+		#if (tankversion<77):
 		#	continue
 		
-		#print tankversion
+		#print "Tankversion " + str(tankversion)
 
 		if tankversion < min_supported or tankversion > max_supported:
 				try:
@@ -193,6 +199,9 @@ def main():
 				
 			if tankversion == 69:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7')
+
+			if tankversion == 77:
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical') #, 'historicalAchievements', 'uniqueAchievements'
 			
 			blockcount = len(list(blocks))+1
 			newbaseoffset = (blockcount * 2)
@@ -203,6 +212,7 @@ def main():
 			numoffrags_list = 0
 			numoffrags_a15x15 = 0
 			numoffrags_a7x7 = 0
+			numoffrags_historical = 0
 			
 			for blockname in blocks:
 				
@@ -231,6 +241,7 @@ def main():
 					else:
 						oldbaseoffset = newbaseoffset
 						structureddata = getstructureddata(blockname, tankversion, newbaseoffset)
+						structureddata = keepCompatibility(structureddata)
 						newbaseoffset = oldbaseoffset+blocksizes[blocknumber]
 						tank_v2[blockname] = structureddata
 
@@ -246,10 +257,14 @@ def main():
 				if contains_block('a7x7', tank_v2):
 					if 'frags' in tank_v2['a7x7']:
 						numoffrags_a7x7 = int(tank_v2['a7x7']['frags'])
+				
+				if contains_block('historical', tank_v2):
+					if 'frags' in tank_v2['historical']:
+						numoffrags_historical = int(tank_v2['historical']['frags'])
 
 				try:
-					if numoffrags_list <> numoffrags_a15x15 + numoffrags_a7x7:
-						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' / ' + str(numoffrags_a15x15) + ' / ' + str(numoffrags_a7x7))
+					if numoffrags_list <> numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical:
+						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' / ' + str(numoffrags_a15x15) + ' / ' + str(numoffrags_a7x7) + ' / ' + str(numoffrags_historical))
 				except Exception, e:
 						write_to_log('Error processing frags: ' + e.message)
 		
@@ -271,9 +286,11 @@ def main():
 				"basedonversion": tankversion,
 				"frags":  numoffrags_a15x15,
 				"frags_7x7":  numoffrags_a7x7,
+				"frags_historical":  numoffrags_historical,
 				"frags_compare": numoffrags_list,
 				"has_15x15": contains_block("a15x15", tank_v2),
 				"has_7x7": contains_block("a7x7", tank_v2),
+				"has_historical": contains_block("historical", tank_v2),
 				"has_clan": contains_block("clan", tank_v2),
 				"has_company": contains_block("company", tank_v2)
 				
@@ -382,6 +399,21 @@ def main():
 	printmessage('')
 	sys.exit(0)
 	
+	
+def get_current_working_path():
+	#workaround for py2exe
+	import sys, os
+	
+	try:
+		if hasattr(sys, "frozen"):
+			return os.path.dirname(unicode(sys.executable, sys.getfilesystemencoding( )))
+		else:
+			return sys.path[0]
+	except Exception, e:
+		print e.message
+
+############################################################################################################################
+
 def contains_block(blockname, blockdata):
 	
 	if blockname in blockdata:
@@ -395,7 +427,7 @@ def get_tank_details(compDescr, tanksdata):
 	tankid = compDescr >> 8 & 65535
 	countryid = compDescr >> 4 & 15
 		
-	if option_server == 0:
+	if option_server == 0 or option_tanks == 1:
 		tankname = get_tank_data(tanksdata, countryid, tankid, "title")
 	else:
 		tankname = "-"	
@@ -447,13 +479,12 @@ def catch_fatal(message):
 
 
 def write_to_log(logtext):
-	global working_directory, option_server
+	global option_server
 	import datetime, os
 	
 	printmessage(logtext)
 	now = datetime.datetime.now()
 	
-	#working_directory
 	if option_server == 1:
 		try:
 			logFile = open("/var/log/wotdc2j/wotdc2j.log", "a+b")
@@ -478,12 +509,41 @@ def getstructureddata(category, tankversion, baseoffset):
 
 	return returndata
 
+def keepCompatibility(structureddata):
+	# Compatibility with older versions
+	# Some names changed in WoT 0.9.0
+		
+	if 'directHits' in structureddata:
+		structureddata['hits'] = structureddata['directHits']
+		
+	if 'explosionHits' in structureddata:
+		structureddata['he_hits'] = structureddata['explosionHits']
+		
+	if 'piercings' in structureddata:
+		structureddata['pierced'] = structureddata['piercings']
+				
+	if 'explosionHitsReceived' in structureddata:
+		structureddata['heHitsReceived'] = structureddata['explosionHitsReceived']
+		
+	if 'directHitsReceived' in structureddata:
+		structureddata['shotsReceived'] = structureddata['directHitsReceived']
+		
+	if 'noDamageDirectHitsReceived' in structureddata:
+		structureddata['noDamageShotsReceived'] = structureddata['noDamageDirectHitsReceived']
+		
+
+	return structureddata
+
+
+
+
 def get_json_data(filename):
 	import json, time, sys, os
 	
-	#os.chdir(os.getcwd())
-	os.chdir(sys.path[0])
-	
+
+	current_working_path = get_current_working_path()
+
+	os.chdir(current_working_path)
 	
 	if not os.path.exists(filename) or not os.path.isfile(filename) or not os.access(filename, os.R_OK):
 		catch_fatal(filename + " does not exists!")
@@ -506,7 +566,7 @@ def get_json_data(filename):
 
 def get_tank_data(tanksdata, countryid, tankid, dataname):
 
-	if option_server == 0:
+	if option_server == 0 or option_tanks == 1:
 		for tankdata in tanksdata:
 			if tankdata['countryid'] == countryid:
 				if tankdata['tankid'] == tankid:
