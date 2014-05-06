@@ -2,7 +2,7 @@
 # World of Tanks Dossier Cache to JSON            #
 # Initial version by Phalynx www.vbaddict.net/wot #
 ###################################################
-import cPickle, pickle, struct, json, time, sys, os
+import struct, json, time, sys, os
 	
 def usage():
 	print str(sys.argv[0]) + " dossierfilename.dat [options]"
@@ -15,9 +15,9 @@ def usage():
 
 def main():
 	
-	import cPickle, struct, json, time, sys, os, shutil, datetime, base64
+	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.0.1"
+	parserversion = "0.9.0.3"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -99,7 +99,8 @@ def main():
 	cachefile = open(filename_source, 'rb')
 
 	try:
-	  dossierversion, dossierCache = cPickle.load(cachefile)
+	  from SafeUnpickler import SafeUnpickler
+	  dossierversion, dossierCache = SafeUnpickler.load(cachefile)
 	except Exception, e:
 		exitwitherror('Dossier cannot be read (pickle could not be read) ' + e.message)
 
@@ -117,6 +118,7 @@ def main():
 	dossierheader['parser'] = 'http://www.vbaddict.net'
 	dossierheader['parserversion'] = parserversion
 	dossierheader['tankcount'] = len(tankitems)
+	
 
 	
 	base32name = "?;?"
@@ -138,6 +140,12 @@ def main():
 	tanks = dict()
 	tanks_v2 = dict()
 	
+	battleCount_15 = 0
+	battleCount_7 = 0
+	battleCount_historical = 0
+	battleCount_company = 0
+	battleCount_clan = 0
+	
 	for tankitem in tankitems:
 
 		try:
@@ -152,6 +160,9 @@ def main():
 		except Exception, e:
 			exitwitherror('cannot get countryid ' + e.message)
 			continue
+
+		#if tankid==234 and countryid==1:
+		#	continue
 
 		data = tankitem[1][1]
 		tankstruct = str(len(data)) + 'B'
@@ -247,20 +258,39 @@ def main():
 
 				blocknumber +=1
 		
-		
-			if option_frags == 1:
+			if contains_block('company', tank_v2):
+				if 'battlesCount' in tank_v2['company']:
+					battleCount_company += tank_v2['company']['battlesCount']
+			
+			if contains_block('clan', tank_v2):
+				if 'battlesCount' in tank_v2['clan']:
+					battleCount_company += tank_v2['clan']['battlesCount']
 
-				if contains_block('a15x15', tank_v2):
-					if 'frags' in tank_v2['a15x15']:
-						numoffrags_a15x15 = int(tank_v2['a15x15']['frags'])
-
-				if contains_block('a7x7', tank_v2):
-					if 'frags' in tank_v2['a7x7']:
-						numoffrags_a7x7 = int(tank_v2['a7x7']['frags'])
+			if contains_block('a15x15', tank_v2):
 				
-				if contains_block('historical', tank_v2):
-					if 'frags' in tank_v2['historical']:
-						numoffrags_historical = int(tank_v2['historical']['frags'])
+				if 'battlesCount' in tank_v2['a15x15']:
+					battleCount_15 += tank_v2['a15x15']['battlesCount']
+					
+				if 'frags' in tank_v2['a15x15']:
+					numoffrags_a15x15 = int(tank_v2['a15x15']['frags'])
+
+			if contains_block('a7x7', tank_v2):
+				
+				if 'battlesCount' in tank_v2['a7x7']:
+					battleCount_7 += tank_v2['a7x7']['battlesCount']
+				
+				if 'frags' in tank_v2['a7x7']:
+					numoffrags_a7x7 = int(tank_v2['a7x7']['frags'])
+			
+			if contains_block('historical', tank_v2):
+				
+				if 'battlesCount' in tank_v2['historical']:
+					battleCount_historical += tank_v2['historical']['battlesCount']
+				
+				if 'frags' in tank_v2['historical']:
+					numoffrags_historical = int(tank_v2['historical']['frags'])
+
+			if option_frags == 1:
 
 				try:
 					if numoffrags_list <> numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical:
@@ -294,6 +324,9 @@ def main():
 				"has_clan": contains_block("clan", tank_v2),
 				"has_company": contains_block("company", tank_v2)
 				
+			
+				
+				
 			}
 			
 			if option_raw == 1:
@@ -305,11 +338,15 @@ def main():
 		if tankversion < 65:
 			if tankversion >= 20:
 				company = getstructureddata("company", tankversion, 0)
+				battleCount_company += company['battlesCount']
 				clan = getstructureddata("clan", tankversion, 0)
+				battleCount_clan += clan['battlesCount']
 			
 			numoffrags = 0
 	
 			structure = getstructureddata("structure", tankversion, 0)
+
+
 			
 			if 'fragspos' not in structure:
 				write_to_log('tankversion ' + str(tankversion) + ' not in JSON')
@@ -319,6 +356,7 @@ def main():
 				fragslist = getdata_fragslist(tankversion, tanksdata, structure['fragspos'])
 	
 			tankdata = getstructureddata("tankdata", tankversion, 0)
+			battleCount_15 += tankdata['battlesCount']
 	
 			if not "creationTime" in tankdata:
 				tankdata['creationTime'] = 1356998400
@@ -383,8 +421,12 @@ def main():
 			tanks[tanktitle] = tank
 			#tanks = sorted(tanks.values())
 
-		
-		
+	
+	dossierheader['battleCount_15'] = battleCount_15	
+	dossierheader['battleCount_7'] = battleCount_7
+	dossierheader['battleCount_historical'] = battleCount_historical
+	dossierheader['battleCount_company'] = battleCount_company
+	dossierheader['battleCount_clan'] = battleCount_clan
 
 	dossierheader['result'] = "ok"
 	dossierheader['message'] = "ok"
