@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.0.3"
+	parserversion = "0.9.0.4"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -201,6 +201,7 @@ def main():
 		else:
 			tanktitle = str(countryid) + '_' + str(tankid)
 
+		fragslist = []
 		if tankversion >= 65:
 			tank_v2 = dict()
 			
@@ -219,7 +220,6 @@ def main():
 			header = struct.unpack_from('<' + 'H' * blockcount, data)
 			blocksizes = list(header[1:])
 			blocknumber = 0
-			fragslist = []
 			numoffrags_list = 0
 			numoffrags_a15x15 = 0
 			numoffrags_a7x7 = 0
