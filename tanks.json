@@ -1,4 +1,5 @@
 [
+{"tankid": 234, "countryid": 1, "compDescr": 0, "active": 1, "type": 5, "type_name": "SPG", "tier": 1, "premium": 1, "title": "Karl", "icon": "Karl", "icon_orig": "Karl"},
 {"tankid": 0, "countryid": 3, "compDescr": 49, "active": 1, "type": 2, "type_name": "MT", "tier": 8, "premium": 1, "title": "Type 59", "icon": "ch01_type59", "icon_orig": "Ch01_Type59"},
 {"tankid": 1, "countryid": 3, "compDescr": 305, "active": 1, "type": 1, "type_name": "LT", "tier": 7, "premium": 1, "title": "Type 62", "icon": "ch02_type62", "icon_orig": "Ch02_Type62"},
 {"tankid": 2, "countryid": 3, "compDescr": 561, "active": 1, "type": 2, "type_name": "MT", "tier": 8, "premium": 1, "title": "Type 59 G", "icon": "ch01_type59_gold", "icon_orig": "Ch01_Type59_Gold"},
