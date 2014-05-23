@@ -1,6 +1,6 @@
 World of Tanks Dossier Cache to JSON 
 ------------------------------------
-Version v9.0.4
+Version v9.1.0
 
 
 ### About Author
@@ -20,7 +20,7 @@ Version v9.0.4
 
 
 ### Supported Versions
-* WoT (dossier version 10)
+* WoT 0.4.x (dossier version 10)
 * WoT 0.5.x (dossier version 17)
 * WoT 0.6.x, 0.7.1.x, 0.7.2.x, 0.7.3.x (dossier version 18)
 * Wot 0.7.4.x, 0.7.5.x (dossier version 20)
@@ -33,6 +33,7 @@ Version v9.0.4
 * WoT 0.8.9.x, 0.8.10.x (dossier version 65)
 * WoT 0.8.11.x (dossier version 69)
 * WoT 0.9.0.x (dossier version 77)
+* WoT 0.9.1.x (dossier version 81)
 
 
 ### Contributors WoTDC2J.py
