@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.0.4"
+	parserversion = "0.9.1.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -60,35 +60,17 @@ def main():
 
 	printmessage('Processing ' + filename_source)
 	
-	tanksdata = dict()
-	
-	if option_server == 0 or option_tanks == 1:
-		tanksdata = get_json_data("tanks.json")
-
-	structures = get_json_data("structures_10.json")
-	structures = structures + get_json_data("structures_17.json")
-	structures = structures + get_json_data("structures_18.json")
-	structures = structures + get_json_data("structures_20.json")
-	structures = structures + get_json_data("structures_22.json")
-	structures = structures + get_json_data("structures_24.json")
-	structures = structures + get_json_data("structures_26.json")
-	structures = structures + get_json_data("structures_27.json")
-	structures = structures + get_json_data("structures_28.json")
-	structures = structures + get_json_data("structures_29.json")
-	structures = structures + get_json_data("structures_65.json")
-	structures = structures + get_json_data("structures_69.json")
-	structures = structures + get_json_data("structures_77.json")
-
-	min_supported = 10
-	max_supported = 77
 
 	if not os.path.exists(filename_source) or not os.path.isfile(filename_source) or not os.access(filename_source, os.R_OK):
-		catch_fatal('Dossier file does not exists!')
+		catch_fatal('Dossier file does not exists')
 		sys.exit(1)
 
+	if os.path.getsize(filename_source) == 0:
+		catch_fatal('Dossier file size is zero')
+		sys.exit(1)
+		
 	filename_target = os.path.splitext(filename_source)[0]
 	filename_target = filename_target + '.json'
-
 
 	if os.path.exists(filename_target) and os.path.isfile(filename_target) and os.access(filename_target, os.R_OK):
 		try:
@@ -96,11 +78,12 @@ def main():
 		except:
 			catch_fatal('Cannot remove target file ' + filename_target)
 
+			
 	cachefile = open(filename_source, 'rb')
 
 	try:
-	  from SafeUnpickler import SafeUnpickler
-	  dossierversion, dossierCache = SafeUnpickler.load(cachefile)
+		from SafeUnpickler import SafeUnpickler
+		dossierversion, dossierCache = SafeUnpickler.load(cachefile)
 	except Exception, e:
 		exitwitherror('Dossier cannot be read (pickle could not be read) ' + e.message)
 
@@ -136,7 +119,30 @@ def main():
 	
 	if option_server == 0:
 		dossierheader['date'] = time.mktime(time.localtime())
-	
+
+	tanksdata = dict()
+	if option_server == 0 or option_tanks == 1:
+		tanksdata = get_json_data("tanks.json")
+
+	structures = get_json_data("structures_10.json")
+	structures = structures + get_json_data("structures_17.json")
+	structures = structures + get_json_data("structures_18.json")
+	structures = structures + get_json_data("structures_20.json")
+	structures = structures + get_json_data("structures_22.json")
+	structures = structures + get_json_data("structures_24.json")
+	structures = structures + get_json_data("structures_26.json")
+	structures = structures + get_json_data("structures_27.json")
+	structures = structures + get_json_data("structures_28.json")
+	structures = structures + get_json_data("structures_29.json")
+	structures = structures + get_json_data("structures_65.json")
+	structures = structures + get_json_data("structures_69.json")
+	structures = structures + get_json_data("structures_77.json")
+	structures = structures + get_json_data("structures_81.json")
+
+	min_supported = 10
+	max_supported = 81
+		
+		
 	tanks = dict()
 	tanks_v2 = dict()
 	
@@ -145,9 +151,38 @@ def main():
 	battleCount_historical = 0
 	battleCount_company = 0
 	battleCount_clan = 0
+	battleCount_fortBattles = 0
+	battleCount_fortSorties = 0
 	
 	for tankitem in tankitems:
+		
+		if len(tankitem) < 2:
+			printmessage('Invalid tankdata')
+			continue
 
+		if len(tankitem[0]) < 2:
+			printmessage('Invalid tankdata')
+			continue
+			
+		rawdata = dict()
+		data = tankitem[1][1]
+		tankstruct = str(len(data)) + 'B'
+		tupledata = struct.unpack(tankstruct, data)
+		tankversion = getdata("tankversion", 0, 1)
+		
+		if tankversion < min_supported or tankversion > max_supported:
+				try:
+					write_to_log(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
+					printmessage('unsupported tankversion')
+					continue				
+				except Exception, e:
+					printmessage('unsupported tankversion' + e.message)
+					continue
+
+		if not isinstance(tankitem[0][1], (int)):
+			printmessage('Invalid tankdata')
+			continue
+	
 		try:
 			tankid = tankitem[0][1] >> 8 & 65535
 		except Exception, e:
@@ -164,37 +199,12 @@ def main():
 		#if tankid==234 and countryid==1:
 		#	continue
 
-		data = tankitem[1][1]
-		tankstruct = str(len(data)) + 'B'
-		tupledata = struct.unpack(tankstruct, data)
-
-
-		rawdata = dict()
+		
 		for m in xrange(0,len(tupledata)):
 			rawdata[m] = tupledata[m]
 		
 		if len(tupledata) == 0:
 			continue
-
-		tankversion = getdata("tankversion", 0, 1)
-		
-		#if (tankversion<77):
-		#	continue
-		
-		#print "Tankversion " + str(tankversion)
-
-		if tankversion < min_supported or tankversion > max_supported:
-				try:
-					if option_server == 0:
-						write_to_log(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
-					
-					printmessage('unsupported tankversion')
-					continue				
-				except Exception, e:
-					printmessage('unsupported tankversion' + e.message)
-					continue
-
-
 
 		if option_server == 0:
 			tanktitle = get_tank_data(tanksdata, countryid, tankid, "title")
@@ -214,8 +224,13 @@ def main():
 
 			if tankversion == 77:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical') #, 'historicalAchievements', 'uniqueAchievements'
-			
+
+			if tankversion == 81:
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements')
+
+				
 			blockcount = len(list(blocks))+1
+			#print blockcount
 			newbaseoffset = (blockcount * 2)
 			header = struct.unpack_from('<' + 'H' * blockcount, data)
 			blocksizes = list(header[1:])
@@ -224,6 +239,8 @@ def main():
 			numoffrags_a15x15 = 0
 			numoffrags_a7x7 = 0
 			numoffrags_historical = 0
+			numoffrags_fortBattles = 0
+			numoffrags_fortSorties = 0
 			
 			for blockname in blocks:
 				
@@ -290,11 +307,27 @@ def main():
 				if 'frags' in tank_v2['historical']:
 					numoffrags_historical = int(tank_v2['historical']['frags'])
 
+			if contains_block('fortBattles', tank_v2):
+				
+				if 'battlesCount' in tank_v2['fortBattles']:
+					battleCount_fortBattles += tank_v2['fortBattles']['battlesCount']
+				
+				if 'frags' in tank_v2['fortBattles']:
+					numoffrags_fortBattles = int(tank_v2['fortBattles']['frags'])
+					
+			if contains_block('fortSorties', tank_v2):
+				
+				if 'battlesCount' in tank_v2['fortSorties']:
+					battleCount_fortSorties += tank_v2['fortSorties']['battlesCount']
+				
+				if 'frags' in tank_v2['fortSorties']:
+					numoffrags_fortSorties = int(tank_v2['fortSorties']['frags'])
+					
 			if option_frags == 1:
 
 				try:
-					if numoffrags_list <> numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical:
-						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' / ' + str(numoffrags_a15x15) + ' / ' + str(numoffrags_a7x7) + ' / ' + str(numoffrags_historical))
+					if numoffrags_list <> (numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical + numoffrags_fortBattles + numoffrags_fortSorties):
+						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties))
 				except Exception, e:
 						write_to_log('Error processing frags: ' + e.message)
 		
@@ -322,7 +355,9 @@ def main():
 				"has_7x7": contains_block("a7x7", tank_v2),
 				"has_historical": contains_block("historical", tank_v2),
 				"has_clan": contains_block("clan", tank_v2),
-				"has_company": contains_block("company", tank_v2)
+				"has_company": contains_block("company", tank_v2),
+				"has_fort": contains_block("fortBattles", tank_v2),
+				"has_sortie": contains_block("fortSorties", tank_v2)
 				
 			
 				
