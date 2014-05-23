@@ -25,13 +25,22 @@ class SafeUnpickler(object):
 
 	@classmethod
 	def loads(cls, pickle_string):
-		safeUnpickler = cPickle.Unpickler(StringIO.StringIO(pickle_string))
-		safeUnpickler.find_global = cls.find_class
-		return safeUnpickler.load()
-
+		try:
+			safeUnpickler = cPickle.Unpickler(StringIO.StringIO(pickle_string))
+			safeUnpickler.find_global = cls.find_class
+			return safeUnpickler.load()
+		except Exception, e:
+			raise cPickle.UnpicklingError('Unpickler Error')
+			
 	@classmethod
 	def load(cls, pickle_file):
-		safeUnpickler = cPickle.Unpickler(pickle_file)
-		safeUnpickler.find_global = cls.find_class
-		return safeUnpickler.load()
-
+		try:
+			safeUnpickler = cPickle.Unpickler(pickle_file)
+			safeUnpickler.find_global = cls.find_class
+			return safeUnpickler.load()
+		
+		except EOFError, er:
+			raise cPickle.UnpicklingError('Unpickler EOF Error')
+		
+		except Exception, e:
+			raise cPickle.UnpicklingError('Unpickler Error')
