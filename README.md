@@ -3,18 +3,26 @@ World of Tanks Dossier Cache to JSON
 Version v9.1.0
 
 
-### About Author
-* Marius Czyz aka Phalynx
+### About
+
+* Author: Marius Czyz aka Phalynx
 * Contact: marius.czyz@gmail.com
+* Website: http://www.vbaddict.net
+* Wiki: http://wiki.vbaddict.net
+* Repo: https://github.com/Phalynx/WoT-Dossier-Cache-to-JSON
+
+### Respect for my work
+Please respect my work invested in this project. You have to give me credit on your application or website.
+
 
 
 ### Demo Systems:
-* WoT Performance Analyzer Charts http://www.vbaddict.net
+* vBAddict WoT Performance Analyzer Charts http://www.vbaddict.net
 * WOT Statistics http://www.vbaddict.net/wotstatistics
 * WotDossier http://forum.worldoftanks.ru/index.php?/topic/890389-
 
  
-### WoT Developer Wiki 
+### Dossier File Structure
 * More information regarding the file structure on the Developer Wiki:
 * http://www.vbaddict.net/content/10-WoT-Developer-Wiki
 
