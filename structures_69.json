@@ -198,12 +198,12 @@
 {"category": "compensation", "length": 4, "version": 69, "name": "gold", "offset": 0},
 
 {"category": "achievements7x7", "length": 2, "version": 69, "name": "wolfAmongSheep", "offset": 0},
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "wolfAmongSheepMedal", "offset": 2}, 
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "geniusForWar", "offset": 4}, 
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "geniusForWarMedal", "offset": 6}, 
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "kingOfTheHill", "offset": 8}, 
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "tacticalBreakthroughSeries", "offset": 10}, 
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "maxTacticalBreakthroughSeries", "offset": 12}, 
-{"category": "achievements7x7", "length": 2, "version": 69, "name": "armoredFist", "offset": 14}, 
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "wolfAmongSheepMedal", "offset": 2},
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "geniusForWar", "offset": 4},
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "geniusForWarMedal", "offset": 6},
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "kingOfTheHill", "offset": 8},
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "tacticalBreakthroughSeries", "offset": 10},
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "maxTacticalBreakthroughSeries", "offset": 12},
+{"category": "achievements7x7", "length": 2, "version": 69, "name": "armoredFist", "offset": 14},
 {"category": "achievements7x7", "length": 1, "version": 69, "name": "tacticalBreakthrough", "offset": 16}
 ]
