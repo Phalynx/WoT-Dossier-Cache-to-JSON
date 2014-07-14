@@ -1,6 +1,6 @@
 World of Tanks Dossier Cache to JSON 
 ------------------------------------
-Version v9.1.0
+Version v9.2.0
 
 
 ### About
@@ -13,7 +13,6 @@ Version v9.1.0
 
 ### Respect for my work
 Please respect my work invested in this project. You have to give me credit on your application or website.
-
 
 
 ### Demo Systems:
@@ -42,6 +41,7 @@ Please respect my work invested in this project. You have to give me credit on y
 * WoT 0.8.11.x (dossier version 69)
 * WoT 0.9.0.x (dossier version 77)
 * WoT 0.9.1.x (dossier version 81)
+* WoT 0.9.2.x (dossier version 85)
 
 
 ### Contributors WoTDC2J.py
