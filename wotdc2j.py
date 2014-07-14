@@ -1,6 +1,6 @@
 ###################################################
 # World of Tanks Dossier Cache to JSON            #
-# Initial version by Phalynx www.vbaddict.net/wot #
+# Initial version by Phalynx www.vbaddict.net     #
 ###################################################
 import struct, json, time, sys, os
 	
@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.1.0"
+	parserversion = "0.9.2.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -138,9 +138,10 @@ def main():
 	structures = structures + get_json_data("structures_69.json")
 	structures = structures + get_json_data("structures_77.json")
 	structures = structures + get_json_data("structures_81.json")
+	structures = structures + get_json_data("structures_85.json")
 
 	min_supported = 10
-	max_supported = 81
+	max_supported = 85
 		
 		
 	tanks = dict()
@@ -170,13 +171,17 @@ def main():
 		tupledata = struct.unpack(tankstruct, data)
 		tankversion = getdata("tankversion", 0, 1)
 		
+		#if tankversion != 85:
+		#write_to_log("Tankversion " + str(tankversion))
+			#continue
+		
 		if tankversion < min_supported or tankversion > max_supported:
 				try:
-					write_to_log(get_tank_data(tanksdata, countryid, tankid, "title") + ", unsupported tankversion " + str(tankversion))
-					printmessage('unsupported tankversion')
+					write_to_log('unsupported tankversion ' + str(tankversion))
+					printmessage('unsupported tankversion ' + str(tankversion))
 					continue				
 				except Exception, e:
-					printmessage('unsupported tankversion' + e.message)
+					printmessage('unsupported tankversion ' + str(tankversion) + ' (' + e.message + ')')
 					continue
 
 		if not isinstance(tankitem[0][1], (int)):
@@ -198,7 +203,6 @@ def main():
 
 		#if tankid==234 and countryid==1:
 		#	continue
-
 		
 		for m in xrange(0,len(tupledata)):
 			rawdata[m] = tupledata[m]
@@ -228,7 +232,9 @@ def main():
 			if tankversion == 81:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements')
 
-				
+			if tankversion == 85:
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements')
+			
 			blockcount = len(list(blocks))+1
 			#print blockcount
 			newbaseoffset = (blockcount * 2)
