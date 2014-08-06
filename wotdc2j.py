@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.2.1"
+	parserversion = "0.9.2.2"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -119,11 +119,8 @@ def main():
 	
 	if option_server == 0:
 		dossierheader['date'] = time.mktime(time.localtime())
-
-	tanksdata = dict()
-	if option_server == 0 or option_tanks == 1:
-		tanksdata = get_json_data("tanks.json")
 	
+	tanksdata = load_tanksdata()
 	structures = load_structures()
 	
 	tanks = dict()
@@ -625,19 +622,16 @@ def get_json_data(filename):
 	return file_data
 
 
-
 def get_tank_data(tanksdata, countryid, tankid, dataname):
 
 	if option_server == 0 or option_tanks == 1:
-		for tankdata in tanksdata:
-			if tankdata['countryid'] == countryid:
-				if tankdata['tankid'] == tankid:
-					return tankdata[dataname]
+		key = str(countryid) + "." + str(tankid)
+		if key in tanksdata:
+			return tanksdata[key][dataname]
 	
 	if dataname == 'title':
 		return 'unknown_' + str(countryid) + '_' + str(tankid)
-
-
+	
 	return "-"
 
 
@@ -712,6 +706,18 @@ def load_structures():
 			structures[version][category].append(item)
 	
 	return structures
+
+
+def load_tanksdata():
+	
+	tanksdata = dict()
+	if option_server == 0 or option_tanks == 1:
+		jsondata = get_json_data("tanks.json")
+		for item in jsondata:
+			key = str(item["countryid"])+"."+str(item["tankid"])
+			tanksdata[key] = item
+	
+	return tanksdata
 
 
 if __name__ == '__main__':
