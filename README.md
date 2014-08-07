@@ -19,7 +19,7 @@ Please respect my work invested in this project. You have to give me credit on y
 * vBAddict WoT Performance Analyzer Charts http://www.vbaddict.net
 * WOT Statistics http://www.vbaddict.net/wotstatistics
 * WotDossier http://forum.worldoftanks.ru/index.php?/topic/890389-
-
+* Wot Numbers http://wotnumbers.com/
  
 ### Dossier File Structure
 * More information regarding the file structure on the Developer Wiki:
@@ -48,7 +48,7 @@ Please respect my work invested in this project. You have to give me credit on y
 * Phalynx
 * Gottzilla
 * NJSaaiman
-
+* Blcz
 
 
 ### Usage
