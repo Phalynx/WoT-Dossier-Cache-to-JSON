@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.2.2"
+	parserversion = "0.9.2.3"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -106,11 +106,11 @@ def main():
 	
 	base32name = "?;?"
 	if option_server == 0:
+		filename_base = os.path.splitext(os.path.basename(filename_source))[0]
 		try:
-			base32name = base64.b32decode(os.path.splitext(filename_source)[0].replace('.\\', ''))
+			base32name = base64.b32decode(filename_base)
 		except Exception, e:
-			if e.message != 'Incorrect padding':
-				printmessage('cannot decode filename ' + os.path.splitext(filename_source)[0] + ': ' + e.message)
+			printmessage('cannot decode filename ' + filename_base + ': ' + e.message)
 
 
 	dossierheader['server'] = base32name.split(';', 1)[0];
