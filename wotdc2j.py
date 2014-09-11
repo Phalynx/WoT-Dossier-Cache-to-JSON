@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.2.3"
+	parserversion = "0.9.3.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -31,7 +31,6 @@ def main():
 	option_tanks = 0
 	
 	for argument in sys.argv:
-		#print "--+++++ " + str(argument)
 		if argument == "-s":
 			option_server = 1
 			#print '-- SERVER mode enabled'
@@ -110,7 +109,8 @@ def main():
 		try:
 			base32name = base64.b32decode(filename_base)
 		except Exception, e:
-			printmessage('cannot decode filename ' + filename_base + ': ' + e.message)
+			pass
+			#printmessage('cannot decode filename ' + filename_base + ': ' + e.message)
 
 
 	dossierheader['server'] = base32name.split(';', 1)[0];
@@ -145,23 +145,24 @@ def main():
 			continue
 			
 		rawdata = dict()
-		data = tankitem[1][1]
+		
+		try:
+			data = tankitem[1][1]
+		except Exception, e:
+			printmessage('Invalid tankitem ' + str(e.message))
+			continue
+			
 		tankstruct = str(len(data)) + 'B'
 		tupledata = struct.unpack(tankstruct, data)
 		tankversion = getdata("tankversion", 0, 1)
 		
-		#if tankversion != 85:
-		#write_to_log("Tankversion " + str(tankversion))
-			#continue
+		#if tankversion != 87:
+		#printmessage("Tankversion " + str(tankversion))
+		#	continue
 		
 		if tankversion not in structures:
-				try:
-					write_to_log('unsupported tankversion ' + str(tankversion))
-					printmessage('unsupported tankversion ' + str(tankversion))
-					continue				
-				except Exception, e:
-					printmessage('unsupported tankversion ' + str(tankversion) + ' (' + e.message + ')')
-					continue
+			write_to_log('unsupported tankversion ' + str(tankversion))
+			continue				
 
 		if not isinstance(tankitem[0][1], (int)):
 			printmessage('Invalid tankdata')
@@ -170,17 +171,17 @@ def main():
 		try:
 			tankid = tankitem[0][1] >> 8 & 65535
 		except Exception, e:
-			exitwitherror('cannot get tankid ' + e.message)
+			printmessage('cannot get tankid ' + e.message)
 			continue
-
-			
+						
 		try:
 			countryid = tankitem[0][1] >> 4 & 15
 		except Exception, e:
-			exitwitherror('cannot get countryid ' + e.message)
+			printmessage('cannot get countryid ' + e.message)
 			continue
-
-		#if tankid==234 and countryid==1:
+			
+		#For debugging purposes
+		#if not (countryid==4 and tankid==19):
 		#	continue
 		
 		for m in xrange(0,len(tupledata)):
@@ -198,7 +199,6 @@ def main():
 		if tankversion >= 65:
 			tank_v2 = dict()
 			
-			
 			if tankversion == 65:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
 				
@@ -211,11 +211,11 @@ def main():
 			if tankversion == 81:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements')
 
-			if tankversion == 85:
+			if tankversion in [85, 87]:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements')
-			
+
 			blockcount = len(list(blocks))+1
-			#print blockcount
+
 			newbaseoffset = (blockcount * 2)
 			header = struct.unpack_from('<' + 'H' * blockcount, data)
 			blocksizes = list(header[1:])
@@ -226,37 +226,38 @@ def main():
 			numoffrags_historical = 0
 			numoffrags_fortBattles = 0
 			numoffrags_fortSorties = 0
-			
+
 			for blockname in blocks:
-				
 
 				if blocksizes[blocknumber] > 0:
 					if blockname == 'frags':
+						if option_frags == 1:
 							fmt = '<' + 'IH' * (blocksizes[blocknumber]/6)
 							fragsdata = struct.unpack_from(fmt, data, newbaseoffset)
-							
-						 	for x in range(0, blocksizes[blocknumber]):
-						 		rawdata[newbaseoffset+x] = str(tupledata[newbaseoffset+x]) + " / Frags; "
-
 							index = 0
+
 							for i in xrange((blocksizes[blocknumber]/6)):
 								compDescr, amount = (fragsdata[index], fragsdata[index + 1])
 								numoffrags_list += amount	
 								frag_countryid, frag_tankid, frag_tanktitle = get_tank_details(compDescr, tanksdata)
 								tankfrag = [frag_countryid, frag_tankid, amount, frag_tanktitle]
 								fragslist.append(tankfrag)
-								index += 2
-						
-							newbaseoffset += blocksizes[blocknumber]
-							if option_frags == 1:
-								tank_v2['fragslist'] = fragslist
+								index += 2							
+
+							for i in xrange((blocksizes[blocknumber])):
+								rawdata[newbaseoffset+i] = str(tupledata[newbaseoffset+i]) + " / Frags"
+								
+							tank_v2['fragslist'] = fragslist
+				
+						newbaseoffset += blocksizes[blocknumber] 
+
 						
 					else:
 						oldbaseoffset = newbaseoffset
 						structureddata = getstructureddata(blockname, tankversion, newbaseoffset)
 						structureddata = keepCompatibility(structureddata)
 						newbaseoffset = oldbaseoffset+blocksizes[blocknumber]
-						tank_v2[blockname] = structureddata
+						tank_v2[blockname] = structureddata 
 
 				blocknumber +=1
 		
@@ -312,7 +313,7 @@ def main():
 
 				try:
 					if numoffrags_list <> (numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical + numoffrags_fortBattles + numoffrags_fortSorties):
-						printmessage('Wrong number of frags. ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties))
+						write_to_log('Wrong number of frags for ' + str(tanktitle) + ': ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties))
 				except Exception, e:
 						write_to_log('Error processing frags: ' + e.message)
 		
@@ -335,6 +336,8 @@ def main():
 				"frags":  numoffrags_a15x15,
 				"frags_7x7":  numoffrags_a7x7,
 				"frags_historical":  numoffrags_historical,
+				"frags_fortBattles":  numoffrags_fortBattles,
+				"frags_fortSorties":  numoffrags_fortSorties,
 				"frags_compare": numoffrags_list,
 				"has_15x15": contains_block("a15x15", tank_v2),
 				"has_7x7": contains_block("a7x7", tank_v2),
@@ -537,7 +540,7 @@ def catch_fatal(message):
 	global option_server
 	import shutil
 		
-	write_to_log("WOTDC2J: " + str(message))
+	write_to_log(str(message))
 
 
 def write_to_log(logtext):
@@ -550,7 +553,7 @@ def write_to_log(logtext):
 	if option_server == 1:
 		try:
 			logFile = open("/var/log/wotdc2j/wotdc2j.log", "a+b")
-			logFile.write(str(now.strftime("%Y-%m-%d %H:%M:%S")) + " # " + str(logtext) + " # " + str(filename_source) + "\r\n")
+			logFile.write(str(now.strftime("%Y-%m-%d %H:%M:%S")) + " # WOTDC2J: " + str(logtext) + " # " + str(filename_source) + "\r\n")
 			logFile.close()
 		except:
 			printmessage("Cannot write to wotdc2j.log")
@@ -695,7 +698,7 @@ def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85];
+	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87];
 	for version in load_versions:
 		jsondata = get_json_data('structures_'+str(version)+'.json')
 		structures[version] = dict()
