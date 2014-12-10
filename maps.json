@@ -47,6 +47,9 @@
 {"mapid": 62, "mapidname": "96_prohorovka_defense", "mapname": "Fiery Salient"},
 {"mapid": 65, "mapidname": "102_deathtrack", "mapname": "Tank Rally"},
 {"mapid": 66, "mapidname": "92_stalingrad", "mapname": "Stalingrad"},
+{"mapid": 67, "mapidname": "100_thepit", "mapname": "Mittengard"},
+{"mapid": 68, "mapidname": "95_lost_city", "mapname": "Ghost Town"},
+{"mapid": 69, "mapidname": "103_ruinberg_winter", "mapname": "Winterberg"},
 {"mapid": 1957, "mapidname": "60_asia_miao", "mapname": "Pearl River"},
 {"mapid": 1983, "mapidname": "73_asia_korea", "mapname": "Sacred Valley"},
 {"mapid": 2021, "mapidname": "00_tank_tutorial", "mapname": "Training area"}
