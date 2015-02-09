@@ -452,5 +452,4 @@
 {"category": "maxRated7x7", "length": 1, "version": 88, "name": "maxFrags", "offset": 6},
 {"category": "maxRated7x7", "length": 4, "version": 88, "name": "maxFragsVehicle", "offset": 7},
 {"category": "maxRated7x7", "length": 2, "version": 88, "name": "maxDamage", "offset": 11},
-{"category": "maxRated7x7", "length": 4, "version": 88, "name": "maxDamageVehicle", "offset": 13}
-]
+{"category": "maxRated7x7", "length": 4, "version": 88, "name": "maxDamageVehicle", "offset": 13}]
