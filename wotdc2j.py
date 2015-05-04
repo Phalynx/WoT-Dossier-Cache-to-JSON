@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.6.1"
+	parserversion = "0.9.7.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -133,6 +133,7 @@ def main():
 	battleCount_clan = 0
 	battleCount_fortBattles = 0
 	battleCount_fortSorties = 0
+	battleCount_rated7x7 = 0
 	
 	for tankitem in tankitems:
 		
@@ -209,10 +210,10 @@ def main():
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical') #, 'historicalAchievements', 'uniqueAchievements'
 
 			if tankversion == 81:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements')
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements')
 
 			if tankversion in [85, 87]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFort', 'fortSorties', 'maxSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements')
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements')
 
 			if tankversion == 88:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7')
@@ -229,6 +230,7 @@ def main():
 			numoffrags_historical = 0
 			numoffrags_fortBattles = 0
 			numoffrags_fortSorties = 0
+			numoffrags_rated7x7 = 0
 
 			for blockname in blocks:
 
@@ -320,12 +322,20 @@ def main():
 				
 				if 'frags' in tank_v2['fortSorties']:
 					numoffrags_fortSorties = int(tank_v2['fortSorties']['frags'])
+
+			if contains_block('rated7x7', tank_v2):
+				
+				if 'battlesCount' in tank_v2['rated7x7']:
+					battleCount_rated7x7 += tank_v2['rated7x7']['battlesCount']
+				
+				if 'frags' in tank_v2['rated7x7']:
+					numoffrags_rated7x7 = int(tank_v2['rated7x7']['frags'])
 					
 			if option_frags == 1:
 
 				try:
-					if numoffrags_list <> (numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical + numoffrags_fortBattles + numoffrags_fortSorties):
-						write_to_log('Wrong number of frags for ' + str(tanktitle) + ', ' + str(tankversion) + ': ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties))
+					if numoffrags_list <> (numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical + numoffrags_fortBattles + numoffrags_fortSorties + numoffrags_rated7x7):
+						write_to_log('Wrong number of frags for ' + str(tanktitle) + ', ' + str(tankversion) + ': ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties) + ' + ' + str(numoffrags_rated7x7))
 				except Exception, e:
 						write_to_log('Error processing frags: ' + e.message)
 		
