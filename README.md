@@ -1,6 +1,6 @@
 World of Tanks Dossier Cache to JSON 
 ------------------------------------
-Version v9.6.0
+Version v9.7.0
 
 
 ### About
