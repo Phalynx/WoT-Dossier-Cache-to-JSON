@@ -375,7 +375,7 @@
 {"category": "rated7x7", "length": 4, "name": "frags8p", "offset": 92, "version": 88},
 {"category": "rated7x7", "length": 4, "name": "potentialDamageReceived", "offset": 96, "version": 88},
 {"category": "rated7x7", "length": 4, "name": "damageBlockedByArmor", "offset": 100, "version": 88},
-{"category": "maxrated7x7_x", "length": 2, "name": "maxXP", "offset": 0, "version": 88},
-{"category": "maxrated7x7_x", "length": 1, "name": "maxFrags", "offset": 2, "version": 88},
-{"category": "maxrated7x7_x", "length": 2, "name": "maxDamage", "offset": 3, "version": 88}
+{"category": "maxRated7x7", "length": 2, "name": "maxXP", "offset": 0, "version": 88},
+{"category": "maxRated7x7", "length": 1, "name": "maxFrags", "offset": 2, "version": 88},
+{"category": "maxRated7x7", "length": 2, "name": "maxDamage", "offset": 3, "version": 88}
 ]
