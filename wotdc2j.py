@@ -30,7 +30,7 @@ def main():
 	option_frags = 1
 	option_tanks = 0
 	
-	for argument in sys.argv:
+	for argument in sys.argv[1:]:
 		if argument == "-s":
 			option_server = 1
 			#print '-- SERVER mode enabled'
@@ -46,8 +46,10 @@ def main():
 		elif argument == "-t":
 			option_tanks = 1
 			#print '-- TANK info will be included'
-
-	filename_source = sys.argv[1]
+		else:
+			# dossier file, if more than one get only first
+			if filename_source =='' and os.path.isfile(argument):
+				filename_source = argument
 	
 	if filename_source == "":
 		usage()
