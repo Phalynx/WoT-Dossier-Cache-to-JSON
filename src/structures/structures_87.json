@@ -17,7 +17,6 @@
 {"category": "a15x15", "length": 4, "name": "winAndSurvived", "offset": 60, "version": 87}, 
 {"category": "a15x15", "length": 4, "name": "frags8p", "offset": 64, "version": 87}, 
 {"category": "a15x15", "length": 4, "name": "battlesCountBefore9_0", "offset": 68, "version": 87}, 
-
 {"category": "a15x15_2", "length": 4, "name": "originalXP", "offset": 0, "version": 87}, 
 {"category": "a15x15_2", "length": 4, "name": "damageAssistedTrack", "offset": 4, "version": 87}, 
 {"category": "a15x15_2", "length": 4, "name": "damageAssistedRadio", "offset": 8, "version": 87}, 
@@ -29,7 +28,6 @@
 {"category": "a15x15_2", "length": 4, "name": "piercings", "offset": 32, "version": 87}, 
 {"category": "a15x15_2", "length": 4, "name": "potentialDamageReceived", "offset": 36, "version": 87}, 
 {"category": "a15x15_2", "length": 4, "name": "damageBlockedByArmor", "offset": 40, "version": 87}, 
-
 {"category": "clan", "length": 4, "name": "xp", "offset": 0, "version": 87}, 
 {"category": "clan", "length": 4, "name": "battlesCount", "offset": 4, "version": 87}, 
 {"category": "clan", "length": 4, "name": "wins", "offset": 8, "version": 87}, 
@@ -46,7 +44,6 @@
 {"category": "clan", "length": 4, "name": "xpBefore8_9", "offset": 52, "version": 87}, 
 {"category": "clan", "length": 4, "name": "battlesCountBefore8_9", "offset": 56, "version": 87}, 
 {"category": "clan", "length": 4, "name": "battlesCountBefore9_0", "offset": 60, "version": 87}, 
-
 {"category": "clan2", "length": 4, "name": "originalXP", "offset": 0, "version": 87}, 
 {"category": "clan2", "length": 4, "name": "damageAssistedTrack", "offset": 4, "version": 87}, 
 {"category": "clan2", "length": 4, "name": "damageAssistedRadio", "offset": 8, "version": 87}, 
@@ -58,7 +55,6 @@
 {"category": "clan2", "length": 4, "name": "piercings", "offset": 32, "version": 87}, 
 {"category": "clan2", "length": 4, "name": "potentialDamageReceived", "offset": 36, "version": 87}, 
 {"category": "clan2", "length": 4, "name": "damageBlockedByArmor", "offset": 40, "version": 87}, 
-
 {"category": "company", "length": 4, "name": "xp", "offset": 0, "version": 87}, 
 {"category": "company", "length": 4, "name": "battlesCount", "offset": 4, "version": 87}, 
 {"category": "company", "length": 4, "name": "wins", "offset": 8, "version": 87}, 
@@ -75,7 +71,6 @@
 {"category": "company", "length": 4, "name": "xpBefore8_9", "offset": 52, "version": 87}, 
 {"category": "company", "length": 4, "name": "battlesCountBefore8_9", "offset": 56, "version": 87}, 
 {"category": "company", "length": 4, "name": "battlesCountBefore9_0", "offset": 60, "version": 87}, 
-
 {"category": "company2", "length": 4, "name": "originalXP", "offset": 0, "version": 87}, 
 {"category": "company2", "length": 4, "name": "damageAssistedTrack", "offset": 4, "version": 87}, 
 {"category": "company2", "length": 4, "name": "damageAssistedRadio", "offset": 8, "version": 87}, 
@@ -87,7 +82,6 @@
 {"category": "company2", "length": 4, "name": "piercings", "offset": 32, "version": 87}, 
 {"category": "company2", "length": 4, "name": "potentialDamageReceived", "offset": 36, "version": 87}, 
 {"category": "company2", "length": 4, "name": "damageBlockedByArmor", "offset": 40, "version": 87}, 
-
 {"category": "a7x7", "length": 4, "name": "xp", "offset": 0, "version": 87}, 
 {"category": "a7x7", "length": 4, "name": "battlesCount", "offset": 4, "version": 87}, 
 {"category": "a7x7", "length": 4, "name": "wins", "offset": 8, "version": 87}, 
@@ -115,7 +109,6 @@
 {"category": "a7x7", "length": 4, "name": "potentialDamageReceived", "offset": 96, "version": 87}, 
 {"category": "a7x7", "length": 4, "name": "damageBlockedByArmor", "offset": 100, "version": 87}, 
 {"category": "a7x7", "length": 4, "name": "battlesCountBefore9_0", "offset": 104, "version": 87}, 
-
 {"category": "achievements", "length": 4, "name": "fragsBeast", "offset": 0, "version": 87}, 
 {"category": "achievements", "length": 2, "name": "sniperSeries", "offset": 4, "version": 87}, 
 {"category": "achievements", "length": 2, "name": "maxSniperSeries", "offset": 6, "version": 87}, 
@@ -202,23 +195,18 @@
 {"category": "achievements", "length": 2, "name": "bonecrusher", "offset": 153, "version": 87}, 
 {"category": "achievements", "length": 2, "name": "charmed", "offset": 155, "version": 87}, 
 {"category": "achievements", "length": 2, "name": "even", "offset": 157, "version": 87},
- 
 {"category": "total", "length": 4, "name": "creationTime", "offset": 0, "version": 87}, 
 {"category": "total", "length": 4, "name": "lastBattleTime", "offset": 4, "version": 87}, 
 {"category": "total", "length": 4, "name": "battleLifeTime", "offset": 8, "version": 87}, 
 {"category": "total", "length": 2, "name": "treesCut", "offset": 12, "version": 87}, 
 {"category": "total", "length": 4, "name": "mileage", "offset": 14, "version": 87}, 
-
 {"category": "max15x15", "length": 2, "name": "maxXP", "offset": 0, "version": 87}, 
 {"category": "max15x15", "length": 1, "name": "maxFrags", "offset": 2, "version": 87}, 
 {"category": "max15x15", "length": 2, "name": "maxDamage", "offset": 3, "version": 87}, 
-
 {"category": "max7x7", "length": 2, "name": "maxXP", "offset": 0, "version": 87}, 
 {"category": "max7x7", "length": 1, "name": "maxFrags", "offset": 2, "version": 87}, 
 {"category": "max7x7", "length": 2, "name": "maxDamage", "offset": 3, "version": 87}, 
-
 {"category": "compensation", "length": 4, "name": "gold", "offset": 0, "version": 87}, 
-
 {"category": "achievements7x7", "length": 2, "name": "wolfAmongSheep", "offset": 0, "version": 87}, 
 {"category": "achievements7x7", "length": 2, "name": "wolfAmongSheepMedal", "offset": 2, "version": 87}, 
 {"category": "achievements7x7", "length": 2, "name": "geniusForWar", "offset": 4, "version": 87}, 
@@ -257,7 +245,6 @@
 {"category": "achievements7x7", "length": 2, "name": "bruteForceMedal", "offset": 69, "version": 87}, 
 {"category": "achievements7x7", "length": 4, "name": "awardCount", "offset": 71, "version": 87}, 
 {"category": "achievements7x7", "length": 1, "name": "battleTested", "offset": 75, "version": 87}, 
-
 {"category": "historical", "length": 4, "name": "xp", "offset": 0, "version": 87}, 
 {"category": "historical", "length": 4, "name": "battlesCount", "offset": 4, "version": 87}, 
 {"category": "historical", "length": 4, "name": "wins", "offset": 8, "version": 87}, 
@@ -284,16 +271,13 @@
 {"category": "historical", "length": 4, "name": "frags8p", "offset": 92, "version": 87}, 
 {"category": "historical", "length": 4, "name": "potentialDamageReceived", "offset": 96, "version": 87}, 
 {"category": "historical", "length": 4, "name": "damageBlockedByArmor", "offset": 100, "version": 87},
- 
 {"category": "maxHistorical", "length": 2, "name": "maxXP", "offset": 0, "version": 87}, 
 {"category": "maxHistorical", "length": 1, "name": "maxFrags", "offset": 2, "version": 87}, 
 {"category": "maxHistorical", "length": 2, "name": "maxDamage", "offset": 3, "version": 87}, 
-
 {"category": "historicalAchievements", "length": 1, "name": "guardsman", "offset": 0, "version": 87}, 
 {"category": "historicalAchievements", "length": 1, "name": "makerOfHistory", "offset": 1, "version": 87}, 
 {"category": "historicalAchievements", "length": 2, "name": "bothSidesWins", "offset": 2, "version": 87}, 
 {"category": "historicalAchievements", "length": 2, "name": "weakVehiclesWins", "offset": 4, "version": 87}, 
-
 {"category": "uniqueAchievements", "length": 2, "name": "histBattle1_battlefield", "offset": 0, "version": 87}, 
 {"category": "uniqueAchievements", "length": 2, "name": "histBattle1_historyLessons", "offset": 2, "version": 87}, 
 {"category": "uniqueAchievements", "length": 2, "name": "histBattle2_battlefield", "offset": 4, "version": 87}, 
@@ -306,7 +290,6 @@
 {"category": "uniqueAchievements", "length": 2, "name": "histBattle5_historyLessons", "offset": 18, "version": 87}, 
 {"category": "uniqueAchievements", "length": 2, "name": "histBattle6_battlefield", "offset": 20, "version": 87}, 
 {"category": "uniqueAchievements", "length": 2, "name": "histBattle6_historyLessons", "offset": 22, "version": 87}, 
-
 {"category": "fortBattles", "length": 4, "name": "xp", "offset": 0, "version": 87}, 
 {"category": "fortBattles", "length": 4, "name": "battlesCount", "offset": 4, "version": 87}, 
 {"category": "fortBattles", "length": 4, "name": "wins", "offset": 8, "version": 87}, 
@@ -333,7 +316,6 @@
 {"category": "fortBattles", "length": 4, "name": "frags8p", "offset": 92, "version": 87}, 
 {"category": "fortBattles", "length": 4, "name": "potentialDamageReceived", "offset": 96, "version": 87}, 
 {"category": "fortBattles", "length": 4, "name": "damageBlockedByArmor", "offset": 100, "version": 87}, 
-
 {"category": "fortSorties", "length": 4, "name": "xp", "offset": 0, "version": 87}, 
 {"category": "fortSorties", "length": 4, "name": "battlesCount", "offset": 4, "version": 87}, 
 {"category": "fortSorties", "length": 4, "name": "wins", "offset": 8, "version": 87}, 
@@ -360,7 +342,6 @@
 {"category": "fortSorties", "length": 4, "name": "frags8p", "offset": 92, "version": 87}, 
 {"category": "fortSorties", "length": 4, "name": "potentialDamageReceived", "offset": 96, "version": 87}, 
 {"category": "fortSorties", "length": 4, "name": "damageBlockedByArmor", "offset": 100, "version": 87}, 
-
 {"category": "fortAchievements", "length": 1, "name": "conqueror", "offset": 0, "version": 87}, 
 {"category": "fortAchievements", "length": 1, "name": "fireAndSword", "offset": 1, "version": 87}, 
 {"category": "fortAchievements", "length": 2, "name": "crusher", "offset": 2, "version": 87}, 
@@ -370,13 +351,11 @@
 {"category": "fortAchievements", "length": 2, "name": "wins", "offset": 8, "version": 87}, 
 {"category": "fortAchievements", "length": 2, "name": "capturedBasesInAttack", "offset": 10, "version": 87}, 
 {"category": "fortAchievements", "length": 2, "name": "capturedBasesInDefence", "offset": 12, "version": 87}, 
-
 {"category": "singleAchievements", "length": 1, "name": "titleSniper", "offset": 0, "version": 87}, 
 {"category": "singleAchievements", "length": 1, "name": "invincible", "offset": 1, "version": 87}, 
 {"category": "singleAchievements", "length": 1, "name": "diehard", "offset": 2, "version": 87}, 
 {"category": "singleAchievements", "length": 1, "name": "handOfDeath", "offset": 3, "version": 87}, 
 {"category": "singleAchievements", "length": 1, "name": "armorPiercer", "offset": 4, "version": 87}, 
 {"category": "singleAchievements", "length": 1, "name": "tacticalBreakthrough", "offset": 5, "version": 87}, 
-
 {"category": "clanAchievements", "length": 1, "name": "medalRotmistrov", "offset": 0, "version": 87}
 ]
