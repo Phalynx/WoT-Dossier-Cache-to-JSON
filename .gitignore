@@ -1,6 +1,8 @@
 _Archive/
 dossiers/
+testing/
 *.zip
+*.cmd
 
 
 # Byte-compiled / optimized / DLL files
