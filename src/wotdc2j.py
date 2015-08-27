@@ -742,7 +742,7 @@ def load_tanksdata():
 	
 	tanksdata = dict()
 	if option_server == 0 or option_tanks == 1:
-		jsondata = get_json_data("../tanks.json")
+		jsondata = get_json_data("tanks.json")
 		for item in jsondata:
 			key = str(item["countryid"])+"."+str(item["tankid"])
 			tanksdata[key] = item
