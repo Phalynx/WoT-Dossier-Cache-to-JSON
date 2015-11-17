@@ -136,6 +136,8 @@ def main():
 	battleCount_fortBattles = 0
 	battleCount_fortSorties = 0
 	battleCount_rated7x7 = 0
+	battleCount_globalMap = 0
+	battleCount_fallout = 0
 	
 	for tankitem in tankitems:
 		
