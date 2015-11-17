@@ -17,7 +17,7 @@ def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "0.9.9.0"
+	parserversion = "0.9.12.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -222,6 +222,9 @@ def main():
 
 			if tankversion == 92:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon')
+			
+			if tankversion == 94:
+				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements')
 				
 			blockcount = len(list(blocks))+1
 
@@ -236,6 +239,8 @@ def main():
 			numoffrags_fortBattles = 0
 			numoffrags_fortSorties = 0
 			numoffrags_rated7x7 = 0
+			numoffrags_globalMap = 0
+			numoffrags_fallout = 0
 
 			for blockname in blocks:
 
@@ -336,11 +341,28 @@ def main():
 				if 'frags' in tank_v2['rated7x7']:
 					numoffrags_rated7x7 = int(tank_v2['rated7x7']['frags'])
 					
+			if contains_block('globalMapCommon', tank_v2):
+				
+				if 'battlesCount' in tank_v2['globalMapCommon']:
+					battleCount_globalMap += tank_v2['globalMapCommon']['battlesCount']
+				
+				if 'frags' in tank_v2['globalMapCommon']:
+					numoffrags_globalMap = int(tank_v2['globalMapCommon']['frags'])
+				
+			if contains_block('fallout', tank_v2):
+				
+				if 'battlesCount' in tank_v2['fallout']:
+					battleCount_fallout += tank_v2['fallout']['battlesCount']
+				
+				if 'frags' in tank_v2['fallout']:
+					numoffrags_fallout = int(tank_v2['fallout']['frags'])
+				
 			if option_frags == 1:
 
 				try:
-					if numoffrags_list <> (numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical + numoffrags_fortBattles + numoffrags_fortSorties + numoffrags_rated7x7):
-						write_to_log('Wrong number of frags for ' + str(tanktitle) + ', ' + str(tankversion) + ': ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties) + ' + ' + str(numoffrags_rated7x7))
+					if numoffrags_list <> (numoffrags_a15x15 + numoffrags_a7x7 + numoffrags_historical + numoffrags_fortBattles + numoffrags_fortSorties + numoffrags_rated7x7 + numoffrags_globalMap + numoffrags_fallout):
+						pass
+						#write_to_log('Wrong number of frags for ' + str(tanktitle) + ', ' + str(tankversion) + ': ' + str(numoffrags_list) + ' = ' + str(numoffrags_a15x15) + ' + ' + str(numoffrags_a7x7) + ' + ' + str(numoffrags_historical) + ' + ' + str(numoffrags_fortBattles) + ' + ' + str(numoffrags_fortSorties) + ' + ' + str(numoffrags_rated7x7))
 				except Exception, e:
 						write_to_log('Error processing frags: ' + e.message)
 		
@@ -373,9 +395,6 @@ def main():
 				"has_company": contains_block("company", tank_v2),
 				"has_fort": contains_block("fortBattles", tank_v2),
 				"has_sortie": contains_block("fortSorties", tank_v2)
-				
-			
-				
 				
 			}
 			
@@ -725,7 +744,7 @@ def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92];
+	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94];
 	for version in load_versions:
 		jsondata = get_json_data('structures/structures_'+str(version)+'.json')
 		structures[version] = dict()
