@@ -51,5 +51,6 @@
 {"mapid": 70, "mapidname": "101_dday", "mapname": "Overlord"},
 {"mapid": 71, "mapidname": "111_paris", "mapname": "Icebound"},
 {"mapid": 72, "mapidname": "105_germany", "mapname": "Berlin"},
-{"mapid": 73, "mapidname": "112_eiffel_tower", "mapname": "Ravaged Capital"}
+{"mapid": 73, "mapidname": "112_eiffel_tower", "mapname": "Ravaged Capital"},
+{"mapid": 74, "mapidname": "114_czech", "mapname": "Pilsen"}
 ]
