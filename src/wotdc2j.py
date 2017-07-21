@@ -228,7 +228,7 @@ def main():
 			if tankversion in [94, 95, 96]:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements')
                 
-			if tankversion in [97]:
+			if tankversion in [97,98]:
 				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements', 'ranked', 'maxRanked')
                 
 			blockcount = len(list(blocks))+1
@@ -749,7 +749,7 @@ def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97];
+	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98];
 	for version in load_versions:
 		jsondata = get_json_data('structures/structures_'+str(version)+'.json')
 		structures[version] = dict()
