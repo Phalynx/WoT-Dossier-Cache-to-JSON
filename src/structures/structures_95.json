@@ -543,4 +543,16 @@
 {"category": "maxFallout", "length": 2, "name": "maxWinPoints", "offset": 5, "version": 95},
 {"category": "maxFallout", "length": 2, "name": "maxCoins", "offset": 7, "version": 95},
 {"category": "maxFallout", "length": 1, "name": "maxFragsWithAvatar", "offset": 9, "version": 95},
-{"category": "maxFallout", "length": 2, "name": "maxDamageWithAvatar", "offset": 10, "version": 95}]
+{"category": "maxFallout", "length": 2, "name": "maxDamageWithAvatar", "offset": 10, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "shoulderToShoulder", "offset": 0, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "aloneInTheField", "offset": 2, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "fallenFlags", "offset": 4, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "effectiveSupport", "offset": 6, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "falloutDieHard", "offset": 8, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "stormLord", "offset": 10, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "winnerLaurels", "offset": 12, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "predator", "offset": 14, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "unreachable", "offset": 16, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "champion", "offset": 18, "version": 95},
+{"category": "falloutAchievements", "length": 2, "name": "bannerman", "offset": 20, "version": 95}
+{"category": "falloutAchievements", "length": 2, "name": "sauronEye", "offset": 22, "version": 95}]
