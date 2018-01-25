@@ -554,4 +554,5 @@
 {"category": "falloutAchievements", "length": 2, "name": "predator", "offset": 14, "version": 96},
 {"category": "falloutAchievements", "length": 2, "name": "unreachable", "offset": 16, "version": 96},
 {"category": "falloutAchievements", "length": 2, "name": "champion", "offset": 18, "version": 96},
-{"category": "falloutAchievements", "length": 2, "name": "bannerman", "offset": 20, "version": 96}]
+{"category": "falloutAchievements", "length": 2, "name": "bannerman", "offset": 20, "version": 96}
+{"category": "falloutAchievements", "length": 2, "name": "sauronEye", "offset": 22, "version": 96}]
