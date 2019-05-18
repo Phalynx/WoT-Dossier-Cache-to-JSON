@@ -180,6 +180,8 @@
 	{"category": "achievements", "length": 2, "offset": 126, "name": "sniper2"},
 	{"category": "achievements", "length": 2, "offset": 128, "name": "mainGun"},
 
+	{"category": "vehTypeFrags", "length": 0, "offset": 0, "name": "vehTypeFrags"},
+
 	{"category": "total", "length": 4, "offset": 0, "name": "creationTime"},
 	{"category": "total", "length": 4, "offset": 4, "name": "lastBattleTime"},
 	{"category": "total", "length": 4, "offset": 8, "name": "battleLifeTime"},
@@ -194,11 +196,11 @@
 	{"category": "max7x7", "length": 1, "offset": 2, "name": "maxFrags"},
 	{"category": "max7x7", "length": 2, "offset": 3, "name": "maxDamage"},
 
-	{"category": "playerInscriptions", "length": 2, "offset": 0, "name": "playerInscriptions"},
+	{"category": "playerInscriptions", "length": 0, "offset": 0, "name": "playerInscriptions"},
 
-	{"category": "playerEmblems", "length": 2, "offset": 0, "name": "playerEmblems"},
+	{"category": "playerEmblems", "length": 0, "offset": 0, "name": "playerEmblems"},
 
-	{"category": "camouflages", "length": 2, "offset": 0, "name": "camouflages"},
+	{"category": "camouflages", "length": 0, "offset": 0, "name": "camouflages"},
 
 	{"category": "compensation", "length": 4, "offset": 0, "name": "gold"},
 

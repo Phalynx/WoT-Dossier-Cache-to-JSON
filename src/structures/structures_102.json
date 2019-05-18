@@ -315,18 +315,6 @@
 	{"category": "maxHistorical", "length": 2, "offset": 3, "name": "maxDamage"},
 
 	{"category": "uniqueAchievements", "length": 4, "offset": 0, "name": "uniqueAchievements"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 0, "name": "histBattle1_battlefield"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 1, "name": "histBattle1_historyLessons"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 2, "name": "histBattle2_battlefield"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 3, "name": "histBattle2_historyLessons"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 4, "name": "histBattle3_battlefield"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 5, "name": "histBattle3_historyLessons"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 6, "name": "histBattle4_battlefield"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 7, "name": "histBattle4_historyLessons"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 8, "name": "histBattle5_battlefield"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 9, "name": "histBattle5_historyLessons"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 10, "name": "histBattle6_battlefield"},
-	{"category": "uniqueAchievements", "length": 0, "offset": 11, "name": "histBattle6_historyLessons"},
 
 	{"category": "fortBattles", "length": 4, "offset": 0, "name": "xp"},
 	{"category": "fortBattles", "length": 4, "offset": 4, "name": "battlesCount"},

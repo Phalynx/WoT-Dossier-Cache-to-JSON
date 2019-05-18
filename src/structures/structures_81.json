@@ -200,6 +200,8 @@
 	{"category": "achievements", "length": 2, "offset": 141, "name": "medalStark"},
 	{"category": "achievements", "length": 2, "offset": 143, "name": "damageRating"},
 
+	{"category": "vehTypeFrags", "length": 0, "offset": 0, "name": "vehTypeFrags"},
+
 	{"category": "total", "length": 4, "offset": 0, "name": "creationTime"},
 	{"category": "total", "length": 4, "offset": 4, "name": "lastBattleTime"},
 	{"category": "total", "length": 4, "offset": 8, "name": "battleLifeTime"},
@@ -213,9 +215,12 @@
 	{"category": "max7x7", "length": 2, "offset": 0, "name": "maxXP"},
 	{"category": "max7x7", "length": 1, "offset": 2, "name": "maxFrags"},
 	{"category": "max7x7", "length": 2, "offset": 3, "name": "maxDamage"},
-	{"category": "max7x7", "length": 2, "offset": 5, "name": "maxXP"},
-	{"category": "max7x7", "length": 1, "offset": 7, "name": "maxFrags"},
-	{"category": "max7x7", "length": 2, "offset": 8, "name": "maxDamage"},
+
+	{"category": "playerInscriptions", "length": 0, "offset": 0, "name": "playerInscriptions"},
+
+	{"category": "playerEmblems", "length": 0, "offset": 0, "name": "playerEmblems"},
+
+	{"category": "camouflages", "length": 0, "offset": 0, "name": "camouflages"},
 
 	{"category": "compensation", "length": 4, "offset": 0, "name": "gold"},
 
@@ -278,23 +283,7 @@
 	{"category": "maxHistorical", "length": 1, "offset": 2, "name": "maxFrags"},
 	{"category": "maxHistorical", "length": 2, "offset": 3, "name": "maxDamage"},
 
-	{"category": "historicalAchievements", "length": 1, "offset": 0, "name": "guardsman"},
-	{"category": "historicalAchievements", "length": 1, "offset": 1, "name": "makerOfHistory"},
-	{"category": "historicalAchievements", "length": 2, "offset": 2, "name": "bothSidesWins"},
-	{"category": "historicalAchievements", "length": 2, "offset": 4, "name": "weakVehiclesWins"},
-
-	{"category": "uniqueAchievements", "length": 2, "offset": 0, "name": "histBattle1_battlefield"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 2, "name": "histBattle1_historyLessons"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 4, "name": "histBattle2_battlefield"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 6, "name": "histBattle2_historyLessons"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 8, "name": "histBattle3_battlefield"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 10, "name": "histBattle3_historyLessons"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 12, "name": "histBattle4_battlefield"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 14, "name": "histBattle4_historyLessons"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 16, "name": "histBattle5_battlefield"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 18, "name": "histBattle5_historyLessons"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 20, "name": "histBattle6_battlefield"},
-	{"category": "uniqueAchievements", "length": 2, "offset": 22, "name": "histBattle6_historyLessons"},
+	{"category": "uniqueAchievements", "length": 4, "offset": 0, "name": "uniqueAchievements"},
 
 	{"category": "fortBattles", "length": 4, "offset": 0, "name": "xp"},
 	{"category": "fortBattles", "length": 4, "offset": 4, "name": "battlesCount"},
@@ -323,6 +312,10 @@
 	{"category": "fortBattles", "length": 4, "offset": 96, "name": "potentialDamageReceived"},
 	{"category": "fortBattles", "length": 4, "offset": 100, "name": "damageBlockedByArmor"},
 
+	{"category": "maxFortBattles", "length": 2, "offset": 0, "name": "maxXP"},
+	{"category": "maxFortBattles", "length": 1, "offset": 2, "name": "maxFrags"},
+	{"category": "maxFortBattles", "length": 2, "offset": 3, "name": "maxDamage"},
+
 	{"category": "fortSorties", "length": 4, "offset": 0, "name": "xp"},
 	{"category": "fortSorties", "length": 4, "offset": 4, "name": "battlesCount"},
 	{"category": "fortSorties", "length": 4, "offset": 8, "name": "wins"},
@@ -349,6 +342,10 @@
 	{"category": "fortSorties", "length": 4, "offset": 92, "name": "frags8p"},
 	{"category": "fortSorties", "length": 4, "offset": 96, "name": "potentialDamageReceived"},
 	{"category": "fortSorties", "length": 4, "offset": 100, "name": "damageBlockedByArmor"},
+
+	{"category": "maxFortSorties", "length": 2, "offset": 0, "name": "maxXP"},
+	{"category": "maxFortSorties", "length": 1, "offset": 2, "name": "maxFrags"},
+	{"category": "maxFortSorties", "length": 2, "offset": 3, "name": "maxDamage"},
 
 	{"category": "fortAchievements", "length": 1, "offset": 0, "name": "conqueror"},
 	{"category": "fortAchievements", "length": 1, "offset": 1, "name": "fireAndSword"},

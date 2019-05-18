@@ -178,6 +178,8 @@
 	{"category": "achievements", "length": 4, "offset": 121, "name": "fragsPatton"},
 	{"category": "achievements", "length": 1, "offset": 125, "name": "markOfMastery"},
 
+	{"category": "vehTypeFrags", "length": 0, "offset": 0, "name": "vehTypeFrags"},
+
 	{"category": "total", "length": 4, "offset": 0, "name": "creationTime"},
 	{"category": "total", "length": 4, "offset": 4, "name": "lastBattleTime"},
 	{"category": "total", "length": 4, "offset": 8, "name": "battleLifeTime"},

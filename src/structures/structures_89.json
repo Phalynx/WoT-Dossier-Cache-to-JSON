@@ -204,7 +204,8 @@
 	{"category": "achievements", "length": 2, "offset": 153, "name": "bonecrusher"},
 	{"category": "achievements", "length": 2, "offset": 155, "name": "charmed"},
 	{"category": "achievements", "length": 2, "offset": 157, "name": "even"},
-	{"category": "achievements", "length": 2, "offset": 159, "name": "testartilleryman"},
+
+	{"category": "vehTypeFrags", "length": 0, "offset": 0, "name": "vehTypeFrags"},
 
 	{"category": "total", "length": 4, "offset": 0, "name": "creationTime"},
 	{"category": "total", "length": 4, "offset": 4, "name": "lastBattleTime"},
@@ -219,6 +220,12 @@
 	{"category": "max7x7", "length": 2, "offset": 0, "name": "maxXP"},
 	{"category": "max7x7", "length": 1, "offset": 2, "name": "maxFrags"},
 	{"category": "max7x7", "length": 2, "offset": 3, "name": "maxDamage"},
+
+	{"category": "inscriptions", "length": 0, "offset": 0, "name": "inscriptions"},
+
+	{"category": "emblems", "length": 0, "offset": 0, "name": "emblems"},
+
+	{"category": "camouflages", "length": 0, "offset": 0, "name": "camouflages"},
 
 	{"category": "compensation", "length": 4, "offset": 0, "name": "gold"},
 
@@ -292,6 +299,8 @@
 	{"category": "maxHistorical", "length": 1, "offset": 2, "name": "maxFrags"},
 	{"category": "maxHistorical", "length": 2, "offset": 3, "name": "maxDamage"},
 
+	{"category": "uniqueAchievements", "length": 4, "offset": 0, "name": "uniqueAchievements"},
+
 	{"category": "fortBattles", "length": 4, "offset": 0, "name": "xp"},
 	{"category": "fortBattles", "length": 4, "offset": 4, "name": "battlesCount"},
 	{"category": "fortBattles", "length": 4, "offset": 8, "name": "wins"},
@@ -364,15 +373,14 @@
 	{"category": "fortAchievements", "length": 2, "offset": 10, "name": "capturedBasesInAttack"},
 	{"category": "fortAchievements", "length": 2, "offset": 12, "name": "capturedBasesInDefence"},
 
-	{"category": "singleAchievements", "length": 1, "offset": 0, "name": "titleSniper"},
-	{"category": "singleAchievements", "length": 1, "offset": 1, "name": "invincible"},
-	{"category": "singleAchievements", "length": 1, "offset": 2, "name": "diehard"},
-	{"category": "singleAchievements", "length": 1, "offset": 3, "name": "handOfDeath"},
-	{"category": "singleAchievements", "length": 1, "offset": 4, "name": "armorPiercer"},
-	{"category": "singleAchievements", "length": 1, "offset": 5, "name": "tacticalBreakthrough"},
-	{"category": "singleAchievements", "length": 1, "offset": 6, "name": "aimer"},
-	{"category": "singleAchievements", "length": 1, "offset": 7, "name": "victoryMarch"},
-	{"category": "singleAchievements", "length": 1, "offset": 8, "name": "fallout"},
+	{"category": "singleAchievements", "length": 4, "offset": 0, "name": "singleAchievements"},
+	{"category": "singleAchievements", "length": 0, "offset": 0, "name": "titleSniper"},
+	{"category": "singleAchievements", "length": 0, "offset": 1, "name": "invincible"},
+	{"category": "singleAchievements", "length": 0, "offset": 2, "name": "diehard"},
+	{"category": "singleAchievements", "length": 0, "offset": 3, "name": "handOfDeath"},
+	{"category": "singleAchievements", "length": 0, "offset": 4, "name": "armorPiercer"},
+	{"category": "singleAchievements", "length": 0, "offset": 5, "name": "tacticalBreakthrough"},
+	{"category": "singleAchievements", "length": 0, "offset": 6, "name": "aimer"},
 
 	{"category": "clanAchievements", "length": 1, "offset": 0, "name": "medalRotmistrov"},
 
