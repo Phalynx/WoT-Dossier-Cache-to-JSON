@@ -1,6 +1,7 @@
 {
 "version": 20,
 "struct": [
+	{"offset": 0, "length": 2, "category": "tankdata", "name": "version"},
 	{"offset": 2, "length": 4, "category": "tankdata", "name": "lastBattleTime"},
 	{"offset": 6, "length": 4, "category": "tankdata", "name": "battleLifeTime"},
 	{"offset": 10, "length": 1, "category": "tankdata", "name": "maxFrags"},
@@ -38,7 +39,7 @@
 	{"offset": 97, "length": 2, "category": "battle", "name": "sniper"},
 	{"offset": 99, "length": 2, "category": "battle", "name": "defender"},
 	{"offset": 101, "length": 2, "category": "battle", "name": "steelwall"},
-	{"offset": 103, "length": 2, "category": "battle", "name": "confederate"},
+	{"offset": 103, "length": 2, "category": "battle", "name": "supporter"},
 	{"offset": 105, "length": 2, "category": "battle", "name": "scout"},
 	{"offset": 107, "length": 2, "category": "battle", "name": "evileye"},
 	{"offset": 109, "length": 1, "category": "major", "name": "medalKay"},
@@ -66,7 +67,7 @@
 	{"offset": 145, "length": 2, "category": "special", "name": "beasthunter"},
 	{"offset": 147, "length": 2, "category": "special", "name": "mousebane"},
 	{"offset": 149, "length": 1, "category": "special", "name": "tankExpert"},
-	{"offset": 150, "length": 1, "category": "special", "name": "sniperspecial"},
+	{"offset": 150, "length": 1, "category": "special", "name": "titleSniper"},
 	{"offset": 151, "length": 1, "category": "special", "name": "invincible"},
 	{"offset": 152, "length": 1, "category": "special", "name": "diehard"},
 	{"offset": 153, "length": 2, "category": "special", "name": "raider"},

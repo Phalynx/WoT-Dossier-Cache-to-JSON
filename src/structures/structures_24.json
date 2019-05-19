@@ -1,6 +1,7 @@
 {
 "version": 24,
 "struct": [
+	{"offset": 0, "length": 2, "category": "tankdata", "name": "version"},
 	{"offset": 2, "length": 4, "category": "tankdata", "name": "lastBattleTime"},
 	{"offset": 6, "length": 4, "category": "tankdata", "name": "battleLifeTime"},
 	{"offset": 10, "length": 1, "category": "tankdata", "name": "maxFrags"},
@@ -108,5 +109,13 @@
 	{"offset": 274, "length": 4, "category": "clan", "name": "droppedCapturePoints"},
 	{"offset": 278, "length": 2, "category": "epic", "name": "medalBrothersInArms"},
 	{"offset": 280, "length": 2, "category": "epic", "name": "medalCrucialContribution"},
+	{"offset": 282, "length": 2, "category": "epic", "name": "medalDeLanglade"},
+	{"offset": 284, "length": 2, "category": "epic", "name": "medalTamadaYoshio"},
+	{"offset": 286, "length": 2, "category": "special", "name": "bombardier"},
+	{"offset": 288, "length": 2, "category": "special", "name": "huntsman"},
+	{"offset": 290, "length": 2, "category": "special", "name": "alaric"},
+	{"offset": 292, "length": 2, "category": "special", "name": "sturdy"},
+	{"offset": 294, "length": 2, "category": "special", "name": "ironMan"},
+	{"offset": 296, "length": 2, "category": "special", "name": "luckyDevil"},
 	{"offset": 298, "length": 2, "category": "structure", "name": "fragspos"}
 ]}

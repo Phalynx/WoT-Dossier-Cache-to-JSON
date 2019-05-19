@@ -1,6 +1,7 @@
 {
 "version": 22,
 "struct": [
+	{"offset": 0, "length": 2, "category": "tankdata", "name": "version"},
 	{"offset": 2, "length": 4, "category": "tankdata", "name": "lastBattleTime"},
 	{"offset": 6, "length": 4, "category": "tankdata", "name": "battleLifeTime"},
 	{"offset": 10, "length": 1, "category": "tankdata", "name": "maxFrags"},
