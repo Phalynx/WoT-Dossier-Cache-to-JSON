@@ -58,7 +58,7 @@
 	{"offset": 127, "length": 2, "category": "epic", "name": "medalBillotte"},
 	{"offset": 129, "length": 2, "category": "epic", "name": "medalKolobanov"},
 	{"offset": 131, "length": 2, "category": "epic", "name": "medalFadin"},
-	{"offset": 133, "length": 2, "category": "special", "name": "heroesOfRassenay"},
+	{"offset": 133, "length": 2, "category": "epic", "name": "heroesOfRassenay"},
 	{"offset": 135, "length": 2, "category": "epic", "name": "medalDeLanglade"},
 	{"offset": 137, "length": 2, "category": "epic", "name": "medalTamadaYoshio"},
 	{"offset": 139, "length": 2, "category": "epic", "name": "medalErohin"},
