@@ -288,6 +288,10 @@ def main():
 						tank_v2[blockname] = structureddata 
 
 				blocknumber +=1
+			
+			unpackBitflags(tankversion, tank_v2, 'uniqueAchievements')
+			unpackBitflags(tankversion, tank_v2, 'singleAchievements')
+			
 			if contains_block('max15x15', tank_v2):
 				if 'maxXP' in tank_v2['max15x15']:
 					if tank_v2['max15x15']['maxXP']==0:
@@ -751,6 +755,19 @@ def getdata(name, startoffset, offsetlength):
 
 	
  	return value
+
+
+def unpackBitflags(version, tankdata, bitmap):
+	
+	if not bitmap in tankdata:
+		return
+	
+	value = tankdata[bitmap][bitmap]
+	layout = structures[version][bitmap]
+	
+	for item in layout:
+		if item['name'] != bitmap:
+			tankdata[bitmap][item["name"]] = 1 if value & 1<<item["offset"] else 0
 
 
 def load_structures():
