@@ -3,14 +3,16 @@
 # Initial version by Phalynx www.vbaddict.net     #
 ###################################################
 import struct, json, time, sys, os
-	
+
 def usage():
-	print str(sys.argv[0]) + " dossierfilename.dat [options]"
-	print 'Options:'
-	print '-f Formats the JSON to be more human readable'
-	print '-r Export all fields with their values and recognized names'
-	print '-k Dont export Frags'
-	print '-s Server Mode, disable writing of timestamp, enable logging'
+	print '\nUsage:'
+	print '  ' + str(os.path.basename(sys.argv[0])) + ' [options] dossierfilename.dat'
+	print '\nOptions:'
+	print '  -f Format the JSON to be more human readable'
+	print '  -r Export all fields with their values and recognized names'
+	print '  -k Don\'t export Frags'
+	print '  -s Server Mode, disable writing of timestamp, enable logging'
+	print '  -t Include tank information when used with -s'
 
 
 def main():
