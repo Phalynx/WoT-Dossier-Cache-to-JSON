@@ -3,21 +3,23 @@
 # Initial version by Phalynx www.vbaddict.net     #
 ###################################################
 import struct, json, time, sys, os
-	
+
 def usage():
-	print str(sys.argv[0]) + " dossierfilename.dat [options]"
-	print 'Options:'
-	print '-f Formats the JSON to be more human readable'
-	print '-r Export all fields with their values and recognized names'
-	print '-k Dont export Frags'
-	print '-s Server Mode, disable writing of timestamp, enable logging'
+	print '\nUsage:'
+	print '  ' + str(os.path.basename(sys.argv[0])) + ' [options] dossierfilename.dat'
+	print '\nOptions:'
+	print '  -f Format the JSON to be more human readable'
+	print '  -r Export all fields with their values and recognized names'
+	print '  -k Don\'t export Frags'
+	print '  -s Server Mode, disable writing of timestamp, enable logging'
+	print '  -t Include tank information when used with -s'
 
 
 def main():
 	
 	import struct, json, time, sys, os, shutil, datetime, base64
 
-	parserversion = "1.0.1.0"
+	parserversion = "1.5.0.1"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -203,38 +205,40 @@ def main():
 		if tankversion >= 65:
 			tank_v2 = dict()
 			
-			if tankversion == 65:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
+			blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
 				
-			if tankversion == 69:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7')
+			if tankversion >= 69:
+				blocks += ('playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7')
 
-			if tankversion == 77:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical')
+			if tankversion >= 77:
+				blocks += ('historical', 'maxHistorical')
 
-			if tankversion == 81:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements')
+			if tankversion >= 81:
+				blocks += ('uniqueAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements')
 
-			if tankversion in [85, 87]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements')
+			if tankversion >= 85:
+				blocks += ('singleAchievements', 'clanAchievements')
 
-			if tankversion in [88,89]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7')
+			if tankversion >= 88:
+				blocks += ('rated7x7', 'maxRated7x7')
 
-			if tankversion == 92:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon')
+			if tankversion >= 92:
+				blocks += ('globalMapCommon', 'maxGlobalMapCommon')
 				
-			if tankversion in [94, 95, 96]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements')
+			if tankversion >= 94:
+				blocks += ('fallout', 'maxFallout', 'falloutAchievements')
                 
-			if tankversion in [97,98]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements', 'ranked', 'maxRanked', 'rankedSeasons')
+			if tankversion >= 97:
+				blocks += ('ranked', 'maxRanked', 'rankedSeasons')
 
-			if tankversion in [99]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements', 'ranked', 'maxRanked', 'rankedSeasons', 'a30x30', 'max30x30')
+			if tankversion >= 99:
+				blocks += ('a30x30', 'max30x30')
 
-			if tankversion in [101]:
-				blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7', 'playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7', 'historical', 'maxHistorical', 'historicalAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements', 'singleAchievements', 'clanAchievements', 'rated7x7', 'maxRated7x7', 'globalMapCommon', 'maxGlobalMapCommon', 'fallout', 'maxFallout', 'falloutAchievements', 'ranked', 'maxRanked', 'rankedSeasons', 'a30x30', 'max30x30', 'epicBattle', 'maxEpicBattle', 'epicBattleAchievements')
+			if tankversion >= 100:
+				blocks += ('epicBattle', 'maxEpicBattle', 'epicBattleAchievements')
+
+			if tankversion >= 102:
+				blocks += ('maxRankedSeason1', 'maxRankedSeason2', 'maxRankedSeason3')
 
 			blockcount = len(list(blocks))+1
 
@@ -285,6 +289,10 @@ def main():
 						tank_v2[blockname] = structureddata 
 
 				blocknumber +=1
+			
+			unpackBitflags(tankversion, tank_v2, 'uniqueAchievements')
+			unpackBitflags(tankversion, tank_v2, 'singleAchievements')
+			
 			if contains_block('max15x15', tank_v2):
 				if 'maxXP' in tank_v2['max15x15']:
 					if tank_v2['max15x15']['maxXP']==0:
@@ -750,13 +758,28 @@ def getdata(name, startoffset, offsetlength):
  	return value
 
 
+def unpackBitflags(version, tankdata, bitmap):
+	
+	if not bitmap in tankdata:
+		return
+	
+	value = tankdata[bitmap][bitmap]
+	layout = structures[version][bitmap]
+	
+	for item in layout:
+		if item['name'] != bitmap:
+			tankdata[bitmap][item["name"]] = 1 if value & 1<<item["offset"] else 0
+
+
 def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98,99,101]
+	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98,99,101,102]
 	for version in load_versions:
 		jsondata = get_json_data('structures/structures_'+str(version)+'.json')
+		if 'struct' in jsondata:
+			jsondata = jsondata['struct']
 		structures[version] = dict()
 		for item in jsondata:
 			category = item['category']

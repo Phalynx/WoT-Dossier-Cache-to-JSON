@@ -1,6 +1,6 @@
 World of Tanks Dossier Cache to JSON 
 ------------------------------------
-Version v1.0.1
+Version v1.5.0
 
 
 ### About
@@ -30,7 +30,7 @@ Please respect my work invested in this project. You have to give me credit on y
 * WoT 0.4.x (dossier version 10)
 * WoT 0.5.x (dossier version 17)
 * WoT 0.6.x, 0.7.1.x, 0.7.2.x, 0.7.3.x (dossier version 18)
-* Wot 0.7.4.x, 0.7.5.x (dossier version 20)
+* WoT 0.7.4.x, 0.7.5.x (dossier version 20)
 * WoT 0.8.0.x, 0.8.1.x (dossier version 22)
 * WoT 0.8.2.x (dossier version 24)
 * WoT 0.8.3.x (dossier version 26)
@@ -45,12 +45,13 @@ Please respect my work invested in this project. You have to give me credit on y
 * WoT 0.9.3.x, 0.9.4.x, 0.9.5.x (dossier version 87)
 * WoT 0.9.6.x, 0.9.7.x (dossier version 88)
 * WoT 0.9.8.x (dossier version 89)
-* WoT 0.9.9.x, WoT 0.9.10.x (dossier version 92)
+* WoT 0.9.9.x, 0.9.10.x (dossier version 92)
 * WoT 0.9.12.x (dossier version 94)
 * WoT 0.9.18.x (dossier version 95/96)
 * WoT 0.9.19.x (dossier version 97/98)
-* WoT 0.9.20.x, WoT 0.9.21.x, WoT 0.9.22.x, WoT 1.0.0.x (dossier version 99)
-* WoT 1.0.1.x (dossier version 101)
+* WoT 0.9.20.x, 0.9.21.x, 0.9.22.x, 1.0.0.x (dossier version 99)
+* WoT 1.0.1.x, 1.1.x, 1.2.x, 1.3.x, 1.4.x (dossier version 101)
+* WoT 1.5.0.x (dossier version 102)
 
 
 ### Contributors WoTDC2J.py
