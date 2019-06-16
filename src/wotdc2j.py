@@ -2,7 +2,7 @@
 # World of Tanks Dossier Cache to JSON            #
 # Initial version by Phalynx www.vbaddict.net     #
 ###################################################
-import struct, json, time, sys, os
+import struct, json, time, sys, os, shutil, datetime, base64
 
 def usage():
 	print '\nUsage:'
@@ -17,13 +17,11 @@ def usage():
 
 def main():
 	
-	import struct, json, time, sys, os, shutil, datetime, base64
-
-	parserversion = "1.5.0.1"
+	parserversion = "1.5.0.2"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
-	global option_server, option_format, option_tanks
+	global option_server, option_format, option_tanks, option_raw
 	
 	filename_source = ""
 	option_raw = 0
@@ -162,10 +160,6 @@ def main():
 		tupledata = struct.unpack(tankstruct, data)
 		tankversion = getdata("tankversion", 0, 1)
 		
-		#if tankversion != 87:
-		#printmessage("Tankversion " + str(tankversion))
-		#	continue
-		
 		if tankversion not in structures:
 			write_to_log('unsupported tankversion ' + str(tankversion))
 			continue				
@@ -185,14 +179,11 @@ def main():
 		except Exception, e:
 			printmessage('cannot get countryid ' + e.message)
 			continue
-			
-		#For debugging purposes
-		#if not (countryid==4 and tankid==19):
-		#	continue
 		
-		for m in xrange(0,len(tupledata)):
-			rawdata[m] = tupledata[m]
-		
+		if option_raw == 1:
+			for m in xrange(0,len(tupledata)):
+				rawdata[m] = tupledata[m]
+
 		if len(tupledata) == 0:
 			continue
 
@@ -272,22 +263,19 @@ def main():
 								tankfrag = [frag_countryid, frag_tankid, amount, frag_tanktitle]
 								fragslist.append(tankfrag)
 								index += 2							
-
-							for i in xrange((blocksizes[blocknumber])):
-								rawdata[newbaseoffset+i] = str(tupledata[newbaseoffset+i]) + " / Frags"
-								
+							
+							if option_raw == 1:
+								for i in xrange((blocksizes[blocknumber])):
+									rawdata[newbaseoffset+i] = str(tupledata[newbaseoffset+i]) + " / Frags"
+							
 							tank_v2['fragslist'] = fragslist
-				
-						newbaseoffset += blocksizes[blocknumber] 
-
 						
 					else:
-						oldbaseoffset = newbaseoffset
 						structureddata = getstructureddata(blockname, tankversion, newbaseoffset)
 						structureddata = keepCompatibility(structureddata)
-						newbaseoffset = oldbaseoffset+blocksizes[blocknumber]
 						tank_v2[blockname] = structureddata 
-
+				
+				newbaseoffset += blocksizes[blocknumber]
 				blocknumber +=1
 			
 			unpackBitflags(tankversion, tank_v2, 'uniqueAchievements')
@@ -531,7 +519,6 @@ def main():
 	
 def get_current_working_path():
 	#workaround for py2exe
-	import sys, os
 	
 	try:
 		if hasattr(sys, "frozen"):
@@ -565,7 +552,6 @@ def get_tank_details(compDescr, tanksdata):
 
 
 def printmessage(message):
-	global option_server
 	
 	if option_server == 0:
 		print message
@@ -583,7 +569,6 @@ def exitwitherror(message):
 
 
 def dumpjson(dossier):
-	global option_format, option_server, filename_target
 	
 	try:
 		
@@ -601,15 +586,11 @@ def dumpjson(dossier):
 		
 
 def catch_fatal(message):
-	global option_server
-	import shutil
-		
+	
 	write_to_log(str(message))
 
 
 def write_to_log(logtext):
-	global option_server
-	import datetime, os
 	
 	printmessage(logtext)
 	now = datetime.datetime.now()
@@ -664,9 +645,7 @@ def keepCompatibility(structureddata):
 
 
 def get_json_data(filename):
-	import json, time, sys, os
 	
-
 	current_working_path = get_current_working_path()
 
 	os.chdir(current_working_path)
@@ -703,7 +682,7 @@ def get_tank_data(tanksdata, countryid, tankid, dataname):
 
 
 def getdata_fragslist(tankversion, tanksdata, offset):
-	global tupledata, numoffrags
+	global numoffrags
 
 	fragslist = []
 
@@ -733,7 +712,7 @@ def getdata_fragslist(tankversion, tanksdata, offset):
 
 
 def getdata(name, startoffset, offsetlength):
-	global rawdata, tupledata, data
+	global rawdata
 
 	if len(data)<startoffset+offsetlength or offsetlength==0:
 		return 0
@@ -751,8 +730,9 @@ def getdata(name, startoffset, offsetlength):
 
 	value = struct.unpack_from('<' + structformat, data, startoffset)[0]
  	
- 	for x in range(0, offsetlength):
- 		rawdata[startoffset+x] = str(tupledata[startoffset+x]) + " / " + str(value) +  "; " + name
+	if option_raw == 1:
+		for x in range(0, offsetlength):
+			rawdata[startoffset+x] = str(tupledata[startoffset+x]) + " / " + str(value) +  "; " + name
 
 	
  	return value
