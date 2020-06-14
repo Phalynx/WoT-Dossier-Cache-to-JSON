@@ -51,7 +51,7 @@ Please respect my work invested in this project. You have to give me credit on y
 * WoT 0.9.19.x (dossier version 97/98)
 * WoT 0.9.20.x, 0.9.21.x, 0.9.22.x, 1.0.0.x (dossier version 99)
 * WoT 1.0.1.x, 1.1.x, 1.2.x, 1.3.x, 1.4.x (dossier version 101)
-* WoT 1.5.x, 1.6.x, 1.7.x, 1.8.x (dossier version 102)
+* WoT 1.5.x, 1.6.x, 1.7.x, 1.8.x, 1.9.x (dossier version 102)
 
 
 ### Contributors WoTDC2J.py
