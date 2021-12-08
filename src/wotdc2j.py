@@ -17,7 +17,7 @@ def usage():
 
 def main():
 	
-	parserversion = "1.13.0"
+	parserversion = "1.15.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -758,7 +758,7 @@ def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98,99,100,101,102,103,104,105]
+	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98,99,100,101,102,103,104,105,106]
 	for version in load_versions:
 		jsondata = get_json_data('structures/structures_'+str(version)+'.json')
 		if 'struct' in jsondata:
