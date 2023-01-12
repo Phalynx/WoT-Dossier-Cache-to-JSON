@@ -17,10 +17,10 @@ def usage():
 
 def main():
 	
-	parserversion = "1.18.3"
+	parserversion = "1.18.4"
 	
 	global rawdata, tupledata, data, structures, numoffrags
-	global filename_source, filename_target
+	global filename_source, filename_target, script_dir
 	global option_server, option_format, option_tanks, option_raw
 	
 	filename_source = ""
@@ -72,6 +72,7 @@ def main():
 		
 	filename_target = os.path.splitext(filename_source)[0]
 	filename_target = filename_target + '.json'
+	script_dir = get_script_dir()
 
 	if os.path.exists(filename_target) and os.path.isfile(filename_target) and os.access(filename_target, os.R_OK):
 		try:
@@ -481,11 +482,11 @@ def main():
 	printmessage('###### Done!')
 	printmessage('')
 	sys.exit(0)
+
+
+def get_script_dir():
 	
-	
-def get_current_working_path():
 	#workaround for py2exe
-	
 	try:
 		if hasattr(sys, "frozen"):
 			return os.path.dirname(unicode(sys.executable, sys.getfilesystemencoding( )))
@@ -493,6 +494,7 @@ def get_current_working_path():
 			return sys.path[0]
 	except Exception, e:
 		print e.message
+
 
 ############################################################################################################################
 
@@ -608,29 +610,19 @@ def keepCompatibility(structureddata):
 	return structureddata
 
 
-
-
 def get_json_data(filename):
-	
-	current_working_path = get_current_working_path()
-
-	os.chdir(current_working_path)
 	
 	if not os.path.exists(filename) or not os.path.isfile(filename) or not os.access(filename, os.R_OK):
 		catch_fatal(filename + " does not exists!")
 		sys.exit(1)
-
-	file_json = open(filename, 'r')
-
+	
 	try:
-		file_data = json.load(file_json)
+		with open(filename, 'r') as file_json:
+			file_data = json.load(file_json)
 	except Exception, e:
 		catch_fatal(filename + " cannot be loaded as JSON: " + e.message)
 		sys.exit(1)
-		
-		
-	file_json.close()
-
+	
 	return file_data
 
 
@@ -722,7 +714,7 @@ def load_structures():
 	structures = dict()
 	
 	# read structures from all available files
-	files = glob.glob("structures/structures_*.json")
+	files = glob.glob(os.path.join(script_dir, "structures", "structures_*.json"))
 	for f in files:
 		jsondata = get_json_data(f)
 		
@@ -760,7 +752,7 @@ def load_tanksdata():
 	
 	tanksdata = dict()
 	if option_server == 0 or option_tanks == 1:
-		jsondata = get_json_data("tanks.json")
+		jsondata = get_json_data(os.path.join(script_dir, "tanks.json"))
 		for item in jsondata:
 			key = str(item["countryid"])+"."+str(item["tankid"])
 			tanksdata[key] = item
