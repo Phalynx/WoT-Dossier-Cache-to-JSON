@@ -17,7 +17,7 @@ def usage():
 
 def main():
 	
-	parserversion = "1.18.1"
+	parserversion = "1.18.2"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -196,49 +196,9 @@ def main():
 		if tankversion >= 65:
 			tank_v2 = dict()
 			
-			blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
-				
-			if tankversion >= 69:
-				blocks += ('playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7')
-
-			if tankversion >= 77:
-				blocks += ('historical', 'maxHistorical')
-
-			if tankversion >= 81:
-				blocks += ('uniqueAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements')
-
-			if tankversion >= 85:
-				blocks += ('singleAchievements', 'clanAchievements')
-
-			if tankversion >= 88:
-				blocks += ('rated7x7', 'maxRated7x7')
-
-			if tankversion >= 92:
-				blocks += ('globalMapCommon', 'maxGlobalMapCommon')
-				
-			if tankversion >= 94:
-				blocks += ('fallout', 'maxFallout', 'falloutAchievements')
-                
-			if tankversion >= 97:
-				blocks += ('ranked', 'maxRanked', 'rankedSeasons')
-
-			if tankversion >= 99:
-				blocks += ('a30x30', 'max30x30')
-
-			if tankversion >= 100:
-				blocks += ('epicBattle', 'maxEpicBattle', 'epicBattleAchievements')
-
-			if tankversion >= 102:
-				blocks += ('maxRankedSeason1', 'maxRankedSeason2', 'maxRankedSeason3')
-
-			if tankversion >= 105:
-				blocks += ('ranked_10x10', 'maxRanked_10x10')
-
-			if tankversion >= 107:
-				blocks += ('comp7Season1', 'maxComp7Season1')
-
-			blockcount = len(list(blocks))+1
-
+			blocks = structures[tankversion]['_blocks']
+			blockcount = len(blocks)+1
+			
 			newbaseoffset = (blockcount * 2)
 			header = struct.unpack_from('<' + 'H' * blockcount, data)
 			blocksizes = list(header[1:])
@@ -256,7 +216,7 @@ def main():
 			for blockname in blocks:
 
 				if blocksizes[blocknumber] > 0:
-					if blockname == 'frags':
+					if blockname in ('vehTypeFrags', 'frags'):
 						if option_frags == 1:
 							fmt = '<' + 'IH' * (blocksizes[blocknumber]/6)
 							fragsdata = struct.unpack_from(fmt, data, newbaseoffset)
@@ -767,9 +727,11 @@ def load_structures():
 		if 'struct' in jsondata:
 			jsondata = jsondata['struct']
 		structures[version] = dict()
+		structures[version]['_blocks'] = list()
 		for item in jsondata:
 			category = item['category']
 			if category not in structures[version]:
+				structures[version]['_blocks'].append(category)
 				structures[version][category] = list()
 			structures[version][category].append(item)
 	
