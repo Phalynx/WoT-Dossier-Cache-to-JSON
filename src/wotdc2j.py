@@ -2,7 +2,7 @@
 # World of Tanks Dossier Cache to JSON            #
 # Initial version by Phalynx www.vbaddict.net     #
 ###################################################
-import struct, json, time, sys, os, shutil, datetime, base64
+import struct, json, time, sys, os, glob, shutil, datetime, base64
 
 def usage():
 	print '\nUsage:'
@@ -17,7 +17,7 @@ def usage():
 
 def main():
 	
-	parserversion = "1.18.2"
+	parserversion = "1.18.3"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target
@@ -721,11 +721,29 @@ def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98,99,100,101,102,103,104,105,106,107]
-	for version in load_versions:
-		jsondata = get_json_data('structures/structures_'+str(version)+'.json')
+	# read structures from all available files
+	files = glob.glob("structures/structures_*.json")
+	for f in files:
+		jsondata = get_json_data(f)
+		
+		# read version from file
+		version = 0
+		if 'version' in jsondata:
+			# new structure format
+			version = jsondata['version']
+		else:
+			# old format - version in each line, get from first
+			if len(jsondata[0]) > 0 and 'version' in jsondata[0]:
+				version = jsondata[0]['version']
+		
+		# no version found
+		if version == 0:
+			continue
+		
 		if 'struct' in jsondata:
+			# new structure format
 			jsondata = jsondata['struct']
+		
 		structures[version] = dict()
 		structures[version]['_blocks'] = list()
 		for item in jsondata:
