@@ -17,7 +17,7 @@ def usage():
 
 def main():
 	
-	parserversion = "1.18.4"
+	parserversion = "1.21.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
 	global filename_source, filename_target, script_dir
