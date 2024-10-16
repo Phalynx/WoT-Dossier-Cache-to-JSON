@@ -70,6 +70,7 @@
 {"mapid": 89, "mapidname": "105_germany", "mapname": "Berlin"},
 {"mapid": 96, "mapidname": "208_bf_epic_normandy", "mapname": "Normandie"},
 {"mapid": 97, "mapidname": "251_br_battle_city3", "mapname": "Arzagir 4.04"},
+{"mapid": 100, "mapidname": "08_ruinberg_sm24", "mapname": "Lauerberg"},
 {"mapid": 101, "mapidname": "127_japort", "mapname": "Safe Haven"},
 {"mapid": 102, "mapidname": "14_siegfried_line_nom", "mapname": "Westwall"},
 {"mapid": 103, "mapidname": "108_normandy_nom", "mapname": "Oder"},
