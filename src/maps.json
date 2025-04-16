@@ -74,6 +74,7 @@
 {"mapid": 101, "mapidname": "127_japort", "mapname": "Safe Haven"},
 {"mapid": 102, "mapidname": "14_siegfried_line_nom", "mapname": "Westwall"},
 {"mapid": 103, "mapidname": "108_normandy_nom", "mapname": "Oder"},
+{"mapid": 104, "mapidname": "06_ensk_big", "mapname": "Ensk Region"},
 {"mapid": 200, "mapidname": "120_graf_zeppelin_ish", "mapname": "Airshipyard"},
 {"mapid": 201, "mapidname": "117_canyon_ish", "mapname": "Canyon"},
 {"mapid": 202, "mapidname": "121_lost_paradise_v", "mapname": "Oyster Bay"},
