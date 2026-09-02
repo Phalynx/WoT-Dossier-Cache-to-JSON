@@ -62,6 +62,7 @@ Please respect my work invested in this project. You have to give me credit on y
 * WoT 1.22.x, 1.23.x, 1.24.x, 1.25.x (dossier version 111)
 * WoT 1.26.x, 1.27.x, 1.28.x, 1.29.x (dossier version 113)
 * WoT 2.0.x, 2.1.x, 2.2.x, 2.3.x (dossier version 115)
+* WoT 2.4.x (dossier version 117)
 
 
 ### Contributors WoTDC2J.py
