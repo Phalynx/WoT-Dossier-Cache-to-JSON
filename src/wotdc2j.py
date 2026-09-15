@@ -2,7 +2,7 @@
 # World of Tanks Dossier Cache to JSON            #
 # Initial version by Phalynx www.vbaddict.net     #
 ###################################################
-import struct, json, time, sys, os, shutil, datetime, base64
+import struct, json, time, sys, os, glob, shutil, datetime, base64
 
 def usage():
 	print '\nUsage:'
@@ -17,10 +17,10 @@ def usage():
 
 def main():
 	
-	parserversion = "1.18.1"
+	parserversion = "1.21.0"
 	
 	global rawdata, tupledata, data, structures, numoffrags
-	global filename_source, filename_target
+	global filename_source, filename_target, script_dir
 	global option_server, option_format, option_tanks, option_raw
 	
 	filename_source = ""
@@ -72,6 +72,7 @@ def main():
 		
 	filename_target = os.path.splitext(filename_source)[0]
 	filename_target = filename_target + '.json'
+	script_dir = get_script_dir()
 
 	if os.path.exists(filename_target) and os.path.isfile(filename_target) and os.access(filename_target, os.R_OK):
 		try:
@@ -196,49 +197,9 @@ def main():
 		if tankversion >= 65:
 			tank_v2 = dict()
 			
-			blocks = ('a15x15', 'a15x15_2', 'clan', 'clan2', 'company', 'company2', 'a7x7', 'achievements', 'frags', 'total', 'max15x15', 'max7x7')
-				
-			if tankversion >= 69:
-				blocks += ('playerInscriptions', 'playerEmblems', 'camouflages', 'compensation', 'achievements7x7')
-
-			if tankversion >= 77:
-				blocks += ('historical', 'maxHistorical')
-
-			if tankversion >= 81:
-				blocks += ('uniqueAchievements', 'fortBattles', 'maxFortBattles', 'fortSorties', 'maxFortSorties', 'fortAchievements')
-
-			if tankversion >= 85:
-				blocks += ('singleAchievements', 'clanAchievements')
-
-			if tankversion >= 88:
-				blocks += ('rated7x7', 'maxRated7x7')
-
-			if tankversion >= 92:
-				blocks += ('globalMapCommon', 'maxGlobalMapCommon')
-				
-			if tankversion >= 94:
-				blocks += ('fallout', 'maxFallout', 'falloutAchievements')
-                
-			if tankversion >= 97:
-				blocks += ('ranked', 'maxRanked', 'rankedSeasons')
-
-			if tankversion >= 99:
-				blocks += ('a30x30', 'max30x30')
-
-			if tankversion >= 100:
-				blocks += ('epicBattle', 'maxEpicBattle', 'epicBattleAchievements')
-
-			if tankversion >= 102:
-				blocks += ('maxRankedSeason1', 'maxRankedSeason2', 'maxRankedSeason3')
-
-			if tankversion >= 105:
-				blocks += ('ranked_10x10', 'maxRanked_10x10')
-
-			if tankversion >= 107:
-				blocks += ('comp7Season1', 'maxComp7Season1')
-
-			blockcount = len(list(blocks))+1
-
+			blocks = structures[tankversion]['_blocks']
+			blockcount = len(blocks)+1
+			
 			newbaseoffset = (blockcount * 2)
 			header = struct.unpack_from('<' + 'H' * blockcount, data)
 			blocksizes = list(header[1:])
@@ -256,7 +217,7 @@ def main():
 			for blockname in blocks:
 
 				if blocksizes[blocknumber] > 0:
-					if blockname == 'frags':
+					if blockname in ('vehTypeFrags', 'frags'):
 						if option_frags == 1:
 							fmt = '<' + 'IH' * (blocksizes[blocknumber]/6)
 							fragsdata = struct.unpack_from(fmt, data, newbaseoffset)
@@ -521,11 +482,11 @@ def main():
 	printmessage('###### Done!')
 	printmessage('')
 	sys.exit(0)
+
+
+def get_script_dir():
 	
-	
-def get_current_working_path():
 	#workaround for py2exe
-	
 	try:
 		if hasattr(sys, "frozen"):
 			return os.path.dirname(unicode(sys.executable, sys.getfilesystemencoding( )))
@@ -533,6 +494,7 @@ def get_current_working_path():
 			return sys.path[0]
 	except Exception, e:
 		print e.message
+
 
 ############################################################################################################################
 
@@ -648,29 +610,19 @@ def keepCompatibility(structureddata):
 	return structureddata
 
 
-
-
 def get_json_data(filename):
-	
-	current_working_path = get_current_working_path()
-
-	os.chdir(current_working_path)
 	
 	if not os.path.exists(filename) or not os.path.isfile(filename) or not os.access(filename, os.R_OK):
 		catch_fatal(filename + " does not exists!")
 		sys.exit(1)
-
-	file_json = open(filename, 'r')
-
+	
 	try:
-		file_data = json.load(file_json)
+		with open(filename, 'r') as file_json:
+			file_data = json.load(file_json)
 	except Exception, e:
 		catch_fatal(filename + " cannot be loaded as JSON: " + e.message)
 		sys.exit(1)
-		
-		
-	file_json.close()
-
+	
 	return file_data
 
 
@@ -761,15 +713,35 @@ def load_structures():
 	
 	structures = dict()
 	
-	load_versions = [10,17,18,20,22,24,26,27,28,29,65,69,77,81,85,87,88,89,92,94,95,96,97,98,99,100,101,102,103,104,105,106,107]
-	for version in load_versions:
-		jsondata = get_json_data('structures/structures_'+str(version)+'.json')
+	# read structures from all available files
+	files = glob.glob(os.path.join(script_dir, "structures", "structures_*.json"))
+	for f in files:
+		jsondata = get_json_data(f)
+		
+		# read version from file
+		version = 0
+		if 'version' in jsondata:
+			# new structure format
+			version = jsondata['version']
+		else:
+			# old format - version in each line, get from first
+			if len(jsondata[0]) > 0 and 'version' in jsondata[0]:
+				version = jsondata[0]['version']
+		
+		# no version found
+		if version == 0:
+			continue
+		
 		if 'struct' in jsondata:
+			# new structure format
 			jsondata = jsondata['struct']
+		
 		structures[version] = dict()
+		structures[version]['_blocks'] = list()
 		for item in jsondata:
 			category = item['category']
 			if category not in structures[version]:
+				structures[version]['_blocks'].append(category)
 				structures[version][category] = list()
 			structures[version][category].append(item)
 	
@@ -780,7 +752,7 @@ def load_tanksdata():
 	
 	tanksdata = dict()
 	if option_server == 0 or option_tanks == 1:
-		jsondata = get_json_data("tanks.json")
+		jsondata = get_json_data(os.path.join(script_dir, "tanks.json"))
 		for item in jsondata:
 			key = str(item["countryid"])+"."+str(item["tankid"])
 			tanksdata[key] = item
